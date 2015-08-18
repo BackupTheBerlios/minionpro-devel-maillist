@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Minionpro-devel] Ligatures and pdftex &gt; 1.40.0
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/minionpro-devel/2007-February/index.html" >
+   <LINK REL="made" HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20Ligatures%20and%20pdftex%20%3E%201.40.0&In-Reply-To=%3C45DF6055.2010300%40gmx.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000086.html">
+   <LINK REL="Next"  HREF="000089.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Minionpro-devel] Ligatures and pdftex &gt; 1.40.0</H1>
+    <B>Johannes Engel</B> 
+    <A HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20Ligatures%20and%20pdftex%20%3E%201.40.0&In-Reply-To=%3C45DF6055.2010300%40gmx.de%3E"
+       TITLE="[Minionpro-devel] Ligatures and pdftex &gt; 1.40.0">j-engel at gmx.de
+       </A><BR>
+    <I>Fri Feb 23 22:44:53 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000086.html">[Minionpro-devel] Ligatures and pdftex &gt; 1.40.0
+</A></li>
+        <LI>Next message: <A HREF="000089.html">[Minionpro-devel] Ligatures and pdftex &gt; 1.40.0
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#88">[ date ]</a>
+              <a href="thread.html#88">[ thread ]</a>
+              <a href="subject.html#88">[ subject ]</a>
+              <a href="author.html#88">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Michael Zedler schrieb:
+&gt;<i> Andreas B&#252;hmann schrieb:
+</I>&gt;<i>   
+</I>&gt;&gt;&gt;<i> Cool. I've attached a file covering v1.00x glyph names starting with 
+</I>&gt;&gt;&gt;<i> /uni[EF].
+</I>&gt;&gt;&gt;<i>       
+</I>&gt;&gt;<i> Cool; now I can even search for figures in \smallfrac's. ;-) (BTW, it's
+</I>&gt;&gt;<i> \pdfglyphtounicode, not \pdftounicode.)
+</I>&gt;&gt;<i>     
+</I>&gt;<i>
+</I>&gt;<i> Yeah, smallfrac-searching!
+</I>&gt;<i>
+</I>&gt;<i> For those out there with a pre-v2.000 font version installed, does the 
+</I>&gt;<i> following table cover the common problems regarding searching pdf files? 
+</I>&gt;<i> What would be also of interest; if you have v1.000 and generate the pdf 
+</I>&gt;<i> through ghostscript, can you search for standard ligatures 
+</I>&gt;<i> (fi/fl/ff/ffi/ffl), small caps, TLF/OsF with other viewers than Adobe 
+</I>&gt;<i> Reader?
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>&gt;&gt;<i> %   Font Version &amp; Program                          &amp; Problem \\ 
+</I>&gt;&gt;<i> %   \midrule
+</I>&gt;&gt;<i> %   1.000        &amp; Ghostscript, pre-1.40 pdftex     &amp; LF/TOsF, non-standard ligatures, swashes \\
+</I>&gt;&gt;<i> %   1.001, 2.000 &amp; Ghostscript, pre-1.40 pdftex     &amp; LF/OsF/TOsF, ligatures, swashes, small caps \\
+</I>&gt;&gt;<i> %   1.00x        &amp; Distiller, dvipdfmx              &amp; LF/TOsF  \\            
+</I>&gt;&gt;<i> %   1.00x        &amp; pdftex 1.40                      &amp; ok with extra substitution file \\
+</I>&gt;&gt;<i> %   2.000        &amp; Distiller, dvipdfmx, pdftex 1.40 &amp; ok \\
+</I>&gt;&gt;<i>     
+</I>I just discovered a maybe interesting fact:
+Using your conversion file together with the glyphlist from sarovar and
+1.001 fonts Acrobat Reader for Linux 7.0.9 does not search correctly,
+instead finds &quot;double words&quot; (see attached picture), whereas kpdf works
+as expected.
+
+Greetings, Johannes
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: acroread_find.png
+Type: image/png
+Size: 9093 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070223/b4ec6ca8/attachment.png">https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070223/b4ec6ca8/attachment.png</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000086.html">[Minionpro-devel] Ligatures and pdftex &gt; 1.40.0
+</A></li>
+	<LI>Next message: <A HREF="000089.html">[Minionpro-devel] Ligatures and pdftex &gt; 1.40.0
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#88">[ date ]</a>
+              <a href="thread.html#88">[ thread ]</a>
+              <a href="subject.html#88">[ subject ]</a>
+              <a href="author.html#88">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/minionpro-devel">More information about the Minionpro-devel
+mailing list</a><br>
+</body></html>

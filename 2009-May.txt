@@ -1,0 +1,152 @@
+From saeta at hmc.edu  Thu May 28 06:58:01 2009
+From: saeta at hmc.edu (Peter N. Saeta)
+Date: Wed, 27 May 2009 21:58:01 -0700
+Subject: [Minionpro-devel] v-nu confusion in Minion Pro
+Message-ID: <ED83223D-25E0-43C0-BD81-D124F61A66A0@hmc.edu>
+
+Hello Achim,
+
+I apologize in advance if you are not an appropriate person to write  
+with this request. I use Minion Pro (thank you!) for nearly all my  
+LaTeX documents, but have run into the problem that the letters 'v'  
+and '\nu' are virtually indistinguishable in math mode. As I am a  
+physicist, I use both these symbols quite frequently, making it  
+confusing for my students. On the other hand, I never use \upsilon,  
+which looks enough like an italic 'v' to make a solution possible:  
+substitute \upsilon for 'v' when in math mode. Unfortunately, I don't  
+know how to manage this, as I don't really understand the font system  
+in TeX. Is it possible (and easy) to remap just that one character as  
+I describe? If so, I would be most grateful for directions. Vielen dank.
+
+
+Peter N. Saeta
+Professor of Physics, Harvey Mudd College
+saeta at hmc.edu
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20090527/e2760488/attachment.html>
+
+From blumensath at mathematik.tu-darmstadt.de  Thu May 28 09:30:03 2009
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Thu, 28 May 2009 09:30:03 +0200
+Subject: [Minionpro-devel] v-nu confusion in Minion Pro
+In-Reply-To: <ED83223D-25E0-43C0-BD81-D124F61A66A0@hmc.edu>
+References: <ED83223D-25E0-43C0-BD81-D124F61A66A0@hmc.edu>
+Message-ID: <20090528073003.GB26098@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Peter N. Saeta wrote:
+> I use Minion Pro (thank you!) for nearly all my  LaTeX documents, but
+> have run into the problem that the letters 'v'  and '\nu' are
+> virtually indistinguishable in math mode. As I am a  physicist, I use
+> both these symbols quite frequently, making it  confusing for my
+> students. On the other hand, I never use \upsilon,  which looks enough
+> like an italic 'v' to make a solution possible:  substitute \upsilon
+> for 'v' when in math mode. Unfortunately, I don't  know how to manage
+> this, as I don't really understand the font system  in TeX. Is it
+> possible (and easy) to remap just that one character as  I describe?
+
+The easiest solution is to use a TeX-macro, but it requires extra
+typing:
+
+\newcommand\v{\upsilon}
+
+$\v \neq \nu$
+
+Otherwise, you can also use fontinst to create your own virtual font
+with an upsilon instead of the v. But this is a bit more involved.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: Digital signature
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20090528/a9c0c158/attachment.pgp>
+
+From martin.berggren at it.uu.se  Fri May 29 10:03:03 2009
+From: martin.berggren at it.uu.se (Martin Berggren)
+Date: Fri, 29 May 2009 10:03:03 +0200
+Subject: [Minionpro-devel] v-nu confusion in Minion Pro
+In-Reply-To: <ED83223D-25E0-43C0-BD81-D124F61A66A0@hmc.edu>
+References: <ED83223D-25E0-43C0-BD81-D124F61A66A0@hmc.edu>
+Message-ID: <258C4A13-79B1-4DB0-B2C6-43C0E0D71D98@it.uu.se>
+
+How about  using
+
+
+
+\documentclass{article}
+
+\usepackage{MinionPro}
+\DeclareMathSymbol{v}{\mathalpha}{letters}{"1D}
+
+\begin{document}
+
+$ u v w \boldsymbol{u} \boldsymbol{v} $
+
+\end{document}
+
+
+
+
+That gives the intended result for me. However, \mathbf{v} yields a  
+bold fl ligature...
+
+Cheers,
+
+
+On May 28, 2009, at 6:58 , Peter N. Saeta wrote:
+
+> Hello Achim,
+>
+> I apologize in advance if you are not an appropriate person to write  
+> with this request. I use Minion Pro (thank you!) for nearly all my  
+> LaTeX documents, but have run into the problem that the letters 'v'  
+> and '\nu' are virtually indistinguishable in math mode. As I am a  
+> physicist, I use both these symbols quite frequently, making it  
+> confusing for my students. On the other hand, I never use \upsilon,  
+> which looks enough like an italic 'v' to make a solution possible:  
+> substitute \upsilon for 'v' when in math mode. Unfortunately, I  
+> don't know how to manage this, as I don't really understand the font  
+> system in TeX. Is it possible (and easy) to remap just that one  
+> character as I describe? If so, I would be most grateful for  
+> directions. Vielen dank.
+>
+>
+> Peter N. Saeta
+> Professor of Physics, Harvey Mudd College
+> saeta at hmc.edu
+>
+>
+>
+> _______________________________________________
+> Minionpro-devel mailing list
+> Minionpro-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/minionpro-devel
+
+Martin Berggren
+
+-----------------------------------------------------------------------------------------------------
+Scientific Computing, Dep. of Information Technology, Uppsala University
+P.O. Box 337, SE - 751 05 Uppsala, Sweden. http://www.it.uu.se
+Martin.Berggren at it.uu.se, Ph: +46-18-471 29 64, Fax +46-18-52 30 49
+
+
+
+
+
+
+

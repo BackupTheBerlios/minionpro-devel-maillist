@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Minionpro-devel] Myriad and Cronos support
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/minionpro-devel/2011-January/index.html" >
+   <LINK REL="made" HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20Myriad%20and%20Cronos%20support&In-Reply-To=%3C20110103121026.GF22678%40mathematik.tu-darmstadt.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000362.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Minionpro-devel] Myriad and Cronos support</H1>
+    <B>Achim Blumensath</B> 
+    <A HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20Myriad%20and%20Cronos%20support&In-Reply-To=%3C20110103121026.GF22678%40mathematik.tu-darmstadt.de%3E"
+       TITLE="[Minionpro-devel] Myriad and Cronos support">blumensath at mathematik.tu-darmstadt.de
+       </A><BR>
+    <I>Mon Jan  3 13:10:26 CET 2011</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000362.html">[Minionpro-devel] Myriad and Cronos support
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#361">[ date ]</a>
+              <a href="thread.html#361">[ thread ]</a>
+              <a href="subject.html#361">[ subject ]</a>
+              <a href="author.html#361">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+Sebastian Schubert wrote:
+&gt;<i> I've been hacking the scripts of the great MinionPro package to support 
+</I>&gt;<i> other fonts -- at the moment mainly Myriad Pro.
+</I>[...]
+&gt;<i> Obviously, there is still work to do. One of the major points is the 
+</I>&gt;<i> ability to use the scripts with lcdf typetools &gt; 2.69.  I was somehow 
+</I>&gt;<i> able to identify the cause why the adjust-oml gives an error for the 
+</I>&gt;<i> accent positions for the letters eg rho1, beta1, etc for me: as far as I 
+</I>&gt;<i> can see, the to vpl converted tfms do include less letters which might 
+</I>&gt;<i> be the letters which cause the problems..... However, it is strange that 
+</I>&gt;<i> on some systems there is no problem at all; I was not able to find the 
+</I>&gt;<i> difference between these systems...
+</I>
+The problem with more recent versions of typetools is that the glyph
+names in glyphlist.txt changed. One needs to update all the encoding
+files in the &quot;enc&quot; directory to use the new names. (For instance
+/lscript became /lsquare.)
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /&quot;\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 198 bytes
+Desc: Digital signature
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/minionpro-devel/attachments/20110103/ad8717b3/attachment.pgp">https://lists.berlios.de/pipermail/minionpro-devel/attachments/20110103/ad8717b3/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000362.html">[Minionpro-devel] Myriad and Cronos support
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#361">[ date ]</a>
+              <a href="thread.html#361">[ thread ]</a>
+              <a href="subject.html#361">[ subject ]</a>
+              <a href="author.html#361">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/minionpro-devel">More information about the Minionpro-devel
+mailing list</a><br>
+</body></html>

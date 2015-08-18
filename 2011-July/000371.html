@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Minionpro-devel] MnSymbol works, but MinionPro does not
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/minionpro-devel/2011-July/index.html" >
+   <LINK REL="made" HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20MnSymbol%20works%2C%20but%20MinionPro%20does%20not&In-Reply-To=%3C4E25A090.2010206%40opencsw.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000370.html">
+   <LINK REL="Next"  HREF="000372.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Minionpro-devel] MnSymbol works, but MinionPro does not</H1>
+    <B>Markus Mayer</B> 
+    <A HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20MnSymbol%20works%2C%20but%20MinionPro%20does%20not&In-Reply-To=%3C4E25A090.2010206%40opencsw.org%3E"
+       TITLE="[Minionpro-devel] MnSymbol works, but MinionPro does not">mmayer at opencsw.org
+       </A><BR>
+    <I>Tue Jul 19 17:19:44 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000370.html">[Minionpro-devel] MnSymbol works, but MinionPro does not
+</A></li>
+        <LI>Next message: <A HREF="000372.html">[Minionpro-devel] MnSymbol works, but MinionPro does not
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#371">[ date ]</a>
+              <a href="thread.html#371">[ thread ]</a>
+              <a href="subject.html#371">[ subject ]</a>
+              <a href="author.html#371">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On 11-07-19 7:37 , Markus Mayer wrote:
+&gt;<i> On 11-07-19 0:24 , Achim Blumensath wrote:
+</I>&gt;&gt;<i> Hello,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> $ xdvi minionpro-test
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> kpathsea: Running mktexpk --mfmode / --bdpi 600 --mag 0+545/600
+</I>&gt;&gt;&gt;<i> --dpi 545 MinionPro-Regular-lf-ot1
+</I>&gt;&gt;<i> Did you run updmap or updmap-sys after installing the fonts?
+</I>&gt;<i> Yes, I did. Multiple times over. Couldn't see anything wrong with it.
+</I>To provide a bit more detail (hopefully). mktexpk is using gsftopk to 
+generate the missing font. It's the latter that fails. Here, I called it 
+manually, with debugs enabled.
+
+$ gsftopk --debug=8 -t MinionPro-Regular-lf-ot1
+kdebug:Search path for cnf files (from compile-time paths.h)
+kdebug:  = /usr/pkg/etc/texmf
+kdebug:  before expansion = /usr/pkg/etc/texmf
+kdebug:  application override path = (none)
+kdebug:  application config file path = (none)
+kdebug:  texmf.cnf path = (none)
+kdebug:  compile-time path = /usr/pkg/etc/texmf
+kdebug:  environment variables = TEXMFCNF
+kdebug:  default suffixes = .cnf
+kdebug:  other suffixes = (none)
+kdebug:  search only with suffix = 0
+kdebug:  runtime generation program = (none)
+kdebug:  runtime generation command = (none)
+kdebug:  program enabled = 0
+kdebug:  program enable level = 0
+kdebug:  open files in binary mode = 0
+kdebug:  numeric format value = 8
+kdebug:Search path for ls-R files (from texmf.cnf)
+kdebug:  = 
+/usr/pkg/etc/texmf:/var/lib/texmf:/usr/pkg/share/texmf:/usr/pkg/share/texmf-local:/usr/pkg/share/texmf-dist
+kdebug:  before expansion = 
+{!!$TEXMFSYSCONFIG,!!$TEXMFSYSVAR,!!$TEXMFMAIN,!!$TEXMFLOCAL,!!$TEXMFDIST}
+kdebug:  application override path = (none)
+kdebug:  application config file path = (none)
+kdebug:  texmf.cnf path = 
+{!!$TEXMFSYSCONFIG,!!$TEXMFSYSVAR,!!$TEXMFMAIN,!!$TEXMFLOCAL,!!$TEXMFDIST}
+kdebug:  compile-time path = 
+{!!/nonesuch/texmfsysconfig,!!/nonesuch/texmfsysvar,!!/nonesuch/texmfmain,!!/nonesuch/texmflocal,!!/nonesuch/texmfdist}
+kdebug:  environment variables = TEXMFDBS
+kdebug:  default suffixes = ls-R ls-r
+kdebug:  other suffixes = (none)
+kdebug:  search only with suffix = 0
+kdebug:  runtime generation program = (none)
+kdebug:  runtime generation command = (none)
+kdebug:  program enabled = 0
+kdebug:  program enable level = 0
+kdebug:  open files in binary mode = 0
+kdebug:  numeric format value = 9
+kdebug:Search path for dvips config files (from texmf.cnf)
+kdebug:  = 
+/Users/markus/.texlive2010/texmf-config/dvips//:/Users/markus/.texlive2010/texmf-var/dvips//:/Users/markus/texmf/dvips//:!!/usr/pkg/etc/texmf/dvips//:!!/var/lib/texmf/dvips//:!!/usr/pkg/share/texmf/dvips//:!!/usr/pkg/share/texmf-local/dvips//:!!/usr/pkg/share/texmf-dist/dvips//
+kdebug:  before expansion = $TEXMF/dvips//
+kdebug:  application override path = (none)
+kdebug:  application config file path = (none)
+kdebug:  texmf.cnf path = $TEXMF/dvips//
+kdebug:  compile-time path = /nonesuch/texmf/dvips//
+kdebug:  environment variables = TEXCONFIG
+kdebug:  default suffixes = (none)
+kdebug:  other suffixes = (none)
+kdebug:  search only with suffix = 0
+kdebug:  runtime generation program = (none)
+kdebug:  runtime generation command = (none)
+kdebug:  program enabled = 0
+kdebug:  program enable level = 0
+kdebug:  open files in binary mode = 0
+kdebug:  numeric format value = 34
+kdebug:Search path for map files (from texmf.cnf)
+kdebug:  = 
+.:/Users/markus/.texlive2010/texmf-config/fonts/map/gsftopk//:/Users/markus/.texlive2010/texmf-var/fonts/map/gsftopk//:/Users/markus/texmf/fonts/map/gsftopk//:!!/usr/pkg/etc/texmf/fonts/map/gsftopk//:!!/var/lib/texmf/fonts/map/gsftopk//:!!/usr/pkg/share/texmf/fonts/map/gsftopk//:!!/usr/pkg/share/texmf-local/fonts/map/gsftopk//:!!/usr/pkg/share/texmf-dist/fonts/map/gsftopk//:/Users/markus/.texlive2010/texmf-config/fonts/map/pdftex//:/Users/markus/.texlive2010/texmf-var/fonts/map/pdftex//:/Users/markus/texmf/fonts/map/pdftex//:!!/usr/pkg/etc/texmf/fonts/map/pdftex//:!!/var/lib/texmf/fonts/map/pdftex//:!!/usr/pkg/share/texmf/fonts/map/pdftex//:!!/usr/pkg/share/texmf-local/fonts/map/pdftex//:!!/usr/pkg/share/texmf-dist/fonts/map/pdftex//:/Users/markus/.texlive2010/texmf-config/fonts/map/dvips//:/Users/markus/.texlive2010/texmf-var/fonts/map/dvips//:/Users/markus/texmf/fonts/map/dvips//:!!/usr/pkg/etc/texmf/fonts/map/dvips//:!!/var/lib/texmf/fonts/map/dvips//:!!/usr/pkg/share/texmf/fonts/map/dvips//:!!/usr/pkg/share/texmf-local/fonts/map/dvips//:!!/usr/pkg/share/texmf-dist/fonts/map/dvips//:/Users/markus/.texlive2010/texmf-config/fonts/map///:/Users/markus/.texlive2010/texmf-var/fonts/map///:/Users/markus/texmf/fonts/map///:!!/usr/pkg/etc/texmf/fonts/map///:!!/var/lib/texmf/fonts/map///:!!/usr/pkg/share/texmf/fonts/map///:!!/usr/pkg/share/texmf-local/fonts/map///:!!/usr/pkg/share/texmf-dist/fonts/map///
+kdebug:  before expansion = .:$TEXMF/fonts/map/{$progname,pdftex,dvips,}//
+kdebug:  application override path = (none)
+kdebug:  application config file path = (none)
+kdebug:  texmf.cnf path = .:$TEXMF/fonts/map/{$progname,pdftex,dvips,}//
+kdebug:  compile-time path = 
+.:/nonesuch/texmf/fonts/map/{$progname,pdftex,dvips,}//
+kdebug:  environment variables = TEXFONTMAPS TEXFONTS
+kdebug:  default suffixes = .map
+kdebug:  other suffixes = (none)
+kdebug:  search only with suffix = 0
+kdebug:  runtime generation program = (none)
+kdebug:  runtime generation command = (none)
+kdebug:  program enabled = 0
+kdebug:  program enable level = 0
+kdebug:  open files in binary mode = 0
+kdebug:  numeric format value = 11
+
+Regards,
+-Markus
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000370.html">[Minionpro-devel] MnSymbol works, but MinionPro does not
+</A></li>
+	<LI>Next message: <A HREF="000372.html">[Minionpro-devel] MnSymbol works, but MinionPro does not
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#371">[ date ]</a>
+              <a href="thread.html#371">[ thread ]</a>
+              <a href="subject.html#371">[ subject ]</a>
+              <a href="author.html#371">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/minionpro-devel">More information about the Minionpro-devel
+mailing list</a><br>
+</body></html>

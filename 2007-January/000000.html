@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Minionpro-devel] Experiences when creating metrics for version	2.015
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/minionpro-devel/2007-January/index.html" >
+   <LINK REL="made" HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20Experiences%20when%20creating%20metrics%20for%20version%0A%092.015&In-Reply-To=%3C4805A745-60A7-4769-97CC-CF1187DC2731%40mcqm.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000001.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Minionpro-devel] Experiences when creating metrics for version	2.015</H1>
+    <B>Marco Kuhlmann</B> 
+    <A HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20Experiences%20when%20creating%20metrics%20for%20version%0A%092.015&In-Reply-To=%3C4805A745-60A7-4769-97CC-CF1187DC2731%40mcqm.net%3E"
+       TITLE="[Minionpro-devel] Experiences when creating metrics for version	2.015">mk at mcqm.net
+       </A><BR>
+    <I>Mon Jan  1 00:22:56 CET 2007</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000001.html">[Minionpro-devel] Experiences when creating metrics for version	2.015
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#0">[ date ]</a>
+              <a href="thread.html#0">[ thread ]</a>
+              <a href="subject.html#0">[ subject ]</a>
+              <a href="author.html#0">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Am 31.12.2006 um 18:08 schrieb Marco Kuhlmann:
+
+&gt;<i> Getting back to my own mail, it seems that the /foo1-glyphs are
+</I>&gt;<i> actually missing from the virtual fonts: as an example, the LaTeX
+</I>&gt;<i> command \varphi does not yield any output. Could it be that these
+</I>&gt;<i> glyphs have different names in the new versions of the font? Would it
+</I>&gt;<i> be worth to play around with mn-oml.enc (which seems to handle that
+</I>&gt;<i> part)? What is the best way to test whether the glyph mentioned in
+</I>&gt;<i> the encoding file actually makes it into the the virtual font?
+</I>
+Getting back to myself once more: I have now found out that the  
+missing glyphs were caused by the broken installation of otftotfm  
+that is shipped with Gerben Wierda's latest i-Package. The program as  
+it is installed in this package cannot find the glyphlists that are  
+used by otftotfm to resolve non-standard glyph names -- such as  
+theta1. Re-compiling with a working installation of otftotfm seems to  
+work fine!
+
+     Happy new year again,
+     Marco
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000001.html">[Minionpro-devel] Experiences when creating metrics for version	2.015
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#0">[ date ]</a>
+              <a href="thread.html#0">[ thread ]</a>
+              <a href="subject.html#0">[ subject ]</a>
+              <a href="author.html#0">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/minionpro-devel">More information about the Minionpro-devel
+mailing list</a><br>
+</body></html>

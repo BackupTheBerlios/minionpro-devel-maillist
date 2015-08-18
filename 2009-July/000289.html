@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Minionpro-devel] Th ligature
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/minionpro-devel/2009-July/index.html" >
+   <LINK REL="made" HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20Th%20ligature&In-Reply-To=%3C200907301718.56020.schubert.seb%40googlemail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000288.html">
+   <LINK REL="Next"  HREF="000290.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Minionpro-devel] Th ligature</H1>
+    <B>Sebastian Schubert</B> 
+    <A HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20Th%20ligature&In-Reply-To=%3C200907301718.56020.schubert.seb%40googlemail.com%3E"
+       TITLE="[Minionpro-devel] Th ligature">schubert.seb at googlemail.com
+       </A><BR>
+    <I>Thu Jul 30 17:18:51 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000288.html">[Minionpro-devel] Th ligature
+</A></li>
+        <LI>Next message: <A HREF="000290.html">[Minionpro-devel] Error with lcdf typetools 2.79, not with 2.69
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#289">[ date ]</a>
+              <a href="thread.html#289">[ thread ]</a>
+              <a href="subject.html#289">[ subject ]</a>
+              <a href="author.html#289">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+* On Thursday 30 July 2009, 15:57:14, Achim Blumensath wrote:
+&gt;<i> Hello,
+</I>&gt;<i>
+</I>&gt;<i> Markus Mayer wrote:
+</I>&gt;<i> &gt; I have been using the MinionPro package for a few months now. I was
+</I>&gt;<i> &gt; wondering if there's an easy way to disable certain ligatures on a
+</I>&gt;<i> &gt; per-document basis.
+</I>&gt;<i>
+</I>&gt;<i> You can disable /all/ ligatures of a font via the microtype package.
+</I>&gt;<i> I don't know of any simply way to disable only selected ligatures.
+</I>
+Apparently, you can:
+
+microtype v2.3b manual, section 8:
+&quot;It is also possible to disable selected ligatures only. The optional 
+argument may contain a comma-separated list of characters for which the 
+ligature mechanism should be inhibited:
+\DisableLigatures[?,!]{encoding = T1} % inhibit ?&#8216; !&#8216;, but not &#64257; &#8211; &#187; ...
+The character that begins the ligature(s) is what matters. This command
+may only be used in the preamble, and only once. It requires pdfTEX 1.30 
+or newer.&quot;
+
+
+\documentclass[a4paper]{scrartcl}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{MinionPro}
+
+\usepackage{microtype}
+
+\DisableLigatures[T]{encoding=T1}
+
+\begin{document}
+
+The fly coffee find
+
+\end{document}
+
+
+Sebastian
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 197 bytes
+Desc: This is a digitally signed message part.
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/minionpro-devel/attachments/20090730/53565a9a/attachment.pgp">https://lists.berlios.de/pipermail/minionpro-devel/attachments/20090730/53565a9a/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000288.html">[Minionpro-devel] Th ligature
+</A></li>
+	<LI>Next message: <A HREF="000290.html">[Minionpro-devel] Error with lcdf typetools 2.79, not with 2.69
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#289">[ date ]</a>
+              <a href="thread.html#289">[ thread ]</a>
+              <a href="subject.html#289">[ subject ]</a>
+              <a href="author.html#289">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/minionpro-devel">More information about the Minionpro-devel
+mailing list</a><br>
+</body></html>

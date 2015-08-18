@@ -1,0 +1,56 @@
+From janderuijter at tiscali.nl  Sun Jun 15 16:52:56 2008
+From: janderuijter at tiscali.nl (Jan de Ruijter)
+Date: Sun, 15 Jun 2008 16:52:56 +0200
+Subject: [Minionpro-devel] missing Th in The
+Message-ID: <1213541576.2588.18.camel@localhost.localdomain>
+
+l.s,
+on a fedora 9 box (texlive) I have tried (a few times) to install
+minionpro. (worked on a fedora 4 box with tetex). every time I end up
+with the same problem:
+
+I suppose this is wrong kerning.
+the "Th" in "The" is missing when I look with a dvi-viewer. and making a
+pdf file of  it, you can see the T a bit over the h.
+with other fonts I don't have this problem.
+any ideas?
+
+thanks 
+jan
+
+
+
+From blumensath at mathematik.tu-darmstadt.de  Mon Jun 16 08:13:12 2008
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Mon, 16 Jun 2008 08:13:12 +0200
+Subject: [Minionpro-devel] missing Th in The
+In-Reply-To: <1213541576.2588.18.camel@localhost.localdomain>
+References: <1213541576.2588.18.camel@localhost.localdomain>
+Message-ID: <20080616061312.GA24806@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Jan de Ruijter wrote:
+> the "Th" in "The" is missing when I look with a dvi-viewer. and making a
+> pdf file of  it, you can see the T a bit over the h.
+
+The Th in MinionPro is a ligature, i.e., a single letter. Apparently
+your DVI viewer has some problems with the font. Do you get any error
+messages when viewing a DVI file?
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20080616/b2c59441/attachment.pgp>
+

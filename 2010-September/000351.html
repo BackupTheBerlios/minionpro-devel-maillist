@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Minionpro-devel] Adjust accents over swash letters
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/minionpro-devel/2010-September/index.html" >
+   <LINK REL="made" HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20Adjust%20accents%20over%20swash%20letters&In-Reply-To=%3C201009051301.44092.schubert.seb%40googlemail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Minionpro-devel] Adjust accents over swash letters</H1>
+    <B>Sebastian Schubert</B> 
+    <A HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20Adjust%20accents%20over%20swash%20letters&In-Reply-To=%3C201009051301.44092.schubert.seb%40googlemail.com%3E"
+       TITLE="[Minionpro-devel] Adjust accents over swash letters">schubert.seb at googlemail.com
+       </A><BR>
+    <I>Sun Sep  5 13:01:40 CEST 2010</I>
+    <P><UL>
+        
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#351">[ date ]</a>
+              <a href="thread.html#351">[ thread ]</a>
+              <a href="subject.html#351">[ subject ]</a>
+              <a href="author.html#351">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+On Tuesday 31 August 2010 11:32:53 Achim Blumensath wrote:
+&gt;<i> Hello,
+</I>&gt;<i> 
+</I>&gt;<i> Sebastian Schubert wrote:
+</I>&gt;<i> &gt; I'd like to adjust the accents over swash letters. For my taste, the ~
+</I>&gt;<i> &gt; is too far left. As far as I can see, adjustments can be done in
+</I>&gt;<i> &gt; adjust-oml.mtx, right?
+</I>&gt;<i> 
+</I>&gt;<i> No, the swash letters are not in the OML encoding.
+</I>&gt;<i> I think the easiest way is to modify the kerning files.
+</I>
+Thank you for your hint.
+
+Ok, following TeXbook, the kerning with the skewchar definies the placement of 
+the accents. In the fontinst/mn-oml-*.etx I found
+\nextslot{255}
+\setslot{skew}
+\endsetslot
+Looking in enc/mn-t1.enc, /germandbls is the last glyph. So the kerning pairs 
+X.swash and germandbls define the placements of glyphs. And there are already 
+kerning pairs like this in kerning/*It*.kern. Fine. (Although they are for 
+Germandbls so upper case, I guess it's ok.) But running maketfm, I get  
+warnings like this:
+
+otftotfm: ./enc/mn-It-t1.enckern:169: warning: 'A.swash' has no encoding, 
+ignoring '{180}'
+
+running eg
+
+otftotfm --tfm-directory=tfm --vf-directory=vf --encoding-directory=dvips --
+no-type1 --no-updmap --no-dotlessj --warn-missing -fkern   -fliga -flnum -
+fpnum --include-alternates '*.swash' -faalt -e 'enc/mn-It-t1.enckern' 
+'otf/MinionPro-It.otf' 'MinionPro-It-lf-swash-t1'
+
+It seems that the kerning pair and all other swash ones are ignored, because 
+they are not included in the encoding. So I modified the maketfm script to use 
+different enckern files for the swash letters where each X.swash kerning pair 
+is replaced by a X pair (as far as I can see, otftotfm just treats X.swash as 
+X) and all other uppercase X pairs are removed. And this works! Now, the 
+accents look nice!
+
+Still, there still a lot of other warnings of this kind, different ones for 
+different encodings so there might at least one which uses the pairs...
+
+What do you think?
+Sebastian
+
+PS:  I use the latest version of lcdf-typetools, that still works with the 
+scripts (2.69). If you had a hint how to get a list of all the changed glyph 
+names, I could have a look at this. I had a look at the sources of lcdf and I 
+was not able to retrieve that information.
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: maketfm.patch
+Type: text/x-patch
+Size: 5179 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/minionpro-devel/attachments/20100905/d042fa2c/attachment.bin">https://lists.berlios.de/pipermail/minionpro-devel/attachments/20100905/d042fa2c/attachment.bin</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 198 bytes
+Desc: This is a digitally signed message part.
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/minionpro-devel/attachments/20100905/d042fa2c/attachment.pgp">https://lists.berlios.de/pipermail/minionpro-devel/attachments/20100905/d042fa2c/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#351">[ date ]</a>
+              <a href="thread.html#351">[ thread ]</a>
+              <a href="subject.html#351">[ subject ]</a>
+              <a href="author.html#351">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/minionpro-devel">More information about the Minionpro-devel
+mailing list</a><br>
+</body></html>

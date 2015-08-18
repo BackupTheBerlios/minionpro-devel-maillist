@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Minionpro-devel] Add more glyphs to the encoding
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/minionpro-devel/2010-February/index.html" >
+   <LINK REL="made" HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20Add%20more%20glyphs%20to%20the%20encoding&In-Reply-To=%3CB527DC41-FE0E-4323-B4B8-1619FB1C8D3A%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000333.html">
+   <LINK REL="Next"  HREF="000339.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Minionpro-devel] Add more glyphs to the encoding</H1>
+    <B>Yan Zhou</B> 
+    <A HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20Add%20more%20glyphs%20to%20the%20encoding&In-Reply-To=%3CB527DC41-FE0E-4323-B4B8-1619FB1C8D3A%40gmail.com%3E"
+       TITLE="[Minionpro-devel] Add more glyphs to the encoding">zhouyan1014 at gmail.com
+       </A><BR>
+    <I>Tue Feb 16 13:14:56 CET 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000333.html">[Minionpro-devel] Error processing fonts from source
+</A></li>
+        <LI>Next message: <A HREF="000339.html">[Minionpro-devel] Add more glyphs to the encoding
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#334">[ date ]</a>
+              <a href="thread.html#334">[ thread ]</a>
+              <a href="subject.html#334">[ subject ]</a>
+              <a href="author.html#334">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Inspired by the excellent MinionPro project, I wrote my own scripts to add more Pro fonts to my LaTeX system. Given Garamond Premier Pro as an example, there are lots ligatures and accented glyphs. I tend o keep all accented glyphs in T1 encoding but also include those ligatures. There is no enough slots in the encoding. Even I choose OT1 or LY1, if I want to add these rich accented glyphs, the slots is still not enough.
+
+I work around this problem by stick to the T1 encoding, but removed all accents (000-012), and moved them to the empty slots in TS1 encoding. And then declare new names for them in the TS1 encoding.
+
+Is there any better way to solve this problem?
+
+Cheers,
+Yan
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000333.html">[Minionpro-devel] Error processing fonts from source
+</A></li>
+	<LI>Next message: <A HREF="000339.html">[Minionpro-devel] Add more glyphs to the encoding
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#334">[ date ]</a>
+              <a href="thread.html#334">[ thread ]</a>
+              <a href="subject.html#334">[ subject ]</a>
+              <a href="author.html#334">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/minionpro-devel">More information about the Minionpro-devel
+mailing list</a><br>
+</body></html>

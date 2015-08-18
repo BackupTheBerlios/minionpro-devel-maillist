@@ -1,0 +1,280 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Minionpro-devel] minion pro with gwTeX
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/minionpro-devel/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20minion%20pro%20with%20gwTeX&In-Reply-To=%3C3E826830-F336-4F01-B417-EC846B9A1C60%40philosophy.rutgers.edu%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000180.html">
+   <LINK REL="Next"  HREF="000182.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Minionpro-devel] minion pro with gwTeX</H1>
+    <B>Ted Sider</B> 
+    <A HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20minion%20pro%20with%20gwTeX&In-Reply-To=%3C3E826830-F336-4F01-B417-EC846B9A1C60%40philosophy.rutgers.edu%3E"
+       TITLE="[Minionpro-devel] minion pro with gwTeX">sider at philosophy.rutgers.edu
+       </A><BR>
+    <I>Wed May 30 18:56:39 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000180.html">[Minionpro-devel] Change the .vpl files while compiling from	source?
+</A></li>
+        <LI>Next message: <A HREF="000182.html">[Minionpro-devel] minion pro with gwTeX
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#181">[ date ]</a>
+              <a href="thread.html#181">[ thread ]</a>
+              <a href="subject.html#181">[ subject ]</a>
+              <a href="author.html#181">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+
+Sorry if this question is too basic for this list.  Chistoph Shiller  
+said that someone here might be able to help.
+
+I'm using the gwTeX distribution for Mac OS X, and am having trouble  
+getting MinionPro to work.  (I got it to work on one of my machines a  
+few months ago, and just tried and failed to install it on another,  
+but can't figure out what the relevant difference is.  Though I just  
+noticed that the version of MinionPro on the working machine is 2.0  
+and that the version on the unworking one is 2.1)  I have all the  
+MinionPro files in the right place in my local texmf tree, ~/Library/ 
+texmf.  As near as I can tell (though I'm no expert), the information  
+for the MinionPro font isn't making its way into  	
+
+	/usr/local/teTeX/share/texmf.local/fonts/map/pdftex/updmap/pdftex.map
+
+(which, I gather, is created by updmap.)  But I have done:
+
+	sudo updmap --enable Map MinionPro.map
+
+At any rate, that's where I'm stuck.  I'm guessing the problem has  
+something to do with the multiple texmf trees of gwTeX, and map  
+information going in the wrong place?  At any rate, any help would be  
+most appreciated!  (In case this is not enough information, I'm  
+pasting in below the full output from LaTeX console, from a failed  
+attempt to typset using MinionPro.sty, as well as some of the .log  
+file from that same attempt.)
+
+Thanks, and sorry again to bother.
+
+Ted Sider
+Professor of Philosophy
+Rutgers University
+
+--------------------------
+output from console:
+
+This is pdfeTeX, Version 3.141592-1.30.4-2.2 (Web2C 7.5.5)
+\write18 enabled.
+entering extended mode
+(./Untitled.tex
+LaTeX2e &lt;2005/12/01&gt;
+Babel &lt;v3.8d&gt; and hyphenation patterns for american, french, german,  
+ngerman, d
+utch, italian, norsk, portuges, spanish, swedish, nohyphenation, loaded.
+(/usr/local/teTeX/share/texmf.local/tex/latex/base/article.cls
+Document Class: article 2005/09/16 v1.4f Standard LaTeX document class
+(/usr/local/teTeX/share/texmf.local/tex/latex/base/size10.clo))
+(/Users/jillnorth/Library/texmf/tex/latex/MinionPro/MinionPro.sty
+(/Users/jillnorth/Library/texmf/tex/latex/MinionPro/MinionPro- 
+FontDef.sty
+(/Users/jillnorth/Library/texmf/tex/latex/MinionPro/otfontdef.sty
+(/usr/local/teTeX/share/texmf.local/tex/latex/graphics/keyval.sty)))
+(/usr/local/teTeX/share/texmf.local/tex/latex/base/textcomp.sty
+(/usr/local/teTeX/share/texmf.local/tex/latex/base/ts1enc.def))
+(/Users/jillnorth/Library/texmf/tex/latex/MnSymbol/MnSymbol.sty
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/amsmath/amstext.sty
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/amsmath/amsgen.sty))
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/amsmath/amsbsy.sty)
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/amsmath/amsopn.sty))
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/amsfonts/eufrak.sty)
+
+LaTeX Font Warning: Encoding `OMS' has changed to `U' for symbol font
+(Font)              `symbols' in the math version `normal' on input  
+line 120.
+
+
+LaTeX Font Warning: Encoding `OMS' has changed to `U' for symbol font
+(Font)              `symbols' in the math version `bold' on input  
+line 120.
+
+)
+
+LaTeX Font Warning: Encoding `OT1' has changed to `T1' for symbol font
+(Font)              `operators' in the math version `normal' on input  
+line 163.
+
+
+
+LaTeX Font Warning: Encoding `OT1' has changed to `T1' for symbol font
+(Font)              `operators' in the math version `bold' on input  
+line 163.
+
+(/Users/jillnorth/Library/texmf/tex/latex/MinionPro/fontaxes.sty)
+(/Users/jillnorth/Library/texmf/tex/latex/MinionPro/ot1minionpro-osf.fd
+(/Users/jillnorth/Library/texmf/tex/latex/MinionPro/MinionPro- 
+FontDef.sty)))
+(./Untitled.aux) (/usr/local/teTeX/share/texmf.local/tex/latex/base/ 
+ts1cmr.fd)
+(/Users/jillnorth/Library/texmf/tex/latex/MinionPro/t1minionpro-osf.fd
+(/Users/jillnorth/Library/texmf/tex/latex/MinionPro/MinionPro- 
+FontDef.sty))
+(/Users/jillnorth/Library/texmf/tex/latex/MinionPro/omlminionpro-tosf.fd
+(/Users/jillnorth/Library/texmf/tex/latex/MinionPro/MinionPro- 
+FontDef.sty))
+[1{/usr/local/teTeX/share/texmf.local/fonts/map/pdftex/updmap/ 
+pdftex.map}]
+(./Untitled.aux) ) &lt;/Users/jillnorth/Library/texmf/fonts/pk/ljfour/ 
+public/MnSym
+bol/MnSymbolA10.600pk&gt;kpathsea: Running mktexpk --mfmode / --bdpi 600  
+--mag 0+545/600 --dpi 545 MinionPro-It-Base-aa
+mktexpk: don't know how to create bitmap font for MinionPro-It-Base-aa.
+kpathsea: Appending font creation commands to missfont.log.
+
+Warning: /usr/local/teTeX/bin/i386-apple-darwin-current/pdflatex  
+(file MinionPr
+o-It-Base-aa): Font MinionPro-It-Base-aa at 545 not found
+&lt;/Users/jillnorth/Library/texmf/fonts/pk/ljfour/public/MnSymbol/ 
+MnSymbolC10.60
+0pk&gt;kpathsea: Running mktexpk --mfmode / --bdpi 600 --mag 0+545/600 -- 
+dpi 545 MinionPro-Regular-Base-aa
+mktexpk: don't know how to create bitmap font for MinionPro-Regular- 
+Base-aa.
+
+Warning: /usr/local/teTeX/bin/i386-apple-darwin-current/pdflatex  
+(file MinionPr
+o-Regular-Base-aa): Font MinionPro-Regular-Base-aa at 545 not found
+Output written on Untitled.pdf (1 page, 2568 bytes).
+Transcript written on Untitled.log.
+-----------------------------
+
+
+
+part of the .log file from that same attempt:
+
+LaTeX Font Info:    Try loading font information for OT1+MinionPro- 
+OsF on input
+line 628.
+
+(/Users/jillnorth/Library/texmf/tex/latex/MinionPro/ot1minionpro-osf.fd
+File: OT1MinionPro-OsF.fd 2005/01/23 v2.0 font definitions for OT1/ 
+MinionPro-Os
+F.
+
+(/Users/jillnorth/Library/texmf/tex/latex/MinionPro/MinionPro- 
+FontDef.sty
+File: MinionPro-FontDef.sty 2007/02/01 v2.2 font definition macros
+)))
+(./Untitled.aux)
+\openout1 = `Untitled.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 6.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input  
+line 6.
+(/usr/local/teTeX/share/texmf.local/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Try loading font information for T1+MinionPro-OsF  
+on input
+line 8.
+
+(/Users/jillnorth/Library/texmf/tex/latex/MinionPro/t1minionpro-osf.fd
+File: T1MinionPro-OsF.fd 2005/01/23 v2.0 font definitions for T1/ 
+MinionPro-OsF.
+
+
+(/Users/jillnorth/Library/texmf/tex/latex/MinionPro/MinionPro- 
+FontDef.sty
+File: MinionPro-FontDef.sty 2007/02/01 v2.2 font definition macros
+))
+LaTeX Font Info:    Try loading font information for OML+MinionPro- 
+TOsF on inpu
+t line 8.
+
+(/Users/jillnorth/Library/texmf/tex/latex/MinionPro/omlminionpro-tosf.fd
+File: OMLMinionPro-TOsF.fd 2005/01/23 v2.0 font definitions for OML/ 
+MinionPro-T
+OsF.
+
+(/Users/jillnorth/Library/texmf/tex/latex/MinionPro/MinionPro- 
+FontDef.sty
+File: MinionPro-FontDef.sty 2007/02/01 v2.2 font definition macros
+))
+[1
+
+{/usr/local/teTeX/share/texmf.local/fonts/map/pdftex/updmap/pdftex.map}]
+(./Untitled.aux) )
+Here is how much of TeX's memory you used:
+3951 strings out of 95125
+61278 string characters out of 1182970
+2071377 words of memory out of 4526130
+7095 multiletter control sequences out of 10000+50000
+95553 words of font info for 51 fonts, out of 2000000 for 2000
+58 hyphenation exceptions out of 5000
+40i,4n,58p,266b,437s stack positions out of 5000i,500n,6000p,200000b, 
+40000s
+PDF statistics:
+8 PDF objects out of 300000
+0 named destinations out of 131072
+1 words of extra memory for PDF output out of 10000
+&lt;/Users/jillnorth/Library/texmf/fonts/pk/ljfour/public/MnSym
+bol/MnSymbolA10.600pk&gt;
+Warning: /usr/local/teTeX/bin/i386-apple-darwin-current/pdflatex  
+(file MinionPr
+o-It-Base-aa): Font MinionPro-It-Base-aa at 545 not found
+&lt;/Users/jillnorth/Library/texmf/fonts/pk/ljfour/public/MnSymbol/ 
+MnSymbolC10.60
+0pk&gt;
+Warning: /usr/local/teTeX/bin/i386-apple-darwin-current/pdflatex  
+(file MinionPr
+o-Regular-Base-aa): Font MinionPro-Regular-Base-aa at 545 not found
+Output written on Untitled.pdf (1 page, 2568 bytes).
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000180.html">[Minionpro-devel] Change the .vpl files while compiling from	source?
+</A></li>
+	<LI>Next message: <A HREF="000182.html">[Minionpro-devel] minion pro with gwTeX
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#181">[ date ]</a>
+              <a href="thread.html#181">[ thread ]</a>
+              <a href="subject.html#181">[ subject ]</a>
+              <a href="author.html#181">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/minionpro-devel">More information about the Minionpro-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Minionpro-devel] math bold: eb -&gt; b?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/minionpro-devel/2007-January/index.html" >
+   <LINK REL="made" HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20math%20bold%3A%20eb%20-%3E%20b%3F&In-Reply-To=%3C87ac09o0al.fsf%40Satux.Puorg%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000012.html">
+   <LINK REL="Next"  HREF="000014.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Minionpro-devel] math bold: eb -&gt; b?</H1>
+    <B>Sebastian Schubert</B> 
+    <A HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20math%20bold%3A%20eb%20-%3E%20b%3F&In-Reply-To=%3C87ac09o0al.fsf%40Satux.Puorg%3E"
+       TITLE="[Minionpro-devel] math bold: eb -&gt; b?">sebastian-schubert at gmx.de
+       </A><BR>
+    <I>Tue Jan 23 23:17:38 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000012.html">[Minionpro-devel] [ANN] MnSymbol 1.4
+</A></li>
+        <LI>Next message: <A HREF="000014.html">[Minionpro-devel] math bold: eb -&gt; b?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#13">[ date ]</a>
+              <a href="thread.html#13">[ thread ]</a>
+              <a href="subject.html#13">[ subject ]</a>
+              <a href="author.html#13">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+What do you think of printing bold math using semibold not bold?  If I
+have math included in the headlines I like to have it some kind of bold
+as well.  \boldmath uses bold in opposite to semibold of the headline
+which looks strange.  So a bold=eb would solve this problem.  If one
+needs a bolder math symbol (eg in the headlines) there is still eb.
+Unfortunately, bm seems to still use eb.
+
+
+\documentclass{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[medfamily, opticals]{MinionPro}
+
+\usepackage{bm}
+
+\DeclareMathAlphabet\mathbf {T1} {MinionPro-OsF}{b}{n}
+\SetMathAlphabet\mathit  {bold}{T1} {MinionPro-OsF}{b}{it}
+\SetSymbolFont{operators}{bold}{T1} {MinionPro-OsF}{b}{n}
+\SetSymbolFont{letters}  {bold}{OML}{MinionPro-TOsF} {b}{it}
+\DeclareMathVersion{boldtabular}
+\SetSymbolFont{operators}{boldtabular}{T1} {MinionPro-OsF}{b}{n}
+\SetSymbolFont{letters}  {boldtabular}{OML}{MinionPro-TOsF}  {b}{it}
+\SetMathAlphabet\mathit  {boldtabular}{T1} {MinionPro-OsF}{b}{it}
+
+
+\DeclareMathAlphabet\mathebf {T1} {MinionPro-OsF}{eb}{n}
+
+\addtokomafont{sectioning}{\rmfamily\boldmath}
+
+
+\begin{document}
+
+\section{Test $\mathebf{x}\mathbf{x}x$}
+
+$\mathbf{x \alpha} \bm{\alpha x}$
+
+\end{document}
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000012.html">[Minionpro-devel] [ANN] MnSymbol 1.4
+</A></li>
+	<LI>Next message: <A HREF="000014.html">[Minionpro-devel] math bold: eb -&gt; b?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#13">[ date ]</a>
+              <a href="thread.html#13">[ thread ]</a>
+              <a href="subject.html#13">[ subject ]</a>
+              <a href="author.html#13">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/minionpro-devel">More information about the Minionpro-devel
+mailing list</a><br>
+</body></html>

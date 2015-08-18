@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Minionpro-devel] Math fonts from MinionPro Sources
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/minionpro-devel/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20Math%20fonts%20from%20MinionPro%20Sources&In-Reply-To=%3CA75A6AD1-4FA8-4721-B5B2-F45194C47BAC%40tum.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000108.html">
+   <LINK REL="Next"  HREF="000112.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Minionpro-devel] Math fonts from MinionPro Sources</H1>
+    <B>Michael Zedler</B> 
+    <A HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20Math%20fonts%20from%20MinionPro%20Sources&In-Reply-To=%3CA75A6AD1-4FA8-4721-B5B2-F45194C47BAC%40tum.de%3E"
+       TITLE="[Minionpro-devel] Math fonts from MinionPro Sources">Michael.Zedler at tum.de
+       </A><BR>
+    <I>Wed Apr  4 00:29:51 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000108.html">[Minionpro-devel] A Survey on Defect Management Practices in	Free/Open Source Software
+</A></li>
+        <LI>Next message: <A HREF="000112.html">[Minionpro-devel] Math fonts from MinionPro Sources
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#111">[ date ]</a>
+              <a href="thread.html#111">[ thread ]</a>
+              <a href="subject.html#111">[ subject ]</a>
+              <a href="author.html#111">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello Bernhard,
+
+I haven't had a look at setups for other fonts for quite a while...  
+Essentially the scripts on Berlios are easily portable to other  
+fonts, it's mostly substituting &quot;MinionPro&quot; for xxx, same applies to  
+MinionPro.dtx/ins. I assume to get this part of the port done will  
+only take some 20 minutes (you'll also find some files for  
+GaramondPremierPro/MyriadPro in CVS, including special kerning pairs).
+
+Concerning the math setup, with the settings of MinionPro you're  
+already quite ok, but to have 100% quality support, you'll have to  
+spend some time adapting
+  - adjust-oml.mtx to get the side bearings and accent positions 100%  
+ok (with MinionPro's settings you'll have a 90% solution)
+  - *intop*mtx to get an equivalent of the minionint option working.  
+(You can omit this if you're fine with MinionPro's integral in the  
+other font's math setup. If not: Select the otf from which the  
+integral shall be taken for the text and display version, choose an  
+appropriate Extend/Slant value for each, then position the glyphs in  
+the aforementioned *intop*mtx)
+
+I did these things for some fonts a while ago, but didn't put that  
+all in the CVS, and what I didn't put there got lost in the  
+meantime ;-/ (Essentially nobody else was interested, I wasn't happy  
+with Warnock/GaramondPremier/Myriad for math typesetting and so  
+didn't push further.) The result of what I did those days can be  
+found on
+   <A HREF="http://www.hft.ei.tum.de/mz/testmath_fourier_pnc.pdf">http://www.hft.ei.tum.de/mz/testmath_fourier_pnc.pdf</A>
+   <A HREF="http://www.hft.ei.tum.de/mz/testmath_gara.pdf">http://www.hft.ei.tum.de/mz/testmath_gara.pdf</A>
+   <A HREF="http://www.hft.ei.tum.de/mz/testmath_gentium.pdf">http://www.hft.ei.tum.de/mz/testmath_gentium.pdf</A>
+   <A HREF="http://www.hft.ei.tum.de/mz/testmath_kepler.pdf">http://www.hft.ei.tum.de/mz/testmath_kepler.pdf</A>
+   <A HREF="http://www.hft.ei.tum.de/mz/testmath_minionpro.pdf">http://www.hft.ei.tum.de/mz/testmath_minionpro.pdf</A>
+   <A HREF="http://www.hft.ei.tum.de/mz/testmath_myriad.pdf">http://www.hft.ei.tum.de/mz/testmath_myriad.pdf</A>
+   <A HREF="http://www.hft.ei.tum.de/mz/testmath_myriad_fourier.pdf">http://www.hft.ei.tum.de/mz/testmath_myriad_fourier.pdf</A>
+   <A HREF="http://www.hft.ei.tum.de/mz/testmath_myriad_light.pdf">http://www.hft.ei.tum.de/mz/testmath_myriad_light.pdf</A>
+   <A HREF="http://www.hft.ei.tum.de/mz/testmath_pazo_mnsymbol.pdf">http://www.hft.ei.tum.de/mz/testmath_pazo_mnsymbol.pdf</A>
+
+Something else you may want to consider (e.g., for Warnock/Myriad):  
+MnSymbol's stroke thickness is a bit too thin for some fonts. This  
+can be dealt with but be warned, this may cost time: You can creaty a  
+modified version of MnSymbol (call it MySymbol/WaSymbol or whatever)  
+with different parameters in MnSymbol-Parameter.mf. Be careful that  
+Metafont doesn't throw &quot;strange path&quot; errors.
+Getting high-quality (non-autotraced) Type1 fonts for your adapted  
+version will be yet more work ;-) If you made it to the point that  
+you get an adaptation of MnSymbol to run with Metafont (i.e., as a  
+bitmap font) and it looks ok with Myriad/Warnock, then please drop me  
+a mail; perhaps I'll be of some help for getting the high-quality  
+Type1 managed (just too long to explain now).
+
+Good luck, it's not nearly as scary as it seems at first sight.
+Michael
+
+PS: otftotfm 2.61 is buggy (see our mailing list), better wait for an  
+update.
+
+Am 03.04.2007 um 22:37 schrieb <A HREF="https://lists.berlios.de/mailman/listinfo/minionpro-devel">bgeneto at bat.berlios.de</A>:
+
+&gt;<i> Hi, Michael!
+</I>&gt;<i>
+</I>&gt;<i> First of all I would like to thank you for this
+</I>&gt;<i> great package named MinionPro! I've been using
+</I>&gt;<i> MinionPro since its debut and now I'm searching
+</I>&gt;<i> for another similar package, i.e., a LaTeX font
+</I>&gt;<i> package with such a great math support, like
+</I>&gt;<i> MinionPro.sty.
+</I>&gt;<i> As I was unable to find such a package, I was
+</I>&gt;<i> thinking if it is possible to work on MinionPro
+</I>&gt;<i> sources in order to produce math fonts for
+</I>&gt;<i> Garamond, Galliard, Warnock, and other commercial
+</I>&gt;<i> typefaces. I remember you said once at
+</I>&gt;<i> comp.text.tex that this is possible, so is there a
+</I>&gt;<i> Warnock.sty package already (based on MinionPro)
+</I>&gt;<i> or I will have to work on it from the very beginning?
+</I>&gt;<i>
+</I>&gt;<i> Thanks in advance,
+</I>&gt;<i>
+</I>&gt;<i> Bernhard Enders.
+</I>&gt;<i>
+</I>&gt;<i> <A HREF="http://groups.google.com/group/comp.text.tex/browse_frm/thread/">http://groups.google.com/group/comp.text.tex/browse_frm/thread/</A> 
+</I>&gt;<i> b19dd5969cd303a9/9ed46f2287c9ab62?lnk=gst&amp;q=math+fonts 
+</I>&gt;<i> +opentype&amp;rnum=11#9ed46f2287c9ab62
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000108.html">[Minionpro-devel] A Survey on Defect Management Practices in	Free/Open Source Software
+</A></li>
+	<LI>Next message: <A HREF="000112.html">[Minionpro-devel] Math fonts from MinionPro Sources
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#111">[ date ]</a>
+              <a href="thread.html#111">[ thread ]</a>
+              <a href="subject.html#111">[ subject ]</a>
+              <a href="author.html#111">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/minionpro-devel">More information about the Minionpro-devel
+mailing list</a><br>
+</body></html>

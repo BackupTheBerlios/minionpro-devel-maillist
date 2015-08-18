@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Minionpro-devel] v-nu confusion in Minion Pro
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/minionpro-devel/2009-May/index.html" >
+   <LINK REL="made" HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20v-nu%20confusion%20in%20Minion%20Pro&In-Reply-To=%3C258C4A13-79B1-4DB0-B2C6-43C0E0D71D98%40it.uu.se%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000285.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Minionpro-devel] v-nu confusion in Minion Pro</H1>
+    <B>Martin Berggren</B> 
+    <A HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20v-nu%20confusion%20in%20Minion%20Pro&In-Reply-To=%3C258C4A13-79B1-4DB0-B2C6-43C0E0D71D98%40it.uu.se%3E"
+       TITLE="[Minionpro-devel] v-nu confusion in Minion Pro">martin.berggren at it.uu.se
+       </A><BR>
+    <I>Fri May 29 10:03:03 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000285.html">[Minionpro-devel] v-nu confusion in Minion Pro
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#286">[ date ]</a>
+              <a href="thread.html#286">[ thread ]</a>
+              <a href="subject.html#286">[ subject ]</a>
+              <a href="author.html#286">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>How about  using
+
+
+
+\documentclass{article}
+
+\usepackage{MinionPro}
+\DeclareMathSymbol{v}{\mathalpha}{letters}{&quot;1D}
+
+\begin{document}
+
+$ u v w \boldsymbol{u} \boldsymbol{v} $
+
+\end{document}
+
+
+
+
+That gives the intended result for me. However, \mathbf{v} yields a  
+bold fl ligature...
+
+Cheers,
+
+
+On May 28, 2009, at 6:58 , Peter N. Saeta wrote:
+
+&gt;<i> Hello Achim,
+</I>&gt;<i>
+</I>&gt;<i> I apologize in advance if you are not an appropriate person to write  
+</I>&gt;<i> with this request. I use Minion Pro (thank you!) for nearly all my  
+</I>&gt;<i> LaTeX documents, but have run into the problem that the letters 'v'  
+</I>&gt;<i> and '\nu' are virtually indistinguishable in math mode. As I am a  
+</I>&gt;<i> physicist, I use both these symbols quite frequently, making it  
+</I>&gt;<i> confusing for my students. On the other hand, I never use \upsilon,  
+</I>&gt;<i> which looks enough like an italic 'v' to make a solution possible:  
+</I>&gt;<i> substitute \upsilon for 'v' when in math mode. Unfortunately, I  
+</I>&gt;<i> don't know how to manage this, as I don't really understand the font  
+</I>&gt;<i> system in TeX. Is it possible (and easy) to remap just that one  
+</I>&gt;<i> character as I describe? If so, I would be most grateful for  
+</I>&gt;<i> directions. Vielen dank.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Peter N. Saeta
+</I>&gt;<i> Professor of Physics, Harvey Mudd College
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/minionpro-devel">saeta at hmc.edu</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Minionpro-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/minionpro-devel">Minionpro-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/minionpro-devel">https://lists.berlios.de/mailman/listinfo/minionpro-devel</A>
+</I>
+Martin Berggren
+
+-----------------------------------------------------------------------------------------------------
+Scientific Computing, Dep. of Information Technology, Uppsala University
+P.O. Box 337, SE - 751 05 Uppsala, Sweden. <A HREF="http://www.it.uu.se">http://www.it.uu.se</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/minionpro-devel">Martin.Berggren at it.uu.se</A>, Ph: +46-18-471 29 64, Fax +46-18-52 30 49
+
+
+
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000285.html">[Minionpro-devel] v-nu confusion in Minion Pro
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#286">[ date ]</a>
+              <a href="thread.html#286">[ thread ]</a>
+              <a href="subject.html#286">[ subject ]</a>
+              <a href="author.html#286">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/minionpro-devel">More information about the Minionpro-devel
+mailing list</a><br>
+</body></html>

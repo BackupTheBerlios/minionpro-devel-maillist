@@ -1,0 +1,322 @@
+From jadefalkner at imperium-noctem.de  Mon Dec  3 17:35:21 2007
+From: jadefalkner at imperium-noctem.de (Ronny Fauth)
+Date: Mon, 03 Dec 2007 17:35:21 +0100
+Subject: [Minionpro-devel] Is there any way to access the condensed fonts?
+Message-ID: <47543049.6080407@imperium-noctem.de>
+
+I want to use the condensed fonts. How is this with this package
+possible? And the other question is, can i use "\usefont{}{}{}{}" with
+this package? I'm specially interested in the semibold fontweights.
+
+Regards
+
+
+From gaburici at cs.umd.edu  Tue Dec  4 13:47:31 2007
+From: gaburici at cs.umd.edu (Vasile Gaburici)
+Date: Tue, 4 Dec 2007 07:47:31 -0500 (EST)
+Subject: [Minionpro-devel] Is there any way to access the condensed
+	fonts?
+In-Reply-To: <47543049.6080407@imperium-noctem.de>
+References: <47543049.6080407@imperium-noctem.de>
+Message-ID: <Pine.LNX.4.58.0712040745450.24393@fireball.cs.umd.edu>
+
+
+	I don't know about the condensed ones, but the semibolds seem to
+be used automatically (for headings and such) when the optical option is
+enabled.
+
+On Mon, 3 Dec 2007, Ronny Fauth wrote:
+
+> Date: Mon, 03 Dec 2007 17:35:21 +0100
+> From: Ronny Fauth <jadefalkner at imperium-noctem.de>
+> Reply-To: minionpro-devel at lists.berlios.de
+> To: minionpro-devel at lists.berlios.de
+> Subject: [Minionpro-devel] Is there any way to access the condensed fonts?
+>
+> I want to use the condensed fonts. How is this with this package
+> possible? And the other question is, can i use "\usefont{}{}{}{}" with
+> this package? I'm specially interested in the semibold fontweights.
+>
+> Regards
+> _______________________________________________
+> Minionpro-devel mailing list
+> Minionpro-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/minionpro-devel
+>
+
+
+From blumensath at mathematik.tu-darmstadt.de  Tue Dec  4 14:55:26 2007
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Tue, 4 Dec 2007 14:55:26 +0100
+Subject: [Minionpro-devel] Is there any way to access the condensed
+	fonts?
+In-Reply-To: <47543049.6080407@imperium-noctem.de>
+References: <47543049.6080407@imperium-noctem.de>
+Message-ID: <20071204135526.GA1884@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Ronny Fauth wrote:
+> I want to use the condensed fonts. How is this with this package
+> possible?
+
+Our package provides no support for the condensed fonts.
+But you can use our scripts to generate the metrics yourself, 
+if you like.
+
+> And the other question is, can i use "\usefont{}{}{}{}" with
+> this package?
+
+Of course. In the manual there is a table with all series/weights
+provided by our package.
+
+> I'm specially interested in the semibold fontweights.
+
+The \textbf / \bfseries commands select the semibold fonts (if you use
+the "medfamily" or "fullfamily" option).
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20071204/3f41a978/attachment.pgp>
+
+From laladelausanne at gmail.com  Wed Dec  5 13:08:43 2007
+From: laladelausanne at gmail.com (=?UTF-8?Q?Nikola_Kne=C5=BEevi=C4=87?=)
+Date: Wed, 5 Dec 2007 13:08:43 +0100
+Subject: [Minionpro-devel] Problem with MinionPro on Mac OS X
+Message-ID: <1E53F59F-A4B7-45C8-8A1F-4DD5FAE5D1DB@gmail.com>
+
+Hi,
+I'm not proficient with LaTeX, so maybe this is a stupid one...
+
+I have MacTeX distribution installed, and I've installed MinionPro  
+following the instructions in the README file. I took enc-v1.001.zip,  
+and metrics-{base,full,opticals}.zip. Only deviation I had to make is  
+that I've placed MinionPro.map in /usr/local/texlive/texmf-local/fonts/ 
+map/dvips/MinionPro.map, so it can be recognized by updmap.
+
+Now, when I try to use it from latex, I see this message:
+
+LaTeX Font Warning: Font shape `LY1/MinionPro/m/n' undefined
+(Font)              using `LY1/ptm/m/n' instead on input line 61.
+
+
+Log file has this:
+
+LaTeX Font Info:    Try loading font information for LY1+MinionPro on  
+input lin
+e 61.
+LaTeX Font Info:    No file LY1MinionPro.fd. on input line 61.
+
+
+LaTeX Font Warning: Font shape `LY1/MinionPro/m/n' undefined
+(Font)              using `LY1/ptm/m/n' instead on input line 61.
+
+
+Any help?
+
+Cheers,
+Nikola
+
+
+From andreas.buehmann at web.de  Wed Dec  5 21:25:03 2007
+From: andreas.buehmann at web.de (=?ISO-8859-1?Q?Andreas_B=FChmann?=)
+Date: Wed, 05 Dec 2007 21:25:03 +0100
+Subject: [Minionpro-devel] Problem with MinionPro on Mac OS X
+In-Reply-To: <1E53F59F-A4B7-45C8-8A1F-4DD5FAE5D1DB@gmail.com>
+References: <1E53F59F-A4B7-45C8-8A1F-4DD5FAE5D1DB@gmail.com>
+Message-ID: <4757091F.6080808@web.de>
+
+Hello Nikola,
+
+> LaTeX Font Warning: Font shape `LY1/MinionPro/m/n' undefined
+> (Font)              using `LY1/ptm/m/n' instead on input line 61.
+>   
+our package does not provide a font family "MinionPro", but
+"MinionPro-OsF", "MinionPro-LF", and the like (differing in the figure
+versions). See the NFSS-classification table in the documentation.
+
+How did you select your font? With regular high-level commands (e.g.,
+\rmfamily, \normalfont), or did you use something like \usefont? Could
+you show us a stripped-down (minimal) version of your document, please?
+
+Regards,
+
+Andreas
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 252 bytes
+Desc: OpenPGP digital signature
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20071205/2c14df88/attachment.pgp>
+
+From brian.aydemir at gmail.com  Thu Dec 13 16:52:35 2007
+From: brian.aydemir at gmail.com (Brian Aydemir)
+Date: Thu, 13 Dec 2007 10:52:35 -0500
+Subject: [Minionpro-devel] (no subject)
+Message-ID: <388DC9FF-EE7F-4764-A014-97A3B2F26DEF@gmail.com>
+
+Hi,
+
+I have observed something curious when I use the MinionPro package  
+(version 2.1).  Consider the results below of running pdffonts on a  
+file produced using pdflatex.
+
+% pdffonts notes.pdf
+name                                 type              emb sub uni  
+object ID
+------------------------------------ ----------------- --- --- ---  
+---------
+EXVQAK+MinionPro-BoldDisp            Type 1            yes yes  
+no      89  0
+ZKXMIT+MinionPro-BoldSubh            Type 1            yes yes  
+no      90  0
+SENIKY+MinionPro-Regular             Type 1            yes yes  
+no      91  0
+SENIKY+MinionPro-Regular             Type 1            yes yes  
+no      92  0
+NYCNMT+MinionPro-Bold                Type 1            yes yes  
+no      93  0
+ITKCZE+MnSymbol10                    Type 1            yes yes  
+no      94  0
+ZAAFPY+MinionPro-It                  Type 1            yes yes  
+no      95  0
+SENIKY+MinionPro-Regular             Type 1            yes yes  
+no      96  0
+PDDZBW+SFTT1095                      Type 1            yes yes no      
+103  0
+ZAAFPY+MinionPro-It                  Type 1            yes yes no      
+117  0
+... [output truncated for brevity] ...
+
+I notice that, for example, MinionPro-Regular shows up as multiple  
+objects here, instead of just once.  For no other font package (that  
+I have used) have I observed anything similar; I'm used to fonts  
+showing up only once.
+
+Can anyone explain to me what is going on here?
+
+Thanks,
+Brian
+
+
+From jens.winkler at s2002.tu-chemnitz.de  Fri Dec 14 12:46:40 2007
+From: jens.winkler at s2002.tu-chemnitz.de (Jens Winkler)
+Date: Fri, 14 Dec 2007 12:46:40 +0100
+Subject: [Minionpro-devel] Auf alle Zeichen der MinionPro zugreifen
+Message-ID: <47626D20.6070702@hrz.tu-chemnitz.de>
+
+Hallo liebe MinionPro-Entwickler,
+
+ich verwende die Schriftart Minion Pro (Version 002.000) ?ber das Paket 
+MinionPro. Nun m?chte ich englische Ordinalziffern (1st, 2nd usw.) mit 
+echten hochgestellten Buchstaben verwenden, die auch in der original 
+otf-Schrift vorhanden sind. Ich konnte leider nicht herausfinden, wie 
+ich diese Zeichen explizit aufrufen kann.
+InDesign zeigt mir z.B. f?r das hochgestellte "s" folgende Informationen an:
+
+GID: 425
+Unicode: 0073
+hochgestellt (sups)
+LATIN SMALL LETTER S
+
+Ist es m?glich, diese Zeichen in Latex aufzurufen?
+
+Vielen Dank f?r eure Hilfe,
+Jens
+
+
+From michael.zedler at tum.de  Mon Dec 17 23:29:40 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Mon, 17 Dec 2007 23:29:40 +0100
+Subject: [Minionpro-devel] Auf alle Zeichen der MinionPro zugreifen
+In-Reply-To: <47626D20.6070702@hrz.tu-chemnitz.de>
+References: <47626D20.6070702@hrz.tu-chemnitz.de>
+Message-ID: <71E7294E-A5D7-4481-97A0-3BA4952F8E0E@tum.de>
+
+Hallo,
+
+Am 14.12.2007 um 12:46 schrieb Jens Winkler:
+> ich verwende die Schriftart Minion Pro (Version 002.000) ?ber das  
+> Paket
+> MinionPro. Nun m?chte ich englische Ordinalziffern (1st, 2nd usw.) mit
+> echten hochgestellten Buchstaben verwenden, die auch in der original
+> otf-Schrift vorhanden sind. Ich konnte leider nicht herausfinden, wie
+> ich diese Zeichen explizit aufrufen kann.
+> InDesign zeigt mir z.B. f?r das hochgestellte "s" folgende  
+> Informationen an:
+>
+> GID: 425
+> Unicode: 0073
+> hochgestellt (sups)
+> LATIN SMALL LETTER S
+>
+> Ist es m?glich, diese Zeichen in Latex aufzurufen?
+
+Nicht, ohne Encoding-Dateien zu ver?ndern und neue Metriken zu  
+erstellen. Ich hatte damals aus Konsistenzgr?nden verzichtet, diese  
+Glyphen ins Extra-Encoding aufzunehmen, da einige Kleinbuchstaben in  
+der Superior-Version in den otf von MinionPro fehlen.
+
+Wenn die entsprechenden Schnitte vorhanden sind, bieten sich als  
+Alternative die Paketoptionen 'fullfamily,opticals' an.
+
+Michael
+
+PS: Habe keinen Bringhurst oder Chicago Manual of Style zur Hand,  
+aber ist Hochstellung von st/nd/rd/th nicht obsolet?
+
+From saaska at yahoo.com  Sun Dec 23 07:23:14 2007
+From: saaska at yahoo.com (Alexander Pavlov)
+Date: Sun, 23 Dec 2007 09:23:14 +0300 (MSK)
+Subject: [Minionpro-devel] Cyrillic quote and guillemet ligatures
+Message-ID: <271241.27273.qm@web34507.mail.mud.yahoo.com>
+
+Hello!
+
+First I'd like to say a big "thank you" for a very
+nice package. I've long been a fan of Minion and the
+ability to use it in TeX is great. It's also nice to
+see a package with Cyrillic covered when it usually
+isn't.
+
+Would it be possible to modify the T2x encodings for
+Minion fonts to include quote ligatures the way
+standard t2a.enc does?
+% LIGKERN quoteleft quoteleft =: quotedblleft ;
+% LIGKERN quoteright quoteright =: quotedblright ;
+% LIGKERN comma comma =: quotedblbase ; less less =:
+guillemotleft ;
+% LIGKERN greater greater =: guillemotright ;
+
+People are used to it as standard with CM fonts.
+Perfectly good-looking text compiled previously with
+CM shows ugly <<s instead of guillemets with
+MinionPro. One can use commands, of course, but plain
+Cyrillic text with no formulas peppered with
+\guillemotleft and \guillemotright here and there
+looks rather strange. 
+
+If encoding change for the package is for any reason
+undesirable, could you instruct me how I could add the
+ligatures myself?
+
+
+      ________________________________________________________
+?? ??? ? Yahoo!? 
+????????? ??????????? ? ??????????. Yahoo! ?????! http://ru.mail.yahoo.com
+
+

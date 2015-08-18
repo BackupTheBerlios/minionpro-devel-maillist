@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Minionpro-devel] Myriad and Cronos support
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/minionpro-devel/2011-January/index.html" >
+   <LINK REL="made" HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20Myriad%20and%20Cronos%20support&In-Reply-To=%3C201101041239.55833.schubert.seb%40googlemail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000361.html">
+   <LINK REL="Next"  HREF="000363.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Minionpro-devel] Myriad and Cronos support</H1>
+    <B>Sebastian Schubert</B> 
+    <A HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20Myriad%20and%20Cronos%20support&In-Reply-To=%3C201101041239.55833.schubert.seb%40googlemail.com%3E"
+       TITLE="[Minionpro-devel] Myriad and Cronos support">schubert.seb at googlemail.com
+       </A><BR>
+    <I>Tue Jan  4 12:39:51 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000361.html">[Minionpro-devel] Myriad and Cronos support
+</A></li>
+        <LI>Next message: <A HREF="000363.html">[Minionpro-devel] Myriad and Cronos support
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#362">[ date ]</a>
+              <a href="thread.html#362">[ thread ]</a>
+              <a href="subject.html#362">[ subject ]</a>
+              <a href="author.html#362">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo everyone,
+
+On Montag 03 Januar 2011 13:10:26 Achim Blumensath wrote:
+&gt;<i> Sebastian Schubert wrote:
+</I>&gt;<i> &gt; I've been hacking the scripts of the great MinionPro package to
+</I>&gt;<i> &gt; support other fonts -- at the moment mainly Myriad Pro.
+</I>
+&gt;<i> &gt; Obviously, there is still work to do. One of the major points is
+</I>&gt;<i> &gt; the ability to use the scripts with lcdf typetools &gt; 2.69.  I was
+</I>&gt;<i> &gt; somehow able to identify the cause why the adjust-oml gives an
+</I>&gt;<i> &gt; error for the accent positions for the letters eg rho1, beta1, etc
+</I>&gt;<i> &gt; for me: as far as I can see, the to vpl converted tfms do include
+</I>&gt;<i> &gt; less letters which might be the letters which cause the
+</I>&gt;<i> &gt; problems..... However, it is strange that on some systems there is
+</I>&gt;<i> &gt; no problem at all; I was not able to find the difference between
+</I>&gt;<i> &gt; these systems...
+</I>&gt;<i> 
+</I>&gt;<i> The problem with more recent versions of typetools is that the glyph
+</I>&gt;<i> names in glyphlist.txt changed. One needs to update all the encoding
+</I>&gt;<i> files in the &quot;enc&quot; directory to use the new names. (For instance
+</I>&gt;<i> /lscript became /lsquare.)
+</I>
+As far as I can see, this just happened in the later versions (&gt;2.83). 
+The error I described is connected to the changes from 2.69 to 2.70 and 
+is still present in =2.83. It is connected to the letters rho1, beta1 
+etc. Removing most of these *1 letters solves the problem. However, not 
+all systems seem to have the problem but all of mine. So far, I was not 
+able to indentify the cause.
+
+I assume that in addition to the changed glyph names in &gt;2.83, the *1 
+problem would also be present so I did not look at these versions any 
+further.
+
+Cheers
+Sebastian
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 198 bytes
+Desc: This is a digitally signed message part.
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/minionpro-devel/attachments/20110104/6b0e0110/attachment.pgp">https://lists.berlios.de/pipermail/minionpro-devel/attachments/20110104/6b0e0110/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000361.html">[Minionpro-devel] Myriad and Cronos support
+</A></li>
+	<LI>Next message: <A HREF="000363.html">[Minionpro-devel] Myriad and Cronos support
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#362">[ date ]</a>
+              <a href="thread.html#362">[ thread ]</a>
+              <a href="subject.html#362">[ subject ]</a>
+              <a href="author.html#362">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/minionpro-devel">More information about the Minionpro-devel
+mailing list</a><br>
+</body></html>

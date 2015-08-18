@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Minionpro-devel] Where is enc-2.030.zip?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/minionpro-devel/2009-August/index.html" >
+   <LINK REL="made" HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20Where%20is%20enc-2.030.zip%3F&In-Reply-To=%3C20090813093051.GF14985%40mathematik.tu-darmstadt.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000310.html">
+   <LINK REL="Next"  HREF="000312.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Minionpro-devel] Where is enc-2.030.zip?</H1>
+    <B>Achim Blumensath</B> 
+    <A HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20Where%20is%20enc-2.030.zip%3F&In-Reply-To=%3C20090813093051.GF14985%40mathematik.tu-darmstadt.de%3E"
+       TITLE="[Minionpro-devel] Where is enc-2.030.zip?">blumensath at mathematik.tu-darmstadt.de
+       </A><BR>
+    <I>Thu Aug 13 11:30:51 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000310.html">[Minionpro-devel] Where is enc-2.030.zip?
+</A></li>
+        <LI>Next message: <A HREF="000312.html">[Minionpro-devel] Where is enc-2.030.zip?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#311">[ date ]</a>
+              <a href="thread.html#311">[ thread ]</a>
+              <a href="subject.html#311">[ subject ]</a>
+              <a href="author.html#311">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+Ben M. wrote:
+&gt;<i> Wow, fontforge is incredible!  But I'm not sure how to get the
+</I>&gt;<i> &quot;PostScript&quot; name.  &quot;Glyph info&quot; doesn't say anything interesting, so
+</I>&gt;<i> here is the hover text.  I hope what you want is included.
+</I>&gt;<i> 8467 (0x2113) U+2113  &quot;uni2113&quot;  SCRIPT SMALL L
+</I>
+Ok. So the name is uni2113.
+
+&gt;<i> &gt;&gt; Do I also need to replace the metrics or something?
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; No, you only need to update the encoding files.
+</I>&gt;<i> 
+</I>&gt;<i> What specifically do you mean by &quot;the encoding files?&quot;  Do you mean:
+</I>&gt;<i> base-MinionPro-aX.enc?
+</I>
+No, those in the enc directory.
+
+&gt;<i> &gt; I just noticed that the glyphlist file changed in newer versions of lcdf
+</I>&gt;<i> &gt; typetools. Try replacing the /lscript in enc/mn-oml.enc with /lsquare.
+</I>&gt;<i> 
+</I>&gt;<i> Okay, I will try that, but I have to do it later since it needs to
+</I>&gt;<i> compile.  Also, will this fix just the \ell, or will I need to
+</I>&gt;<i> manually make similar modifications for all characters?
+</I>
+You need to do this for all missing glyphs.
+
+When I find the time, I'll upload a new version of the enc files to
+BerliOS.
+
+&gt;<i> I installed ed, so hopefully now the beautify-enc script will work.
+</I>&gt;<i> 
+</I>&gt;<i> Finally, must I worry about
+</I>&gt;<i> &quot;C:\cygwin\usr\local\src\MinionPro\fontinst\adjust-oml.mtx
+</I>&gt;<i> ! Missing number, treated as zero.&quot; or is this safe to ignore if I
+</I>&gt;<i> only want the .enc files?
+</I>
+Probably, you also need new metric files, since the glyph positions in
+the base fonts might change.
+
+My guess it that the fontinst error is caused by the missing glyphs. So
+correcting the enc files might also fix this problem.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /&quot;\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: Digital signature
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/minionpro-devel/attachments/20090813/661c4155/attachment.pgp">https://lists.berlios.de/pipermail/minionpro-devel/attachments/20090813/661c4155/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000310.html">[Minionpro-devel] Where is enc-2.030.zip?
+</A></li>
+	<LI>Next message: <A HREF="000312.html">[Minionpro-devel] Where is enc-2.030.zip?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#311">[ date ]</a>
+              <a href="thread.html#311">[ thread ]</a>
+              <a href="subject.html#311">[ subject ]</a>
+              <a href="author.html#311">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/minionpro-devel">More information about the Minionpro-devel
+mailing list</a><br>
+</body></html>

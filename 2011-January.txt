@@ -1,0 +1,276 @@
+From blumensath at mathematik.tu-darmstadt.de  Mon Jan  3 13:10:26 2011
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Mon, 3 Jan 2011 13:10:26 +0100
+Subject: [Minionpro-devel] Myriad and Cronos support
+In-Reply-To: <201012241019.55900.schubert.seb@googlemail.com>
+References: <201012241019.55900.schubert.seb@googlemail.com>
+Message-ID: <20110103121026.GF22678@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Sebastian Schubert wrote:
+> I've been hacking the scripts of the great MinionPro package to support 
+> other fonts -- at the moment mainly Myriad Pro.
+[...]
+> Obviously, there is still work to do. One of the major points is the 
+> ability to use the scripts with lcdf typetools > 2.69.  I was somehow 
+> able to identify the cause why the adjust-oml gives an error for the 
+> accent positions for the letters eg rho1, beta1, etc for me: as far as I 
+> can see, the to vpl converted tfms do include less letters which might 
+> be the letters which cause the problems..... However, it is strange that 
+> on some systems there is no problem at all; I was not able to find the 
+> difference between these systems...
+
+The problem with more recent versions of typetools is that the glyph
+names in glyphlist.txt changed. One needs to update all the encoding
+files in the "enc" directory to use the new names. (For instance
+/lscript became /lsquare.)
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 198 bytes
+Desc: Digital signature
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20110103/ad8717b3/attachment.pgp>
+
+From schubert.seb at googlemail.com  Tue Jan  4 12:39:51 2011
+From: schubert.seb at googlemail.com (Sebastian Schubert)
+Date: Tue, 4 Jan 2011 12:39:51 +0100
+Subject: [Minionpro-devel] Myriad and Cronos support
+In-Reply-To: <20110103121026.GF22678@mathematik.tu-darmstadt.de>
+References: <201012241019.55900.schubert.seb@googlemail.com>
+	<20110103121026.GF22678@mathematik.tu-darmstadt.de>
+Message-ID: <201101041239.55833.schubert.seb@googlemail.com>
+
+Hallo everyone,
+
+On Montag 03 Januar 2011 13:10:26 Achim Blumensath wrote:
+> Sebastian Schubert wrote:
+> > I've been hacking the scripts of the great MinionPro package to
+> > support other fonts -- at the moment mainly Myriad Pro.
+
+> > Obviously, there is still work to do. One of the major points is
+> > the ability to use the scripts with lcdf typetools > 2.69.  I was
+> > somehow able to identify the cause why the adjust-oml gives an
+> > error for the accent positions for the letters eg rho1, beta1, etc
+> > for me: as far as I can see, the to vpl converted tfms do include
+> > less letters which might be the letters which cause the
+> > problems..... However, it is strange that on some systems there is
+> > no problem at all; I was not able to find the difference between
+> > these systems...
+> 
+> The problem with more recent versions of typetools is that the glyph
+> names in glyphlist.txt changed. One needs to update all the encoding
+> files in the "enc" directory to use the new names. (For instance
+> /lscript became /lsquare.)
+
+As far as I can see, this just happened in the later versions (>2.83). 
+The error I described is connected to the changes from 2.69 to 2.70 and 
+is still present in =2.83. It is connected to the letters rho1, beta1 
+etc. Removing most of these *1 letters solves the problem. However, not 
+all systems seem to have the problem but all of mine. So far, I was not 
+able to indentify the cause.
+
+I assume that in addition to the changed glyph names in >2.83, the *1 
+problem would also be present so I did not look at these versions any 
+further.
+
+Cheers
+Sebastian
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 198 bytes
+Desc: This is a digitally signed message part.
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20110104/6b0e0110/attachment.pgp>
+
+From blumensath at mathematik.tu-darmstadt.de  Tue Jan  4 12:45:39 2011
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Tue, 4 Jan 2011 12:45:39 +0100
+Subject: [Minionpro-devel] Myriad and Cronos support
+In-Reply-To: <201101041239.55833.schubert.seb@googlemail.com>
+References: <201012241019.55900.schubert.seb@googlemail.com>
+	<20110103121026.GF22678@mathematik.tu-darmstadt.de>
+	<201101041239.55833.schubert.seb@googlemail.com>
+Message-ID: <20110104114539.GB8579@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Sebastian Schubert wrote:
+> On Montag 03 Januar 2011 13:10:26 Achim Blumensath wrote:
+> > Sebastian Schubert wrote:
+> > > One of the major points is
+> > > the ability to use the scripts with lcdf typetools > 2.69.  I was
+> > > somehow able to identify the cause why the adjust-oml gives an
+> > > error for the accent positions for the letters eg rho1, beta1, etc
+> > > for me:
+> > 
+> > The problem with more recent versions of typetools is that the glyph
+> > names in glyphlist.txt changed. One needs to update all the encoding
+> > files in the "enc" directory to use the new names. (For instance
+> > /lscript became /lsquare.)
+> 
+> As far as I can see, this just happened in the later versions (>2.83). 
+
+If I remember correctly, it was version 2.70 or 2.71 I looked at.
+Apparently, the names of /rho1 and /beta1 were changed too.
+(If I remember correctly, lcdf typetools, at least the old versions,
+switched /phi and /phi1. Perhaps newer versions undid this switching
+again.)
+I still think that the way to fix this is to find out what the current
+names of the glyphs according to glyphtext.txt are and to change the
+enc-files accordingly.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 198 bytes
+Desc: Digital signature
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20110104/c25a635a/attachment.pgp>
+
+From schubert.seb at googlemail.com  Tue Jan  4 13:49:22 2011
+From: schubert.seb at googlemail.com (Sebastian Schubert)
+Date: Tue, 4 Jan 2011 13:49:22 +0100
+Subject: [Minionpro-devel] Myriad and Cronos support
+In-Reply-To: <20110104114539.GB8579@mathematik.tu-darmstadt.de>
+References: <201012241019.55900.schubert.seb@googlemail.com>
+	<201101041239.55833.schubert.seb@googlemail.com>
+	<20110104114539.GB8579@mathematik.tu-darmstadt.de>
+Message-ID: <201101041349.28478.schubert.seb@googlemail.com>
+
+Hi,
+> > > > One of the major points is
+> > > > the ability to use the scripts with lcdf typetools > 2.69.  I
+> > > > was somehow able to identify the cause why the adjust-oml
+> > > > gives an error for the accent positions for the letters eg
+> > > > rho1, beta1, etc
+> > > 
+> > > > for me:
+> > > The problem with more recent versions of typetools is that the
+> > > glyph names in glyphlist.txt changed. One needs to update all
+> > > the encoding files in the "enc" directory to use the new names.
+> > > (For instance /lscript became /lsquare.)
+> > 
+> > As far as I can see, this just happened in the later versions
+> > (>2.83).
+> 
+> If I remember correctly, it was version 2.70 or 2.71 I looked at.
+> Apparently, the names of /rho1 and /beta1 were changed too.
+> (If I remember correctly, lcdf typetools, at least the old versions,
+> switched /phi and /phi1. Perhaps newer versions undid this switching
+> again.)
+> I still think that the way to fix this is to find out what the
+> current names of the glyphs according to glyphtext.txt are and to
+> change the enc-files accordingly.
+
+I checked texglyphlist.txt of different versions. Until 2.83, there is no 
+difference from 2.69:
+
+schubert at linux-88bh:~/temp> diff lcdf-typetools-2.69/texglyphlist.txt 
+lcdf-typetools-2.70/texglyphlist.txt 
+schubert at linux-88bh:~/temp> diff lcdf-typetools-2.69/texglyphlist.txt 
+lcdf-typetools-2.71/texglyphlist.txt 
+schubert at linux-88bh:~/temp> diff lcdf-typetools-2.69/texglyphlist.txt 
+lcdf-typetools-2.72/texglyphlist.txt 
+schubert at linux-88bh:~/temp> diff lcdf-typetools-2.69/texglyphlist.txt 
+lcdf-typetools-2.73/texglyphlist.txt 
+schubert at linux-88bh:~/temp> diff lcdf-typetools-2.69/texglyphlist.txt 
+lcdf-typetools-2.79/texglyphlist.txt 
+schubert at linux-88bh:~/temp> diff lcdf-typetools-2.69/texglyphlist.txt 
+lcdf-typetools-2.83/texglyphlist.txt 
+schubert at linux-88bh:~/temp> diff lcdf-typetools-2.69/texglyphlist.txt 
+lcdf-typetools-2.86/texglyphlist.txt 
+1c1
+< # lcdf-typetools texglyphlist.txt, Version 2.33
+---
+> # lcdf-typetools texglyphlist.txt, Version 2.84
+9,18c9,15
+< # FFsmall, FFIsmall, FFLsmall, FIsmall, FLsmall: invalid Unicode
+...
+
+Furthermore, I had look for rho in the sources, I just found it in 
+t1reencode/t1reencode.cc (next to glyphlist.txt and texglyphlist.txt). 
+As far as I can see, the difference between 2.69 and 2.70 in that file is 
+not connected to renaming the glyphs but just another function for 
+comparing strings. I guess I have to look at the differences in the code 
+of the typetools in detail to find the problem...
+
+Cheers
+Sebastian
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 198 bytes
+Desc: This is a digitally signed message part.
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20110104/c08551fc/attachment.pgp>
+
+From schubert.seb at googlemail.com  Sat Jan 15 18:43:09 2011
+From: schubert.seb at googlemail.com (Sebastian Schubert)
+Date: Sat, 15 Jan 2011 18:43:09 +0100
+Subject: [Minionpro-devel] Myriad and Cronos support
+In-Reply-To: <201012241019.55900.schubert.seb@googlemail.com>
+References: <201012241019.55900.schubert.seb@googlemail.com>
+Message-ID: <AANLkTimcy1emA4AeywY6OsEFftsTQksAp7S5tkKOXM-H@mail.gmail.com>
+
+On Fri, Dec 24, 2010 at 10:19 AM, Sebastian Schubert
+<schubert.seb at googlemail.com> wrote:
+> Hi,
+>
+> I've been hacking the scripts of the great MinionPro package to support
+> other fonts -- at the moment mainly Myriad Pro. Here is the result:
+>
+> http://github.com/sebschub/FontPro
+>
+
+[Problem with scripts not working with lcdf >=2.70]
+
+Well, without doing anything, it works again with lcdf typetools 2.85 and 2.86!
+
+
+So there is still one issue: the \jmath does only create a black blob.
+The lcdfj pfb and tfm is available. The map file includes a line about
+these. Any idea where to start searching for reasons?
+
+> The major points connected with MyriadPro is the adaptation of MnSymbol
+> for MyriadPro. So far, I did not have the time to look at it. ?In
+> addition, I did not succeed to tune the accent position of upright roman
+> letters in math mode. The UP* information in adjust-oml.mtx seems to be
+> connected to mathnormal... On the other hand, kerning pairs including
+> the german double ss which is meant as the skew character in the setup
+> (and which works with the swash letters of MinionPro) did not have any
+> effect, either...
+
+This is still open.
+
+> Furthermore, the scale option I implemented does not correctly use the
+> font size to choose which optical weight to select. The decision is made
+> and then the font is scaled. I'll have to look at that later... Anyway,
+> it's a not a big deal for the correction factor of 1.05 I need for
+> CronosPro's swash for Myriad...
+
+Solved with some clarification and advice of Andreas.
+
+Thanks
+Sebastian
+
+

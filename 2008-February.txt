@@ -1,0 +1,438 @@
+From michael.murphy at uni-ulm.de  Wed Feb  6 13:45:24 2008
+From: michael.murphy at uni-ulm.de (Michael Murphy)
+Date: Wed, 06 Feb 2008 13:45:24 +0100
+Subject: [Minionpro-devel] FontFolio 11
+Message-ID: <1202301924.8218.3.camel@karneol3.physik.uni-ulm.de>
+
+Hi,
+
+I have the Minion Pro font from Adobe FontFolio 11, and as far as I can
+tell this is version 2.00 of the font:
+
+michael: Minion Pro/ $ otfinfo -v MinionPro-Regular.otf 
+
+Version 2.030;PS 2.000;hotconv 1.0.51;makeotf.lib2.0.18671
+
+I followed the instructions, and for the most part the font works well.
+However, sometimes I find instead of the symbol I asked for, I get a box
+with a cross inside. This happens in particular with the epsilon glyph
+$\epsilon$ and also all of the ornament glyphs. I used the enc-2.000.zip
+file, along with all of the metrics archives.
+
+Any help would be appreciated.
+
+-- 
+Michael Murphy MPhys
+
+Institute of Quantum Information Processing
+Universit?t Ulm,
+Albert-Einstein-Allee 11
+D-89081 Ulm
+DEUTSCHLAND
+tel +49 731 50 22931
+fax +49 731 50 22839
+
+michael.murphy at uni-ulm.de
+
+
+
+From michael.murphy at uni-ulm.de  Wed Feb  6 14:31:33 2008
+From: michael.murphy at uni-ulm.de (Michael Murphy)
+Date: Wed, 06 Feb 2008 14:31:33 +0100
+Subject: [Minionpro-devel] FontFolio 11
+In-Reply-To: <1202301924.8218.3.camel@karneol3.physik.uni-ulm.de>
+References: <1202301924.8218.3.camel@karneol3.physik.uni-ulm.de>
+Message-ID: <1202304693.8218.6.camel@karneol3.physik.uni-ulm.de>
+
+Hi,
+
+Update: I built from source and everything looks wonderful---all of my
+glyphs look like they are working now. Thanks for this great package!
+
+On Wed, 2008-02-06 at 13:45 +0100, Michael Murphy wrote:
+> Hi,
+> 
+> I have the Minion Pro font from Adobe FontFolio 11, and as far as I can
+> tell this is version 2.00 of the font:
+> 
+> michael: Minion Pro/ $ otfinfo -v MinionPro-Regular.otf 
+> 
+> Version 2.030;PS 2.000;hotconv 1.0.51;makeotf.lib2.0.18671
+> 
+> I followed the instructions, and for the most part the font works well.
+> However, sometimes I find instead of the symbol I asked for, I get a box
+> with a cross inside. This happens in particular with the epsilon glyph
+> $\epsilon$ and also all of the ornament glyphs. I used the enc-2.000.zip
+> file, along with all of the metrics archives.
+> 
+> Any help would be appreciated.
+> 
+-- 
+Michael Murphy MPhys
+
+Institute of Quantum Information Processing
+Universit?t Ulm,
+Albert-Einstein-Allee 11
+D-89081 Ulm
+DEUTSCHLAND
+tel +49 731 50 22931
+fax +49 731 50 22839
+
+michael.murphy at uni-ulm.de
+
+
+
+From michael.murphy at uni-ulm.de  Wed Feb  6 14:53:22 2008
+From: michael.murphy at uni-ulm.de (Michael Murphy)
+Date: Wed, 06 Feb 2008 14:53:22 +0100
+Subject: [Minionpro-devel] FontFolio 11
+In-Reply-To: <1202304693.8218.6.camel@karneol3.physik.uni-ulm.de>
+References: <1202301924.8218.3.camel@karneol3.physik.uni-ulm.de>
+	<1202304693.8218.6.camel@karneol3.physik.uni-ulm.de>
+Message-ID: <1202306002.8218.14.camel@karneol3.physik.uni-ulm.de>
+
+Oh wait sorry, I spoke too soon. Some of the glyphs work, but others
+don't. A PDF showing the glyphs that are missing is posted at
+http://www.mediafire.com/?b9j332c309n. As you can see, most of the
+glyphs from code 100 upwards are just filled black boxes.
+
+Any ideas?
+
+On Wed, 2008-02-06 at 14:31 +0100, Michael Murphy wrote:
+> Hi,
+> 
+> Update: I built from source and everything looks wonderful---all of my
+> glyphs look like they are working now. Thanks for this great package!
+> 
+> On Wed, 2008-02-06 at 13:45 +0100, Michael Murphy wrote:
+> > Hi,
+> > 
+> > I have the Minion Pro font from Adobe FontFolio 11, and as far as I can
+> > tell this is version 2.00 of the font:
+> > 
+> > michael: Minion Pro/ $ otfinfo -v MinionPro-Regular.otf 
+> > 
+> > Version 2.030;PS 2.000;hotconv 1.0.51;makeotf.lib2.0.18671
+> > 
+> > I followed the instructions, and for the most part the font works well.
+> > However, sometimes I find instead of the symbol I asked for, I get a box
+> > with a cross inside. This happens in particular with the epsilon glyph
+> > $\epsilon$ and also all of the ornament glyphs. I used the enc-2.000.zip
+> > file, along with all of the metrics archives.
+> > 
+> > Any help would be appreciated.
+> > 
+-- 
+Michael Murphy MPhys
+
+Institute of Quantum Information Processing
+Universit?t Ulm,
+Albert-Einstein-Allee 11
+D-89081 Ulm
+DEUTSCHLAND
+tel +49 731 50 22931
+fax +49 731 50 22839
+
+michael.murphy at uni-ulm.de
+
+
+
+From blumensath at mathematik.tu-darmstadt.de  Thu Feb  7 09:18:31 2008
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Thu, 7 Feb 2008 09:18:31 +0100
+Subject: [Minionpro-devel] FontFolio 11
+In-Reply-To: <1202306002.8218.14.camel@karneol3.physik.uni-ulm.de>
+References: <1202301924.8218.3.camel@karneol3.physik.uni-ulm.de>
+	<1202304693.8218.6.camel@karneol3.physik.uni-ulm.de>
+	<1202306002.8218.14.camel@karneol3.physik.uni-ulm.de>
+Message-ID: <20080207081831.GA18058@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Michael Murphy wrote:
+> Oh wait sorry, I spoke too soon. Some of the glyphs work, but
+> othersdon't. A PDF showing the glyphs that are missing is posted
+> athttp://www.mediafire.com/?b9j332c309n. As you can see, most of
+> theglyphs from code 100 upwards are just filled black boxes.
+
+Chould you check what glyph names are assigned to the missing glyphs?
+If your version of the fonts uses different names then you need to
+adjust the enc-files accordingly before running our scripts.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20080207/69550ee9/attachment.pgp>
+
+From michael.murphy at uni-ulm.de  Thu Feb  7 09:54:02 2008
+From: michael.murphy at uni-ulm.de (Michael Murphy)
+Date: Thu, 07 Feb 2008 09:54:02 +0100
+Subject: [Minionpro-devel] FontFolio 11
+In-Reply-To: <20080207081831.GA18058@mathematik.tu-darmstadt.de>
+References: <1202301924.8218.3.camel@karneol3.physik.uni-ulm.de>
+	<1202304693.8218.6.camel@karneol3.physik.uni-ulm.de>
+	<1202306002.8218.14.camel@karneol3.physik.uni-ulm.de>
+	<20080207081831.GA18058@mathematik.tu-darmstadt.de>
+Message-ID: <1202374442.6661.3.camel@karneol3.physik.uni-ulm.de>
+
+Hi,
+
+> Chould you check what glyph names are assigned to the missing glyphs?
+
+So I've found the symbol I want, and the information (from gucharmap) is
+
+U+E0C9 <Private Use>
+
+General Character Properties
+
+Unicode category: Other, Private Use
+
+Various Useful Representations
+
+UTF-8: 0xEE 0x83 0x89
+UTF-16: 0xE0C9
+
+C octal escaped UTF-8: \356\203\211
+XML decimal entity: &#57545;
+
+> If your version of the fonts uses different names then you need to
+> adjust the enc-files accordingly before running our scripts.
+
+Could you please explain how to add this to the enc file? Please assume
+I'm a complete idiot (I know my way around Linux, but LaTeX fonts are a
+bit new to me). When I built the package recently, I didn't use the
+option --pack, since this seems to delete other glyphs.
+
+-- 
+Michael Murphy MPhys
+
+Institute of Quantum Information Processing
+Universit?t Ulm,
+Albert-Einstein-Allee 11
+D-89081 Ulm
+DEUTSCHLAND
+tel +49 731 50 22931
+fax +49 731 50 22839
+
+michael.murphy at uni-ulm.de
+
+
+
+From blumensath at mathematik.tu-darmstadt.de  Thu Feb  7 15:49:42 2008
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Thu, 7 Feb 2008 15:49:42 +0100
+Subject: [Minionpro-devel] FontFolio 11
+In-Reply-To: <1202374442.6661.3.camel@karneol3.physik.uni-ulm.de>
+References: <1202301924.8218.3.camel@karneol3.physik.uni-ulm.de>
+	<1202304693.8218.6.camel@karneol3.physik.uni-ulm.de>
+	<1202306002.8218.14.camel@karneol3.physik.uni-ulm.de>
+	<20080207081831.GA18058@mathematik.tu-darmstadt.de>
+	<1202374442.6661.3.camel@karneol3.physik.uni-ulm.de>
+Message-ID: <20080207144942.GG18058@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Michael Murphy wrote:
+> > Chould you check what glyph names are assigned to the missing glyphs?
+> So I've found the symbol I want, and the information (from gucharmap) is
+> U+E0C9 <Private Use>
+
+You need to get the name given to the glyph in the actual font. This
+information is available for instance in a font editor such as fontforge
+or from the afm files, if you have any. In my version of MinionPro the
+glyphs are called /orn.001 etc.
+
+> > If your version of the fonts uses different names then you need to
+> > adjust the enc-files accordingly before running our scripts.
+>
+> Could you please explain how to add this to the enc file?
+
+The enc file is just a list of the glyph names in the order they should
+appear in the TeX font. You need to replace the entries where the glyphs
+are missing with the correct names.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20080207/5a8d1597/attachment.pgp>
+
+From michael.murphy at uni-ulm.de  Thu Feb  7 17:59:09 2008
+From: michael.murphy at uni-ulm.de (Michael Murphy)
+Date: Thu, 07 Feb 2008 17:59:09 +0100
+Subject: [Minionpro-devel] FontFolio 11
+In-Reply-To: <20080207144942.GG18058@mathematik.tu-darmstadt.de>
+References: <1202301924.8218.3.camel@karneol3.physik.uni-ulm.de>
+	<1202304693.8218.6.camel@karneol3.physik.uni-ulm.de>
+	<1202306002.8218.14.camel@karneol3.physik.uni-ulm.de>
+	<20080207081831.GA18058@mathematik.tu-darmstadt.de>
+	<1202374442.6661.3.camel@karneol3.physik.uni-ulm.de>
+	<20080207144942.GG18058@mathematik.tu-darmstadt.de>
+Message-ID: <1202403549.8879.9.camel@karneol3.physik.uni-ulm.de>
+
+
+Achim Blumensath wrote:
+> You need to get the name given to the glyph in the actual font. This
+> information is available for instance in a font editor such as fontforge
+> or from the afm files, if you have any. In my version of MinionPro the
+> glyphs are called /orn.001 etc.
+
+The glyphs seem to be named /bullet.001 etc. 
+
+I changed /orn.* in glyph-list-2.000 to /bullet.* and recompiled. Sure
+enough, in one of the encoding files in my tex tree
+(/usr/local/share/texmf/dvips/MinionPro) I find the '/bullet.*'
+references. However, I still get the same output from LaTeX. Was this
+what you meant?
+
+> The enc file is just a list of the glyph names in the order they should
+> appear in the TeX font. You need to replace the entries where the glyphs
+> are missing with the correct names.
+
+I changed /orn.* in glyph-list-2.000 to /bullet.* and recompiled. Sure
+enough, in one of the encoding files in my tex tree
+(/usr/local/share/texmf/dvips/MinionPro) I find the '/bullet.*'
+references. However, I still get the same output from LaTeX. Was this
+what you meant for me to do? If I don't use --pack, I get ridiculous
+numbers of .enc files.
+
+I also can't understand why the two flower symbols still work.
+
+-- 
+Michael Murphy MPhys
+
+Institute of Quantum Information Processing
+Universit?t Ulm,
+Albert-Einstein-Allee 11
+D-89081 Ulm
+DEUTSCHLAND
+tel +49 731 50 22931
+fax +49 731 50 22839
+
+michael.murphy at uni-ulm.de
+
+
+
+From blumensath at mathematik.tu-darmstadt.de  Fri Feb  8 10:23:57 2008
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Fri, 8 Feb 2008 10:23:57 +0100
+Subject: [Minionpro-devel] FontFolio 11
+In-Reply-To: <1202403549.8879.9.camel@karneol3.physik.uni-ulm.de>
+References: <1202301924.8218.3.camel@karneol3.physik.uni-ulm.de>
+	<1202304693.8218.6.camel@karneol3.physik.uni-ulm.de>
+	<1202306002.8218.14.camel@karneol3.physik.uni-ulm.de>
+	<20080207081831.GA18058@mathematik.tu-darmstadt.de>
+	<1202374442.6661.3.camel@karneol3.physik.uni-ulm.de>
+	<20080207144942.GG18058@mathematik.tu-darmstadt.de>
+	<1202403549.8879.9.camel@karneol3.physik.uni-ulm.de>
+Message-ID: <20080208092357.GC30285@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Michael Murphy wrote:
+> Achim Blumensath wrote:
+> > You need to get the name given to the glyph in the actual font.
+> The glyphs seem to be named /bullet.001 etc. 
+> I changed /orn.* in glyph-list-2.000 to /bullet.* and recompiled.
+> Sureenough, in one of the encoding files in my tex tree (/usr/local/share/texmf/dvips/MinionPro)
+> I find the '/bullet.*'references. However, I still get the same output
+> from LaTeX. Was thiswhat you meant?
+
+You should also change the file enc/mn-extra-u.enc
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20080208/348a0df9/attachment.pgp>
+
+From michael.murphy at uni-ulm.de  Fri Feb  8 16:06:57 2008
+From: michael.murphy at uni-ulm.de (Michael Murphy)
+Date: Fri, 08 Feb 2008 16:06:57 +0100
+Subject: [Minionpro-devel] FontFolio 11
+In-Reply-To: <20080208092357.GC30285@mathematik.tu-darmstadt.de>
+References: <1202301924.8218.3.camel@karneol3.physik.uni-ulm.de>
+	<1202304693.8218.6.camel@karneol3.physik.uni-ulm.de>
+	<1202306002.8218.14.camel@karneol3.physik.uni-ulm.de>
+	<20080207081831.GA18058@mathematik.tu-darmstadt.de>
+	<1202374442.6661.3.camel@karneol3.physik.uni-ulm.de>
+	<20080207144942.GG18058@mathematik.tu-darmstadt.de>
+	<1202403549.8879.9.camel@karneol3.physik.uni-ulm.de>
+	<20080208092357.GC30285@mathematik.tu-darmstadt.de>
+Message-ID: <1202483217.7825.12.camel@karneol3.physik.uni-ulm.de>
+
+
+Achim Blumensath wrote:
+
+> You should also change the file enc/mn-extra-u.enc
+
+Ah OK I get it now --- basically, the numbers arguments for \Pisymbol
+refer to the list in mn-extra-u.enc (in a roundabout way anyway), which
+in turn refers to particular font names in the metrics. So, what I have
+done is to go through the font using font forge and match up all of the
+names of the missing symbols. It wasn't just a case of replacing 'orn'
+with 'bullet', as not all of the orn symbols had been changed to bullet
+(they were instead uni****).
+
+(NB: I tried just renaming the glyphs in my .enc files without
+rebuilding and then running updmap, but this didn't seem to work for me,
+so I recompiled.)
+
+Here is the working mn-extra-u.enc file:
+
+http://www.mediafire.com/?24tw11d9z0z
+
+and my final glyph complement
+
+http://www.mediafire.com/?azyhcd4lofd
+
+Thanks again for all the help.
+
+Michael.
+
+-- 
+Michael Murphy MPhys
+
+Institute of Quantum Information Processing
+Universit?t Ulm,
+Albert-Einstein-Allee 11
+D-89081 Ulm
+DEUTSCHLAND
+tel +49 731 50 22931
+fax +49 731 50 22839
+
+michael.murphy at uni-ulm.de
+
+
+

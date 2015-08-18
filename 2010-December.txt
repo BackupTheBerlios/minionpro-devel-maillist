@@ -1,0 +1,86 @@
+From mail at manuel-koch.de  Fri Dec 10 15:28:13 2010
+From: mail at manuel-koch.de (Manuel Koch)
+Date: Fri, 10 Dec 2010 15:28:13 +0100
+Subject: [Minionpro-devel] Where is enc-2.030.zip?
+Message-ID: <57FFC0B540DA104D9AB66CC1B2DD6513437959@winxbede30.exchange.xchg>
+
+Hi!
+
+In reply to the message of Ben M. Fri Aug 14 06:04:50 CEST 2009,
+kindly posting the encodings for Version 2.030 of the fonts (FontFolio 11)
+
+Just to let you know, it works. Keep the files somewhere safe.
+https://lists.berlios.de/pipermail/minionpro-devel/attachments/20090814/4e956ea2/attachment.zip
+
+
+Thanks again,
+Manuel
+
+
+
+
+From schubert.seb at googlemail.com  Fri Dec 24 10:19:51 2010
+From: schubert.seb at googlemail.com (Sebastian Schubert)
+Date: Fri, 24 Dec 2010 10:19:51 +0100
+Subject: [Minionpro-devel] Myriad and Cronos support
+Message-ID: <201012241019.55900.schubert.seb@googlemail.com>
+
+Hi,
+
+I've been hacking the scripts of the great MinionPro package to support 
+other fonts -- at the moment mainly Myriad Pro. Here is the result:
+
+http://github.com/sebschub/FontPro
+
+I think for some purposes this gives reasonable results. My modifications 
+so far:
+
+* support of MyriadPro: math and text; tuned accent positions of italic 
+roman letters and of italic and upright greek letters; use scaled swash 
+letters of CronosPro as mathcal; loadable with eg MinionPro
+
+* text only support of CronosPro
+
+* fixed typo in MinionPro.dtx connected with microtype; take kerning 
+information of accents and swash letters into account
+
+(maybe a change in the LCDF typetools made the last point necessary)
+
+
+Obviously, there is still work to do. One of the major points is the 
+ability to use the scripts with lcdf typetools > 2.69.  I was somehow 
+able to identify the cause why the adjust-oml gives an error for the 
+accent positions for the letters eg rho1, beta1, etc for me: as far as I 
+can see, the to vpl converted tfms do include less letters which might 
+be the letters which cause the problems..... However, it is strange that 
+on some systems there is no problem at all; I was not able to find the 
+difference between these systems...
+
+
+The major points connected with MyriadPro is the adaptation of MnSymbol 
+for MyriadPro. So far, I did not have the time to look at it.  In 
+addition, I did not succeed to tune the accent position of upright roman 
+letters in math mode. The UP* information in adjust-oml.mtx seems to be 
+connected to mathnormal... On the other hand, kerning pairs including 
+the german double ss which is meant as the skew character in the setup 
+(and which works with the swash letters of MinionPro) did not have any 
+effect, either...
+
+Furthermore, the scale option I implemented does not correctly use the 
+font size to choose which optical weight to select. The decision is made 
+and then the font is scaled. I'll have to look at that later... Anyway, 
+it's a not a big deal for the correction factor of 1.05 I need for 
+CronosPro's swash for Myriad...
+
+Everyone is invited to try the scripts. Anyone with an idea to solve the 
+mentioned problems is also. :D
+
+Sebastian
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 198 bytes
+Desc: This is a digitally signed message part.
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20101224/87b8226a/attachment.pgp>
+

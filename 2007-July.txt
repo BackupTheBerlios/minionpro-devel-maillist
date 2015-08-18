@@ -1,0 +1,23 @@
+From blacktrash at gmx.net  Mon Jul  9 14:57:22 2007
+From: blacktrash at gmx.net (Christian Ebert)
+Date: Mon, 9 Jul 2007 14:57:22 +0200
+Subject: [Minionpro-devel] onlytext required?
+Message-ID: <20070709125722.GB24507@krille.blacktrash.org>
+
+Hello,
+
+I recently updated from CVS, and now some documents seem to
+require the "onlytext" option to compile without errors.
+Otherwise I get:
+
+! Font OML/MinionPro-TOsF/m/it/12=MinionPro-Mixed-oml at 12.0pt not loadable:
+Metric (TFM) file not found.
+
+Is this due to a change, or did something go wrong with my
+install?
+
+c
+-- 
+_B A U S T E L L E N_ lesen! --->> <http://www.blacktrash.org/baustellen.html>
+
+

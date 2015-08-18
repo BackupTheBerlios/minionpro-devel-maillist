@@ -1,0 +1,192 @@
+From awirsing at zedat.fu-berlin.de  Thu Aug  5 19:15:27 2010
+From: awirsing at zedat.fu-berlin.de (Andreas Wirsing)
+Date: Thu, 5 Aug 2010 19:15:27 +0200
+Subject: [Minionpro-devel] changing temporarily to text figures in math mode
+In-Reply-To: <20100217152953.GG12204@mathematik.tu-darmstadt.de>
+References: <73B26D2B-5716-44E3-914D-025C70D91AA1@zedat.fu-berlin.de>
+	<20100217082757.GB12204@mathematik.tu-darmstadt.de>
+	<0CB7BBE5-B11C-4EF9-9C5F-764CF2E56292@zedat.fu-berlin.de>
+	<20100217123045.GF12204@mathematik.tu-darmstadt.de>
+	<74FE31C3-3ACA-4D2C-8E11-CD35ACC6B0CB@zedat.fu-berlin.de>
+	<20100217152953.GG12204@mathematik.tu-darmstadt.de>
+Message-ID: <C2E7240D-8BFF-4A64-AC9D-62F401256672@zedat.fu-berlin.de>
+
+Hello,
+
+I am loading Minion Pro with the mathlf package option. Is there a way to switch temporarily to text figures in math mode?
+
+...
+1234 $\figureversion{mathosf} 1234$
+...
+
+This throws no error, but has no effect at all. The figures outside and inside the math environment still look different.
+
+I appreciate your help,
+Andreas
+
+From andreas.buehmann at web.de  Thu Aug  5 20:33:40 2010
+From: andreas.buehmann at web.de (=?ISO-8859-1?Q?Andreas_B=FChmann?=)
+Date: Thu, 05 Aug 2010 20:33:40 +0200
+Subject: [Minionpro-devel] changing temporarily to text figures in math
+ mode
+In-Reply-To: <C2E7240D-8BFF-4A64-AC9D-62F401256672@zedat.fu-berlin.de>
+References: <73B26D2B-5716-44E3-914D-025C70D91AA1@zedat.fu-berlin.de>	<20100217082757.GB12204@mathematik.tu-darmstadt.de>	<0CB7BBE5-B11C-4EF9-9C5F-764CF2E56292@zedat.fu-berlin.de>	<20100217123045.GF12204@mathematik.tu-darmstadt.de>	<74FE31C3-3ACA-4D2C-8E11-CD35ACC6B0CB@zedat.fu-berlin.de>	<20100217152953.GG12204@mathematik.tu-darmstadt.de>
+	<C2E7240D-8BFF-4A64-AC9D-62F401256672@zedat.fu-berlin.de>
+Message-ID: <4C5B0404.2040504@web.de>
+
+Hello,
+
+> I am loading Minion Pro with the mathlf package option. Is there a way to switch temporarily to text figures in math mode?
+>   
+
+no; font selection differs completely in text and math mode.
+\figureversion is only allowed in text mode (and takes different
+arguments than in your example, see docs).
+
+I hope you know what you're doing (mixing different figure styles in
+math mode could lead to a lot of confusion). If so, you could declare a
+special math alphabet for referencing a few text figures in an otherwise
+lining-figures environment:
+
+\documentclass{minimal}
+\usepackage[mathlf]{MinionPro}
+\usepackage{amsmath}
+
+\DeclareMathAlphabet{\mathosf}{T1}{MinionPro-OsF}{m}{n}
+
+\begin{document}
+$123 \ne \mathosf{123}$?
+\end{document}
+
+Kind regards,
+
+Andreas
+
+
+From bgeneto at gmail.com  Wed Aug 11 03:09:52 2010
+From: bgeneto at gmail.com (Bernhard Enders)
+Date: Tue, 10 Aug 2010 21:09:52 -0400
+Subject: [Minionpro-devel] Personal invitation from Bernhard Enders
+Message-ID: <7plag0$1hqmem9@ironport-b.unyk.com>
+
+
+
+If you are not able to click these links, click the following: ??Show content?? and try again.
+E-mail sent 8/10/2010 9:09:10 PM, by Bernhard Enders:
+
+
+
+Hello,
+
+
+
+Finally, a smart and simple way to manage your contacts!
+
+With UNYK, I put all my contacts together in <b>one address book</b> that is <b>automatically updated</b>. One of my contacts changes his or her information at UNYK.com: My address book is updated. I change information at UNYK.com: My contacts? address books are updated. Simple, but life-changing!
+
+Can I add you as one of my contacts? To accept, click here!
+http://www.unyk.com/ml/604/233/?i=DC5FCA97EAF5454D96848363BE5D76EB&s=19860139&w=1281474550
+
+You too can create your own smart address book.
+
+
+
+Bernhard Enders
+UNYK : GRI 877
+
+
+
+Please do not reply to this email directly. Questions? Contact us - http://unyk.com/en/Contact
+UNYK Inc., 1010 de Serigny, suite 820, Longueuil, QC, J4K 5G7, Canada.
+
+I no longer wish to receive invitations to join UNYK from Bernhard Enders: Unsubscribe
+http://www.unyk.com/ml/604/235/?mid=9E9AAAAA797586A6&email=minionpro-devel at lists.berlios.de&s=19860139&w=1281474550
+
+I never again wish to receive invitation to join UNYK: Unsubscribe
+http://www.unyk.com/ml/604/234/?i=DC5FCA97EAF5454D96848363BE5D76EB&s=19860139&w=1281474550
+
+
+
+UNYK, the first smart address book that updates itself!
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20100810/2d0dd4d0/attachment.html>
+
+From schubert.seb at googlemail.com  Sat Aug 28 17:34:21 2010
+From: schubert.seb at googlemail.com (Sebastian Schubert)
+Date: Sat, 28 Aug 2010 17:34:21 +0200
+Subject: [Minionpro-devel] Adjust accents over swash letters
+Message-ID: <201008281734.25779.schubert.seb@googlemail.com>
+
+Hi,
+
+I'd like to adjust the accents over swash letters. See this example:
+
+\documentclass{scrartcl}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[swash]{MinionPro}
+
+\begin{document}
+\[
+\tilde{\mathcal{V}}
+\]
+\end{document}
+
+
+For my taste, the ~ is too far left. As far as I can see, adjustments can be 
+done in adjust-oml.mtx, right? But what is the name of the swash capitals. I 
+tried something V.swash (like used in the kern files) but that did not work. 
+What is the correct name? How can I get the names of the glyphs?
+
+Knowing that I might have the time to fix the problem with newer lcdf-
+typetools.
+
+
+Thanks!
+Sebastian
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 198 bytes
+Desc: This is a digitally signed message part.
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20100828/bc187c45/attachment.pgp>
+
+From blumensath at mathematik.tu-darmstadt.de  Tue Aug 31 11:32:53 2010
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Tue, 31 Aug 2010 11:32:53 +0200
+Subject: [Minionpro-devel] Adjust accents over swash letters
+In-Reply-To: <201008281734.25779.schubert.seb@googlemail.com>
+References: <201008281734.25779.schubert.seb@googlemail.com>
+Message-ID: <20100831093252.GA27066@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Sebastian Schubert wrote:
+> I'd like to adjust the accents over swash letters. For my taste, the ~
+> is too far left. As far as I can see, adjustments can be done in
+> adjust-oml.mtx, right?
+
+No, the swash letters are not in the OML encoding.
+I think the easiest way is to modify the kerning files.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: Digital signature
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20100831/90b0b864/attachment.pgp>
+

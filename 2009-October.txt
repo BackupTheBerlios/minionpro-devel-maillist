@@ -1,0 +1,31 @@
+From rezonatix3 at yahoo.no  Sat Oct 10 23:29:15 2009
+From: rezonatix3 at yahoo.no (Marius Andersen)
+Date: Sat, 10 Oct 2009 21:29:15 +0000 (GMT)
+Subject: [Minionpro-devel] Use open g in text
+Message-ID: <579.50943.qm@web26602.mail.ukl.yahoo.com>
+
+I wonder if it's possible to define switch commands for substituting
+the open italic g for the closed italic g, and vice versa. For
+captions and the like, I would like to use the open italic g together
+with Swash capitals, but otherwise I want the regular italic g. So, if
+I had the commands
+
+    \UseOpenItalicG
+
+    \UseClosedItalicG
+
+then I could redefine \textsc to use the open g. Note that I have
+Minion Pro Opticals, so the open g needs to be taken from the same
+optical size.
+
+Is this possible? I experimented with \ensuremath{\openg}, but it adds
+horizontal space around the letter.
+
+
+
+      _________________________________________________________
+Alt i ett. F? Yahoo! Mail med adressekartotek, kalender og
+notisblokk. http://no.mail.yahoo.com
+
+
+

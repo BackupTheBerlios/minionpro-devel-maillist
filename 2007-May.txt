@@ -1,0 +1,2295 @@
+From bgeneto at gmail.com  Wed May  2 05:19:35 2007
+From: bgeneto at gmail.com (Bernhard Enders)
+Date: Wed, 2 May 2007 00:19:35 -0300
+Subject: [Minionpro-devel] Too many files when compiling from source
+Message-ID: <2257ea30705012019m45d3f851xdb8b2adfb0b89686@mail.gmail.com>
+
+Hi!
+
+I've got much more generated (tfm, vf, enc) files when compiling
+MinionPro package from the source than one gets in the packed zip
+files (enc-1.001.zip, metrics-*.zip) available from BerliOS, even
+disabling the vietnamese metrics. For example, I've got 112 .enc files
+named "a_xxxxxx.enc" plus a "mn-integral.enc" (none named
+base-MinionPro-ax.enc) and twice (or more) the tfm files.
+Consequently, the resulting MinionPro.map is absurdly huge. I follow
+the procedure (makeall and install) described in the README in order
+to compile the package sources downloaded from cvs? Does anybody know
+what is going wrong, i.e., if something is going wrong?
+
+TIA,
+
+Bernhard Enders.
+
+
+PS.: I was unable to compile MnSymbol, is the cvs structure of this
+package broken? Where is, for example, the pfb directory?
+
+
+From michael.zedler at tum.de  Wed May  2 15:17:16 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Wed, 2 May 2007 15:17:16 +0200
+Subject: [Minionpro-devel] Too many files when compiling from source
+In-Reply-To: <2257ea30705012019m45d3f851xdb8b2adfb0b89686@mail.gmail.com>
+References: <2257ea30705012019m45d3f851xdb8b2adfb0b89686@mail.gmail.com>
+Message-ID: <FD91DB03-C155-42AA-9546-5AF3C9DAD550@tum.de>
+
+Hello,
+
+Am 02.05.2007 um 05:19 schrieb Bernhard Enders:
+> I've got much more generated (tfm, vf, enc) files when compiling
+> MinionPro package from the source than one gets in the packed zip
+> files (enc-1.001.zip, metrics-*.zip) available from BerliOS, even
+> disabling the vietnamese metrics. For example, I've got 112 .enc files
+> named "a_xxxxxx.enc" plus a "mn-integral.enc" (none named
+> base-MinionPro-ax.enc) and twice (or more) the tfm files.
+> Consequently, the resulting MinionPro.map is absurdly huge. I follow
+> the procedure (makeall and install) described in the README in order
+> to compile the package sources downloaded from cvs? Does anybody know
+> what is going wrong, i.e., if something is going wrong?
+
+Looks like it's not documented yet in the readme:
+   Use the --pack option for makeall/maketfm, the glyphlist files are  
+in the scripts subdirectory.
+
+> PS.: I was unable to compile MnSymbol, is the cvs structure of this
+> package broken? Where is, for example, the pfb directory?
+
+What do you mean by compiling MnSymbol? The pfb/otf are generated  
+through the scripts provided in MnSymbol's CVS subdirectory. Did you  
+modify MnSymbol's sources and now you need custom pfb/otf?
+
+Best,
+Michael
+
+
+
+
+From bgeneto at gmail.com  Wed May  2 19:39:29 2007
+From: bgeneto at gmail.com (Bernhard Enders)
+Date: Wed, 2 May 2007 14:39:29 -0300
+Subject: [Minionpro-devel] Too many files when compiling from source
+In-Reply-To: <FD91DB03-C155-42AA-9546-5AF3C9DAD550@tum.de>
+References: <2257ea30705012019m45d3f851xdb8b2adfb0b89686@mail.gmail.com>
+	<FD91DB03-C155-42AA-9546-5AF3C9DAD550@tum.de>
+Message-ID: <2257ea30705021039td8d7092s7f96d0bd0ca6587c@mail.gmail.com>
+
+On 5/2/07, Michael Zedler <michael.zedler at tum.de> wrote:
+> Looks like it's not documented yet in the readme:
+>    Use the --pack option for makeall/maketfm, the glyphlist files are
+> in the scripts subdirectory.
+
+Ok. Now I used the option --pack="./scripts/glyph-list-1.001" and it
+works fine for me, but unfortunately this seems to be the cause of
+errors in the dvips render method of Yap (invalid vector<T> subscript
+error) mentioned before in this list.
+
+Is there any way to generate the glyph-list for a given font before
+processing the metrics and everything else? I see that the
+generate-glyph-list.sh script uses all post processing dvips/a_*.enc
+files to accomplish this, even though the output is different
+(smaller) from the provided glyph-list-* files.
+
+>
+> What do you mean by compiling MnSymbol? The pfb/otf are generated
+> through the scripts provided in MnSymbol's CVS subdirectory. Did you
+> modify MnSymbol's sources and now you need custom pfb/otf?
+
+Sorry, my fault here.
+
+Thanks one more time,
+
+Bernhard.
+
+
+From bgeneto at gmail.com  Wed May  2 23:32:36 2007
+From: bgeneto at gmail.com (Bernhard Enders)
+Date: Wed, 2 May 2007 18:32:36 -0300
+Subject: [Minionpro-devel] Too many files when compiling from source
+In-Reply-To: <2257ea30705021039td8d7092s7f96d0bd0ca6587c@mail.gmail.com>
+References: <2257ea30705012019m45d3f851xdb8b2adfb0b89686@mail.gmail.com>
+	<FD91DB03-C155-42AA-9546-5AF3C9DAD550@tum.de>
+	<2257ea30705021039td8d7092s7f96d0bd0ca6587c@mail.gmail.com>
+Message-ID: <2257ea30705021432h386c4a0cief696bb31fc00217@mail.gmail.com>
+
+On 5/2/07, Bernhard Enders <bgeneto at gmail.com> wrote:
+> On 5/2/07, Michael Zedler <michael.zedler at tum.de> wrote:
+> > What do you mean by compiling MnSymbol? The pfb/otf are generated
+> > through the scripts provided in MnSymbol's CVS subdirectory. Did you
+> > modify MnSymbol's sources and now you need custom pfb/otf?
+>
+> Sorry, my fault here.
+
+In fact I'm still confused about what to change in the MinionPro
+source files in order to support different Adobe Pro font families.
+For example, a simple find and replace allows me to produce the
+following test document using WarnockPro fonts:
+
+http://www.bernhard.pro.br/pub/testmath_WarnockPro.pdf
+
+Note that (on page 24) the \varrho symbol is missing. Maybe there is
+need to change something else in the MinionPro.dtx? Any additional
+help in this direction is welcome!
+
+Thanks one more time,
+
+Bernhard.
+
+
+From michael.zedler at tum.de  Thu May  3 00:09:08 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Thu, 3 May 2007 00:09:08 +0200
+Subject: [Minionpro-devel] Too many files when compiling from source
+In-Reply-To: <2257ea30705021039td8d7092s7f96d0bd0ca6587c@mail.gmail.com>
+References: <2257ea30705012019m45d3f851xdb8b2adfb0b89686@mail.gmail.com>
+	<FD91DB03-C155-42AA-9546-5AF3C9DAD550@tum.de>
+	<2257ea30705021039td8d7092s7f96d0bd0ca6587c@mail.gmail.com>
+Message-ID: <A949ED8F-D3F6-4AD2-944E-0BC651F67E06@tum.de>
+
+
+Am 02.05.2007 um 19:39 schrieb Bernhard Enders:
+
+> On 5/2/07, Michael Zedler <michael.zedler at tum.de> wrote:
+>> Looks like it's not documented yet in the readme:
+>>    Use the --pack option for makeall/maketfm, the glyphlist files are
+>> in the scripts subdirectory.
+>
+> Ok. Now I used the option --pack="./scripts/glyph-list-1.001" and it
+> works fine for me, but unfortunately this seems to be the cause of
+> errors in the dvips render method of Yap (invalid vector<T> subscript
+> error) mentioned before in this list.
+
+Which is a yap-bug. Both happening with MathTimePro and the new  
+MinionPro RC3. Christian Schenk asked for a test case, would be nice  
+if somebody could provide one.
+
+> Is there any way to generate the glyph-list for a given font before
+> processing the metrics and everything else? I see that the
+> generate-glyph-list.sh script uses all post processing dvips/a_*.enc
+> files to accomplish this, even though the output is different
+> (smaller) from the provided glyph-list-* files.
+
+None that I know of. Some post-processing of the glyphlist generated  
+by 'generate-glyph-list.sh' may be in order so that all too wild  
+jumping between base encodings can be avoided. I did this half- 
+manually, see the enc-files of MinionPro's RC3 to get a rough idea.
+
+Michael
+
+
+From michael.zedler at tum.de  Thu May  3 00:03:40 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Thu, 3 May 2007 00:03:40 +0200
+Subject: [Minionpro-devel] Too many files when compiling from source
+In-Reply-To: <2257ea30705021432h386c4a0cief696bb31fc00217@mail.gmail.com>
+References: <2257ea30705012019m45d3f851xdb8b2adfb0b89686@mail.gmail.com>
+	<FD91DB03-C155-42AA-9546-5AF3C9DAD550@tum.de>
+	<2257ea30705021039td8d7092s7f96d0bd0ca6587c@mail.gmail.com>
+	<2257ea30705021432h386c4a0cief696bb31fc00217@mail.gmail.com>
+Message-ID: <E446246F-C3AB-45B3-93B8-FB6659709B4C@tum.de>
+
+
+Am 02.05.2007 um 23:32 schrieb Bernhard Enders:
+
+> On 5/2/07, Bernhard Enders <bgeneto at gmail.com> wrote:
+>> On 5/2/07, Michael Zedler <michael.zedler at tum.de> wrote:
+>>> What do you mean by compiling MnSymbol? The pfb/otf are generated
+>>> through the scripts provided in MnSymbol's CVS subdirectory. Did you
+>>> modify MnSymbol's sources and now you need custom pfb/otf?
+>>
+>> Sorry, my fault here.
+>
+> In fact I'm still confused about what to change in the MinionPro
+> source files in order to support different Adobe Pro font families.
+> For example, a simple find and replace allows me to produce the
+> following test document using WarnockPro fonts:
+>
+> http://www.bernhard.pro.br/pub/testmath_WarnockPro.pdf
+
+I'll give it a closer look. Looks like the integral is taken from  
+Janson, why? I'd suggest giving it a try with Warnock-LightItDisp  
+with a slight negative slant but no expansion/compression for  
+displayed integrals. Did you adapt the fontinst files so that \oint  
+and friend are ok (in text and display style if used together with  
+the equivalent of the minionint-option)?
+Did you adapt the side bearings and accent positions already? They  
+look ok at first sight.
+
+> Note that (on page 24) the \varrho symbol is missing. Maybe there is
+> need to change something else in the MinionPro.dtx? Any additional
+> help in this direction is welcome!
+
+This is done in scripts/maketfm-*.cfg, e.g. in maketfm-MinionPro.cfg by
+   oml_flags="--unicoding 'rho1 =: rho'"
+mapping rho to varrho. Better check all encodings with 'testfont'.  
+See our scripts where we had to make extra efforts differentiating  
+between font versions and upright/italic.
+
+Michael
+
+
+
+
+From bgeneto at gmail.com  Thu May  3 14:10:48 2007
+From: bgeneto at gmail.com (Bernhard Enders)
+Date: Thu, 3 May 2007 09:10:48 -0300
+Subject: [Minionpro-devel] Too many files when compiling from source
+In-Reply-To: <E446246F-C3AB-45B3-93B8-FB6659709B4C@tum.de>
+References: <2257ea30705012019m45d3f851xdb8b2adfb0b89686@mail.gmail.com>
+	<FD91DB03-C155-42AA-9546-5AF3C9DAD550@tum.de>
+	<2257ea30705021039td8d7092s7f96d0bd0ca6587c@mail.gmail.com>
+	<2257ea30705021432h386c4a0cief696bb31fc00217@mail.gmail.com>
+	<E446246F-C3AB-45B3-93B8-FB6659709B4C@tum.de>
+Message-ID: <2257ea30705030510lc30ad9au717ac6f8dab35f51@mail.gmail.com>
+
+On 5/2/07, Michael Zedler <michael.zedler at tum.de> wrote:
+>
+> I'll give it a closer look. Looks like the integral is taken from
+> Janson, why? I'd suggest giving it a try with Warnock-LightItDisp
+> with a slight negative slant but no expansion/compression for
+> displayed integrals.
+
+This was not intended, I think there is a bug somewhere in my Jenson
+package related to the integral sign. I will give Warnock-LightItDisp
+a try.
+
+> Did you adapt the fontinst files so that \oint
+> and friend are ok (in text and display style if used together with
+> the equivalent of the minionint-option)?
+
+Yes, I do.
+
+> Did you adapt the side bearings and accent positions already? They
+> look ok at first sight.
+
+No changes needed here, as they (side bearings and accent positions)
+look pretty good, IMHO. I think there is little work to do in order to
+produce a WarnockPro+MnSymbol package based on MinionPro... and it's
+worth. What do you think guys? (I'm spreading seeds hoping to reap
+fruits!)
+
+Bernhard.
+
+
+From michael.zedler at tum.de  Thu May  3 14:20:33 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Thu, 3 May 2007 14:20:33 +0200
+Subject: [Minionpro-devel] Too many files when compiling from source
+In-Reply-To: <2257ea30705030510lc30ad9au717ac6f8dab35f51@mail.gmail.com>
+References: <2257ea30705012019m45d3f851xdb8b2adfb0b89686@mail.gmail.com>
+	<FD91DB03-C155-42AA-9546-5AF3C9DAD550@tum.de>
+	<2257ea30705021039td8d7092s7f96d0bd0ca6587c@mail.gmail.com>
+	<2257ea30705021432h386c4a0cief696bb31fc00217@mail.gmail.com>
+	<E446246F-C3AB-45B3-93B8-FB6659709B4C@tum.de>
+	<2257ea30705030510lc30ad9au717ac6f8dab35f51@mail.gmail.com>
+Message-ID: <E7E9D637-AF33-4E11-BD4A-32B0277CE150@tum.de>
+
+Hello,
+
+Am 03.05.2007 um 14:10 schrieb Bernhard Enders:
+> somewhere in my Jenson package
+
+Jenson package, that sounds interesting. Where did you take the Greek  
+glyphs from?
+
+BTW, are you aware of my Kepler MultipleMaster package?
+   http://www.hft.ei.tum.de/mz/kepler_sample.zip
+   http://www.hft.ei.tum.de/mz/keplerMM.zip
+It uses mtpro2 for Greek letters and the symbols.
+
+Michael
+
+
+From bgeneto at gmail.com  Fri May  4 14:09:11 2007
+From: bgeneto at gmail.com (Bernhard Enders)
+Date: Fri, 4 May 2007 09:09:11 -0300
+Subject: [Minionpro-devel] Too many files when compiling from source
+In-Reply-To: <E7E9D637-AF33-4E11-BD4A-32B0277CE150@tum.de>
+References: <2257ea30705012019m45d3f851xdb8b2adfb0b89686@mail.gmail.com>
+	<FD91DB03-C155-42AA-9546-5AF3C9DAD550@tum.de>
+	<2257ea30705021039td8d7092s7f96d0bd0ca6587c@mail.gmail.com>
+	<2257ea30705021432h386c4a0cief696bb31fc00217@mail.gmail.com>
+	<E446246F-C3AB-45B3-93B8-FB6659709B4C@tum.de>
+	<2257ea30705030510lc30ad9au717ac6f8dab35f51@mail.gmail.com>
+	<E7E9D637-AF33-4E11-BD4A-32B0277CE150@tum.de>
+Message-ID: <2257ea30705040509u63c5e7b0u92ec0cfb08aa342@mail.gmail.com>
+
+On 5/3/07, Michael Zedler <michael.zedler at tum.de> wrote:
+>
+> Jenson package, that sounds interesting. Where did you take the Greek
+> glyphs from?
+
+Not too interesting since there are not greek letters (as you mention)
+and many other characters are missing from this "Pro" font family.
+
+Bernhard.
+
+> BTW, are you aware of my Kepler MultipleMaster package?
+>    http://www.hft.ei.tum.de/mz/kepler_sample.zip
+>    http://www.hft.ei.tum.de/mz/keplerMM.zip
+> It uses mtpro2 for Greek letters and the symbols.
+
+I will give it a try, thanks,
+
+Bernhard.
+
+
+From bgeneto at gmail.com  Fri May  4 14:28:41 2007
+From: bgeneto at gmail.com (Bernhard Enders)
+Date: Fri, 4 May 2007 09:28:41 -0300
+Subject: [Minionpro-devel] glyph-list and invalid vector<T> subscript error
+Message-ID: <2257ea30705040528i56558657xf4091bc6e5364f0e@mail.gmail.com>
+
+Hello!
+
+I don't know why, but the currently provided files glyph-list-1.000,
+glyph-list-1.001, and glyph-list-2.000 cannot be reproduced using the
+script generate-glyph-list.sh, maybe those glyph files aren't up to
+date with the generate-glyph-list.sh and need recreation.
+
+More important is the fact that this seems to be the cause, according
+to my experience, of the invalid vector<T> subscript error with
+MinionPro and Yap! I have just created new glyph files using the
+current generate-glyph-list.sh and recompiled MinionPro using the
+--pack option point to the new glyph file and surprise: the Yap error
+is gone forever!
+
+Maybe someone else can confirm (reproduce) this report...
+
+Best,
+
+Bernhard.
+
+
+From michael.zedler at tum.de  Fri May  4 14:41:39 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Fri, 4 May 2007 14:41:39 +0200
+Subject: [Minionpro-devel] glyph-list and invalid vector<T> subscript
+	error
+In-Reply-To: <2257ea30705040528i56558657xf4091bc6e5364f0e@mail.gmail.com>
+References: <2257ea30705040528i56558657xf4091bc6e5364f0e@mail.gmail.com>
+Message-ID: <3BE48FC8-1591-4770-B9FA-B34EEB76A41C@tum.de>
+
+
+Am 04.05.2007 um 14:28 schrieb Bernhard Enders:
+> I don't know why, but the currently provided files glyph-list-1.000,
+> glyph-list-1.001, and glyph-list-2.000 cannot be reproduced using the
+> script generate-glyph-list.sh, maybe those glyph files aren't up to
+> date with the generate-glyph-list.sh and need recreation.
+
+They are up-to-date, the glyph list has been half-manually re- 
+arranged so that each encodings isn't all too wildly scattered across  
+different base encodings.
+This also has the effect that the resulting pdf is smaller.
+
+> More important is the fact that this seems to be the cause, according
+> to my experience, of the invalid vector<T> subscript error with
+> MinionPro and Yap! I have just created new glyph files using the
+> current generate-glyph-list.sh and recompiled MinionPro using the
+> --pack option point to the new glyph file and surprise: the Yap error
+> is gone forever!
+
+Odd. In miktex's bug tracker somebody mentions that this bug also  
+appears with MathTime Professional2. I suspect that that it is really  
+a yap bug as pdftex (in pdf mode), dvips, dvipdfm(x), xdvi all work  
+without a problem.
+
+> Maybe someone else can confirm (reproduce) this report...
+
+Indeed, this is highly desirable. Even more if somebody can construct  
+a test case for Christian Schenk of miktex. And, for the record, I  
+don't have miktex at hand, so somebody please go ahead.
+
+Michael
+
+
+
+
+From bgeneto at gmail.com  Fri May  4 14:50:56 2007
+From: bgeneto at gmail.com (Bernhard Enders)
+Date: Fri, 4 May 2007 09:50:56 -0300
+Subject: [Minionpro-devel] glyph-list and invalid vector<T> subscript
+	error
+In-Reply-To: <3BE48FC8-1591-4770-B9FA-B34EEB76A41C@tum.de>
+References: <2257ea30705040528i56558657xf4091bc6e5364f0e@mail.gmail.com>
+	<3BE48FC8-1591-4770-B9FA-B34EEB76A41C@tum.de>
+Message-ID: <2257ea30705040550m6c76216em780421e517285e0e@mail.gmail.com>
+
+On 5/4/07, Michael Zedler <michael.zedler at tum.de> wrote:
+> Indeed, this is highly desirable. Even more if somebody can construct
+> a test case for Christian Schenk of miktex. And, for the record, I
+> don't have miktex at hand, so somebody please go ahead.
+
+I have already supplied Christian with a simple test case involving
+MinionPro that includes the original glyph-list-2.000 and another
+glyph-list without all that /.notdef entries generated by
+generate-glyph-list.sh after processing the fonts.
+
+Bernhard.
+
+
+From michael.zedler at tum.de  Fri May  4 15:24:09 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Fri, 4 May 2007 15:24:09 +0200
+Subject: [Minionpro-devel] glyph-list and invalid vector<T> subscript
+	error
+In-Reply-To: <2257ea30705040550m6c76216em780421e517285e0e@mail.gmail.com>
+References: <2257ea30705040528i56558657xf4091bc6e5364f0e@mail.gmail.com>
+	<3BE48FC8-1591-4770-B9FA-B34EEB76A41C@tum.de>
+	<2257ea30705040550m6c76216em780421e517285e0e@mail.gmail.com>
+Message-ID: <53A5B640-7B66-4978-9A88-586157A1B3EC@tum.de>
+
+
+Am 04.05.2007 um 14:50 schrieb Bernhard Enders:
+
+> On 5/4/07, Michael Zedler <michael.zedler at tum.de> wrote:
+>> Indeed, this is highly desirable. Even more if somebody can construct
+>> a test case for Christian Schenk of miktex. And, for the record, I
+>> don't have miktex at hand, so somebody please go ahead.
+>
+> I have already supplied Christian with a simple test case involving
+> MinionPro that includes the original glyph-list-2.000 and another
+> glyph-list without all that /.notdef entries generated by
+> generate-glyph-list.sh after processing the fonts.
+
+According to http://tinyurl.com/38kxch he's not happy with the test  
+cases.
+
+What do you mean by removing the /.notdef entries? Each base encoding  
+needs to have exactly 256 entries, the remaining empty ones are  
+filles up with /.notdef.
+
+Michael
+
+
+
+
+From bgeneto at gmail.com  Fri May  4 16:05:53 2007
+From: bgeneto at gmail.com (Bernhard Enders)
+Date: Fri, 4 May 2007 11:05:53 -0300
+Subject: [Minionpro-devel] glyph-list and invalid vector<T> subscript
+	error
+In-Reply-To: <53A5B640-7B66-4978-9A88-586157A1B3EC@tum.de>
+References: <2257ea30705040528i56558657xf4091bc6e5364f0e@mail.gmail.com>
+	<3BE48FC8-1591-4770-B9FA-B34EEB76A41C@tum.de>
+	<2257ea30705040550m6c76216em780421e517285e0e@mail.gmail.com>
+	<53A5B640-7B66-4978-9A88-586157A1B3EC@tum.de>
+Message-ID: <2257ea30705040705nc4f09fam9e34df41b290c30c@mail.gmail.com>
+
+On 5/4/07, Michael Zedler <michael.zedler at tum.de> wrote:
+> According to http://tinyurl.com/38kxch he's not happy with the test
+> cases.
+
+Those are old "test cases". I submitted a new one today.
+
+> What do you mean by removing the /.notdef entries? Each base encoding
+> needs to have exactly 256 entries, the remaining empty ones are
+> filles up with /.notdef.
+
+I thought those /.notdef entries should be present only in the
+resulting .enc file and not in the glyph-list, just a guess, I'm quite
+new to all of this...
+
+Bernhard.
+
+
+From bgeneto at gmail.com  Mon May  7 05:04:58 2007
+From: bgeneto at gmail.com (Bernhard Enders)
+Date: Mon, 7 May 2007 00:04:58 -0300
+Subject: [Minionpro-devel] Replaced integral sign on new package installation
+Message-ID: <2257ea30705062004m2385a3bdt6bbb02b4a9066e3@mail.gmail.com>
+
+Hi!
+
+I'm trying to create some new font packages based on MinionPro source
+code. One interesting issue I've noticed is that the integral sign is
+taken from the most recent installed font package, while using the
+$fontint option (e.g., minionint, warnockint, etc...). For example: if
+I install WarnockPro package first then the integral sign is taken
+from say WarnockPro-It-integral. But if after this I install the
+MinionPro package then both MinionPro and WarnockPro packages will
+share the same integral sign, namely, MinionPro-It-integral, and so on
+and so forth. Is there anything I am missing or this annoyance is
+related to MnSymbol package or maybe because of a generic name used in
+one of MinionPro sources? Many thanks,
+
+Bernhard.
+
+ps.: Do I need the --expanded option in order to the microtype package works?
+
+
+From michael.zedler at tum.de  Mon May  7 08:23:35 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Mon, 7 May 2007 08:23:35 +0200
+Subject: [Minionpro-devel] Replaced integral sign on new package
+	installation
+In-Reply-To: <2257ea30705062004m2385a3bdt6bbb02b4a9066e3@mail.gmail.com>
+References: <2257ea30705062004m2385a3bdt6bbb02b4a9066e3@mail.gmail.com>
+Message-ID: <D8DA0E81-1009-4F40-B205-3028B6C2CF86@tum.de>
+
+Hello,
+
+Am 07.05.2007 um 05:04 schrieb Bernhard Enders:
+
+> I'm trying to create some new font packages based on MinionPro source
+> code. One interesting issue I've noticed is that the integral sign is
+> taken from the most recent installed font package, while using the
+> $fontint option (e.g., minionint, warnockint, etc...).
+
+This is due to leftover .mtx files in the fontinst directory.
+
+> ps.: Do I need the --expanded option in order to the microtype  
+> package works?
+
+only for the microtype package if the options  
+"expansion=true,DVIoutput=true" are used.
+
+Michael
+
+
+From bgeneto at gmail.com  Mon May  7 20:23:44 2007
+From: bgeneto at gmail.com (Bernhard Enders)
+Date: Mon, 7 May 2007 15:23:44 -0300
+Subject: [Minionpro-devel] Replaced integral sign on new package
+	installation
+In-Reply-To: <D8DA0E81-1009-4F40-B205-3028B6C2CF86@tum.de>
+References: <2257ea30705062004m2385a3bdt6bbb02b4a9066e3@mail.gmail.com>
+	<D8DA0E81-1009-4F40-B205-3028B6C2CF86@tum.de>
+Message-ID: <2257ea30705071123t1e3df774pccfbbad27f325734@mail.gmail.com>
+
+On 5/7/07, Michael Zedler <michael.zedler at tum.de> wrote:
+> This is due to leftover .mtx files in the fontinst directory.
+
+Thanks one more time Michael! I also forgot to change the name
+"MnSymbolFI" to something else like "WnSymbolFI".
+
+Bernhard.
+
+
+From bgeneto at gmail.com  Mon May  7 20:36:29 2007
+From: bgeneto at gmail.com (Bernhard Enders)
+Date: Mon, 7 May 2007 15:36:29 -0300
+Subject: [Minionpro-devel] Subsubscripts in Semibold
+Message-ID: <2257ea30705071136v4dc1873cuff495a524b4f6c93@mail.gmail.com>
+
+Hi!
+
+While loading the MinionPro package with the medfamily (or fullfamily)
+option in a 10pt article (or report) class all subsubscripts are in
+semibold, e.g., in the following expression
+
+$K_{n_An_B}$
+
+A and B are printed as semibolIt. Note that for subsubscripts larger
+than 5pt, i.e., for class with options 11pt or 12pt, A and B will not
+be printed as semibold but simply as It(alic). Is this an intended
+feature of the package?
+
+Regards,
+
+Bernhard.
+
+
+From bgeneto at gmail.com  Mon May  7 20:46:36 2007
+From: bgeneto at gmail.com (Bernhard Enders)
+Date: Mon, 7 May 2007 15:46:36 -0300
+Subject: [Minionpro-devel] Subsubscripts in Semibold
+In-Reply-To: <2257ea30705071136v4dc1873cuff495a524b4f6c93@mail.gmail.com>
+References: <2257ea30705071136v4dc1873cuff495a524b4f6c93@mail.gmail.com>
+Message-ID: <2257ea30705071146o2e8a0f9o94c2c6e360cacf60@mail.gmail.com>
+
+Sorry for this premature post, I think this is a feature contained in
+the MinionPro-FontDef.sty package:
+
+\Mn at AddToConfig{fontset/weight}{fullfamily/m}{
+        <-6>    otf* [weight=Semibold]
+       <6-8.5>  otf* [weight=Medium]
+     <8.5->     otf* [weight=Regular]
+}
+
+Thanks,
+
+Bernhard.
+
+On 5/7/07, Bernhard Enders <bgeneto at gmail.com> wrote:
+> Hi!
+>
+> While loading the MinionPro package with the medfamily (or fullfamily)
+> option in a 10pt article (or report) class all subsubscripts are in
+> semibold, e.g., in the following expression
+>
+> $K_{n_An_B}$
+>
+> A and B are printed as semibolIt. Note that for subsubscripts larger
+> than 5pt, i.e., for class with options 11pt or 12pt, A and B will not
+> be printed as semibold but simply as It(alic). Is this an intended
+> feature of the package?
+>
+> Regards,
+>
+> Bernhard.
+>
+
+
+From michael.zedler at tum.de  Tue May  8 21:48:35 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Tue, 8 May 2007 21:48:35 +0200
+Subject: [Minionpro-devel] glyph-list and invalid vector<T> subscript
+	error
+In-Reply-To: <2257ea30705040705nc4f09fam9e34df41b290c30c@mail.gmail.com>
+References: <2257ea30705040528i56558657xf4091bc6e5364f0e@mail.gmail.com>
+	<3BE48FC8-1591-4770-B9FA-B34EEB76A41C@tum.de>
+	<2257ea30705040550m6c76216em780421e517285e0e@mail.gmail.com>
+	<53A5B640-7B66-4978-9A88-586157A1B3EC@tum.de>
+	<2257ea30705040705nc4f09fam9e34df41b290c30c@mail.gmail.com>
+Message-ID: <97C60657-23FF-427A-B61C-1781475D8CC7@tum.de>
+
+Am 04.05.2007 um 16:05 schrieb Bernhard Enders:
+> On 5/4/07, Michael Zedler <michael.zedler at tum.de> wrote:
+>> According to http://tinyurl.com/38kxch he's not happy with the test
+>> cases.
+>
+> Those are old "test cases". I submitted a new one today.
+
+I cannot find a new testcase in miktex's bug tracker. Can you please  
+keep us updated on this issue?
+
+Michael
+
+
+
+
+From ntut019 at ntu.edu.tw  Sat May 12 04:37:16 2007
+From: ntut019 at ntu.edu.tw (Tsong-Min Wu)
+Date: Sat, 12 May 2007 10:37:16 +0800
+Subject: [Minionpro-devel] Superscript seems to be too low in $L^s$
+Message-ID: <000601c7943e$75178f70$fa1d700a@wutm>
+
+I am using the most recent version of MinionPro, and I find that 
+the position of superscript s in $L^s$ seems to be too low.
+On the other hand, \[ L^s \] is OK.
+
+This is of course only personal opinion, but I wonder if there is any
+way to adjust the superscript position.
+
+Thanks!
+
+Tsong-Min Wu
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070512/90839415/attachment.html>
+
+From blumensath at mathematik.tu-darmstadt.de  Tue May 15 09:58:23 2007
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Tue, 15 May 2007 09:58:23 +0200
+Subject: [Minionpro-devel] [ANN] MinionPro 2.1
+Message-ID: <20070515075823.GB9124@mathematik.tu-darmstadt.de>
+
+Hello,
+
+I've put the final version of MinionPro 2.1 on BerliOS. It should also
+appear on CTAN soon.
+
+A note for users of 2.1rc3: The archives metrics-full.zip and
+metrics-opticals.zip have not changed. There is no need to download them
+again.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070515/63061147/attachment.pgp>
+
+From axretif at igo.com.mx  Tue May 15 15:41:24 2007
+From: axretif at igo.com.mx (Axel E. Retif)
+Date: Tue, 15 May 2007 08:41:24 -0500
+Subject: [Minionpro-devel] [ANN] MinionPro 2.1
+In-Reply-To: <20070515075823.GB9124@mathematik.tu-darmstadt.de>
+References: <20070515075823.GB9124@mathematik.tu-darmstadt.de>
+Message-ID: <587F4C2A-C9BC-43CB-804A-3BDF63AD3877@igo.com.mx>
+
+On  15 May, 2007, at 02:58, Achim Blumensath wrote:
+
+> Hello,
+>
+> I've put the final version of MinionPro 2.1 on BerliOS. It should also
+> appear on CTAN soon.
+
+I'll update promptly. I have a couple of questions on MnSymbol 1.4  
+(I'm still using 1.3):
+
+1) As I intend to use the outlines version, I don't have to enable  
+the map as MixedMap, right?
+
+2) I see open type fonts (otf), but no indications of how to use  
+them. I ask this above all because I was surprised to discover that  
+even MnSymbol 1.3 can be used with XeTeX with the following combination:
+
+\documentclass{article}
+
+\usepackage{MnSymbol}
+\let\mathdollar\undefined
+%\usepackage{lucbmath}    %% <-- I'll tell about this below
+\usepackage[cm-default]{fontspec}
+\usepackage{xltxtra}
+
+\defaultfontfeatures{Scale=MatchLowercase,Mapping=tex-text}
+\setmainfont[Numbers=Lowercase]{Warnock Pro} %% I don't mean these  
+three match with
+\setsansfont{Lucida Sans}                    %% MnSymbol. Just an  
+example. XeTeX
+\setmonofont{Lucida Sans Typewriter}         %% takes them from the  
+system (not TeX)
+                                              %% installed fonts.  
+Change them as you like.
+\begin{document}
+
+\begin{center}
+   Roman, {\itshape italics} and {\scshape small caps\dots}\\
+   {\sffamily\bfseries Bold sans serif and \itshape bold italic sans  
+serif\dots}
+\end{center}
+
+\[
+   \mathcal F(s) = \int^\infty_0 f(t) \exp(-st)\,\mathrm{d}t
+\]
+
+\end{document}
+
+The XeTeX driver *has* to be xdvipdfmx (default in Linux and  
+Windows), not xdv2pdf (default in Mac OS X).
+
+Now ---in the formula above, examining character by character with  
+Acrobat, \mathcal F is taken from MnSymbol, (s) = from Computer  
+Modern, \int^\infty from MnSymbol, _0 f(t) from CM, \exp from  
+Warnock, (-st) from CM, \mathrm{d} from Warnock, and t from CM.
+
+Using instead lucbmath (from TUG distro), everything in the formula  
+is taken from LucidaNewMath, except _0, \exp and \mathrm{d}, which  
+are taken from Warnock.
+
+So I'm thinking with MnSymbol otf maybe could be a better integration  
+with XeTeX (Lucida is *not* an otf though ---I don't know why it  
+works better).
+
+
+Thank you for your nice work.
+
+
+Best,
+
+Axel
+
+
+From bgeneto at gmail.com  Tue May 15 17:03:50 2007
+From: bgeneto at gmail.com (Bernhard Enders)
+Date: Tue, 15 May 2007 12:03:50 -0300
+Subject: [Minionpro-devel] glyph-list and invalid vector<T> subscript
+	error
+In-Reply-To: <97C60657-23FF-427A-B61C-1781475D8CC7@tum.de>
+References: <2257ea30705040528i56558657xf4091bc6e5364f0e@mail.gmail.com>
+	<3BE48FC8-1591-4770-B9FA-B34EEB76A41C@tum.de>
+	<2257ea30705040550m6c76216em780421e517285e0e@mail.gmail.com>
+	<53A5B640-7B66-4978-9A88-586157A1B3EC@tum.de>
+	<2257ea30705040705nc4f09fam9e34df41b290c30c@mail.gmail.com>
+	<97C60657-23FF-427A-B61C-1781475D8CC7@tum.de>
+Message-ID: <2257ea30705150803j42c39f1ay937277a7ba4f3891@mail.gmail.com>
+
+On 5/8/07, Michael Zedler <michael.zedler at tum.de> wrote:
+> I cannot find a new testcase in miktex's bug tracker. Can you please
+> keep us updated on this issue?
+
+Hi, Michael!
+
+Sorry my delayed post. The unique certainty I have by now is that the
+"--pack" option triggers the Yap's bug. Even creating a new glyph list
+with the generate-glyph-list.sh script and then using the "--pack"
+option with the just generated list can (unfortunately) trigger the
+annoying bug. The only safe way for MiKTeX (and Yap!) users is not to
+use the "--pack" option.
+
+Regards and congrats for the new 2.1 release,
+
+Bernhard.
+
+
+From michael.zedler at tum.de  Tue May 15 18:52:45 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Tue, 15 May 2007 18:52:45 +0200
+Subject: [Minionpro-devel] [ANN] MinionPro 2.1
+In-Reply-To: <587F4C2A-C9BC-43CB-804A-3BDF63AD3877@igo.com.mx>
+References: <20070515075823.GB9124@mathematik.tu-darmstadt.de>
+	<587F4C2A-C9BC-43CB-804A-3BDF63AD3877@igo.com.mx>
+Message-ID: <27A8200D-70D6-4F0A-B9BB-E7611E807212@tum.de>
+
+Am 15.05.2007 um 15:41 schrieb Axel E. Retif:
+> On  15 May, 2007, at 02:58, Achim Blumensath wrote:
+>
+>> Hello,
+>>
+>> I've put the final version of MinionPro 2.1 on BerliOS. It should  
+>> also
+>> appear on CTAN soon.
+>
+> I'll update promptly. I have a couple of questions on MnSymbol 1.4
+> (I'm still using 1.3):
+>
+> 1) As I intend to use the outlines version, I don't have to enable
+> the map as MixedMap, right?
+
+MixedMap is correct.
+
+> 2) I see open type fonts (otf), but no indications of how to use
+> them. I ask this above all because I was surprised to discover that
+> even MnSymbol 1.3 can be used with XeTeX with the following  
+> combination:
+
+The otf are provided in order to ease usage/installation for non-TeX  
+application. For xetex using the xdvipdfmx route you can use the tfm/ 
+pfb combination. The xdv2pdf route doesn't currently work with  
+neither tfm/pfb nor otf: tfm are not supported by this driver and  
+xetex's unicode math package isn't complete yet. But even if it were  
+complete, I don't know how it'd get to know the math fontdimens,  
+charlists and the 'extensible' information.
+
+Michael
+
+
+From michael.zedler at tum.de  Tue May 15 19:09:51 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Tue, 15 May 2007 19:09:51 +0200
+Subject: [Minionpro-devel] glyph-list and invalid vector<T> subscript
+	error
+In-Reply-To: <2257ea30705150803j42c39f1ay937277a7ba4f3891@mail.gmail.com>
+References: <2257ea30705040528i56558657xf4091bc6e5364f0e@mail.gmail.com>
+	<3BE48FC8-1591-4770-B9FA-B34EEB76A41C@tum.de>
+	<2257ea30705040550m6c76216em780421e517285e0e@mail.gmail.com>
+	<53A5B640-7B66-4978-9A88-586157A1B3EC@tum.de>
+	<2257ea30705040705nc4f09fam9e34df41b290c30c@mail.gmail.com>
+	<97C60657-23FF-427A-B61C-1781475D8CC7@tum.de>
+	<2257ea30705150803j42c39f1ay937277a7ba4f3891@mail.gmail.com>
+Message-ID: <F50A6129-E2BD-4F18-9F30-20B424374EF3@tum.de>
+
+Am 15.05.2007 um 17:03 schrieb Bernhard Enders:
+> The only safe way for MiKTeX (and Yap!) users is not to
+> use the "--pack" option.
+
+Well, I guess Christian Schenk will get several test cases soon, so  
+that the Yap bug will then be fixed. The good point is, the bug is  
+not only triggered by our font package but also mtpro2.
+
+Michael
+
+
+From axretif at igo.com.mx  Tue May 15 23:26:18 2007
+From: axretif at igo.com.mx (Axel E. Retif)
+Date: Tue, 15 May 2007 16:26:18 -0500
+Subject: [Minionpro-devel] [ANN] MinionPro 2.1
+In-Reply-To: <27A8200D-70D6-4F0A-B9BB-E7611E807212@tum.de>
+References: <20070515075823.GB9124@mathematik.tu-darmstadt.de>
+	<587F4C2A-C9BC-43CB-804A-3BDF63AD3877@igo.com.mx>
+	<27A8200D-70D6-4F0A-B9BB-E7611E807212@tum.de>
+Message-ID: <653AC8D7-6AE0-42C7-93C7-6A49CF4C1241@igo.com.mx>
+
+On 15 May, 2007, at 11:52, Michael Zedler wrote:
+
+> Am 15.05.2007 um 15:41 schrieb Axel E. Retif:
+>> [...]
+>>
+>> I'll update promptly. I have a couple of questions on MnSymbol 1.4
+>> (I'm still using 1.3):
+>>
+>> 1) As I intend to use the outlines version, I don't have to enable
+>> the map as MixedMap, right?
+>
+> MixedMap is correct.
+
+OK. Then MixedMap it is. Thank you.
+
+
+>> 2) I see open type fonts (otf), but no indications of how to use
+>> them. I ask this above all because I was surprised to discover that
+>> even MnSymbol 1.3 can be used with XeTeX with the following
+>> combination:
+>
+> The otf are provided in order to ease usage/installation for non-TeX
+> application.
+
+I haven't thought of that. Thank you ---that's nice.
+
+
+> For xetex using the xdvipdfmx route you can use the tfm/
+> pfb combination. The xdv2pdf route doesn't currently work with
+> neither tfm/pfb nor otf: tfm are not supported by this driver and
+> xetex's unicode math package isn't complete yet. But even if it were
+> complete, I don't know how it'd get to know the math fontdimens,
+> charlists and the 'extensible' information.
+
+
+What amaze me is how well XeTeX uses LucidaNewMath, and with  
+xdvipdfmx as well as xdv2pdf! I think in the end XeTeX will be able  
+to use MnSymbol without resorting to get some symbols from CM, and  
+maybe the otf fonts is the way to go.
+
+
+Best,
+
+Axel
+
+
+From ralf.stubner at physik.uni-erlangen.de  Wed May 16 08:52:31 2007
+From: ralf.stubner at physik.uni-erlangen.de (Ralf Stubner)
+Date: Wed, 16 May 2007 08:52:31 +0200 (CEST)
+Subject: [Minionpro-devel] [ANN] MinionPro 2.1
+In-Reply-To: <653AC8D7-6AE0-42C7-93C7-6A49CF4C1241@igo.com.mx>
+References: <20070515075823.GB9124@mathematik.tu-darmstadt.de>
+	<587F4C2A-C9BC-43CB-804A-3BDF63AD3877@igo.com.mx>
+	<27A8200D-70D6-4F0A-B9BB-E7611E807212@tum.de>
+	<653AC8D7-6AE0-42C7-93C7-6A49CF4C1241@igo.com.mx>
+Message-ID: <63922.217.111.53.98.1179298351.squirrel@tfkpsv.physik.uni-erlangen.de>
+
+Axel E. Retif wrote:
+> On 15 May, 2007, at 11:52, Michael Zedler wrote:
+>> For xetex using the xdvipdfmx route you can use the tfm/
+>> pfb combination. The xdv2pdf route doesn't currently work with
+>> neither tfm/pfb nor otf: tfm are not supported by this driver and
+>> xetex's unicode math package isn't complete yet.
+
+Slight correction: It is virtual fonts that are not supported by xdv2pdf.
+
+> What amaze me is how well XeTeX uses LucidaNewMath, and with
+> xdvipdfmx as well as xdv2pdf! I think in the end XeTeX will be able
+> to use MnSymbol without resorting to get some symbols from CM, and
+> maybe the otf fonts is the way to go.
+
+LucidaNewMath does not use virtual fonts. Not to surprising given that it
+is rooted in Y&Y.
+
+cheerio
+ralf
+
+
+
+
+From axretif at igo.com.mx  Wed May 16 09:31:19 2007
+From: axretif at igo.com.mx (Axel E. Retif)
+Date: Wed, 16 May 2007 02:31:19 -0500
+Subject: [Minionpro-devel] [ANN] MinionPro 2.1
+In-Reply-To: <63922.217.111.53.98.1179298351.squirrel@tfkpsv.physik.uni-erlangen.de>
+References: <20070515075823.GB9124@mathematik.tu-darmstadt.de>
+	<587F4C2A-C9BC-43CB-804A-3BDF63AD3877@igo.com.mx>
+	<27A8200D-70D6-4F0A-B9BB-E7611E807212@tum.de>
+	<653AC8D7-6AE0-42C7-93C7-6A49CF4C1241@igo.com.mx>
+	<63922.217.111.53.98.1179298351.squirrel@tfkpsv.physik.uni-erlangen.de>
+Message-ID: <90108924-6068-47D2-BF7D-EAA4B77AC744@igo.com.mx>
+
+On  16 May, 2007, at 01:52, Ralf Stubner wrote:
+
+> Axel E. Retif wrote:
+>> On 15 May, 2007, at 11:52, Michael Zedler wrote:
+>>> For xetex using the xdvipdfmx route you can use the tfm/
+>>> pfb combination. The xdv2pdf route doesn't currently work with
+>>> neither tfm/pfb nor otf: tfm are not supported by this driver and
+>>> xetex's unicode math package isn't complete yet.
+>
+> Slight correction: It is virtual fonts that are not supported by  
+> xdv2pdf.
+>
+>> What amaze me is how well XeTeX uses LucidaNewMath, and with
+>> xdvipdfmx as well as xdv2pdf! I think in the end XeTeX will be able
+>> to use MnSymbol without resorting to get some symbols from CM, and
+>> maybe the otf fonts is the way to go.
+>
+> LucidaNewMath does not use virtual fonts. Not to surprising given  
+> that it
+> is rooted in Y&Y.
+
+Even with T1 fontenc? I thought they didn't use virtual fonts only  
+with LY1 fontenc ---or is this the case only with non-math Lucida fonts?
+
+
+Best,
+
+Axel
+
+
+
+From ralf.stubner at physik.uni-erlangen.de  Wed May 16 12:00:04 2007
+From: ralf.stubner at physik.uni-erlangen.de (Ralf Stubner)
+Date: Wed, 16 May 2007 12:00:04 +0200 (CEST)
+Subject: [Minionpro-devel] [ANN] MinionPro 2.1
+In-Reply-To: <90108924-6068-47D2-BF7D-EAA4B77AC744@igo.com.mx>
+References: <20070515075823.GB9124@mathematik.tu-darmstadt.de>
+	<587F4C2A-C9BC-43CB-804A-3BDF63AD3877@igo.com.mx>
+	<27A8200D-70D6-4F0A-B9BB-E7611E807212@tum.de>
+	<653AC8D7-6AE0-42C7-93C7-6A49CF4C1241@igo.com.mx>
+	<63922.217.111.53.98.1179298351.squirrel@tfkpsv.physik.uni-erlangen.de>
+	<90108924-6068-47D2-BF7D-EAA4B77AC744@igo.com.mx>
+Message-ID: <39690.217.111.53.98.1179309604.squirrel@tfkpsv.physik.uni-erlangen.de>
+
+Axel E. Retif wrote:
+> On  16 May, 2007, at 01:52, Ralf Stubner wrote:
+>> LucidaNewMath does not use virtual fonts. Not to surprising given
+>> that it
+>> is rooted in Y&Y.
+>
+> Even with T1 fontenc? I thought they didn't use virtual fonts only
+> with LY1 fontenc ---or is this the case only with non-math Lucida fonts?
+
+I thought we were talking about the math fonts. Whether the T1 encoded
+fonts use vf I cannot test right now, since I don't have the fonts here.
+Are there any .vf files in the LucidaNewMath distribution? However, with
+xetex one normally does not use fontenc.sty anyway.
+
+cheerio
+ralf
+
+
+
+
+From bgeneto at gmail.com  Thu May 17 13:28:22 2007
+From: bgeneto at gmail.com (Bernhard Enders)
+Date: Thu, 17 May 2007 08:28:22 -0300
+Subject: [Minionpro-devel] tabfigures package and unused scripts
+Message-ID: <2257ea30705170428j2368de48l4d71d6814334cae6@mail.gmail.com>
+
+Hi!
+
+If I got it right now we need tabfigures.sty package in order to
+compile the MinionPro documentation, so it is necessary to add the
+command "latex tabfigures.ins" to the last line of the "makeall"
+script:
+
+(cd tex; latex MinionPro.ins; latex otfontdef.ins; latex fontaxes.ins;
+latex tabfigures.ins)
+
+Another haze point, at least to me, is where to use the files:
+replace-*.sed and substitutions.list? They seem to be used nowhere in
+the compilation process. Maybe they are needed in the generation of
+encoding files? Thanks a lot,
+
+Bernhard.
+
+
+From michael.zedler at tum.de  Thu May 17 16:40:01 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Thu, 17 May 2007 16:40:01 +0200
+Subject: [Minionpro-devel] tabfigures package and unused scripts
+In-Reply-To: <2257ea30705170428j2368de48l4d71d6814334cae6@mail.gmail.com>
+References: <2257ea30705170428j2368de48l4d71d6814334cae6@mail.gmail.com>
+Message-ID: <602B156F-EE3C-4BEC-9360-7A4DB02BE1AB@tum.de>
+
+Am 17.05.2007 um 13:28 schrieb Bernhard Enders:
+> Another haze point, at least to me, is where to use the files:
+> replace-*.sed and substitutions.list? They seem to be used nowhere in
+> the compilation process. Maybe they are needed in the generation of
+> encoding files? Thanks a lot,
+
+These are files that I used for generating glyph-list*, they are  
+currently not needed when generating your own set of metrics. In case  
+future versions of MinionPro have different glyphnames these files  
+remain in the CVS for convenience.
+
+substitutions.list contains a table of glyphnames that differ between  
+font versions, first row: v2000, second row: v1001, third row v1000.
+
+ From this table the replace*.sed files were generated through
+   cat substitutions.list | awk '$1!=$3 {print $1" "$3}' | sed -e  
+'s#^#s/\\\/#' -e 's# #\\\([ ]\\\|$\\\)/\\\/#' -e 's#$# /g#' >  
+replace.v1000.sed
+   cat substitutions.list | awk '$1!=$2 {print $1" "$2}' | sed -e  
+'s#^#s/\\\/#' -e 's# #\\\([ ]\\\|$\\\)/\\\/#' -e 's#$# /g#' >  
+replace.v1001.sed
+
+The replace*sed files can then be used to convert v2000 enc files  
+into that of another font version. The advantage of this approach is  
+that now the same set of metrics can be used with all font versions,  
+just the enc need to be replaced -- and it works with both packed raw  
+encodings and autogenerated encodings. The latter isn't possible if  
+otftotfm is run on different encodings, because for example  
+automatically allocated encoding slots for f_t and T_h vary between  
+font versions (due to different ordering of the lookups in the otf, I  
+suppose).
+
+The question that might remain: Where does substitution.list come  
+from? This was some perl processing of Andreas, he compared the sets  
+of autogenerated .enc files (one set for each font version).
+
+Michael
+
+
+From axretif at igo.com.mx  Thu May 17 23:47:29 2007
+From: axretif at igo.com.mx (Axel E. Retif)
+Date: Thu, 17 May 2007 16:47:29 -0500
+Subject: [Minionpro-devel] [ANN] MinionPro 2.1
+In-Reply-To: <39690.217.111.53.98.1179309604.squirrel@tfkpsv.physik.uni-erlangen.de>
+References: <20070515075823.GB9124@mathematik.tu-darmstadt.de>
+	<587F4C2A-C9BC-43CB-804A-3BDF63AD3877@igo.com.mx>
+	<27A8200D-70D6-4F0A-B9BB-E7611E807212@tum.de>
+	<653AC8D7-6AE0-42C7-93C7-6A49CF4C1241@igo.com.mx>
+	<63922.217.111.53.98.1179298351.squirrel@tfkpsv.physik.uni-erlangen.de>
+	<90108924-6068-47D2-BF7D-EAA4B77AC744@igo.com.mx>
+	<39690.217.111.53.98.1179309604.squirrel@tfkpsv.physik.uni-erlangen.de>
+Message-ID: <BCD3BDAC-1CF1-4FB2-9C83-2DB5D459F4C3@igo.com.mx>
+
+On  16 May, 2007, at 05:00, Ralf Stubner wrote:
+
+> Axel E. Retif wrote:
+>> On  16 May, 2007, at 01:52, Ralf Stubner wrote:
+>>> LucidaNewMath does not use virtual fonts. Not to surprising given
+>>> that it
+>>> is rooted in Y&Y.
+>>
+>> Even with T1 fontenc? I thought they didn't use virtual fonts only
+>> with LY1 fontenc ---or is this the case only with non-math Lucida  
+>> fonts?
+>
+> I thought we were talking about the math fonts.
+
+Yes, you're right. I was getting off the subject.
+
+> Whether the T1 encoded
+> fonts use vf I cannot test right now, since I don't have the fonts  
+> here.
+
+For text, T1 use them; LY1 doesn't.
+
+> Are there any .vf files in the LucidaNewMath distribution?
+
+Bruno Voisin, in the XeTeX mailing list, thinks LucidaNewMath doesn't  
+use vf fonts. No doubt you both are right: from readme.lucida, by  
+Walter Schmidt:
+
+***
+How this collection was created
+-------------------------------
+The font metrics, virtual fonts and .fd files for the T1 and TS1  
+encodings were created using fontinst 1.928. [...]
+
+The font metric files for the LY1 encoded text fonts, as
+well as the metrics for the math fonts, are those that were
+formerly distributed by Y&Y.
+
+***
+
+
+> However, with xetex one normally does not use fontenc.sty anyway.
+
+Right. Now, back to the original subject, if Lucida (a distribution  
+not prepared with XeTeX in mind) works so well with XeTeX, I'm hoping  
+we could use MnSymbol as well in the near future.
+
+Thank you.
+
+Axel
+
+
+
+From michael.zedler at tum.de  Fri May 18 00:36:42 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Fri, 18 May 2007 00:36:42 +0200
+Subject: [Minionpro-devel] [ANN] MinionPro 2.1
+In-Reply-To: <BCD3BDAC-1CF1-4FB2-9C83-2DB5D459F4C3@igo.com.mx>
+References: <20070515075823.GB9124@mathematik.tu-darmstadt.de>
+	<587F4C2A-C9BC-43CB-804A-3BDF63AD3877@igo.com.mx>
+	<27A8200D-70D6-4F0A-B9BB-E7611E807212@tum.de>
+	<653AC8D7-6AE0-42C7-93C7-6A49CF4C1241@igo.com.mx>
+	<63922.217.111.53.98.1179298351.squirrel@tfkpsv.physik.uni-erlangen.de>
+	<90108924-6068-47D2-BF7D-EAA4B77AC744@igo.com.mx>
+	<39690.217.111.53.98.1179309604.squirrel@tfkpsv.physik.uni-erlangen.de>
+	<BCD3BDAC-1CF1-4FB2-9C83-2DB5D459F4C3@igo.com.mx>
+Message-ID: <DDCD0412-1583-4891-A351-5EBEC4CC7E9F@tum.de>
+
+Am 17.05.2007 um 23:47 schrieb Axel E. Retif:
+>> However, with xetex one normally does not use fontenc.sty anyway.
+>
+> Right. Now, back to the original subject, if Lucida (a distribution
+> not prepared with XeTeX in mind) works so well with XeTeX, I'm hoping
+> we could use MnSymbol as well in the near future.
+
+fontspec.sty has special handlers for euler/lucida. With
+
+--
+\documentclass{book}
+\usepackage{fontspec,xunicode,xltxtra}
+\setromanfont[Mapping=tex-text]{Minion Pro}
+\makeatletter
+   \zf at math@eulertrue
+\makeatother
+\usepackage{MnSymbol}
+\begin{document}
+   Hallo $a+b=c$
+\end{document}
+--
+
+MnSymbol is used, but latin and Greek letters are set in CM (the math  
+glyphs that usually are contained in the OML encoding in normal TeX).  
+Will's unicode-math seems to be tightly bound to Cambria right now, I  
+couldn't get it to work with Minion. Better if this topic moves to  
+the XeTeX mailing list, I suppose.
+
+Michael
+
+
+From jbauer-news at web.de  Wed May 16 23:04:13 2007
+From: jbauer-news at web.de (Johann Bauer)
+Date: Wed, 16 May 2007 23:04:13 +0200
+Subject: [Minionpro-devel] Problem with semibold figures
+Message-ID: <464B71CD.8000706@web.de>
+
+Hello,
+
+when I compile a document with MinionPro package and the [medfamily] 
+option, the following problem occurs: With osf, tabular figures and with 
+lining, proportional figures, LaTeX produces only crossed boxes instead 
+of the correct glyphs with the semibold font. Strangely, the 
+combinations (osf, proportional) and (lining, tabular) work, so both the 
+osf and the lining glyphs can be displayed, in principle.
+
+I have the new release v2.1 of MinionPro installed under MikTeX. The 
+MinionPro fonts come from Adobe Illustrator CS2, where the normal, bold 
+and semibold weights are supplied (font version 2.000 if I remember 
+correctly).
+
+Can someone reproduce this bug? Or even better, does anyone know a 
+solution? I attach a minimal example file below.
+
+Apart from this little bug (which can certainly be fixed) I would like 
+to thank the authors of the MinionPro package. You did a great job, 
+since it's one of the most usable LaTeX font packages and one of the 
+very few which one can seriously typeset mathematics with.
+
+Regards,
+
+Johann
+
+------------------------------------------------------
+
+\documentclass{minimal}
+\usepackage[medfamily]{MinionPro}
+\def\sample{\figureversion{lf}\figureversion{tab}lining, tabular: 123,
+  \figureversion{osf}text, tabular: 123,
+  \figureversion{lf}\figureversion{prop}lining, proportional: 123,
+  \figureversion{osf}text, proportional: 123
+}
+\begin{document}
+\sample
+
+\fontseries{b}\selectfont\sample
+
+\fontseries{eb}\selectfont\sample
+\end{document}
+
+
+
+
+From michael.zedler at tum.de  Fri May 18 11:02:21 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Fri, 18 May 2007 11:02:21 +0200
+Subject: [Minionpro-devel] Problem with semibold figures
+In-Reply-To: <464B71CD.8000706@web.de>
+References: <464B71CD.8000706@web.de>
+Message-ID: <42CB70BD-4B30-422F-891E-9C967987EDB1@tum.de>
+
+Am 16.05.2007 um 23:04 schrieb Johann Bauer:
+> I have the new release v2.1 of MinionPro installed under MikTeX. The
+> MinionPro fonts come from Adobe Illustrator CS2, where the normal,  
+> bold
+> and semibold weights are supplied (font version 2.000 if I remember
+> correctly).
+
+IIRC the fonts supplied with CS2 are a mixture of v2000 and v1001. If  
+this applies then http://tinyurl.com/38yuc6 may help.
+
+Michael
+
+
+From Michael.Zedler at tum.de  Sun May 20 14:23:05 2007
+From: Michael.Zedler at tum.de (Michael Zedler)
+Date: Sun, 20 May 2007 14:23:05 +0200
+Subject: [Minionpro-devel] yap bug
+Message-ID: <B2475664-9E82-42D2-8DF3-FF40A03F4B97@tum.de>
+
+Hello,
+
+could some miktex user please verify if
+--
+\documentclass{minimal}
+\usepackage{MinionPro}
+\begin{document}
+Test file for Minion Pro and dvips rendering method.
+\end{document}
+--
+triggers the Yap bug "invalid vector<T> subscript" if used with  
+MinionPro v2.1? If yes then I'll try to construct a test case for  
+Christian Schenk that doesn't actually require him to install  
+MinionPro v2.1.
+
+Michael
+
+
+From bgeneto at gmail.com  Sun May 20 22:53:27 2007
+From: bgeneto at gmail.com (Bernhard Enders)
+Date: Sun, 20 May 2007 17:53:27 -0300
+Subject: [Minionpro-devel] yap bug
+In-Reply-To: <B2475664-9E82-42D2-8DF3-FF40A03F4B97@tum.de>
+References: <B2475664-9E82-42D2-8DF3-FF40A03F4B97@tum.de>
+Message-ID: <2257ea30705201353u1f1d890gb1c43c3df8a4a73@mail.gmail.com>
+
+No problems with Yap! and your sample file for me. I'm here to help
+you if you need more examples for this minimal test case.
+
+Bernhard.
+
+On 5/20/07, Michael Zedler <Michael.Zedler at tum.de> wrote:
+> Hello,
+>
+> could some miktex user please verify if
+> --
+> \documentclass{minimal}
+> \usepackage{MinionPro}
+> \begin{document}
+> Test file for Minion Pro and dvips rendering method.
+> \end{document}
+> --
+> triggers the Yap bug "invalid vector<T> subscript" if used with
+> MinionPro v2.1? If yes then I'll try to construct a test case for
+> Christian Schenk that doesn't actually require him to install
+> MinionPro v2.1.
+>
+> Michael
+> _______________________________________________
+> Minionpro-devel mailing list
+> Minionpro-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/minionpro-devel
+>
+
+
+From bgeneto at gmail.com  Mon May 21 01:38:16 2007
+From: bgeneto at gmail.com (Bernhard Enders)
+Date: Sun, 20 May 2007 20:38:16 -0300
+Subject: [Minionpro-devel] yap bug
+In-Reply-To: <2257ea30705201353u1f1d890gb1c43c3df8a4a73@mail.gmail.com>
+References: <B2475664-9E82-42D2-8DF3-FF40A03F4B97@tum.de>
+	<2257ea30705201353u1f1d890gb1c43c3df8a4a73@mail.gmail.com>
+Message-ID: <2257ea30705201638o5ae9e24anf4e38aa26c2e5600@mail.gmail.com>
+
+Sorry. Uninstalling MinionPro and reinstalling version 2.1 and running
+your minimal example again in fact triggers the Yap! bug.
+
+It could be nice if every MiKTeX and MinionPro user could confirm this
+issue with the minimal example file provided.
+
+Bernhard.
+
+On 5/20/07, Bernhard Enders <bgeneto at gmail.com> wrote:
+> No problems with Yap! and your sample file for me.
+
+
+From andreas.buehmann at web.de  Mon May 21 09:05:49 2007
+From: andreas.buehmann at web.de (Andreas =?iso-8859-1?q?B=FChmann?=)
+Date: Mon, 21 May 2007 09:05:49 +0200
+Subject: [Minionpro-devel] yap bug
+In-Reply-To: <B2475664-9E82-42D2-8DF3-FF40A03F4B97@tum.de>
+References: <B2475664-9E82-42D2-8DF3-FF40A03F4B97@tum.de>
+Message-ID: <200705210905.50006.andreas.buehmann@web.de>
+
+Hello,
+
+> triggers the Yap bug "invalid vector<T> subscript" if used with  
+> MinionPro v2.1?
+
+yesterday I installed MiKTeX 2.6 in a virtual machine and did some
+experiments trying to minimize Michael's example. This is as far as I
+could get: A minimal TeX file referencing a single letter of a
+non-virtual font (bug.tex) plus the necessary font metrics (bug.pl).
+
+Could anybody please confirm that the following procedure triggers the
+above-mentioned bug?
+
+  1.  pltotf bug.pl bug.tfm
+  2.  tex bug
+  3.  yap bug
+      (and switch to the 'dvips' render method if not already done)
+
+(No actual font files or map-file entries are necessary; the bug seems
+to occur at this very early stage of processing the DVI and TFM.)
+
+bug.pl actually is a stripped-down version of
+MinionPro-Regular-Base-aa.pl; further reduction of its size proved very
+difficult: When some character is removed (or even when the width of
+some character is changed (?!)), the message "invalid vector<T>
+subscript" does not show anymore. (I did not check each and every
+combination, only 3 or 4 changes.)
+
+Regards,
+
+Andreas
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: bug.zip
+Type: application/x-zip
+Size: 1417 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070521/6c51594a/attachment.bin>
+
+From bgeneto at gmail.com  Mon May 21 15:16:29 2007
+From: bgeneto at gmail.com (Bernhard Enders)
+Date: Mon, 21 May 2007 10:16:29 -0300
+Subject: [Minionpro-devel] yap bug
+In-Reply-To: <200705210905.50006.andreas.buehmann@web.de>
+References: <B2475664-9E82-42D2-8DF3-FF40A03F4B97@tum.de>
+	<200705210905.50006.andreas.buehmann@web.de>
+Message-ID: <2257ea30705210616y77f946c2wcfc93047a651b8a6@mail.gmail.com>
+
+Yes. It triggers the Yap bug for me too.
+
+Bernhard.
+
+On 5/21/07, Andreas B?hmann <andreas.buehmann at web.de> wrote:
+> Could anybody please confirm that the following procedure triggers the
+> above-mentioned bug?
+
+
+From andreas.buehmann at web.de  Wed May 23 11:22:42 2007
+From: andreas.buehmann at web.de (Andreas =?iso-8859-1?q?B=FChmann?=)
+Date: Wed, 23 May 2007 11:22:42 +0200
+Subject: [Minionpro-devel] yap bug
+In-Reply-To: <2257ea30705210616y77f946c2wcfc93047a651b8a6@mail.gmail.com>
+References: <B2475664-9E82-42D2-8DF3-FF40A03F4B97@tum.de>
+	<200705210905.50006.andreas.buehmann@web.de>
+	<2257ea30705210616y77f946c2wcfc93047a651b8a6@mail.gmail.com>
+Message-ID: <200705231122.42696.andreas.buehmann@web.de>
+
+> Yes. It triggers the Yap bug for me too.
+
+Thanks a lot. I have just posted my test case on the MiKTeX bug tracker:
+http://sourceforge.net/tracker/?func=detail&aid=1723991&group_id=10783&atid=110783
+
+Regards,
+
+Andreas
+
+
+
+From jadefalkner at imperium-noctem.de  Wed May 30 14:19:16 2007
+From: jadefalkner at imperium-noctem.de (Ronny Fauth)
+Date: Wed, 30 May 2007 14:19:16 +0200
+Subject: [Minionpro-devel] Change the .vpl files while compiling from source?
+Message-ID: <465D6BC4.9010900@imperium-noctem.de>
+
+Topic says it. Is there any possible way to change the .vpl files while
+executing "make_all"? Maybe interrupting, changing and resume?
+
+I want to replace some Characters in mathmode.
+
+Regards,
+
+Ronny
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 251 bytes
+Desc: OpenPGP digital signature
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070530/1d1a85bd/attachment.pgp>
+
+From blumensath at mathematik.tu-darmstadt.de  Wed May 30 16:15:30 2007
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Wed, 30 May 2007 16:15:30 +0200
+Subject: [Minionpro-devel] Change the .vpl files while compiling from
+	source?
+In-Reply-To: <465D6BC4.9010900@imperium-noctem.de>
+References: <465D6BC4.9010900@imperium-noctem.de>
+Message-ID: <20070530141530.GF10809@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Ronny Fauth wrote:
+> Topic says it. Is there any possible way to change the .vpl files while
+> executing "make_all"? Maybe interrupting, changing and resume?
+
+The simplest way would be to run the scripts and afterwards create the
+vpl with vftovp. Alternatively, you could modify our scripts such that
+otftotfm creates vpl files.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070530/cac1d679/attachment.pgp>
+
+From sider at philosophy.rutgers.edu  Wed May 30 18:56:39 2007
+From: sider at philosophy.rutgers.edu (Ted Sider)
+Date: Wed, 30 May 2007 12:56:39 -0400
+Subject: [Minionpro-devel] minion pro with gwTeX
+Message-ID: <3E826830-F336-4F01-B417-EC846B9A1C60@philosophy.rutgers.edu>
+
+Hi all,
+
+Sorry if this question is too basic for this list.  Chistoph Shiller  
+said that someone here might be able to help.
+
+I'm using the gwTeX distribution for Mac OS X, and am having trouble  
+getting MinionPro to work.  (I got it to work on one of my machines a  
+few months ago, and just tried and failed to install it on another,  
+but can't figure out what the relevant difference is.  Though I just  
+noticed that the version of MinionPro on the working machine is 2.0  
+and that the version on the unworking one is 2.1)  I have all the  
+MinionPro files in the right place in my local texmf tree, ~/Library/ 
+texmf.  As near as I can tell (though I'm no expert), the information  
+for the MinionPro font isn't making its way into  	
+
+	/usr/local/teTeX/share/texmf.local/fonts/map/pdftex/updmap/pdftex.map
+
+(which, I gather, is created by updmap.)  But I have done:
+
+	sudo updmap --enable Map MinionPro.map
+
+At any rate, that's where I'm stuck.  I'm guessing the problem has  
+something to do with the multiple texmf trees of gwTeX, and map  
+information going in the wrong place?  At any rate, any help would be  
+most appreciated!  (In case this is not enough information, I'm  
+pasting in below the full output from LaTeX console, from a failed  
+attempt to typset using MinionPro.sty, as well as some of the .log  
+file from that same attempt.)
+
+Thanks, and sorry again to bother.
+
+Ted Sider
+Professor of Philosophy
+Rutgers University
+
+--------------------------
+output from console:
+
+This is pdfeTeX, Version 3.141592-1.30.4-2.2 (Web2C 7.5.5)
+\write18 enabled.
+entering extended mode
+(./Untitled.tex
+LaTeX2e <2005/12/01>
+Babel <v3.8d> and hyphenation patterns for american, french, german,  
+ngerman, d
+utch, italian, norsk, portuges, spanish, swedish, nohyphenation, loaded.
+(/usr/local/teTeX/share/texmf.local/tex/latex/base/article.cls
+Document Class: article 2005/09/16 v1.4f Standard LaTeX document class
+(/usr/local/teTeX/share/texmf.local/tex/latex/base/size10.clo))
+(/Users/jillnorth/Library/texmf/tex/latex/MinionPro/MinionPro.sty
+(/Users/jillnorth/Library/texmf/tex/latex/MinionPro/MinionPro- 
+FontDef.sty
+(/Users/jillnorth/Library/texmf/tex/latex/MinionPro/otfontdef.sty
+(/usr/local/teTeX/share/texmf.local/tex/latex/graphics/keyval.sty)))
+(/usr/local/teTeX/share/texmf.local/tex/latex/base/textcomp.sty
+(/usr/local/teTeX/share/texmf.local/tex/latex/base/ts1enc.def))
+(/Users/jillnorth/Library/texmf/tex/latex/MnSymbol/MnSymbol.sty
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/amsmath/amstext.sty
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/amsmath/amsgen.sty))
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/amsmath/amsbsy.sty)
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/amsmath/amsopn.sty))
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/amsfonts/eufrak.sty)
+
+LaTeX Font Warning: Encoding `OMS' has changed to `U' for symbol font
+(Font)              `symbols' in the math version `normal' on input  
+line 120.
+
+
+LaTeX Font Warning: Encoding `OMS' has changed to `U' for symbol font
+(Font)              `symbols' in the math version `bold' on input  
+line 120.
+
+)
+
+LaTeX Font Warning: Encoding `OT1' has changed to `T1' for symbol font
+(Font)              `operators' in the math version `normal' on input  
+line 163.
+
+
+
+LaTeX Font Warning: Encoding `OT1' has changed to `T1' for symbol font
+(Font)              `operators' in the math version `bold' on input  
+line 163.
+
+(/Users/jillnorth/Library/texmf/tex/latex/MinionPro/fontaxes.sty)
+(/Users/jillnorth/Library/texmf/tex/latex/MinionPro/ot1minionpro-osf.fd
+(/Users/jillnorth/Library/texmf/tex/latex/MinionPro/MinionPro- 
+FontDef.sty)))
+(./Untitled.aux) (/usr/local/teTeX/share/texmf.local/tex/latex/base/ 
+ts1cmr.fd)
+(/Users/jillnorth/Library/texmf/tex/latex/MinionPro/t1minionpro-osf.fd
+(/Users/jillnorth/Library/texmf/tex/latex/MinionPro/MinionPro- 
+FontDef.sty))
+(/Users/jillnorth/Library/texmf/tex/latex/MinionPro/omlminionpro-tosf.fd
+(/Users/jillnorth/Library/texmf/tex/latex/MinionPro/MinionPro- 
+FontDef.sty))
+[1{/usr/local/teTeX/share/texmf.local/fonts/map/pdftex/updmap/ 
+pdftex.map}]
+(./Untitled.aux) ) </Users/jillnorth/Library/texmf/fonts/pk/ljfour/ 
+public/MnSym
+bol/MnSymbolA10.600pk>kpathsea: Running mktexpk --mfmode / --bdpi 600  
+--mag 0+545/600 --dpi 545 MinionPro-It-Base-aa
+mktexpk: don't know how to create bitmap font for MinionPro-It-Base-aa.
+kpathsea: Appending font creation commands to missfont.log.
+
+Warning: /usr/local/teTeX/bin/i386-apple-darwin-current/pdflatex  
+(file MinionPr
+o-It-Base-aa): Font MinionPro-It-Base-aa at 545 not found
+</Users/jillnorth/Library/texmf/fonts/pk/ljfour/public/MnSymbol/ 
+MnSymbolC10.60
+0pk>kpathsea: Running mktexpk --mfmode / --bdpi 600 --mag 0+545/600 -- 
+dpi 545 MinionPro-Regular-Base-aa
+mktexpk: don't know how to create bitmap font for MinionPro-Regular- 
+Base-aa.
+
+Warning: /usr/local/teTeX/bin/i386-apple-darwin-current/pdflatex  
+(file MinionPr
+o-Regular-Base-aa): Font MinionPro-Regular-Base-aa at 545 not found
+Output written on Untitled.pdf (1 page, 2568 bytes).
+Transcript written on Untitled.log.
+-----------------------------
+
+
+
+part of the .log file from that same attempt:
+
+LaTeX Font Info:    Try loading font information for OT1+MinionPro- 
+OsF on input
+line 628.
+
+(/Users/jillnorth/Library/texmf/tex/latex/MinionPro/ot1minionpro-osf.fd
+File: OT1MinionPro-OsF.fd 2005/01/23 v2.0 font definitions for OT1/ 
+MinionPro-Os
+F.
+
+(/Users/jillnorth/Library/texmf/tex/latex/MinionPro/MinionPro- 
+FontDef.sty
+File: MinionPro-FontDef.sty 2007/02/01 v2.2 font definition macros
+)))
+(./Untitled.aux)
+\openout1 = `Untitled.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 6.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input  
+line 6.
+(/usr/local/teTeX/share/texmf.local/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Try loading font information for T1+MinionPro-OsF  
+on input
+line 8.
+
+(/Users/jillnorth/Library/texmf/tex/latex/MinionPro/t1minionpro-osf.fd
+File: T1MinionPro-OsF.fd 2005/01/23 v2.0 font definitions for T1/ 
+MinionPro-OsF.
+
+
+(/Users/jillnorth/Library/texmf/tex/latex/MinionPro/MinionPro- 
+FontDef.sty
+File: MinionPro-FontDef.sty 2007/02/01 v2.2 font definition macros
+))
+LaTeX Font Info:    Try loading font information for OML+MinionPro- 
+TOsF on inpu
+t line 8.
+
+(/Users/jillnorth/Library/texmf/tex/latex/MinionPro/omlminionpro-tosf.fd
+File: OMLMinionPro-TOsF.fd 2005/01/23 v2.0 font definitions for OML/ 
+MinionPro-T
+OsF.
+
+(/Users/jillnorth/Library/texmf/tex/latex/MinionPro/MinionPro- 
+FontDef.sty
+File: MinionPro-FontDef.sty 2007/02/01 v2.2 font definition macros
+))
+[1
+
+{/usr/local/teTeX/share/texmf.local/fonts/map/pdftex/updmap/pdftex.map}]
+(./Untitled.aux) )
+Here is how much of TeX's memory you used:
+3951 strings out of 95125
+61278 string characters out of 1182970
+2071377 words of memory out of 4526130
+7095 multiletter control sequences out of 10000+50000
+95553 words of font info for 51 fonts, out of 2000000 for 2000
+58 hyphenation exceptions out of 5000
+40i,4n,58p,266b,437s stack positions out of 5000i,500n,6000p,200000b, 
+40000s
+PDF statistics:
+8 PDF objects out of 300000
+0 named destinations out of 131072
+1 words of extra memory for PDF output out of 10000
+</Users/jillnorth/Library/texmf/fonts/pk/ljfour/public/MnSym
+bol/MnSymbolA10.600pk>
+Warning: /usr/local/teTeX/bin/i386-apple-darwin-current/pdflatex  
+(file MinionPr
+o-It-Base-aa): Font MinionPro-It-Base-aa at 545 not found
+</Users/jillnorth/Library/texmf/fonts/pk/ljfour/public/MnSymbol/ 
+MnSymbolC10.60
+0pk>
+Warning: /usr/local/teTeX/bin/i386-apple-darwin-current/pdflatex  
+(file MinionPr
+o-Regular-Base-aa): Font MinionPro-Regular-Base-aa at 545 not found
+Output written on Untitled.pdf (1 page, 2568 bytes).
+
+
+
+From ogrizzo at libero.it  Wed May 30 19:40:12 2007
+From: ogrizzo at libero.it (Ottavio G. Rizzo)
+Date: Wed, 30 May 2007 19:40:12 +0200
+Subject: [Minionpro-devel] minion pro with gwTeX
+In-Reply-To: <3E826830-F336-4F01-B417-EC846B9A1C60@philosophy.rutgers.edu>
+References: <3E826830-F336-4F01-B417-EC846B9A1C60@philosophy.rutgers.edu>
+Message-ID: <1180546812.3108.17.camel@amelia.lor8>
+
+Il giorno mer, 30/05/2007 alle 12.56 -0400, Ted Sider ha scritto:
+>  I have all the  
+> MinionPro files in the right place in my local texmf tree, ~/Library/ 
+> texmf.  As near as I can tell (though I'm no expert), the information  
+> for the MinionPro font isn't making its way into  	
+> 
+> 	/usr/local/teTeX/share/texmf.local/fonts/map/pdftex/updmap/pdftex.map
+> 
+> (which, I gather, is created by updmap.)  But I have done:
+> 
+> 	sudo updmap --enable Map MinionPro.map
+
+
+updmap will create a pdftex.map file for the user --- root in this case,
+I guess. (`sudo locate pdftex.map` should tell you something)
+
+Remove all unnecessary map files and try again with updmap-sys.
+
+Ottavio
+
+
+From sider at philosophy.rutgers.edu  Wed May 30 21:50:08 2007
+From: sider at philosophy.rutgers.edu (Ted Sider)
+Date: Wed, 30 May 2007 15:50:08 -0400
+Subject: [Minionpro-devel] minion pro with gwTeX
+In-Reply-To: <1180546812.3108.17.camel@amelia.lor8>
+References: <3E826830-F336-4F01-B417-EC846B9A1C60@philosophy.rutgers.edu>
+	<1180546812.3108.17.camel@amelia.lor8>
+Message-ID: <1670E2D0-C81E-4264-980C-B42528573BFA@philosophy.rutgers.edu>
+
+
+On May 30, 2007, at 1:40 PM, Ottavio G. Rizzo wrote:
+
+> Il giorno mer, 30/05/2007 alle 12.56 -0400, Ted Sider ha scritto:
+>>  I have all the
+>> MinionPro files in the right place in my local texmf tree, ~/Library/
+>> texmf.  As near as I can tell (though I'm no expert), the information
+>> for the MinionPro font isn't making its way into  	
+>>
+>> 	/usr/local/teTeX/share/texmf.local/fonts/map/pdftex/updmap/ 
+>> pdftex.map
+>>
+>> (which, I gather, is created by updmap.)  But I have done:
+>>
+>> 	sudo updmap --enable Map MinionPro.map
+>
+>
+> updmap will create a pdftex.map file for the user --- root in this  
+> case,
+> I guess. (`sudo locate pdftex.map` should tell you something)
+>
+> Remove all unnecessary map files and try again with updmap-sys.
+
+Hi; thanks for replying.  I'd already tried using updmap-sys.   I  
+tried it again; still no luck.  I didn't remove any unnecessary map  
+fails since I don't know enough about TeX's workings to know which  
+files are unnecessary.  Any other suggestions (or suggestions about  
+which map files to remove?)
+
+By the way, `sudo locate pdftex.map` returned this (on both machines,  
+including the one where everything is working fine):
+
+	/usr/local/teTeX/share/texmf.local/fonts/map/pdftex/updmap/pdftex.map
+
+TS
+
+
+From ogrizzo at libero.it  Wed May 30 23:02:00 2007
+From: ogrizzo at libero.it (Ottavio G. Rizzo)
+Date: Wed, 30 May 2007 21:02:00 +0000
+Subject: [Minionpro-devel] minion pro with gwTeX
+In-Reply-To: <1670E2D0-C81E-4264-980C-B42528573BFA@philosophy.rutgers.edu>
+References: <3E826830-F336-4F01-B417-EC846B9A1C60@philosophy.rutgers.edu>
+	<1180546812.3108.17.camel@amelia.lor8>
+	<1670E2D0-C81E-4264-980C-B42528573BFA@philosophy.rutgers.edu>
+Message-ID: <1180558920.3108.27.camel@amelia.lor8>
+
+Il giorno mer, 30/05/2007 alle 15.50 -0400, Ted Sider ha scritto:
+> On May 30, 2007, at 1:40 PM, Ottavio G. Rizzo wrote:
+
+> 
+> Hi; thanks for replying.  I'd already tried using updmap-sys.   I  
+> tried it again; still no luck.  I didn't remove any unnecessary map  
+> fails since I don't know enough about TeX's workings to know which  
+> files are unnecessary.  Any other suggestions (or suggestions about  
+> which map files to remove?)
+> 
+> By the way, `sudo locate pdftex.map` returned this (on both machines,  
+> including the one where everything is working fine):
+> 
+> 	/usr/local/teTeX/share/texmf.local/fonts/map/pdftex/updmap/pdftex.map
+
+What do `grep MinionPro $(locate updmap.cfg)` and `locate updmap.cfg`
+report? (this assumes bash --- if it doesn't work just substitute $(..)
+with the filenames returned by the latter command)
+
+Perhaps 'sudo updmap' doesn't see files in ~/Library ? Did you try
+moving those file into /usr/local/teTeX/share/texmf.local ?
+
+BTW, you ran texhash on the relevant directories (~/Library, I guess),
+didn't you?
+
+Ottavio
+
+
+From sider at philosophy.rutgers.edu  Wed May 30 23:40:34 2007
+From: sider at philosophy.rutgers.edu (Ted Sider)
+Date: Wed, 30 May 2007 17:40:34 -0400
+Subject: [Minionpro-devel] minion pro with gwTeX
+In-Reply-To: <1180558920.3108.27.camel@amelia.lor8>
+References: <3E826830-F336-4F01-B417-EC846B9A1C60@philosophy.rutgers.edu>
+	<1180546812.3108.17.camel@amelia.lor8>
+	<1670E2D0-C81E-4264-980C-B42528573BFA@philosophy.rutgers.edu>
+	<1180558920.3108.27.camel@amelia.lor8>
+Message-ID: <A76B3879-D6E3-4DF6-9BD1-3ECBA2D1DB06@philosophy.rutgers.edu>
+
+
+On May 30, 2007, at 5:02 PM, Ottavio G. Rizzo wrote:
+
+> Il giorno mer, 30/05/2007 alle 15.50 -0400, Ted Sider ha scritto:
+>> On May 30, 2007, at 1:40 PM, Ottavio G. Rizzo wrote:
+>
+>>
+>> Hi; thanks for replying.  I'd already tried using updmap-sys.   I
+>> tried it again; still no luck.  I didn't remove any unnecessary map
+>> files since I don't know enough about TeX's workings to know which
+>> files are unnecessary.  Any other suggestions (or suggestions about
+>> which map files to remove?)
+>>
+>> By the way, `sudo locate pdftex.map` returned this (on both machines,
+>> including the one where everything is working fine):
+>>
+>> 	/usr/local/teTeX/share/texmf.local/fonts/map/pdftex/updmap/ 
+>> pdftex.map
+>
+> What do `grep MinionPro $(locate updmap.cfg)` and `locate updmap.cfg`
+> report? (this assumes bash --- if it doesn't work just substitute $ 
+> (..)
+> with the filenames returned by the latter command)
+
+`grep MinionPro $(locate updmap.cfg)` reports:
+
+	/usr/local/teTeX/share/texmf.local/web2c/updmap.cfg:Map MinionPro.map
+
+`locate updmap.cfg` reports:
+
+/usr/local/teTeX/man/man5/updmap.cfg.5
+/usr/local/teTeX/share/texmf.local/web2c/updmap.cfg
+/usr/local/teTeX/share/texmf.tetex/web2c/updmap.cfg
+
+
+> Perhaps 'sudo updmap' doesn't see files in ~/Library ? Did you try
+> moving those file into /usr/local/teTeX/share/texmf.local ?
+
+I just tried moving the files to /usr/local/teTeX/share/texmf.local  
+-- still doesn't work.  (The files are in ~/Library/texmf in the  
+computer on which MinionPro is working, by the way.)
+
+
+> BTW, you ran texhash on the relevant directories (~/Library, I guess),
+> didn't you?
+
+In the past I have only run texhash using `sudo texhash`.  I hadn't  
+run texhash *on*  ~/Library (I thought you didn't have to.)  Just now  
+I ran `texhash ~/Library` (and also `texhash ~/Library/texmf`, in  
+case that's what you meant).  Still doesn't work.
+
+By the way, thanks for taking so much time with this.
+
+
+From sider at philosophy.rutgers.edu  Thu May 31 00:18:29 2007
+From: sider at philosophy.rutgers.edu (Ted Sider)
+Date: Wed, 30 May 2007 18:18:29 -0400
+Subject: [Minionpro-devel] minion pro with gwTeX
+In-Reply-To: <1180558920.3108.27.camel@amelia.lor8>
+References: <3E826830-F336-4F01-B417-EC846B9A1C60@philosophy.rutgers.edu>
+	<1180546812.3108.17.camel@amelia.lor8>
+	<1670E2D0-C81E-4264-980C-B42528573BFA@philosophy.rutgers.edu>
+	<1180558920.3108.27.camel@amelia.lor8>
+Message-ID: <D4C5FD10-DC5B-4448-9CF7-0613A2151FAE@philosophy.rutgers.edu>
+
+
+> Il giorno mer, 30/05/2007 alle 15.50 -0400, Ted Sider ha scritto:
+>> On May 30, 2007, at 1:40 PM, Ottavio G. Rizzo wrote:
+>
+>>
+>> Hi; thanks for replying.  I'd already tried using updmap-sys.   I
+>> tried it again; still no luck.  I didn't remove any unnecessary map
+>> fails since I don't know enough about TeX's workings to know which
+>> files are unnecessary.  Any other suggestions (or suggestions about
+>> which map files to remove?)
+>>
+>> By the way, `sudo locate pdftex.map` returned this (on both machines,
+>> including the one where everything is working fine):
+>>
+>> 	/usr/local/teTeX/share/texmf.local/fonts/map/pdftex/updmap/ 
+>> pdftex.map
+>
+> What do `grep MinionPro $(locate updmap.cfg)` and `locate updmap.cfg`
+> report? (this assumes bash --- if it doesn't work just substitute $ 
+> (..)
+> with the filenames returned by the latter command)
+>
+> Perhaps 'sudo updmap' doesn't see files in ~/Library ? Did you try
+> moving those file into /usr/local/teTeX/share/texmf.local ?
+>
+> BTW, you ran texhash on the relevant directories (~/Library, I guess),
+> didn't you?
+>
+> Ottavio
+
+
+p.s. one other thing, which may or may not be relevant: the .tfm  
+files on the computer where MinionPro.sty works are different from  
+the ones where it isn't working.  The nonworking one has, e.g.,    
+MinionPro-Regular-Base-aa.tfm; whereas the working maching has, e.g.,  
+MinionPro-Regular-lf-l1-lgi--base.tfm.
+
+TS
+
+
+From blumensath at mathematik.tu-darmstadt.de  Thu May 31 08:31:21 2007
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Thu, 31 May 2007 08:31:21 +0200
+Subject: [Minionpro-devel] minion pro with gwTeX
+In-Reply-To: <3E826830-F336-4F01-B417-EC846B9A1C60@philosophy.rutgers.edu>
+References: <3E826830-F336-4F01-B417-EC846B9A1C60@philosophy.rutgers.edu>
+Message-ID: <20070531063121.GA22314@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Ted Sider wrote:
+> As near as I can tell (though I'm no expert), the information  
+> for the MinionPro font isn't making its way into  	
+> 
+> 	/usr/local/teTeX/share/texmf.local/fonts/map/pdftex/updmap/pdftex.map
+
+What is the output of
+
+  sudo updmap-sys --enable Map MinionPro.map
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070531/94a12c40/attachment.pgp>
+
+From sider at philosophy.rutgers.edu  Thu May 31 15:48:47 2007
+From: sider at philosophy.rutgers.edu (Ted Sider)
+Date: Thu, 31 May 2007 09:48:47 -0400
+Subject: [Minionpro-devel] minion pro with gwTeX
+In-Reply-To: <20070531063121.GA22314@mathematik.tu-darmstadt.de>
+References: <3E826830-F336-4F01-B417-EC846B9A1C60@philosophy.rutgers.edu>
+	<20070531063121.GA22314@mathematik.tu-darmstadt.de>
+Message-ID: <9A89D9E1-E986-4B6A-908E-9CD05C069C9F@philosophy.rutgers.edu>
+
+
+On May 31, 2007, at 2:31 AM, Achim Blumensath wrote:
+
+> Hello,
+>
+> Ted Sider wrote:
+>> As near as I can tell (though I'm no expert), the information
+>> for the MinionPro font isn't making its way into  	
+>>
+>> 	/usr/local/teTeX/share/texmf.local/fonts/map/pdftex/updmap/ 
+>> pdftex.map
+>
+> What is the output of
+>
+>   sudo updmap-sys --enable Map MinionPro.map
+>
+> Achim
+
+
+Hi Achim,
+
+thanks for replying.   I've pasted the output below.  Meanwhile, just  
+a couple more things that I've learned, which may or may not be  
+relevant.  First, when I emailed earlier, I hadn't realized that the / 
+usr/local/teTeX hierarchy is irrelevant to my distribution of gwTeX  
+(which is the most recent one, based on TeXLive 2007.)  I think it's  
+left over on the machine from an earlier TeX installation.  Second:   
+I actually have two machines.  On one, I got MinionPro to work, on  
+the other I've failed.  And I've noticed a few differences between  
+these machines.  First, when I run updmap (see the output below), on  
+each machine it says that the config file it's using is /usr/local/ 
+gwTeX/texmf.local/web2c/updmap.cfg.   But when I look inside this  
+file, it has Map MinionPro.map on the machine in which things are NOT  
+working.  On the machine where the font IS working, /usr/local/gwTeX/ 
+texmf.local/web2c/updmap.cfg does NOT contain this command.   Second,  
+I noticed that the .tfm files on the computer where everything is  
+working are different from the files on the computer where it isn't  
+working.  The nonworking computer has, e.g., MinionPro-Regular-Base- 
+aa.tfm; whereas the working computer has, e.g., MinionPro-Regular-lf- 
+l1-lgi--base.tfm.  I also note that the .tfm files on the working  
+computer were created in 2005, whereas the .tfm files on the  
+nonworking computer were created by me recently.  (I installed  
+MinionPro on the working computer a few months ago; could this have  
+something to do with the fact that the package was recently updated?)
+
+Output follows:
+
+
+
+
+fsp-macbookpro-7:/usr/local jillnorth$ sudo updmap-sys --enable Map  
+MinionPro.map
+Password:
+updmap: This is updmap, version 1167072206
+updmap: using transcript file `/usr/local/gwTeX/texmf.local/web2c/ 
+updmap.log'
+updmap: initial config file is `/usr/local/gwTeX/texmf.local/web2c/ 
+updmap.cfg'
+updmap: configuration (updmap.cfg) unchanged. Map files will not be  
+recreated.
+fsp-macbookpro-7:/usr/local jillnorth$ sudo updmap- 
+sys                         updmap: This is updmap, version 1167072206
+updmap: using transcript file `/usr/local/gwTeX/texmf.local/web2c/ 
+updmap.log'
+
+updmap is creating new map files using the following configuration:
+
+   config file: `/usr/local/gwTeX/texmf.local/web2c/updmap.cfg'
+   dvips output directory: `/usr/local/gwTeX/texmf.local/fonts/map/ 
+dvips/updmap'
+   pdftex output directory: `/usr/local/gwTeX/texmf.local/fonts/map/ 
+pdftex/updmap'
+   dvipdfm output directory: `/usr/local/gwTeX/texmf.local/fonts/map/ 
+dvipdfm/updmap'
+
+   prefer outlines: `true'
+   texhash enabled: `false'
+   download standard fonts (dvips): `false'
+   download standard fonts (pdftex): `true'
+   download standard fonts (dvipdfm): `true'
+
+updmap: Scanning for LW35 support files
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/tetex/dvips35.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/tetex/pdftex35.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/tetex/dvipdfm35.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/tetex/ps2pk35.map'
+
+updmap: Scanning for MixedMap entries:
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/ams/ams-bsr-interpolated.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/ams/ams-bsr.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/ams/ams-cmcsc-bsr-interpolated.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/cc-pl/ccpl.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/cm/cmother-bsr.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/cm/cmtext-bsr-interpolated.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/cm/cmtext-bsr.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/cs/csother.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/cs/cstext.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/eurosym/eurosym.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/latex-fonts/latex-bsr.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/manfnt/manfnt.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/pl/plother.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/pl/pltext.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/rsfs/rsfs.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/stmaryrd/stmaryrd.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/tipa/tipa.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/cmex/ttcmex.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/vntex/vnrother.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/vntex/vnrtext.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/wasy/wasy.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/xypic/xypic.map'
+
+updmap: Scanning for Map entries:
+updmap: using map file `/Users/jillnorth/Library/texmf/fonts/map/ 
+dvips/MinionPro/MinionPro.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/antp/antp.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/antt/antt.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/vntex/arevvn.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/psnfss/charter.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/vntex/chartervn.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/cjhebrew/cjhebrew.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/vntex/cmbrightvn.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/cmcyr/cmcyr.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/vntex/comicvn.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/vntex/concretevn.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/dictsym/dictsym.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/doublestroke/dstroke.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/esvect/esvect.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/fourier/fourier.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/psnfss/fpls.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/vntex/grotesqvn.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/iwona/iwona.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/lm/lm.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/marvosym/marvosym.map'
+updmap: using map file `/Users/jillnorth/Library/texmf/fonts/map/ 
+dvips/mathdesign/mdbch.map'
+updmap: using map file `/Users/jillnorth/Library/texmf/fonts/map/ 
+dvips/mathdesign/mdput.map'
+updmap: using map file `/Users/jillnorth/Library/texmf/fonts/map/ 
+dvips/mathdesign/mdugm.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/mflogo/mflogo.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+pdftex/vntex/mscorevn.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/omega/omega.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/psnfss/pazo.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/pxfonts/pxfonts.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/qfonts/qcr.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/qfonts/qhv.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/qfonts/qzc.map'
+updmap: using map file `/usr/local/gwTeX/texmf.gwtex/fonts/map/dvips/ 
+relsymb/relsymb.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/txfonts/txfonts.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/vntex/txttvn.map'
+updmap: using map file `/Users/jillnorth/Library/texmf/fonts/map/ 
+dvips/ugm/ugm.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/vntex/urwvn.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/psnfss/utopia.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/vntex/vntopia.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/gothic/yfrak.map'
+
+updmap: Generating output for ps2pk...
+updmap: Generating output for dvips...
+updmap: Generating output for pdftex...
+updmap: Generating output for dvipdfm...
+updmap: All output generated!
+
+
+updmap: Files generated:
+-rw-r--r--   1 root  wheel   72917 May 31 09:41 /usr/local/gwTeX/ 
+texmf.local/fonts/map/dvipdfm/updmap/dvipdfm_dl14.map
+-rw-r--r--   1 root  wheel   73544 May 31 09:41 /usr/local/gwTeX/ 
+texmf.local/fonts/map/dvipdfm/updmap/dvipdfm_ndl14.map
+-rw-r--r--   1 root  wheel    8921 May 31 09:41 /usr/local/gwTeX/ 
+texmf.local/fonts/map/dvips/updmap/builtin35.map
+-rw-r--r--   1 root  wheel   12980 May 31 09:41 /usr/local/gwTeX/ 
+texmf.local/fonts/map/dvips/updmap/download35.map
+-rw-r--r--   1 root  wheel  209725 May 31 09:41 /usr/local/gwTeX/ 
+texmf.local/fonts/map/dvips/updmap/ps2pk.map
+-rw-r--r--   1 root  wheel  188434 May 31 09:41 /usr/local/gwTeX/ 
+texmf.local/fonts/map/dvips/updmap/psfonts_pk.map
+-rw-r--r--   1 root  wheel  205672 May 31 09:41 /usr/local/gwTeX/ 
+texmf.local/fonts/map/dvips/updmap/psfonts_t1.map
+-rw-r--r--   1 root  wheel  209732 May 31 09:41 /usr/local/gwTeX/ 
+texmf.local/fonts/map/pdftex/updmap/pdftex_dl14.map
+-rw-r--r--   1 root  wheel  208182 May 31 09:41 /usr/local/gwTeX/ 
+texmf.local/fonts/map/pdftex/updmap/pdftex_ndl14.map
+
+updmap: Map file links:
+psfonts.map -> psfonts_t1.map
+pdftex.map -> pdftex_dl14.map
+dvipdfm.map -> dvipdfm_dl14.map
+
+
+

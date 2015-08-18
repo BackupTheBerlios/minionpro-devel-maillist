@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Minionpro-devel] RC2
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/minionpro-devel/2007-February/index.html" >
+   <LINK REL="made" HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20RC2&In-Reply-To=%3C200702071117.39442.andreas.buehmann%40web.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000059.html">
+   <LINK REL="Next"  HREF="000062.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Minionpro-devel] RC2</H1>
+    <B>Andreas B&#252;hmann</B> 
+    <A HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20RC2&In-Reply-To=%3C200702071117.39442.andreas.buehmann%40web.de%3E"
+       TITLE="[Minionpro-devel] RC2">andreas.buehmann at web.de
+       </A><BR>
+    <I>Wed Feb  7 11:17:39 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000059.html">[Minionpro-devel] RC2
+</A></li>
+        <LI>Next message: <A HREF="000062.html">[Minionpro-devel] RC2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#61">[ date ]</a>
+              <a href="thread.html#61">[ thread ]</a>
+              <a href="subject.html#61">[ subject ]</a>
+              <a href="author.html#61">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+&gt;<i> Thanks for the list. But in order to understand it correctly, what 
+</I>&gt;<i> exactly is printed in column 1,2,3? Is it v2000 - v1001 - v1000?
+</I>
+in this case, it's v2000 on the left of the =&gt; and v1000 on the right.
+This is what I did: I used the MinionPro.map files (of v2000 and v1000
+in this case) to find the pairs of enc files that should be mapped (used
+for the same TeX font) and derived pairs of matching glyphs from these
+(file &quot;map-2000-1000&quot; in my example, which looks like this):
+
+/a      /a
+/A      /A
+/aacute /aacute
+/Aacute /Aacute
+/aacute.sc      /Aacutesmall
+/Aacute.swash   /Aacute.swash
+/abreve /abreve
+/Abreve /Abreve
+/abreve.sc      /uniF66D
+...
+
+(v2000 glyph, v1000 glyph)
+
+In this list, you can find ambiguous mappings like
+
+/zero.denominator       /uniF655
+/zero.denominator       /uniF661
+/zero.numerator /uniF655
+/zero.numerator /uniF661
+
+which lead to the warnings shown:
+
+&gt;<i> &gt; WARNING: /zero.denominator =&gt; /uniF655 /uniF661
+</I>&gt;<i> &gt; WARNING: /zero.numerator =&gt; /uniF655 /uniF66
+</I>
+&gt;<i> &gt; Of course, there could be many more (non-ambiguous) wrong mappings.)
+</I>&gt;<i> 
+</I>&gt;<i> Why?
+</I>
+Well, there could be cases where glyphs /A.2000 =~ /A.1000 and /B.2000
+=~ /B.1000 are allocated in the order /A.2000 /B.2000 in one encoding
+and in the order /B.1000 /A.1000 in the other (of course, this only
+happens if none of the glyphs is fixed to a certain encoding slot). Then
+my list would contain
+
+/A.2000 /B.1000
+/B.2000 /A.1000
+
+and if these glyphs are not used in a different way in another encoding,
+the mapping would be wrong but not ambiguous. Or isn't this possible?
+
+Regards,
+
+Andreas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000059.html">[Minionpro-devel] RC2
+</A></li>
+	<LI>Next message: <A HREF="000062.html">[Minionpro-devel] RC2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#61">[ date ]</a>
+              <a href="thread.html#61">[ thread ]</a>
+              <a href="subject.html#61">[ subject ]</a>
+              <a href="author.html#61">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/minionpro-devel">More information about the Minionpro-devel
+mailing list</a><br>
+</body></html>

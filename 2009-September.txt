@@ -1,0 +1,157 @@
+From schubert.seb at googlemail.com  Fri Sep 11 15:46:44 2009
+From: schubert.seb at googlemail.com (Sebastian Schubert)
+Date: Fri, 11 Sep 2009 15:46:44 +0200
+Subject: [Minionpro-devel] Error with lcdf typetools 2.79, not with 2.69
+In-Reply-To: <20090813072116.GA14985@mathematik.tu-darmstadt.de>
+References: <200907302239.14293.schubert.seb@googlemail.com>
+	<20090813072116.GA14985@mathematik.tu-darmstadt.de>
+Message-ID: <200909111546.47954.schubert.seb@googlemail.com>
+
+Hi,
+
+now I am sorry for my late response.
+
+* On Thursday 13 August 2009, 09:21:16, Achim Blumensath wrote:
+> Hello,
+>
+> Sebastian Schubert wrote:
+> > I recently used the cvs sources. When using lcdf typetools 2.69
+> > everything is fine, with 2.79 I get an error, though.
+>
+> I cannot reproduce the error. Are you sure that the only difference
+> is the version of lcdf typetools, or are you using different TeX
+> installations as well?
+
+There is no difference that I am aware of. Just another package 
+installed with the distribution's system (Gentoo). I even tried to 
+switch back again and it worked.
+
+Cheers
+Sebastian
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 197 bytes
+Desc: This is a digitally signed message part.
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20090911/3a2ed77d/attachment.pgp>
+
+From nplatis at freemail.gr  Thu Sep 17 16:25:49 2009
+From: nplatis at freemail.gr (Nikos Platis)
+Date: Thu, 17 Sep 2009 17:25:49 +0300
+Subject: [Minionpro-devel] Greek kappa and theta italic
+Message-ID: <4AB246ED.8000407@freemail.gr>
+
+I just installed the MinionPro package and fonts (converted from version 
+"Version 1.022;PS 001.001;" of the otf files).
+Working with a greek text, I found out that in the italic fonts, the 
+lowercase kappa and theta are mapped to "math symbol kappa" and "math 
+symbol theta" respectively instead of their normal forms.
+
+Is this intentional?
+
+Is there any quick way to change this? Should I wait for any next 
+version of the package? (the normal forms look much better in text)
+
+Thank you in advance,
+Nikos Platis
+
+
+-- 
+-----------------------------------------------------------------------
+Nikos Platis                                e-mail: nplatis at freemail.gr
+
+"The empires of the future are the empires of the mind." - W. Churchill
+-----------------------------------------------------------------------
+
+
+
+From blumensath at mathematik.tu-darmstadt.de  Fri Sep 18 11:09:03 2009
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Fri, 18 Sep 2009 11:09:03 +0200
+Subject: [Minionpro-devel] Greek kappa and theta italic
+In-Reply-To: <4AB246ED.8000407@freemail.gr>
+References: <4AB246ED.8000407@freemail.gr>
+Message-ID: <20090918090903.GA14602@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Nikos Platis wrote:
+> I just installed the MinionPro package and fonts (converted from version 
+> "Version 1.022;PS 001.001;" of the otf files).
+> Working with a greek text, I found out that in the italic fonts, the 
+> lowercase kappa and theta are mapped to "math symbol kappa" and "math 
+> symbol theta" respectively instead of their normal forms.
+> 
+> Is this intentional?
+
+No, this is a bug. Which encoding are you using LGR or LGI?
+
+> Is there any quick way to change this? Should I wait for any next 
+> version of the package? (the normal forms look much better in text)
+
+I don't think there is a quick fix. You have to change the encoding
+files and regenerate all the metrics.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: Digital signature
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20090918/0c04ec21/attachment.pgp>
+
+From nplatis at freemail.gr  Fri Sep 18 18:22:57 2009
+From: nplatis at freemail.gr (Nikos Platis)
+Date: Fri, 18 Sep 2009 19:22:57 +0300
+Subject: [Minionpro-devel] Greek kappa and theta italic
+In-Reply-To: <20090918090903.GA14602@mathematik.tu-darmstadt.de>
+References: <4AB246ED.8000407@freemail.gr>
+	<20090918090903.GA14602@mathematik.tu-darmstadt.de>
+Message-ID: <ad976fb80909180922s351b37c9t31cd7a77f95d059f@mail.gmail.com>
+
+On Fri, Sep 18, 2009 at 12:09, Achim Blumensath <
+blumensath at mathematik.tu-darmstadt.de> wrote:
+
+> Hello,
+>
+> Nikos Platis wrote:
+> > I just installed the MinionPro package and fonts (converted from version
+> > "Version 1.022;PS 001.001;" of the otf files).
+> > Working with a greek text, I found out that in the italic fonts, the
+> > lowercase kappa and theta are mapped to "math symbol kappa" and "math
+> > symbol theta" respectively instead of their normal forms.
+> >
+> > Is this intentional?
+>
+> No, this is a bug. Which encoding are you using LGR or LGI?
+>
+
+I am using LGR with Babel.
+
+>
+> > Is there any quick way to change this? Should I wait for any next
+> > version of the package? (the normal forms look much better in text)
+>
+> I don't think there is a quick fix. You have to change the encoding
+> files and regenerate all the metrics.
+>
+>
+OK, by "quick" I meant something I can do myself, with some instructions :-)
+I would not mind changing some files or doing some beta testing, so if you
+think I can help, please let me know.
+(And the project I intend to use MinionPro on is not in a hurry -- yet!)
+
+Nikos
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20090918/611fcc27/attachment.html>
+

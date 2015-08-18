@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Minionpro-devel] RC2
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/minionpro-devel/2007-February/index.html" >
+   <LINK REL="made" HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20RC2&In-Reply-To=%3C200702070032.18891.andreas.buehmann%40web.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000057.html">
+   <LINK REL="Next"  HREF="000059.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Minionpro-devel] RC2</H1>
+    <B>Andreas B&#252;hmann</B> 
+    <A HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20RC2&In-Reply-To=%3C200702070032.18891.andreas.buehmann%40web.de%3E"
+       TITLE="[Minionpro-devel] RC2">andreas.buehmann at web.de
+       </A><BR>
+    <I>Wed Feb  7 00:32:18 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000057.html">[Minionpro-devel] RC2
+</A></li>
+        <LI>Next message: <A HREF="000059.html">[Minionpro-devel] RC2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#58">[ date ]</a>
+              <a href="thread.html#58">[ thread ]</a>
+              <a href="subject.html#58">[ subject ]</a>
+              <a href="author.html#58">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello Michael,
+
+&gt;<i> In the different font versions the non-standard ligatures are assigned
+</I>&gt;<i> different encoding slots.
+</I>
+the same is true for /zero.denominator and /zero.numerator and perhaps
+other symbols that are not fixed to an encoding slot. (One of my scripts
+spotted only the cases where the mapping is ambiguous, e.g.:
+
+&gt;<i> ./analyze map-2000-1000
+</I>WARNING: /.notdef =&gt; /.notdef /threequartersemdash
+WARNING: /T_h =&gt; /f_b /T_h
+WARNING: /f_b =&gt; /f_b /f_h
+WARNING: /f_f_j =&gt; /f_f_j /f_f_k
+WARNING: /f_f_t =&gt; /f_f_j /f_f_t
+WARNING: /f_h =&gt; /f_h /f_j
+WARNING: /f_j =&gt; /f_j /f_k
+WARNING: /f_k =&gt; /f_k /f_t
+WARNING: /f_t =&gt; /f_t /T_h
+WARNING: /zero.denominator =&gt; /uniF655 /uniF661
+WARNING: /zero.numerator =&gt; /uniF655 /uniF661
+
+Of course, there could be many more (non-ambiguous) wrong mappings.)
+
+Have a good night,
+
+Andreas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000057.html">[Minionpro-devel] RC2
+</A></li>
+	<LI>Next message: <A HREF="000059.html">[Minionpro-devel] RC2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#58">[ date ]</a>
+              <a href="thread.html#58">[ thread ]</a>
+              <a href="subject.html#58">[ subject ]</a>
+              <a href="author.html#58">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/minionpro-devel">More information about the Minionpro-devel
+mailing list</a><br>
+</body></html>

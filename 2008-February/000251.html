@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Minionpro-devel] FontFolio 11
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/minionpro-devel/2008-February/index.html" >
+   <LINK REL="made" HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20FontFolio%2011&In-Reply-To=%3C1202483217.7825.12.camel%40karneol3.physik.uni-ulm.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000250.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Minionpro-devel] FontFolio 11</H1>
+    <B>Michael Murphy</B> 
+    <A HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20FontFolio%2011&In-Reply-To=%3C1202483217.7825.12.camel%40karneol3.physik.uni-ulm.de%3E"
+       TITLE="[Minionpro-devel] FontFolio 11">michael.murphy at uni-ulm.de
+       </A><BR>
+    <I>Fri Feb  8 16:06:57 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000250.html">[Minionpro-devel] FontFolio 11
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#251">[ date ]</a>
+              <a href="thread.html#251">[ thread ]</a>
+              <a href="subject.html#251">[ subject ]</a>
+              <a href="author.html#251">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Achim Blumensath wrote:
+
+&gt;<i> You should also change the file enc/mn-extra-u.enc
+</I>
+Ah OK I get it now --- basically, the numbers arguments for \Pisymbol
+refer to the list in mn-extra-u.enc (in a roundabout way anyway), which
+in turn refers to particular font names in the metrics. So, what I have
+done is to go through the font using font forge and match up all of the
+names of the missing symbols. It wasn't just a case of replacing 'orn'
+with 'bullet', as not all of the orn symbols had been changed to bullet
+(they were instead uni****).
+
+(NB: I tried just renaming the glyphs in my .enc files without
+rebuilding and then running updmap, but this didn't seem to work for me,
+so I recompiled.)
+
+Here is the working mn-extra-u.enc file:
+
+<A HREF="http://www.mediafire.com/?24tw11d9z0z">http://www.mediafire.com/?24tw11d9z0z</A>
+
+and my final glyph complement
+
+<A HREF="http://www.mediafire.com/?azyhcd4lofd">http://www.mediafire.com/?azyhcd4lofd</A>
+
+Thanks again for all the help.
+
+Michael.
+
+-- 
+Michael Murphy MPhys
+
+Institute of Quantum Information Processing
+Universit&#228;t Ulm,
+Albert-Einstein-Allee 11
+D-89081 Ulm
+DEUTSCHLAND
+tel +49 731 50 22931
+fax +49 731 50 22839
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/minionpro-devel">michael.murphy at uni-ulm.de</A>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000250.html">[Minionpro-devel] FontFolio 11
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#251">[ date ]</a>
+              <a href="thread.html#251">[ thread ]</a>
+              <a href="subject.html#251">[ subject ]</a>
+              <a href="author.html#251">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/minionpro-devel">More information about the Minionpro-devel
+mailing list</a><br>
+</body></html>

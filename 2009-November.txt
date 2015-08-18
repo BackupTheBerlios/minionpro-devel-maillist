@@ -1,0 +1,71 @@
+From schubert.seb at googlemail.com  Mon Nov 23 16:21:38 2009
+From: schubert.seb at googlemail.com (Sebastian Schubert)
+Date: Mon, 23 Nov 2009 16:21:38 +0100
+Subject: [Minionpro-devel] Error with lcdf typetools 2.79, not with 2.69
+In-Reply-To: <20090813072116.GA14985@mathematik.tu-darmstadt.de>
+References: <200907302239.14293.schubert.seb@googlemail.com>
+	<20090813072116.GA14985@mathematik.tu-darmstadt.de>
+Message-ID: <200911231621.39039.schubert.seb@googlemail.com>
+
+Hi Achim,
+
+On Thursday, 13. August 2009 09:21:16 Achim Blumensath wrote:
+> Hello,
+> 
+> Sebastian Schubert wrote:
+> > I recently used the cvs sources. When using lcdf typetools 2.69
+> > everything is fine, with 2.79 I get an error, though.
+> 
+> I cannot reproduce the error. Are you sure that the only difference
+>  is the version of lcdf typetools, or are you using different TeX
+>  installations as well?
+
+I was able to reproduce this problem on another machine with texlive 
+2008. lcdf 2.69 works, 2.70 and higher not .
+
+Furthermore, I get warnings that some tfm and vf are not present when i 
+use the pack option. As far as I can see, this is connected to the two 
+rm after dotlessj creation in maketfm.
+
+Cheers
+Sebastian
+
+
+From blumensath at mathematik.tu-darmstadt.de  Mon Nov 23 16:39:23 2009
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Mon, 23 Nov 2009 16:39:23 +0100
+Subject: [Minionpro-devel] Error with lcdf typetools 2.79, not with 2.69
+In-Reply-To: <200911231621.39039.schubert.seb@googlemail.com>
+References: <200907302239.14293.schubert.seb@googlemail.com>
+	<20090813072116.GA14985@mathematik.tu-darmstadt.de>
+	<200911231621.39039.schubert.seb@googlemail.com>
+Message-ID: <20091123153923.GE23771@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Sebastian Schubert wrote:
+> I was able to reproduce this problem on another machine with texlive
+> 2008. lcdf 2.69 works, 2.70 and higher not .
+
+The encoding files need to be updated for the newer versions of lcdf.
+Unfortunately, I have nearly no time to look at minionpro at the moment,
+and I don't think that will change soon.
+
+If someone wants to take charge of the project, please contact me.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: Digital signature
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20091123/c84e3ab9/attachment.pgp>
+

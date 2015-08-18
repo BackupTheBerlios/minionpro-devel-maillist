@@ -1,0 +1,737 @@
+From mosgowi at gmail.com  Thu Jul 10 21:43:34 2008
+From: mosgowi at gmail.com (Jan de Ruijter)
+Date: Thu, 10 Jul 2008 21:43:34 +0200
+Subject: [Minionpro-devel] lettrine + minionpro problem
+Message-ID: <48766666.4090504@tiscali.nl>
+
+hi,
+I am using fedora 8 and texlive.
+a very simple .tex file is included which gives me strange results using 
+lettrine and minionpro. after leaving \usepackage{MinionPro} from the 
+preambule the strang results (wrong characters instead of the smallcaps 
+text) disappear.
+any ideas?
+this is the tex-file:
+
+
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8x]{inputenc}
+
+\makeatletter
+\usepackage{MinionPro}
+\usepackage{lettrine}
+\usepackage{babel}
+
+\makeatother
+\begin{document}
+
+ \lettrine{D}{is de eerste}  regel met lettrine
+\end{document}
+
+
+best regards,
+jan de ruijter
+
+
+From blumensath at mathematik.tu-darmstadt.de  Fri Jul 11 08:17:32 2008
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Fri, 11 Jul 2008 08:17:32 +0200
+Subject: [Minionpro-devel] lettrine + minionpro problem
+In-Reply-To: <48766666.4090504@tiscali.nl>
+References: <48766666.4090504@tiscali.nl>
+Message-ID: <20080711061732.GA27897@mathematik.tu-darmstadt.de>
+
+Hello,
+
+> a very simple .tex file is included which gives me strange results using 
+> lettrine and minionpro. after leaving \usepackage{MinionPro} from the 
+> preambule the strang results (wrong characters instead of the smallcaps 
+> text) disappear.
+
+I cannot reproduce your problems. Do you get any error messages or is
+just the output wrong? Do small caps work if you just use \textsc{foo}?
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20080711/ee236ebd/attachment.pgp>
+
+From mosgowi at gmail.com  Fri Jul 11 10:50:41 2008
+From: mosgowi at gmail.com (Jan de Ruijter)
+Date: Fri, 11 Jul 2008 10:50:41 +0200
+Subject: [Minionpro-devel] lettrine + minionpro problem
+In-Reply-To: <20080711061732.GA27897@mathematik.tu-darmstadt.de>
+References: <48766666.4090504@tiscali.nl>
+	<20080711061732.GA27897@mathematik.tu-darmstadt.de>
+Message-ID: <48771EE1.4080301@gmail.com>
+
+
+
+Achim Blumensath wrote:
+> Hello,
+>
+>   
+>> a very simple .tex file is included which gives me strange results using 
+>> lettrine and minionpro. after leaving \usepackage{MinionPro} from the 
+>> preambule the strang results (wrong characters instead of the smallcaps 
+>> text) disappear.
+>>     
+>
+> I cannot reproduce your problems. Do you get any error messages or is
+> just the output wrong? Do small caps work if you just use \textsc{foo}?
+>   
+hi,
+I think it is indeed a problem with smallcaps because \textsc{<TEXT>} 
+also produced nonsence output
+see, for instance:
+
+TEX-FILE:
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8x]{inputenc}
+
+\makeatletter
+\usepackage{MinionPro}
+\usepackage{lettrine}
+\usepackage{babel}
+
+
+
+\makeatother
+
+
+\begin{document}
+
+
+
+\textsc{small caps}
+\end{document}
+
+LATEX-MESSAGES:
+
+[janr at suffix ~]$ latex smallcaps-test.tex
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6)
+ %&-line parsing enabled.
+entering extended mode
+(./smallcaps-test.tex
+LaTeX2e <2005/12/01>
+Babel <v3.8h> and hyphenation patterns for english, usenglishmax, 
+dumylang, noh
+yphenation, arabic, basque, bulgarian, coptic, welsh, czech, slovak, 
+german, ng
+erman, danish, esperanto, spanish, catalan, galician, estonian, farsi, 
+finnish,
+ french, greek, monogreek, ancientgreek, croatian, hungarian, 
+interlingua, ibyc
+us, indonesian, icelandic, italian, latin, mongolian, dutch, norsk, 
+polish, por
+tuguese, pinyin, romanian, russian, slovenian, uppersorbian, serbian, 
+swedish,
+turkish, ukenglish, ukrainian, loaded.
+(/usr/share/texmf/tex/latex/base/article.cls
+Document Class: article 2005/09/16 v1.4f Standard LaTeX document class
+(/usr/share/texmf/tex/latex/base/size10.clo))
+(/usr/share/texmf/tex/latex/base/fontenc.sty
+(/usr/share/texmf/tex/latex/base/t1enc.def))
+(/usr/share/texmf/tex/latex/base/inputenc.sty
+(/usr/share/texmf/tex/latex/ucs/utf8x.def))
+(/usr/share/texmf/tex/latex/ucs/ucs.sty
+(/usr/share/texmf/tex/latex/ucs/data/uni-global.def))
+(/usr/share/texmf/tex/latex/MinionPro/MinionPro.sty
+(/usr/share/texmf/tex/latex/MinionPro/MinionPro-FontDef.sty
+(/usr/share/texmf/tex/latex/MinionPro/otfontdef.sty
+(/usr/share/texmf/tex/latex/graphics/keyval.sty)))
+(/usr/share/texmf/tex/latex/base/textcomp.sty
+(/usr/share/texmf/tex/latex/base/ts1enc.def))
+(/usr/share/texmf/tex/latex/MnSymbol/MnSymbol.sty
+(/usr/share/texmf/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texmf/tex/latex/amsmath/amstext.sty
+(/usr/share/texmf/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texmf/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texmf/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texmf/tex/latex/amsfonts/eufrak.sty)
+
+LaTeX Font Warning: Encoding `OMS' has changed to `U' for symbol font
+(Font)              `symbols' in the math version `normal' on input line 
+120.
+
+
+LaTeX Font Warning: Encoding `OMS' has changed to `U' for symbol font
+(Font)              `symbols' in the math version `bold' on input line 120.
+
+)
+
+LaTeX Font Warning: Encoding `OT1' has changed to `T1' for symbol font
+(Font)              `operators' in the math version `normal' on input 
+line 163.
+
+
+
+LaTeX Font Warning: Encoding `OT1' has changed to `T1' for symbol 
+font[janr at suffix ~]$ xdvi smallcaps-test.dvi
+Warning: Cannot convert string 
+"-*-helvetica-medium-r-*-*-12-*-*-*-*-*-*" to type FontStruct
+Warning: Cannot convert string 
+"-*-helvetica-medium-r-*-*-10-*-*-*-*-*-*" to type FontStruct
+kpathsea: Running mktexpk --mfmode / --bdpi 600 --mag 0+545/600 --dpi 
+545 MinionPro-Regular-Base-ac
+mktexpk: don't know how to create bitmap font for MinionPro-Regular-Base-ac.
+kpathsea: Appending font creation commands to missfont.log.
+xdvi-xaw3d.bin: Warning: Character 171 is mapped to .notdef in font 
+cmr10 (page 1), replacing by whitespace.
+xdvi-xaw3d.bin: Warning: Character 147 is mapped to .notdef in font 
+cmr10 (page 1), replacing by whitespace.
+xdvi-xaw3d.bin: Warning: Character 143 is mapped to .notdef in font 
+cmr10 (page 1), replacing by whitespace.
+kpathsea: Running mktexpk --mfmode / --bdpi 600 --mag 0+545/600 --dpi 
+545 MinionPro-Regular-Base-aa
+mktexpk: don't know how to create bitmap font for MinionPro-Regular-Base-aa.
+xdvi-xaw3d.bin: Warning: Character 213 is mapped to .notdef in font 
+cmr10 (page 1), replacing by whitespace.
+
+(Font)              `operators' in the math version `bold' on input line 
+163.
+
+(/usr/share/texmf/tex/latex/MinionPro/fontaxes.sty)
+(/usr/share/texmf/tex/latex/MinionPro/T1MinionPro-OsF.fd
+(/usr/share/texmf/tex/latex/MinionPro/MinionPro-FontDef.sty)))
+(/usr/share/texmf/tex/latex/lettrine/lettrine.sty
+(/usr/share/texmf/tex/latex/lettrine/lettrine.cfg))
+(/usr/share/texmf/tex/generic/babel/babel.sty
+(/usr/share/texmf/tex/generic/babel/english.ldf
+(/usr/share/texmf/tex/generic/babel/babel.def)))
+No file smallcaps-test.aux.
+(/usr/share/texmf/tex/latex/base/ts1cmr.fd)
+(/usr/share/texmf/tex/latex/ucs/ucsencs.def) [1] (./smallcaps-test.aux) )
+Output written on smallcaps-test.dvi (1 page, 356 bytes).
+Transcript written on smallcaps-test.log.
+
+XDVI-MESSAGES:
+
+[janr at suffix ~]$ xdvi smallcaps-test.dvi
+Warning: Cannot convert string 
+"-*-helvetica-medium-r-*-*-12-*-*-*-*-*-*" to type FontStruct
+Warning: Cannot convert string 
+"-*-helvetica-medium-r-*-*-10-*-*-*-*-*-*" to type FontStruct
+kpathsea: Running mktexpk --mfmode / --bdpi 600 --mag 0+545/600 --dpi 
+545 MinionPro-Regular-Base-ac
+mktexpk: don't know how to create bitmap font for MinionPro-Regular-Base-ac.
+kpathsea: Appending font creation commands to missfont.log.
+xdvi-xaw3d.bin: Warning: Character 171 is mapped to .notdef in font 
+cmr10 (page 1), replacing by whitespace.
+xdvi-xaw3d.bin: Warning: Character 147 is mapped to .notdef in font 
+cmr10 (page 1), replacing by whitespace.
+xdvi-xaw3d.bin: Warning: Character 143 is mapped to .notdef in font 
+cmr10 (page 1), replacing by whitespace.
+kpathsea: Running mktexpk --mfmode / --bdpi 600 --mag 0+545/600 --dpi 
+545 MinionPro-Regular-Base-aa
+mktexpk: don't know how to create bitmap font for MinionPro-Regular-Base-aa.
+xdvi-xaw3d.bin: Warning: Character 213 is mapped to .notdef in font 
+cmr10 (page 1), replacing by whitespace.
+
+
+XDVI-OUTPUT: if lettrine is used: the drop-capital is right but, indeed, 
+the smallcaps part is messed up.
+did I make an minionpro-installation mistake? do you you have any idea 
+what I did wrong.
+
+greetings
+jan
+
+
+
+
+
+From blumensath at mathematik.tu-darmstadt.de  Fri Jul 11 14:12:59 2008
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Fri, 11 Jul 2008 14:12:59 +0200
+Subject: [Minionpro-devel] lettrine + minionpro problem
+In-Reply-To: <48771EE1.4080301@gmail.com>
+References: <48766666.4090504@tiscali.nl>
+	<20080711061732.GA27897@mathematik.tu-darmstadt.de>
+	<48771EE1.4080301@gmail.com>
+Message-ID: <20080711121259.GF27897@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Jan de Ruijter wrote:
+> kpathsea: Running mktexpk --mfmode / --bdpi 600 --mag 0+545/600 --dpi 
+> 545 MinionPro-Regular-Base-ac
+> mktexpk: don't know how to create bitmap font for MinionPro-Regular-Base-ac.
+> kpathsea: Appending font creation commands to missfont.log.
+
+This is an error in your font installation. Did you run mktexlsr and
+updmap-sys after installing MinionPro?
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20080711/7e1121e9/attachment.pgp>
+
+From mosgowi at gmail.com  Fri Jul 11 14:28:05 2008
+From: mosgowi at gmail.com (Jan de Ruijter)
+Date: Fri, 11 Jul 2008 14:28:05 +0200
+Subject: [Minionpro-devel] lettrine + minionpro problem
+In-Reply-To: <20080711121259.GF27897@mathematik.tu-darmstadt.de>
+References: <48766666.4090504@tiscali.nl>	<20080711061732.GA27897@mathematik.tu-darmstadt.de>	<48771EE1.4080301@gmail.com>
+	<20080711121259.GF27897@mathematik.tu-darmstadt.de>
+Message-ID: <487751D5.9090203@gmail.com>
+
+thanks very much, it works!!
+what I did (probably) wrong was:
+I used updmap instead of updmap-sys (I did use mktexlsr though)
+after doing:
+
+mktexlsr
+updmap-sys
+
+every thing worked fine!!
+thanks again,
+jan
+
+Achim Blumensath wrote:
+> Hello,
+>
+> Jan de Ruijter wrote:
+>   
+>> kpathsea: Running mktexpk --mfmode / --bdpi 600 --mag 0+545/600 --dpi 
+>> 545 MinionPro-Regular-Base-ac
+>> mktexpk: don't know how to create bitmap font for MinionPro-Regular-Base-ac.
+>> kpathsea: Appending font creation commands to missfont.log.
+>>     
+>
+> This is an error in your font installation. Did you run mktexlsr and
+> updmap-sys after installing MinionPro?
+>
+> Achim
+>   
+> ------------------------------------------------------------------------
+>
+> _______________________________________________
+> Minionpro-devel mailing list
+> Minionpro-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/minionpro-devel
+>   
+
+
+From jcnengel at googlemail.com  Mon Jul 14 19:55:15 2008
+From: jcnengel at googlemail.com (Johannes Engel)
+Date: Mon, 14 Jul 2008 18:55:15 +0100
+Subject: [Minionpro-devel] New MinionPro contains dotlessj
+Message-ID: <487B9303.5040205@googlemail.com>
+
+Hello folks,
+
+using the most recent MinionPro fonts I run into the following error:
+Creating the PostScript versions shows
+
+MinionPro-Regular: already has a dotlessj glyph at 'uni0237'
+
+Therefore all the *LCDFJ.pfb files are empty.
+But the map file and the fd's rely on the (non-trivial) presence of
+these which leads to the following in later use:
+
+Trying to make PK font MinionPro-ItLCDFJ at 600 DPI...
+Running makemf...
+makemf: The MinionPro-ItLCDFJ source file could not be found.
+Running ttf2pk...
+makepk: PK font MinionPro-ItLCDFJ could not be created.
+** WARNING ** Could not locate a virtual/physical font for TFM
+"MinionPro-It--lcdfj".
+** WARNING ** >> This font is mapped to a physical font "MinionPro-ItLCDFJ".
+** WARNING ** >> Please check if kpathsea library can find this font:
+MinionPro-ItLCDFJ
+** ERROR ** Cannot proceed without .vf or "physical" font for PDF output...
+
+Do we need a new setup for the most recent version?
+
+Cheers, Johannes
+
+
+
+From blumensath at mathematik.tu-darmstadt.de  Wed Jul 16 08:25:13 2008
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Wed, 16 Jul 2008 08:25:13 +0200
+Subject: [Minionpro-devel] New MinionPro contains dotlessj
+In-Reply-To: <487B9303.5040205@googlemail.com>
+References: <487B9303.5040205@googlemail.com>
+Message-ID: <20080716062513.GA11118@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Johannes Engel wrote:
+> using the most recent MinionPro fonts I run into the following error:
+> 
+> MinionPro-Regular: already has a dotlessj glyph at 'uni0237'
+
+Which version of MinionPro do you have?
+
+I have added an option --nodotlessj to the maketfm script. Could you try
+whether this helps?
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20080716/bbc7ef2e/attachment.pgp>
+
+From jcnengel at googlemail.com  Thu Jul 17 00:55:07 2008
+From: jcnengel at googlemail.com (Johannes Engel)
+Date: Wed, 16 Jul 2008 23:55:07 +0100
+Subject: [Minionpro-devel] New MinionPro contains dotlessj
+In-Reply-To: <20080716062513.GA11118@mathematik.tu-darmstadt.de>
+References: <487B9303.5040205@googlemail.com>
+	<20080716062513.GA11118@mathematik.tu-darmstadt.de>
+Message-ID: <487E7C4B.5040807@googlemail.com>
+
+Achim Blumensath wrote:
+> I have added an option --nodotlessj to the maketfm script. Could you try
+> whether this helps?
+>   
+OK, I found your change in the cvs repo (the svn repo is not working by 
+the way).
+Can you tell me a reasonable value for the --pack option?
+
+Cheers, Johannes
+
+
+From jcnengel at googlemail.com  Thu Jul 17 00:49:29 2008
+From: jcnengel at googlemail.com (Johannes Engel)
+Date: Wed, 16 Jul 2008 23:49:29 +0100
+Subject: [Minionpro-devel] New MinionPro contains dotlessj
+In-Reply-To: <20080716062513.GA11118@mathematik.tu-darmstadt.de>
+References: <487B9303.5040205@googlemail.com>
+	<20080716062513.GA11118@mathematik.tu-darmstadt.de>
+Message-ID: <487E7AF9.9010004@googlemail.com>
+
+Hi Achim,
+
+Achim Blumensath wrote:
+> Which version of MinionPro do you have?
+>   
+Version 2.030;PS 2.000;hotconv 1.0.51;makeotf.lib2.0.18671. This is 
+shipped with Adobe Reader 9.
+> I have added an option --nodotlessj to the maketfm script. Could you try
+> whether this helps?
+>   
+I'd love to, but where can I find that one? I tried downloading 
+source.zip from berlios, but that did not contain the new version.
+
+Cheers, Johannes
+
+
+From blumensath at mathematik.tu-darmstadt.de  Thu Jul 17 08:14:35 2008
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Thu, 17 Jul 2008 08:14:35 +0200
+Subject: [Minionpro-devel] New MinionPro contains dotlessj
+In-Reply-To: <487E7C4B.5040807@googlemail.com>
+References: <487B9303.5040205@googlemail.com>
+	<20080716062513.GA11118@mathematik.tu-darmstadt.de>
+	<487E7C4B.5040807@googlemail.com>
+Message-ID: <20080717061435.GA21010@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Johannes Engel wrote:
+> OK, I found your change in the cvs repo (the svn repo is not working
+> by the way).
+
+We don't use SVN.
+
+> Can you tell me a reasonable value for the --pack option?
+
+You can take scripts/glyph-list-2.000, but first you should add a line
+
+  /dotlessj
+
+to that file.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20080717/a0cd3f1b/attachment.pgp>
+
+From jcnengel at googlemail.com  Thu Jul 17 11:42:54 2008
+From: jcnengel at googlemail.com (Johannes Engel)
+Date: Thu, 17 Jul 2008 10:42:54 +0100
+Subject: [Minionpro-devel] New MinionPro contains dotlessj
+In-Reply-To: <20080717061435.GA21010@mathematik.tu-darmstadt.de>
+References: <487B9303.5040205@googlemail.com>	<20080716062513.GA11118@mathematik.tu-darmstadt.de>	<487E7C4B.5040807@googlemail.com>
+	<20080717061435.GA21010@mathematik.tu-darmstadt.de>
+Message-ID: <487F141E.3060204@googlemail.com>
+
+Achim Blumensath wrote:
+> You can take scripts/glyph-list-2.000, but first you should add a line
+>
+>   /dotlessj
+>
+> to that file.
+Thank you for the hint. I will try that.
+Another question: How are these glyph lists generated? I guess it is not 
+only otfinfo -g, right? Can I create one especially for this new version 
+of MinionPro?
+
+Cheers, Johannes
+
+
+From blumensath at mathematik.tu-darmstadt.de  Thu Jul 17 11:50:11 2008
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Thu, 17 Jul 2008 11:50:11 +0200
+Subject: [Minionpro-devel] New MinionPro contains dotlessj
+In-Reply-To: <487F141E.3060204@googlemail.com>
+References: <487B9303.5040205@googlemail.com>
+	<20080716062513.GA11118@mathematik.tu-darmstadt.de>
+	<487E7C4B.5040807@googlemail.com>
+	<20080717061435.GA21010@mathematik.tu-darmstadt.de>
+	<487F141E.3060204@googlemail.com>
+Message-ID: <20080717095011.GC21010@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Johannes Engel wrote:
+> Another question: How are these glyph lists generated? I guess it is
+> not only otfinfo -g, right? Can I create one especially for this new
+> version of MinionPro?
+
+Yes, you need to run makeall twice:
+
+  $ ./scripts/makeall --nodotlessj
+  $ ./scripts/generate-glyph-list.sh >./scripts/glyph-list-2.030
+  $ ./scripts/makeall --nodotlessj --pack=./scripts/glyph-list.2.030
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20080717/c41cc055/attachment.pgp>
+
+From jcnengel at googlemail.com  Thu Jul 17 13:08:03 2008
+From: jcnengel at googlemail.com (Johannes Engel)
+Date: Thu, 17 Jul 2008 12:08:03 +0100
+Subject: [Minionpro-devel] New MinionPro contains dotlessj
+In-Reply-To: <487F2425.2040004@googlemail.com>
+References: <487B9303.5040205@googlemail.com>	<20080716062513.GA11118@mathematik.tu-darmstadt.de>	<487E7C4B.5040807@googlemail.com>	<20080717061435.GA21010@mathematik.tu-darmstadt.de>	<487F141E.3060204@googlemail.com>
+	<20080717095011.GC21010@mathematik.tu-darmstadt.de>
+	<487F2425.2040004@googlemail.com>
+Message-ID: <487F2813.4070505@googlemail.com>
+
+Johannes Engel schrieb:
+> Achim Blumensath:
+>>   $ ./scripts/makeall --nodotlessj
+>>   $ ./scripts/generate-glyph-list.sh >./scripts/glyph-list-2.030
+>>   $ ./scripts/makeall --nodotlessj --pack=./scripts/glyph-list.2.030
+>>   
+> Hm, that looks strange, because the glyph list generated in that way 
+> does not contain a dotlessj or a dotlessj.sc 
+I have made a little further step towards understanding: the glyph for 
+the dotlessj is called /uni0237 (resp. /uni0237.sc) in the otf and 
+therefore also in the encoding files. Do I have to change that to 
+dotlessj(.sc)?
+
+Cheers, Johannes
+
+
+From jcnengel at googlemail.com  Thu Jul 17 12:51:17 2008
+From: jcnengel at googlemail.com (Johannes Engel)
+Date: Thu, 17 Jul 2008 11:51:17 +0100
+Subject: [Minionpro-devel] New MinionPro contains dotlessj
+In-Reply-To: <20080717095011.GC21010@mathematik.tu-darmstadt.de>
+References: <487B9303.5040205@googlemail.com>	<20080716062513.GA11118@mathematik.tu-darmstadt.de>	<487E7C4B.5040807@googlemail.com>	<20080717061435.GA21010@mathematik.tu-darmstadt.de>	<487F141E.3060204@googlemail.com>
+	<20080717095011.GC21010@mathematik.tu-darmstadt.de>
+Message-ID: <487F2425.2040004@googlemail.com>
+
+Achim Blumensath:
+>   $ ./scripts/makeall --nodotlessj
+>   $ ./scripts/generate-glyph-list.sh >./scripts/glyph-list-2.030
+>   $ ./scripts/makeall --nodotlessj --pack=./scripts/glyph-list.2.030
+>   
+Hm, that looks strange, because the glyph list generated in that way 
+does not contain a dotlessj or a dotlessj.sc
+
+Cheers, Johannes
+
+
+From blumensath at mathematik.tu-darmstadt.de  Thu Jul 17 13:20:33 2008
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Thu, 17 Jul 2008 13:20:33 +0200
+Subject: [Minionpro-devel] New MinionPro contains dotlessj
+In-Reply-To: <487F2813.4070505@googlemail.com>
+References: <487B9303.5040205@googlemail.com>
+	<20080716062513.GA11118@mathematik.tu-darmstadt.de>
+	<487E7C4B.5040807@googlemail.com>
+	<20080717061435.GA21010@mathematik.tu-darmstadt.de>
+	<487F141E.3060204@googlemail.com>
+	<20080717095011.GC21010@mathematik.tu-darmstadt.de>
+	<487F2425.2040004@googlemail.com> <487F2813.4070505@googlemail.com>
+Message-ID: <20080717112033.GD21010@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Johannes Engel wrote:
+> Johannes Engel schrieb:
+> > Achim Blumensath:
+> >>   $ ./scripts/makeall --nodotlessj
+> >>   $ ./scripts/generate-glyph-list.sh >./scripts/glyph-list-2.030
+> >>   $ ./scripts/makeall --nodotlessj --pack=./scripts/glyph-list-2.030
+> >>   
+> > Hm, that looks strange, because the glyph list generated in that way 
+> > does not contain a dotlessj or a dotlessj.sc 
+> I have made a little further step towards understanding: the glyph for 
+> the dotlessj is called /uni0237 (resp. /uni0237.sc) in the otf and 
+> therefore also in the encoding files. Do I have to change that to 
+> dotlessj(.sc)?
+
+No, you do not need to change the fonts. If the glyph is called /uni0237
+then you can use that value.
+
+Do the above three commands produce usable metrics for you?
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20080717/68a9de3e/attachment.pgp>
+
+From jcnengel at googlemail.com  Thu Jul 17 14:55:50 2008
+From: jcnengel at googlemail.com (Johannes Engel)
+Date: Thu, 17 Jul 2008 13:55:50 +0100
+Subject: [Minionpro-devel] New MinionPro contains dotlessj
+In-Reply-To: <20080717112033.GD21010@mathematik.tu-darmstadt.de>
+References: <487B9303.5040205@googlemail.com>	<20080716062513.GA11118@mathematik.tu-darmstadt.de>	<487E7C4B.5040807@googlemail.com>	<20080717061435.GA21010@mathematik.tu-darmstadt.de>	<487F141E.3060204@googlemail.com>	<20080717095011.GC21010@mathematik.tu-darmstadt.de>	<487F2425.2040004@googlemail.com>
+	<487F2813.4070505@googlemail.com>
+	<20080717112033.GD21010@mathematik.tu-darmstadt.de>
+Message-ID: <487F4156.8080500@googlemail.com>
+
+Achim Blumensath wrote:
+> No, you do not need to change the fonts. If the glyph is called /uni0237
+> then you can use that value.
+>
+> Do the above three commands produce usable metrics for you?
+Yes!
+I will also attach the glyphlist for further reference resp. inclusion.
+
+Cheers, Johannes
+-------------- next part --------------
+An embedded and charset-unspecified text was scrubbed...
+Name: glyph-list-2.030
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20080717/ff2bae07/attachment.ksh>
+
+From blumensath at mathematik.tu-darmstadt.de  Thu Jul 17 15:11:53 2008
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Thu, 17 Jul 2008 15:11:53 +0200
+Subject: [Minionpro-devel] New MinionPro contains dotlessj
+In-Reply-To: <487F4156.8080500@googlemail.com>
+References: <487B9303.5040205@googlemail.com>
+	<20080716062513.GA11118@mathematik.tu-darmstadt.de>
+	<487E7C4B.5040807@googlemail.com>
+	<20080717061435.GA21010@mathematik.tu-darmstadt.de>
+	<487F141E.3060204@googlemail.com>
+	<20080717095011.GC21010@mathematik.tu-darmstadt.de>
+	<487F2425.2040004@googlemail.com> <487F2813.4070505@googlemail.com>
+	<20080717112033.GD21010@mathematik.tu-darmstadt.de>
+	<487F4156.8080500@googlemail.com>
+Message-ID: <20080717131153.GE21010@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Johannes Engel wrote:
+> I will also attach the glyphlist for further reference resp. inclusion.
+
+Thanks, I have added it to CVS.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20080717/f3bbf28f/attachment.pgp>
+
+From vgaburici at gmail.com  Thu Jul 31 20:38:38 2008
+From: vgaburici at gmail.com (Vasile Gaburici)
+Date: Thu, 31 Jul 2008 21:38:38 +0300
+Subject: [Minionpro-devel] This may be of some interest for those interested
+	in math fonts
+Message-ID: <bef0d710807311138l190dcf2dwb44576c635e3d976@mail.gmail.com>
+
+Ulrik Vieth presented a paper at Bacho TeX 2008 entitled
+"Understanding the aesthetic of math typesetting". Links to the paper,
+slides and even a video recording of the talk are all on this page:
+http://www.gust.org.pl/projects/e-foundry/index_html#Math
+
+Granted, his analysis seems to use single data point - the CM fonts.
+
+

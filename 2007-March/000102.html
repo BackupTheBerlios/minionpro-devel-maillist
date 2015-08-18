@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Minionpro-devel] MinionPro 2.1 rc3
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/minionpro-devel/2007-March/index.html" >
+   <LINK REL="made" HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20MinionPro%202.1%20rc3&In-Reply-To=%3C200703291427.04595.andreas.buehmann%40web.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000101.html">
+   <LINK REL="Next"  HREF="000100.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Minionpro-devel] MinionPro 2.1 rc3</H1>
+    <B>Andreas B&#252;hmann</B> 
+    <A HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20MinionPro%202.1%20rc3&In-Reply-To=%3C200703291427.04595.andreas.buehmann%40web.de%3E"
+       TITLE="[Minionpro-devel] MinionPro 2.1 rc3">andreas.buehmann at web.de
+       </A><BR>
+    <I>Thu Mar 29 14:27:04 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000101.html">[Minionpro-devel] MinionPro 2.1 rc3
+</A></li>
+        <LI>Next message: <A HREF="000100.html">[Minionpro-devel] MinionPro 2.1 rc3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#102">[ date ]</a>
+              <a href="thread.html#102">[ thread ]</a>
+              <a href="subject.html#102">[ subject ]</a>
+              <a href="author.html#102">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>* Sebastian Schubert &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/minionpro-devel">sebastian-schubert at gmx.de</A>&gt;:
+&gt;<i> mktexpk: don't know how to create bitmap font for
+</I>&gt;<i> MinionPro-Regular-osf-lgr--base.
+</I>&gt;<i>
+</I>&gt;<i>  cat MinionPro.map | grep lgr
+</I>&gt;<i> gives nothing (just a guess).
+</I>
+I can confirm that the map lines are missing from MinionPro.map. This
+seems to be due to a bug in otftotfm 2.61: I was able to reduce the
+otftotfm calls that generate the lgr fonts to the following mininum:
+
+  otftotfm 'otf/MinionPro-Regular.otf' 'without-unicoding'
+  otftotfm --unicoding 'does.not.exist =: foo' 'otf/MinionPro-Regular.otf' 'with-unicoding'
+
+Only the first call outputs a map line, the second one does not (while
+they produce identical TFM files):
+
+otftotfm: warning: no encoding provided
+otftotfm: (Use '-e ENCODING' to choose an encoding. '-e texnansx' often works,
+otftotfm: or say '-e -' to turn off this warning.)
+I had to round some heights by 15.5000000 units.
+I had to round some depths by 4.5000000 units.
+without-unicoding MinionPro-Regular &quot;AutoEnc_qglvkfpwsrmnwkwmuoclaw4ysc ReEncodeFont&quot; &lt;[a_qglvkf.enc &lt;MinionPro-Regular.pfb
+otftotfm: warning: no encoding provided
+otftotfm: (Use '-e ENCODING' to choose an encoding. '-e texnansx' often works,
+otftotfm: or say '-e -' to turn off this warning.)
+otftotfm: --unicoding command: target 'does.not.exist' has no encoding, ignoring UNICODING
+I had to round some heights by 15.5000000 units.
+I had to round some depths by 4.5000000 units.
+
+I am sending a copy of this mail to Eddie Kohler, the developer of
+otftotfm.
+
+Thanks for the bug report. Regards,
+
+Andreas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000101.html">[Minionpro-devel] MinionPro 2.1 rc3
+</A></li>
+	<LI>Next message: <A HREF="000100.html">[Minionpro-devel] MinionPro 2.1 rc3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#102">[ date ]</a>
+              <a href="thread.html#102">[ thread ]</a>
+              <a href="subject.html#102">[ subject ]</a>
+              <a href="author.html#102">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/minionpro-devel">More information about the Minionpro-devel
+mailing list</a><br>
+</body></html>

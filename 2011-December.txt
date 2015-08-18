@@ -1,0 +1,80 @@
+From peter.park.nelson at gmail.com  Sun Dec 18 00:36:55 2011
+From: peter.park.nelson at gmail.com (Peter Park Nelson)
+Date: Sat, 17 Dec 2011 17:36:55 -0600
+Subject: [Minionpro-devel] Support for ConTeXt/LuaTeX
+Message-ID: <CAGfkPG=jFCCwN+n88=3+QVzCY8pjwRJUgp8RgF8iE0uiDMdcgw@mail.gmail.com>
+
+Hello,
+
+I am interested in using MnSymbol with ConTeXt and LuaTeX. After a
+little research I am trying to figure out whether I can do anything
+myself to make MnSymbol available in ConTeXt. So, I have a couple of
+questions:
+
+1. One of the ConTeXt font support gurus advised me to work on a
+mapping vector to UTF8 (example is from Lucida Math support):
+
+> You need to define a mapping vector to map from 8bit font to UTF-8.
+> See for example
+> mathencodings["tex-mi"] = {
+> ? ?[0x1D6E4] = 0x00, -- Gamma
+> ? ?[0x1D6E5] = 0x01, -- Delta
+
+Has anyone already defined such a mapping?
+
+
+2, Regarding the Opentype fonts on CTAN, are there any plans to add
+MATH table support? Without MATH tables, how are the OTF fonts used?
+
+Thanks,
+PPN
+
+--
+Peter Park Nelson
+peter.park.nelson at gmail.com
+
+
+From blumensath at liafa.jussieu.fr  Sun Dec 18 14:44:04 2011
+From: blumensath at liafa.jussieu.fr (Achim Blumensath)
+Date: Sun, 18 Dec 2011 14:44:04 +0100
+Subject: [Minionpro-devel] Support for ConTeXt/LuaTeX
+In-Reply-To: <CAGfkPG=jFCCwN+n88=3+QVzCY8pjwRJUgp8RgF8iE0uiDMdcgw@mail.gmail.com>
+References: <CAGfkPG=jFCCwN+n88=3+QVzCY8pjwRJUgp8RgF8iE0uiDMdcgw@mail.gmail.com>
+Message-ID: <20111218134404.GA28950@liafa.jussieu.fr>
+
+Hello,
+
+Peter Park Nelson wrote:
+> I am interested in using MnSymbol with ConTeXt and LuaTeX.
+> 
+> 1. One of the ConTeXt font support gurus advised me to work on a
+> mapping vector to UTF8 (example is from Lucida Math support):
+> 
+> > You need to define a mapping vector to map from 8bit font to UTF-8.
+> > See for example
+> > mathencodings["tex-mi"] = {
+> > ? ?[0x1D6E4] = 0x00, -- Gamma
+> > ? ?[0x1D6E5] = 0x01, -- Delta
+> 
+> Has anyone already defined such a mapping?
+
+Not to my knowledge. Note that many symbols in the MnSymbol font are not
+covered by Unicode.
+
+> 2, Regarding the Opentype fonts on CTAN, are there any plans to add
+> MATH table support? Without MATH tables, how are the OTF fonts used?
+
+These fonts are mainly intended to be used with TeX, where the
+information in the TeX metric files is sufficient.
+I have no idea what it would take to make the fonts usable in other
+programs.
+
+Achim
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20111218/a2bdad22/attachment.pgp>
+

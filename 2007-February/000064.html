@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Minionpro-devel] RC2
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/minionpro-devel/2007-February/index.html" >
+   <LINK REL="made" HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20RC2&In-Reply-To=%3C45C9C7F2.9040004%40tum.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000063.html">
+   <LINK REL="Next"  HREF="000060.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Minionpro-devel] RC2</H1>
+    <B>Michael Zedler</B> 
+    <A HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20RC2&In-Reply-To=%3C45C9C7F2.9040004%40tum.de%3E"
+       TITLE="[Minionpro-devel] RC2">michael.zedler at tum.de
+       </A><BR>
+    <I>Wed Feb  7 13:37:06 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000063.html">[Minionpro-devel] RC2
+</A></li>
+        <LI>Next message: <A HREF="000060.html">[Minionpro-devel] RC2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#64">[ date ]</a>
+              <a href="thread.html#64">[ thread ]</a>
+              <a href="subject.html#64">[ subject ]</a>
+              <a href="author.html#64">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Andreas B&#252;hmann schrieb:
+&gt;<i> WARNING: /.notdef =&gt; /.notdef /threequartersemdash
+</I>
+ok, the glyph naming is
+
+v1.000: /threequartersemdash
+v1.001/v2.000: /uni2014.alt (for the regular shapes with unicode 
+position E0FB, for the italic shapes it's E177)
+
+Appending --unicoding 'threequartersemdash =: uni2014.alt' to the ts1 
+metrics calls wasn't successful, neither
+   --unicoding 'threequartersemdash =: emdash' 
+--include-alternates=emdash -faalt
+This returned emdash.cap which is too long.
+
+I had to specify uniE0FB or uniE177 manually. Or did I oversee something?
+
+Michael
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000063.html">[Minionpro-devel] RC2
+</A></li>
+	<LI>Next message: <A HREF="000060.html">[Minionpro-devel] RC2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#64">[ date ]</a>
+              <a href="thread.html#64">[ thread ]</a>
+              <a href="subject.html#64">[ subject ]</a>
+              <a href="author.html#64">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/minionpro-devel">More information about the Minionpro-devel
+mailing list</a><br>
+</body></html>

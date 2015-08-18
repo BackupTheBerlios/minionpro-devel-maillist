@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Minionpro-devel] Where is enc-2.030.zip?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/minionpro-devel/2009-August/index.html" >
+   <LINK REL="made" HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20Where%20is%20enc-2.030.zip%3F&In-Reply-To=%3Ce03c648c0908121650x569f4eccp8ae244ebc9e5d6a8%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000306.html">
+   <LINK REL="Next"  HREF="000309.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Minionpro-devel] Where is enc-2.030.zip?</H1>
+    <B>Ben M.</B> 
+    <A HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20Where%20is%20enc-2.030.zip%3F&In-Reply-To=%3Ce03c648c0908121650x569f4eccp8ae244ebc9e5d6a8%40mail.gmail.com%3E"
+       TITLE="[Minionpro-devel] Where is enc-2.030.zip?">maresr12temp at gmail.com
+       </A><BR>
+    <I>Thu Aug 13 01:50:19 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000306.html">[Minionpro-devel] Where is enc-2.030.zip?
+</A></li>
+        <LI>Next message: <A HREF="000309.html">[Minionpro-devel] Where is enc-2.030.zip?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#307">[ date ]</a>
+              <a href="thread.html#307">[ thread ]</a>
+              <a href="subject.html#307">[ subject ]</a>
+              <a href="author.html#307">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&gt;<i> If someone sends me an enc-2.030.zip I can include it in the release.
+</I>
+Thank you Achim.  Unfortunately I'm having a difficult time with this
+package.  I'm running MikTeX 2.7 and 2.8 under Windows Vista with
+Cygwin.
+
+Here's what I'm trying to do.  I had version 2.015 of the MinionPro
+base fonts (Reg, Bold, It, BoldIt).  These work flawlessly, but I'd
+like to use optical fonts as well, so I got the full set of 2.030 from
+Adobe Font Folio 11.
+
+Following the instructions in &quot;README&quot; I added the extra metrics,
+generated the pfb, added them to my texmf, refreshed the filename
+database, and ran updmap.
+
+My document looks great with the optical fonts, however, several
+characters are missing, replaced by a boxed X.  These missing
+characters include \epsilon, \ell and \openg.  This is essentially the
+same problem reported by shuangwu on BerliOS:
+  <A HREF="http://developer.berlios.de/support/?func=detailsupport&amp;support_id=102944&amp;group_id=2184">http://developer.berlios.de/support/?func=detailsupport&amp;support_id=102944&amp;group_id=2184</A>
+
+I don't know why this is happening, but based solely on the fact that
+there are enc-vX.XXX.zip files, my guess is that the encoding changed.
+ Is this a reasonable assumption?
+
+I compared the OTFs in character map, and there's a character that
+looks just like \upell at U+2113hex.  (See the attached images.)  So
+it looks like the unicode character remains unchanged.  The only place
+I see \ell in the entire package is MinionPro.sty:
+  \DeclareMathSymbol{\ell} {\mathord}{letters}{'140}
+  \DeclareMathSymbol{\upell} {\mathord}{letters}{'340}
+I certainly don't understand what's going wrong.  The .enc files don't
+look to me like they convey the information necessary to fix this
+problem.  Do I also need to replace the metrics or something?
+
+I tried to use Cygwin to run the scripts to compile things myself.
+I'm trying to follow the procedure you gave to Johannes on 17 Jul
+2008:
+
+  $ ./scripts/makeall --nodotlessj
+  $ ./scripts/generate-glyph-list.sh &gt;./scripts/glyph-list-2.030
+  $ ./scripts/makeall --verbose --nodotlessj --pack=./scripts/glyph-list-2.030
+(previously there was a typo in the last line: &quot;glyph-list.2.030&quot;)
+
+This was a huge pain for several reasons.  Makeall takes about an hour
+to run.  Unfortunately MiKTeX doesn't use kpathsea, so I get all these
+kpathsea errors about &quot;texmf.cnf not found.&quot;  But I think all the
+necessary files are being found, and that this is ignorable.  The
+scripts seem to have a few minor errors:
+
+scripts/maketfm: line 23: ((: 2 &lt; 2 || (2 == 2 &amp;&amp; 79
+ &lt; 62) : syntax error: invalid arithmetic operator (error token is &quot;
+ &lt; 62) &quot;)
+scripts/beautify-enc.sh: line 3: ed: command not found
+
+And then there are some more serious errors, I suspect because
+fontinst might play weirdly with MiKTeX:
+
+[...]
+This is TFtoPL, Version 3.1 (MiKTeX 2.8 Beta 5)
+'000.
+This is TeX, Version 3.1415926 (MiKTeX 2.8 Beta 5)
+(C:\cygwin\usr\local\src\MinionPro\fontinst\make-MnSymbolFI-noopt.tex
+(C:\cygwin\usr\local\src\MinionPro\fontinst\fontinst-macros.tex
+(&quot;C:\Program Files\MiKTeX 2.8\tex\fontinst\base\fontinst.sty&quot;
+(&quot;C:\Program Files\MiKTeX 2.8\tex\fontinst\base\trig.sty&quot;)
+No file fontinst.rc.
+)) (C:\cygwin\usr\local\src\MinionPro\fontinst\mn-symbol-f-partialints.etx)
+(C:\cygwin\usr\local\src\MinionPro\fontinst\MnSymbolF10.pl)
+Metrics written on MnSymbolF10-mn-symbol-f-partialints.mtx.
+[...]
+(C:\cygwin\usr\local\src\MinionPro\fontinst\MinionPro-It-tosf-oml-mn-oml-it.mtx
+) (C:\cygwin\usr\local\src\MinionPro\fontinst\adjust-oml.mtx
+! Missing number, treated as zero.
+&lt;to be read again&gt;
+                   \g-UPA
+\glyph_metrics #1#2#3#4#5#6-&gt;\a_count =#1
+                                         \b_count =#2\c_count =#3\d_count =#4
+\glyph ...al_expr_to \e_count {#2}\ifnum \e_count
+                                                  =\one_thousand \edef \a_ma...
+
+\shiftglyph ...{#1} \movert {#2} \glyph {#1}{1000}
+                                                   \movert {#4} \resetitalic...
+
+\adjustmetrics ...\shiftglyph {#1}{#2}{#3}{#4}{#6}
+                                                   \resetkern {#1}{skew}{#5}
+l.4 \adjustmetrics{UPA}{0}{0}{0}{10}{5}
+
+? [prompt]
+
+
+I ignored the errors and hoped for the best.  (Do these steps just
+copy the files to texmf, or do they do something vital?)  I then copy
+over the .enc, and nothing seems to change...
+[Digression: Okay, this is very strange: earlier I could edit
+base-MinionPro-ax.enc, swap the order of two characters, and then
+LaTeX would render accordingly.  Now my changes do nothing.  (I know
+it's reading the file since it complains about it.)]
+...so then I copy over the .tfm and .vf, but the result is to scramble
+the characters.
+
+Ugh, I spent too much time on this, thinking I almost had it.  It
+would probably help if I had a better idea of what I'm doing.  Any
+help would be greatly appreciated!
+
+-Ben
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: ell-2.015.png
+Type: image/png
+Size: 28606 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/minionpro-devel/attachments/20090812/27723741/attachment.png">https://lists.berlios.de/pipermail/minionpro-devel/attachments/20090812/27723741/attachment.png</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: ell-2.030.png
+Type: image/png
+Size: 35183 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/minionpro-devel/attachments/20090812/27723741/attachment-0001.png">https://lists.berlios.de/pipermail/minionpro-devel/attachments/20090812/27723741/attachment-0001.png</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000306.html">[Minionpro-devel] Where is enc-2.030.zip?
+</A></li>
+	<LI>Next message: <A HREF="000309.html">[Minionpro-devel] Where is enc-2.030.zip?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#307">[ date ]</a>
+              <a href="thread.html#307">[ thread ]</a>
+              <a href="subject.html#307">[ subject ]</a>
+              <a href="author.html#307">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/minionpro-devel">More information about the Minionpro-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Minionpro-devel] (no subject)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/minionpro-devel/2010-January/index.html" >
+   <LINK REL="made" HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20%28no%20subject%29&In-Reply-To=%3Cad976fb81001090809w254ed2f8y7194dcfdc06678e3%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000328.html">
+   <LINK REL="Next"  HREF="000330.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Minionpro-devel] (no subject)</H1>
+    <B>Nikos Platis</B> 
+    <A HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20%28no%20subject%29&In-Reply-To=%3Cad976fb81001090809w254ed2f8y7194dcfdc06678e3%40mail.gmail.com%3E"
+       TITLE="[Minionpro-devel] (no subject)">nplatis at freemail.gr
+       </A><BR>
+    <I>Sat Jan  9 17:09:36 CET 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000328.html">[Minionpro-devel] (no subject)
+</A></li>
+        <LI>Next message: <A HREF="000330.html">[Minionpro-devel] (no subject)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#329">[ date ]</a>
+              <a href="thread.html#329">[ thread ]</a>
+              <a href="subject.html#329">[ subject ]</a>
+              <a href="author.html#329">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>To reply to my own email, I found out the following:
+
+Contrary to the reply received in
+<A HREF="https://lists.berlios.de/pipermail/minionpro-devel/2009-September/000323.html">https://lists.berlios.de/pipermail/minionpro-devel/2009-September/000323.html</A>
+this behaviour *was* intentional. Digging through the available source code,
+I found the following in scripts/maketfm :
+
+get_lgr_flags() {
+  case &quot;$1&quot; in
+    *It*) lgr_flags=&quot;--unicoding 'kappa =: kappasymbolgreek kappa'
+--unicoding 'theta =: theta1 theta' $lgr_it_flags $greek_flags&quot;;;
+    *)    lgr_flags=&quot;$lgr_rm_flags $greek_flags&quot;;;
+  esac
+}
+
+So it seems that all italic fonts are set to use the &quot;alternative&quot; versions
+of kappa and theta.
+
+I removed these flags and generated did a makeall, which gave me the
+required result.
+
+Maybe this should be made an option of the font generation or usage.
+
+Nikos Platis
+
+
+On Mon, Jan 4, 2010 at 01:43, Nikos Platis &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/minionpro-devel">nplatis at freemail.gr</A>&gt; wrote:
+
+&gt;<i> Hi.
+</I>&gt;<i>
+</I>&gt;<i> Some time ago I had reported a bug with the greek part of MinionPro, here
+</I>&gt;<i> is the link to the first message of the thread:
+</I>&gt;<i>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/pipermail/minionpro-devel/2009-September/000322.html">https://lists.berlios.de/pipermail/minionpro-devel/2009-September/000322.html</A>
+</I>&gt;<i>
+</I>&gt;<i> In a recent message to this list I saw that the package would no longer be
+</I>&gt;<i> maintained due to lack of time of the developer(s).
+</I>&gt;<i>
+</I>&gt;<i> Would it be possible to provide some instructions on what to look for and
+</I>&gt;<i> what to change in order to correct that bug?
+</I>&gt;<i>
+</I>&gt;<i> Thanks in advance (and best wishes for the New Year)
+</I>&gt;<i>
+</I>&gt;<i> Nikos Platis
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Minionpro-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/minionpro-devel">Minionpro-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/minionpro-devel">https://lists.berlios.de/mailman/listinfo/minionpro-devel</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>
+
+-- 
+-----------------------------------------------------------------------
+Nikos Platis
+Lecturer                                    <A HREF="http://www.uop.gr/~nplatis/">http://www.uop.gr/~nplatis/</A>
+University of Peloponnese                        email:  <A HREF="https://lists.berlios.de/mailman/listinfo/minionpro-devel">nplatis at uop.gr</A>
+Department of Computer Science and Technology      tel: +30 2710 372264
+-----------------------------------------------------------------------
+&quot;The empires of the future are the empires of the mind.&quot; - W. Churchill
+-----------------------------------------------------------------------
+               New Textbook:  Graphics&amp;  Visualization
+          <A HREF="http://www.akpeters.com/product.asp?ProdCode=2744">http://www.akpeters.com/product.asp?ProdCode=2744</A>
+-----------------------------------------------------------------------
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/minionpro-devel/attachments/20100109/2af918b8/attachment.html">https://lists.berlios.de/pipermail/minionpro-devel/attachments/20100109/2af918b8/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000328.html">[Minionpro-devel] (no subject)
+</A></li>
+	<LI>Next message: <A HREF="000330.html">[Minionpro-devel] (no subject)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#329">[ date ]</a>
+              <a href="thread.html#329">[ thread ]</a>
+              <a href="subject.html#329">[ subject ]</a>
+              <a href="author.html#329">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/minionpro-devel">More information about the Minionpro-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Minionpro-devel] math bold: eb -&gt; b?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/minionpro-devel/2007-January/index.html" >
+   <LINK REL="made" HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20math%20bold%3A%20eb%20-%3E%20b%3F&In-Reply-To=%3C87zm86ogz4.fsf%40Satux.Puorg%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000024.html">
+   <LINK REL="Next"  HREF="000026.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Minionpro-devel] math bold: eb -&gt; b?</H1>
+    <B>Sebastian Schubert</B> 
+    <A HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20math%20bold%3A%20eb%20-%3E%20b%3F&In-Reply-To=%3C87zm86ogz4.fsf%40Satux.Puorg%3E"
+       TITLE="[Minionpro-devel] math bold: eb -&gt; b?">sebastian-schubert at gmx.de
+       </A><BR>
+    <I>Thu Jan 25 23:54:07 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000024.html">[Minionpro-devel] math bold: eb -&gt; b?
+</A></li>
+        <LI>Next message: <A HREF="000026.html">[Minionpro-devel] math bold: eb -&gt; b?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#25">[ date ]</a>
+              <a href="thread.html#25">[ thread ]</a>
+              <a href="subject.html#25">[ subject ]</a>
+              <a href="author.html#25">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Michael Zedler &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/minionpro-devel">michael.zedler at tum.de</A>&gt; writes:
+
+&gt;<i> Sebastian Schubert schrieb:
+</I>
+[b math in headlines]
+
+&gt;<i> How about
+</I>&gt;<i>
+</I>&gt;<i> \documentclass{scrbook}
+</I>&gt;<i> \usepackage[fullfamily,opticals]{MinionPro}
+</I>&gt;<i> \addtokomafont{sectioning}{\rmfamily\mathversion{sbold}}
+</I>&gt;<i> \makeatletter
+</I>&gt;<i>    \DeclareMathVersion{sbold}
+</I>&gt;<i>    \SetSymbolFont{operators}{sbold}{T1} {\<A HREF="https://lists.berlios.de/mailman/listinfo/minionpro-devel">Mn at Math</A>@Family}{b}{n}
+</I>&gt;<i>    \SetSymbolFont{letters}  {sbold}{OML}{MinionPro-OsF} 
+</I>&gt;<i> {b}{\<A HREF="https://lists.berlios.de/mailman/listinfo/minionpro-devel">Mn at Math</A>@LetterShape}
+</I>&gt;<i>    \SetMathAlphabet\mathit  {sbold}{T1} {\<A HREF="https://lists.berlios.de/mailman/listinfo/minionpro-devel">Mn at Math</A>@Family}{b}{it}
+</I>&gt;<i> \makeatother
+</I>&gt;<i> \SetSymbolFont{MnSyA}       {sbold}{U}  {MnSymbolA}{b}{n}
+</I>&gt;<i> \SetSymbolFont{MnSyB}       {sbold}{U}  {MnSymbolB}{b}{n}
+</I>&gt;<i> \SetSymbolFont{MnSyC}       {sbold}{U}  {MnSymbolC}{b}{n}
+</I>&gt;<i> \SetSymbolFont{MnSyD}       {sbold}{U}  {MnSymbolD}{b}{n}
+</I>&gt;<i> \SetSymbolFont{largesymbols}{sbold}{OMX}{MnSymbolE}{b}{n}
+</I>&gt;<i> \SetSymbolFont{symbols}     {sbold}{U}  {MnSymbolF}{b}{n}
+</I>&gt;<i>
+</I>&gt;<i> \begin{document}
+</I>&gt;<i>    \chapter{Hallo $a=b$}
+</I>&gt;<i>    Hallo
+</I>&gt;<i> \end{document}
+</I>
+Yes, that works fine.
+
+OT: What do you think of including a function that prints its argument
+completly in upright or completly in italic greek?  The reason (now
+ontopic again):  I want to define a command that prints its argument in
+upright bold (also greek letters).  My idea:
+
+\documentclass{scrbook}
+
+\usepackage[fullfamily,opticals]{MinionPro}
+\addtokomafont{sectioning}{\rmfamily\mathversion{sbold}}
+
+\makeatletter
+\DeclareMathVersion{sbold}
+\SetSymbolFont{operators}{sbold}{T1} {\<A HREF="https://lists.berlios.de/mailman/listinfo/minionpro-devel">Mn at Math</A>@Family}{b}{n}
+\SetSymbolFont{letters}  {sbold}{OML}{MinionPro-OsF} 
+{b}{\<A HREF="https://lists.berlios.de/mailman/listinfo/minionpro-devel">Mn at Math</A>@LetterShape}
+\SetMathAlphabet\mathit  {sbold}{T1} {\<A HREF="https://lists.berlios.de/mailman/listinfo/minionpro-devel">Mn at Math</A>@Family}{b}{it}
+\makeatother
+\SetSymbolFont{MnSyA}       {sbold}{U}  {MnSymbolA}{b}{n}
+\SetSymbolFont{MnSyB}       {sbold}{U}  {MnSymbolB}{b}{n}
+\SetSymbolFont{MnSyC}       {sbold}{U}  {MnSymbolC}{b}{n}
+\SetSymbolFont{MnSyD}       {sbold}{U}  {MnSymbolD}{b}{n}
+\SetSymbolFont{largesymbols}{sbold}{OMX}{MnSymbolE}{b}{n}
+\SetSymbolFont{symbols}     {sbold}{U}  {MnSymbolF}{b}{n}
+
+\usepackage{bm}
+
+\makeatletter
+\newcommand\vect[1]{\<A HREF="https://lists.berlios.de/mailman/listinfo/minionpro-devel">Mn at greek</A>@select{up}{upper}\<A HREF="https://lists.berlios.de/mailman/listinfo/minionpro-devel">Mn at greek</A>@select{up}{lower}
+  \bm{\mathrm{#1}}\<A HREF="https://lists.berlios.de/mailman/listinfo/minionpro-devel">Mn at load</A>@greek}
+\makeatother
+
+\begin{document}
+
+\chapter{Hallo $\vect{a\alpha}a\alpha$}
+Hallo
+$\vect{a\alpha}\alpha$
+
+\end{document}
+
+
+There seems to be a problem with fontaxes.sty (only in the headline,
+where sbold is applied):
+
+Package fontaxes Warning: I don't know how to decode
+(fontaxes)                shape `sbold' on input line 28.
+
+! Undefined control sequence.
+\<A HREF="https://lists.berlios.de/mailman/listinfo/minionpro-devel">fa at math</A>@align -&gt;\@nil 
+                       
+l.28 \chapter{Hallo $\vect{a\alpha}a\alpha$}
+                                            
+
+Thanks
+
+Sebastian
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000024.html">[Minionpro-devel] math bold: eb -&gt; b?
+</A></li>
+	<LI>Next message: <A HREF="000026.html">[Minionpro-devel] math bold: eb -&gt; b?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#25">[ date ]</a>
+              <a href="thread.html#25">[ thread ]</a>
+              <a href="subject.html#25">[ subject ]</a>
+              <a href="author.html#25">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/minionpro-devel">More information about the Minionpro-devel
+mailing list</a><br>
+</body></html>

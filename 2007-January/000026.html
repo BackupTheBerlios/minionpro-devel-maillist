@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Minionpro-devel] math bold: eb -&gt; b?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/minionpro-devel/2007-January/index.html" >
+   <LINK REL="made" HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20math%20bold%3A%20eb%20-%3E%20b%3F&In-Reply-To=%3C200701260921.47201.andreas.buehmann%40web.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000025.html">
+   <LINK REL="Next"  HREF="000015.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Minionpro-devel] math bold: eb -&gt; b?</H1>
+    <B>Andreas B&#252;hmann</B> 
+    <A HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20math%20bold%3A%20eb%20-%3E%20b%3F&In-Reply-To=%3C200701260921.47201.andreas.buehmann%40web.de%3E"
+       TITLE="[Minionpro-devel] math bold: eb -&gt; b?">andreas.buehmann at web.de
+       </A><BR>
+    <I>Fri Jan 26 09:21:47 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000025.html">[Minionpro-devel] math bold: eb -&gt; b?
+</A></li>
+        <LI>Next message: <A HREF="000015.html">[Minionpro-devel] Preparing for the next MinionPro release
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#26">[ date ]</a>
+              <a href="thread.html#26">[ thread ]</a>
+              <a href="subject.html#26">[ subject ]</a>
+              <a href="author.html#26">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+* Sebastian Schubert &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/minionpro-devel">sebastian-schubert at gmx.de</A>&gt; [2007-01-25 23:54]:
+&gt;<i> There seems to be a problem with fontaxes.sty (only in the headline,
+</I>&gt;<i> where sbold is applied):
+</I>&gt;<i> 
+</I>&gt;<i> Package fontaxes Warning: I don't know how to decode
+</I>&gt;<i> (fontaxes)                shape `sbold' on input line 28.
+</I>
+fontaxes tries to split the name of the math version (the warning is
+wrong in this respect: It's not a shape that is decoded) into two parts
+(or values of two axes): math weight (normal, bold) and math alignment
+(proportional, tabular). This is necessary for being able to alter only
+a single aspect (axis) of the math version.
+
+But the package does not know about the mapping of 'sbold' to these
+axes. Unfortunately, at the moment, extending the mapping table used
+internally is not straigtforward (for a user of the package; as a
+developer, you need to look at \<A HREF="https://lists.berlios.de/mailman/listinfo/minionpro-devel">fa at math</A>@<A HREF="https://lists.berlios.de/mailman/listinfo/minionpro-devel">weight at domain</A>,
+\<A HREF="https://lists.berlios.de/mailman/listinfo/minionpro-devel">fa at math</A>@<A HREF="https://lists.berlios.de/mailman/listinfo/minionpro-devel">align at domain</A>, and \<A HREF="https://lists.berlios.de/mailman/listinfo/minionpro-devel">fa at naming</A>@exception).
+
+As soon as I find the time, I'll think about better extension interfaces
+in the package.
+
+Regards,
+
+Andreas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000025.html">[Minionpro-devel] math bold: eb -&gt; b?
+</A></li>
+	<LI>Next message: <A HREF="000015.html">[Minionpro-devel] Preparing for the next MinionPro release
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#26">[ date ]</a>
+              <a href="thread.html#26">[ thread ]</a>
+              <a href="subject.html#26">[ subject ]</a>
+              <a href="author.html#26">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/minionpro-devel">More information about the Minionpro-devel
+mailing list</a><br>
+</body></html>

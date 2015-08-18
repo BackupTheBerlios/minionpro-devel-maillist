@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Minionpro-devel] minion pro with gwTeX
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/minionpro-devel/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20minion%20pro%20with%20gwTeX&In-Reply-To=%3C1180546812.3108.17.camel%40amelia.lor8%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000181.html">
+   <LINK REL="Next"  HREF="000183.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Minionpro-devel] minion pro with gwTeX</H1>
+    <B>Ottavio G. Rizzo</B> 
+    <A HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20minion%20pro%20with%20gwTeX&In-Reply-To=%3C1180546812.3108.17.camel%40amelia.lor8%3E"
+       TITLE="[Minionpro-devel] minion pro with gwTeX">ogrizzo at libero.it
+       </A><BR>
+    <I>Wed May 30 19:40:12 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000181.html">[Minionpro-devel] minion pro with gwTeX
+</A></li>
+        <LI>Next message: <A HREF="000183.html">[Minionpro-devel] minion pro with gwTeX
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#182">[ date ]</a>
+              <a href="thread.html#182">[ thread ]</a>
+              <a href="subject.html#182">[ subject ]</a>
+              <a href="author.html#182">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Il giorno mer, 30/05/2007 alle 12.56 -0400, Ted Sider ha scritto:
+&gt;<i>  I have all the  
+</I>&gt;<i> MinionPro files in the right place in my local texmf tree, ~/Library/ 
+</I>&gt;<i> texmf.  As near as I can tell (though I'm no expert), the information  
+</I>&gt;<i> for the MinionPro font isn't making its way into  	
+</I>&gt;<i> 
+</I>&gt;<i> 	/usr/local/teTeX/share/texmf.local/fonts/map/pdftex/updmap/pdftex.map
+</I>&gt;<i> 
+</I>&gt;<i> (which, I gather, is created by updmap.)  But I have done:
+</I>&gt;<i> 
+</I>&gt;<i> 	sudo updmap --enable Map MinionPro.map
+</I>
+
+updmap will create a pdftex.map file for the user --- root in this case,
+I guess. (`sudo locate pdftex.map` should tell you something)
+
+Remove all unnecessary map files and try again with updmap-sys.
+
+Ottavio
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000181.html">[Minionpro-devel] minion pro with gwTeX
+</A></li>
+	<LI>Next message: <A HREF="000183.html">[Minionpro-devel] minion pro with gwTeX
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#182">[ date ]</a>
+              <a href="thread.html#182">[ thread ]</a>
+              <a href="subject.html#182">[ subject ]</a>
+              <a href="author.html#182">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/minionpro-devel">More information about the Minionpro-devel
+mailing list</a><br>
+</body></html>

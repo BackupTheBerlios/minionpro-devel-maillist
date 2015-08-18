@@ -1,0 +1,42 @@
+From xavier.brusset at essca.fr  Wed Feb  2 06:10:02 2011
+From: xavier.brusset at essca.fr (Xavier Brusset)
+Date: Wed, 02 Feb 2011 06:10:02 +0100
+Subject: [Minionpro-devel] Re-Mapping characters for font version 2.03
+Message-ID: <4D48E72A.2904.81C704C@xavier.brusset.essca.fr>
+
+Good morning,
+I have installed MinionPro package.
+Everything works except for some extra mathematical symbols which do not appear in pdf 
+documents.
+
+Apparently this is because the mapping of the font in version 2.03 is different from the 
+previous versions.
+I have tried changing the mapping in MinionPro.sty (lines 500 to 511) but I do not know how 
+to code the position of the characters.
+In particular, I am interested in the dotlessj (uni 0237) and openg (uni0434).
+When I run t1testpage on the MinionPro-it.pfb I see both characters.
+
+Any help in finding how to change the definition of at least \jmath and \openg would be 
+greatly appreciated!
+Thanks.
+
+Regards.
+
+
+Xavier BRUSSET
+Professeur assistant en logistique et supply chain management
+CeRR
+ESSCA, Ecole de Management
+Bureau J1927 (Angers)
+Bureau 601 (Boulogne Billancourt)
+xavier.brusset at essca.fr
++33 2 41 73 57 49 / +33 1 41 86 04 70
+Cell / GSM: +33 6 28 29 22 00
+
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20110202/5dfe4df7/attachment.html>
+

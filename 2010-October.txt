@@ -1,0 +1,229 @@
+From marco.daniel at mada-nada.de  Sat Oct 16 20:28:35 2010
+From: marco.daniel at mada-nada.de (Marco Daniel)
+Date: Sat, 16 Oct 2010 20:28:35 +0200
+Subject: [Minionpro-devel] Error with lcdf typetools 2.79, not with 2.69
+In-Reply-To: <20091123153923.GE23771@mathematik.tu-darmstadt.de>
+References: <20091123153923.GE23771@mathematik.tu-darmstadt.de>
+Message-ID: <4CB9EED3.8040701@mada-nada.de>
+
+  Hi,
+
+Achim Blumensath wrote (/Mon Nov 23 16:39:23 CET 2009)/
+> The encoding files need to be updated for the newer versions of lcdf.
+> Unfortunately, I have nearly no time to look at minionpro at the moment,
+> and I don't think that will change soon.
+
+So far do you have any solutions?
+
+
+
+regards
+Marco
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20101016/373b844b/attachment.html>
+
+From blumensath at mathematik.tu-darmstadt.de  Mon Oct 18 10:50:16 2010
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Mon, 18 Oct 2010 10:50:16 +0200
+Subject: [Minionpro-devel] Error with lcdf typetools 2.79, not with 2.69
+In-Reply-To: <4CB9EED3.8040701@mada-nada.de>
+References: <20091123153923.GE23771@mathematik.tu-darmstadt.de>
+	<4CB9EED3.8040701@mada-nada.de>
+Message-ID: <20101018085016.GA31752@mathematik.tu-darmstadt.de>
+
+Hello,
+
+> Achim Blumensath wrote (/Mon Nov 23 16:39:23 CET 2009)/
+> >The encoding files need to be updated for the newer versions of lcdf.
+> >Unfortunately, I have nearly no time to look at minionpro at the moment,
+> >and I don't think that will change soon.
+> 
+> So far do you have any solutions?
+
+No. I don't have the time to look at it.
+Someone else has to step forward and fix the encoding files.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: Digital signature
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20101018/72e19871/attachment.pgp>
+
+From axel.retif at mac.com  Mon Oct 18 13:57:35 2010
+From: axel.retif at mac.com (Axel E. Retif)
+Date: Mon, 18 Oct 2010 06:57:35 -0500
+Subject: [Minionpro-devel] About MnSymbol
+In-Reply-To: <F30435BC-1794-4FE3-B88B-F076105F90C8@mac.com>
+References: <F30435BC-1794-4FE3-B88B-F076105F90C8@mac.com>
+Message-ID: <410BD04A-40FE-4490-A0A0-74A87388E39F@mac.com>
+
+On  18 Oct, 2010, at 06:30, Axel E. Retif wrote:
+
+> [...]
+> 
+> So my question is, should I delete those 35 *.tfm and *.vf MnSymbol files I have in texmf-local?
+
+I guess not... I moved them out, and then...
+
+> kpathsea: Running mktexmf MnSymbolFI-NoOpticals10
+
+etc. So I've moved them back in (I saved a log of the typeset *before* I moved them out, and now that I have restored those files the log is identical ---except for the time, of course).
+
+Sorry for wasting your time.
+
+Axel
+
+
+
+From axel.retif at mac.com  Mon Oct 18 13:30:34 2010
+From: axel.retif at mac.com (Axel E. Retif)
+Date: Mon, 18 Oct 2010 06:30:34 -0500
+Subject: [Minionpro-devel] About MnSymbol
+Message-ID: <F30435BC-1794-4FE3-B88B-F076105F90C8@mac.com>
+
+Hi.
+
+I downloaded and installed MinionPro--MnSymbol in 2005, before MnSymbol was in TeXLive (which I think was in Tl 2008).
+
+For some reason I can't recall, it seems I re-run the scripts in February 2009, as all the files (MinionPro.sty, *.tfm, etc.) have creation-modification date of 20 February 2009.
+
+Now ---cleaning my /usr/local/texlive/texmf-local directory, where I have the MinionPro distribution, I have found also MnSymbol files (*.tfm files and corresponding *.vf files) inside the MinionPro tfm and vf directories.
+
+The thing is that they don't correspond with the MnSymbol*.tfm in TeXLive; for example, in said texmf-local.../tfm/adobe/MinionPro I have
+
+MnSymbolFI-Bold-NoOpticals5.tfm
+MnSymbolFI-Bold-NoOpticals6.tfm
+   .
+   .
+   .
+MnSymbolFI12.tfm
+
+35 in total (and the corresponding *.vf 35 files in the texmf-local.../vf/MinionPro).
+
+But in /usr/local/texlive/2010/texmf-dist/fonts/tfm/public/mnsymbol there are 98 *.tfm files, which _are not the same_ as the above and there are _not_ *.vf files.
+
+Typesetting, everything corresponding to MnSymbol seems to be taken from .../texlive/2010/... (and everything corresponding to MinionPro from texmf-local, of course).
+
+So my question is, should I delete those 35 *.tfm and *.vf MnSymbol files I have in texmf-local?
+
+
+Thank you for your time (and hope I've made myself clear).
+
+Axel
+
+
+
+From schubert.seb at googlemail.com  Tue Oct 26 17:23:17 2010
+From: schubert.seb at googlemail.com (Sebastian Schubert)
+Date: Tue, 26 Oct 2010 17:23:17 +0200
+Subject: [Minionpro-devel] Typo in microtype hook
+Message-ID: <201010261723.18076.schubert.seb@googlemail.com>
+
+Dear all,
+
+there is a typo in MinionPro.dtx:
+
+\Mn at Microtype@Aliases in line 2064 should be
+\Mn at MicroType@Aliases with a capital T.
+
+Cheers
+Sebastian
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 198 bytes
+Desc: This is a digitally signed message part.
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20101026/d63de9fd/attachment.pgp>
+
+From janderuijter at tiscali.nl  Tue Oct 26 17:28:36 2010
+From: janderuijter at tiscali.nl (Jan de Ruijter)
+Date: Tue, 26 Oct 2010 17:28:36 +0200
+Subject: [Minionpro-devel] Typo in microtype hook
+In-Reply-To: <201010261723.18076.schubert.seb@googlemail.com>
+References: <201010261723.18076.schubert.seb@googlemail.com>
+Message-ID: <4CC6F3A4.9050404@tiscali.nl>
+
+On 10/26/2010 05:23 PM, Sebastian Schubert wrote:
+> Dear all,
+>
+> there is a typo in MinionPro.dtx:
+>
+> \Mn at Microtype@Aliases in line 2064 should be
+> \Mn at MicroType@Aliases with a capital T.
+>
+> Cheers
+> Sebastian
+>    
+>
+>
+> _______________________________________________
+> Minionpro-devel mailing list
+> Minionpro-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/minionpro-devel
+>    
+dear sebastian,
+being a simple miniopro-user I wonder:
+what was my problem, and
+and what do I do next?
+
+thanks,
+best regards,
+jan
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20101026/0324f6b6/attachment.html>
+
+From schubert.seb at googlemail.com  Tue Oct 26 19:46:59 2010
+From: schubert.seb at googlemail.com (Sebastian Schubert)
+Date: Tue, 26 Oct 2010 19:46:59 +0200
+Subject: [Minionpro-devel] Typo in microtype hook
+In-Reply-To: <4CC6F3A4.9050404@tiscali.nl>
+References: <201010261723.18076.schubert.seb@googlemail.com>
+	<4CC6F3A4.9050404@tiscali.nl>
+Message-ID: <201010261947.03932.schubert.seb@googlemail.com>
+
+On Tuesday 26 October 2010 17:28:36 Jan de Ruijter wrote:
+> On 10/26/2010 05:23 PM, Sebastian Schubert wrote:
+
+> > there is a typo in MinionPro.dtx:
+> > 
+> > \Mn at Microtype@Aliases in line 2064 should be
+> > \Mn at MicroType@Aliases with a capital T.
+
+> being a simple miniopro-user I wonder:
+> what was my problem, and
+> and what do I do next?
+
+If you have no problem, you don't have any problem. :)
+
+As far as I can see, this typo only produces an error when using MinionPro 
+together with another font package that also takes advantage of the microtype 
+hook. LaTeX would stop the run under certain circumstances in this case. So if 
+this does not happen, you don't need to worry.
+
+Just to be sure, you can edit the line in MinionPro.dtx and generate the sty 
+files new or edit in the correct sty file for yourself.
+
+Sebastian
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 198 bytes
+Desc: This is a digitally signed message part.
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20101026/34ef81c5/attachment.pgp>
+

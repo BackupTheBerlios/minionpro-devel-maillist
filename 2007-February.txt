@@ -1,0 +1,1643 @@
+From blumensath at mathematik.tu-darmstadt.de  Thu Feb  1 10:43:45 2007
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Thu, 1 Feb 2007 10:43:45 +0100
+Subject: [Minionpro-devel] MinionPro 2.1 rc1
+Message-ID: <20070201094345.GA17912@mathematik.tu-darmstadt.de>
+
+Hello,
+
+I've uploaded the first release candidate for MinionPro 2.1 to BerliOS.
+Please test.
+
+There is already one bug I noticed in the documentation MinionPro.pdf:
+The \jmath glyph seems to be missing.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070201/0e2a948f/attachment.pgp>
+
+From engel at math.uni-wuppertal.de  Thu Feb  1 14:45:32 2007
+From: engel at math.uni-wuppertal.de (Johannes Engel)
+Date: Thu, 01 Feb 2007 14:45:32 +0100
+Subject: [Minionpro-devel] MinionPro 2.1 rc1
+In-Reply-To: <20070201094345.GA17912@mathematik.tu-darmstadt.de>
+References: <20070201094345.GA17912@mathematik.tu-darmstadt.de>
+Message-ID: <45C1EEFC.3050006@math.uni-wuppertal.de>
+
+Achim Blumensath schrieb:
+> Hello,
+>
+> I've uploaded the first release candidate for MinionPro 2.1 to BerliOS.
+> Please test.
+>
+> There is already one bug I noticed in the documentation MinionPro.pdf:
+> The \jmath glyph seems to be missing.
+>
+> Achim
+Thanks a lot for the new release, Achim. But can you please avoid the
+additional folder in the zip-archives? This makes things complicated
+unnecessarily.
+
+Greetings, Johannes
+
+
+From blumensath at mathematik.tu-darmstadt.de  Thu Feb  1 15:23:06 2007
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Thu, 1 Feb 2007 15:23:06 +0100
+Subject: [Minionpro-devel] MinionPro 2.1 rc1
+In-Reply-To: <45C1EEFC.3050006@math.uni-wuppertal.de>
+References: <20070201094345.GA17912@mathematik.tu-darmstadt.de>
+	<45C1EEFC.3050006@math.uni-wuppertal.de>
+Message-ID: <20070201142306.GD17912@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Johannes Engel wrote:
+> Thanks a lot for the new release, Achim. But can you please avoid the
+> additional folder in the zip-archives? This makes things complicated
+> unnecessarily.
+
+Sorry. That was a mistake on my part. Thanks for the bug report.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070201/d2076d6b/attachment.pgp>
+
+From j-engel at gmx.de  Thu Feb  1 18:05:02 2007
+From: j-engel at gmx.de (Johannes Engel)
+Date: Thu, 01 Feb 2007 18:05:02 +0100
+Subject: [Minionpro-devel] MinionPro 2.1 rc1
+In-Reply-To: <20070201094345.GA17912@mathematik.tu-darmstadt.de>
+References: <20070201094345.GA17912@mathematik.tu-darmstadt.de>
+Message-ID: <45C21DBE.5050401@gmx.de>
+
+Achim Blumensath schrieb:
+> Hello,
+>
+> I've uploaded the first release candidate for MinionPro 2.1 to BerliOS.
+> Please test.
+>
+> There is already one bug I noticed in the documentation MinionPro.pdf:
+> The \jmath glyph seems to be missing.
+>
+> Achim
+Another thing I just considered: Maybe the map has some errors:
+
+Making PK font:
+ --verbose MinionPro-Regular-osf-ot--base1 597 600 0+597/600 ljfour
+Trying to make PK font MinionPro-Regular-osf-ot--base1 at 597 DPI...
+Running makemf...
+makemf: The MinionPro-Regular-osf-ot--base source file could not be found.
+
+Running ttf2pk...
+Creating MinionPro-Regular-osf-ot--base1.pk...
+Running gsf2pk...
+gsf2pk: The font file could not be found.
+
+makepk: GSF2PK failed on .
+Running ps2pk...
+ps2pk: PS file  not found!
+
+makepk: PS2PK failed on .
+
+The problem occurs on both Windows (MiKTeX 2.5) and Linux (teTeX).
+
+Greetings, Johannes
+
+
+From j-engel at gmx.de  Thu Feb  1 18:22:03 2007
+From: j-engel at gmx.de (Johannes Engel)
+Date: Thu, 01 Feb 2007 18:22:03 +0100
+Subject: [Minionpro-devel] MinionPro 2.1 rc1
+In-Reply-To: <20070201094345.GA17912@mathematik.tu-darmstadt.de>
+References: <20070201094345.GA17912@mathematik.tu-darmstadt.de>
+Message-ID: <45C221BB.6080002@gmx.de>
+
+Achim Blumensath schrieb:
+> Hello,
+>
+> I've uploaded the first release candidate for MinionPro 2.1 to BerliOS.
+> Please test.
+>
+> There is already one bug I noticed in the documentation MinionPro.pdf:
+> The \jmath glyph seems to be missing.
+>
+> Achim
+And another one. Please have a look at the attached log file.
+
+Greetings, Johannes
+-------------- next part --------------
+An embedded and charset-unspecified text was scrubbed...
+Name: Test.tex
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070201/cab9e612/attachment.ksh>
+-------------- next part --------------
+An embedded and charset-unspecified text was scrubbed...
+Name: Test.log
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070201/cab9e612/attachment-0001.ksh>
+
+From michael.zedler at tum.de  Thu Feb  1 23:08:24 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Thu, 01 Feb 2007 23:08:24 +0100
+Subject: [Minionpro-devel] MinionPro 2.1 rc1
+In-Reply-To: <45C21DBE.5050401@gmx.de>
+References: <20070201094345.GA17912@mathematik.tu-darmstadt.de>
+	<45C21DBE.5050401@gmx.de>
+Message-ID: <45C264D8.7090201@tum.de>
+
+Johannes Engel schrieb:
+> Another thing I just considered: Maybe the map has some errors:
+
+Grmpf, for some unknown reason otftotfm put
+  ... <[a_5qk6we.enc <MinionPro-Subh.otf
+
+into the map file. Please replace all .otf with .pfb in the map file.
+
+Michael
+
+
+From j-engel at gmx.de  Fri Feb  2 10:36:04 2007
+From: j-engel at gmx.de (Johannes Engel)
+Date: Fri, 02 Feb 2007 10:36:04 +0100
+Subject: [Minionpro-devel] MinionPro 2.1 rc1
+In-Reply-To: <20070201094345.GA17912@mathematik.tu-darmstadt.de>
+References: <20070201094345.GA17912@mathematik.tu-darmstadt.de>
+Message-ID: <45C30604.8070507@gmx.de>
+
+Achim Blumensath schrieb:
+> Hello,
+>
+> I've uploaded the first release candidate for MinionPro 2.1 to BerliOS.
+> Please test.
+>
+> There is already one bug I noticed in the documentation MinionPro.pdf:
+> The \jmath glyph seems to be missing.
+>
+> Achim
+It's again me. ;)
+Under MiKTeX now everything runs perfectly. With teTeX on Linux I still
+have some problems:
+
+(see the transcript file for additional
+information)</home/engel/texmf/fonts/ty
+pe1/adobe/MinionPro/MinionPro-Regular.pfb>kpathsea: Running mktexpk
+--mfmode / --bdpi 600 --mag 0+597/600 --dpi 597 MinionPro-Regular-osf-ot1
+mktexpk: don't know how to create bitmap font for MinionPro-Regular-osf-ot1.
+kpathsea: Appending font creation commands to missfont.log.
+Warning: pdflatex (file MinionPro-Regular-osf-ot1): kpathsea: Running
+mktexpk --mfmode / --bdpi 600 --mag 0+597/600 --dpi 597
+MinionPro-Regular-osf-sc-ly1
+mktexpk: don't know how to create bitmap font for
+MinionPro-Regular-osf-sc-ly1.
+Font MinionPro-Regular-osf-
+ot1 at 597 not found
+
+Warning: pdflatex (file MinionPro-Regular-osf-sc-ly1): kpathsea: Running
+mktexpk --mfmode / --bdpi 600 --mag 0+597/600 --dpi 597 MinionPro-It-osf-ly1
+mktexpk: don't know how to create bitmap font for MinionPro-It-osf-ly1.
+Font MinionPro-Regular-o
+sf-sc-ly1 at 597 not found
+
+Warning: pdflatex (file MinionPro-It-osf-ly1): Font MinionPro-It-osf-ly1
+at 597
+ not found
+{/home/engel/texmf/fonts/enc/dvips/MnSymbol/MnSymbolC.enc}</home/engel/texmf/fo
+nts/type1/public/MnSymbol/MnSymbol6.pfb>kpathsea: Running mktexpk
+--mfmode / --bdpi 600 --mag 1+57/600 --dpi 657 MinionPro-BoldMixed-oml
+mktexpk: don't know how to create bitmap font for MinionPro-BoldMixed-oml.
+
+Warning: pdflatex (file MinionPro-BoldMixed-oml): Font
+MinionPro-BoldMixed-oml
+at 657 not found
+{/home/engel/texmf/fonts/enc/dvips/MnSymbol/MnSymbolE.enc}</home/engel/texmf/fo
+nts/type1/public/MnSymbol/MnSymbol-Bold10.pfb>kpathsea: Running mktexpk
+--mfmode / --bdpi 600 --mag 1+86/600 --dpi 686 MinionPro-BoldMixedCapt-oml
+mktexpk: don't know how to create bitmap font for
+MinionPro-BoldMixedCapt-oml.
+Warning: pdflatex (file MinionPro-BoldMixedCapt-oml): Font
+MinionPro-BoldMixedC
+apt-oml at 686 not found
+{/home/engel/texmf/fonts/enc/dvips/MnSymbol/MnSymbolS.enc}</home/engel/texmf/fo
+nts/type1/public/MnSymbol/MnSymbol-Bold10.pfb>kpathsea: Running mktexpk
+--mfmode / --bdpi 600 --mag 0+597/600 --dpi 597 MinionPro-Semibold-osf-ly1
+mktexpk: don't know how to create bitmap font for
+MinionPro-Semibold-osf-ly1.
+Warning: pdflatex (file MinionPro-Semibold-osf-ly1): Font
+MinionPro-Semibold-os
+f-ly1 at 597 not found
+</home/engel/texmf/fonts/type1/public/MnSymbol/MnSymbol10.pfb>kpathsea:
+Running mktexpk --mfmode / --bdpi 600 --mag 1+120/600 --dpi 720
+MinionPro-MixedSubh-oml
+mktexpk: don't know how to create bitmap font for MinionPro-MixedSubh-oml.
+Warning: pdflatex (file MinionPro-MixedSubh-oml): Font
+MinionPro-MixedSubh-oml
+at 720 not found
+</home/engel/texmf/fonts/type1/public/MnSymbol/MnSymbol12.pfb>kpathsea:
+Running mktexpk --mfmode / --bdpi 600 --mag 1+0/600 --dpi 600
+MinionPro-MediumMixed-oml
+mktexpk: don't know how to create bitmap font for MinionPro-MediumMixed-oml.
+Warning: pdflatex (file MinionPro-MediumMixed-oml): kpathsea: Running
+mktexpk --mfmode / --bdpi 600 --mag 0+452/600 --dpi 452 MinionPro-Subh-lf-t1
+mktexpk: don't know how to create bitmap font for MinionPro-Subh-lf-t1.
+Font MinionPro-MediumMixed-
+oml at 600 not found
+
+Warning: pdflatex (file MinionPro-Subh-lf-t1): Font MinionPro-Subh-lf-t1
+at 452
+ not found
+</home/engel/texmf/fonts/type1/public/MnSymbol/MnSymbol8.pfb></home/engel/texmf
+/fonts/type1/public/fourier/fourier-bb.pfb>kpathsea: Running mktexpk
+--mfmode / --bdpi 600 --mag 0+514/600 --dpi 514
+MinionPro-MediumMixedCapt-l1-oml
+mktexpk: don't know how to create bitmap font for
+MinionPro-MediumMixedCapt-l1-oml.
+Warning: pdflatex (file MinionPro-MediumMixedCapt-l1-oml): Font
+MinionPro-Mediu
+mMixedCapt-l1-oml at 514 not found
+{/home/engel/texmf/fonts/enc/dvips/MnSymbol/MnSymbolF.enc}</home/engel/texmf/fo
+nts/type1/public/MnSymbol/MnSymbol10.pfb>{/home/engel/texmf/fonts/enc/dvips/MnS
+ymbol/MnSymbolD.enc}</home/engel/texmf/fonts/type1/public/MnSymbol/MnSymbol10.p
+fb>{/home/engel/texmf/fonts/enc/dvips/MnSymbol/MnSymbolA.enc}</home/engel/texmf
+/fonts/type1/public/MnSymbol/MnSymbol8.pfb></home/engel/texmf/fonts/type1/publi
+c/MnSymbol/MnSymbol8.pfb></home/engel/texmf/fonts/type1/public/MnSymbol/MnSymbo
+l10.pfb></home/engel/texmf/fonts/type1/public/MnSymbol/MnSymbol10.pfb>kpathsea:
+Running mktexpk --mfmode / --bdpi 600 --mag 0+450/600 --dpi 450
+MinionPro-MediumCapt-lf-l1-t1
+mktexpk: don't know how to create bitmap font for
+MinionPro-MediumCapt-lf-l1-t1.
+Warning: pdflatex (file MinionPro-MediumCapt-lf-l1-t1): Font
+MinionPro-MediumCa
+pt-lf-l1-t1 at 450 not found
+</home/engel/texmf/fonts/type1/public/MnSymbol/MnSymbol8.pfb>kpathsea:
+Running mktexpk --mfmode / --bdpi 600 --mag 1+0/600 --dpi 600
+MinionPro-MediumCapt-lf-t1
+mktexpk: don't know how to create bitmap font for
+MinionPro-MediumCapt-lf-t1.
+Warning: pdflatex (file MinionPro-MediumCapt-lf-t1): Font
+MinionPro-MediumCapt-
+lf-t1 at 600 not found
+</home/engel/texmf/fonts/type1/public/MnSymbol/MnSymbol10.pfb>kpathsea:
+Running mktexpk --mfmode / --bdpi 600 --mag 1+86/600 --dpi 686
+MinionPro-MediumMixedCapt-oml
+mktexpk: don't know how to create bitmap font for
+MinionPro-MediumMixedCapt-oml.
+Warning: pdflatex (file MinionPro-MediumMixedCapt-oml): kpathsea:
+Running mktexpk --mfmode / --bdpi 600 --mag 0+597/600 --dpi 597
+MinionPro-Regular-lf-t1
+mktexpk: don't know how to create bitmap font for MinionPro-Regular-lf-t1.
+Font MinionPro-MediumMi
+xedCapt-oml at 686 not found
+
+Warning: pdflatex (file MinionPro-Regular-lf-t1): kpathsea: Running
+mktexpk --mfmode / --bdpi 600 --mag 1+57/600 --dpi 657 MinionPro-Mixed-oml
+mktexpk: don't know how to create bitmap font for MinionPro-Mixed-oml.
+Font MinionPro-Regular-lf-t1
+at 597 not found
+
+Warning: pdflatex (file MinionPro-Mixed-oml): kpathsea: Running mktexpk
+--mfmode / --bdpi 600 --mag 0+597/600 --dpi 597 MinionPro-Regular-osf-ly1
+mktexpk: don't know how to create bitmap font for MinionPro-Regular-osf-ly1.
+Font MinionPro-Mixed-oml at 657 n
+ot found
+
+Warning: pdflatex (file MinionPro-Regular-osf-ly1): kpathsea: Running
+mktexpk --mfmode / --bdpi 600 --mag 0+452/600 --dpi 452
+MinionPro-Subh-osf-ly1
+mktexpk: don't know how to create bitmap font for MinionPro-Subh-osf-ly1.
+Font MinionPro-Regular-osf-
+ly1 at 597 not found
+
+Warning: pdflatex (file MinionPro-Subh-osf-ly1): Font
+MinionPro-Subh-osf-ly1 at
+ 452 not found
+
+
+
+But as far as I can see all the entries are present in
+/var/lib/texmf/fonts/map/pdftex/updmap/pdftex_ndl14.map and
+/var/lib/texmf/fonts/map/pdftex/updmap/pdftex_dl14.map and
+/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map. In comparison to the
+old version I miss the LCDFJ-entries, but I think Achim already told us
+they were missing.
+
+Greetings, Johannes
+
+
+From j-engel at gmx.de  Fri Feb  2 13:07:33 2007
+From: j-engel at gmx.de (Johannes Engel)
+Date: Fri, 02 Feb 2007 13:07:33 +0100
+Subject: [Minionpro-devel] MinionPro 2.1 rc1
+In-Reply-To: <45C30604.8070507@gmx.de>
+References: <20070201094345.GA17912@mathematik.tu-darmstadt.de>
+	<45C30604.8070507@gmx.de>
+Message-ID: <45C32985.10802@gmx.de>
+
+Johannes Engel schrieb:
+> It's again me. ;)
+> Under MiKTeX now everything runs perfectly. With teTeX on Linux I still
+> have some problems:
+>
+> [...]
+> Greetings, Johannes
+Sorry for that, it was my fault. Some old files were resistant against
+deleting. ;)
+
+Greetings, Johannes
+
+
+From michael.zedler at tum.de  Sat Feb  3 10:15:53 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Sat, 03 Feb 2007 10:15:53 +0100
+Subject: [Minionpro-devel] mathabx
+Message-ID: <45C452C9.3060308@tum.de>
+
+Hello,
+
+for those that use the 'abx' option; I've converted mathabx' 
+calligraphic font to pfb (not by tracing, but by metapost+fontforge), 
+see http://www.hft.ei.tum.de/mz/mathcm10.pfb
+
+In order to use it, create a map file 'mathabx.map' containing
+   mathcm10 mathcm10 < mathcm10.pfb
+copy it to localtexmf/fonts/map/dvips/, the pfb goes to 
+localtexmf/fonts/type1/public/mathabx
+
+Then run
+   mktexlsr
+   updmap-sys --enable MixedMap mathabx.map
+
+Michael
+
+
+From michael.zedler at tum.de  Tue Feb  6 21:15:27 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Tue, 06 Feb 2007 21:15:27 +0100
+Subject: [Minionpro-devel] otftotfm v2.50
+Message-ID: <45C8E1DF.1020504@tum.de>
+
+Hello,
+
+perhaps you've seen it, otftotfm now supports specifying base metrics, 
+so we'll be able to reduce the number of tfm of the distribution 
+considerably.
+With the v2000 fonts 1184 different glyphs are accessed which can be 
+covered by 5 base tfm per font. In addition one is needed for the 
+dotlessj, another one for the stretched integral.
+
+Makes
+   6*32
+  +1*16 (for the stretched integral, only the It shapes)
+=208 base tfm instead of the currently 4992. Apart from saving disk 
+space it'll also shrink the map file, which'll speed up every 
+dvips/pdftex run.
+
+Ok, so it looks desirable to get this working. But what I'm not clear 
+about yet: How can we keep the current way we distribute files, that is, 
+that all font version share the same metrics?
+Just an idea: Taking the glyphlists of the different font versions,
+   http://www.hft.ei.tum.de/mz/gllist.1000
+   http://www.hft.ei.tum.de/mz/gllist.1001
+   http://www.hft.ei.tum.de/mz/gllist.2000
+we'd need some tool that substitutes in gllist.2000 the glyphnames with 
+those in the v1.00[01] version. I suggest a substitution (i.e., keeping 
+the line order unchanged), because then the enc files for the base tfm 
+can be created with something like
+
+split -l256 gllist.2000; for i in xa*;do echo "/$i [">raw$i.enc;cat 
+$i>>raw$i.enc;echo "] def">>raw$i.enc;done
+
+Perhaps a script that compares
+   http://www.hft.ei.tum.de/mz/enc-v1000.tar.bz2
+   http://www.hft.ei.tum.de/mz/enc-v1001.tar.bz2
+   http://www.hft.ei.tum.de/mz/enc-v2000.tar.bz2
+could provide the substitution?
+
+Michael
+
+
+From michael.zedler at tum.de  Wed Feb  7 00:08:00 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Wed, 07 Feb 2007 00:08:00 +0100
+Subject: [Minionpro-devel] RC2
+Message-ID: <45C90A50.8010200@tum.de>
+
+Hello Achim,
+
+please don't release RC2 yet. In the different font versions the 
+non-standard ligatures are assigned different encoding slots.
+Example from the -lf-ot1 encoding file:
+
+--- dvips2000/a_2akyfq.enc      2007-02-04 09:52:13.000000000 +0100
++++ dvips1001/a_lvkwq4.enc      2007-02-04 12:55:03.000000000 +0100
+@@ -1,9 +1,9 @@
+  % THIS FILE WAS AUTOMATICALLY GENERATED -- DO NOT EDIT
+
+-%%AutoEnc_2akyfqe2aeds3rufjtgfugzlmf
+-% Encoding created by otftotfm on Sun Feb  4 09:52:13 2007
++%%AutoEnc_lvkwq4dcasgmvygrfmeaabkvmf
++% Encoding created by otftotfm on Sun Feb  4 12:55:03 2007
+  % Command line follows encoding
+-/AutoEnc_2akyfqe2aeds3rufjtgfugzlmf [
++/AutoEnc_lvkwq4dcasgmvygrfmeaabkvmf [
+  %00
+    /Gamma /Delta /Theta /Lambda /Xi /Pi /Sigma /Upsilon
+    /Phi /Psi /Omega /f_f /f_i /f_l /f_f_i /f_f_l
+@@ -11,11 +11,11 @@
+    /dotlessi /.notdef /grave /acute /caron /breve /macron /ring
+    /cedilla /germandbls /ae /oe /oslash /AE /OE /Oslash
+  %20
+-  /T_h /exclam /quotedblright /numbersign.fitted /dollar.fitted 
+/percent /ampersand /quoteright
++  /f_b /exclam /quotedblright /numbersign.fitted /dollar.fitted 
+/percent /ampersand /quoteright
+    /parenleft /parenright /asterisk /plus /comma /hyphen /period /slash
+  %30
+-  /zero.fitted /one.fitted /two.fitted /three.fitted /four.fitted 
+/five.fitted /six.fitted /seven.fitted
+-  /eight.fitted /nine.fitted /colon /semicolon /exclamdown /equal 
+/questiondown /question
++  /uniF639 /uniF6DC /uniF63A /uniF63B /uniF63C /uniF63D /uniF63E /uniF63F
++  /uniF640 /uniF641 /colon /semicolon /exclamdown /equal /questiondown 
+/question
+  %40
+    /at /A /B /C /D /E /F /G
+    /H /I /J /K /L /M /N /O
+@@ -29,8 +29,8 @@
+    /p /q /r /s /t /u /v /w
+    /x /y /z /endash /emdash /hungarumlaut /tilde /dieresis
+  %80
+-  /f_b /f_h /f_j /f_k /f_t /f_f_b /f_f_h /f_f_j
+-  /f_f_k /f_f_t /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
++  /f_h /f_j /f_k /f_t /T_h /f_f_b /f_f_h /f_f_k
++  /f_f_t /f_f_j /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+  %90
+    /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+    /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+
+
+--- dvips2000/a_2akyfq.enc      2007-02-04 09:52:13.000000000 +0100
++++ dvips1000/a_nj7gbm.enc      2007-02-04 13:22:46.000000000 +0100
+@@ -1,21 +1,21 @@
+  % THIS FILE WAS AUTOMATICALLY GENERATED -- DO NOT EDIT
+
+-%%AutoEnc_2akyfqe2aeds3rufjtgfugzlmf
+-% Encoding created by otftotfm on Sun Feb  4 09:52:13 2007
++%%AutoEnc_nj7gbmn5bwmzrlazor7ink6lxh
++% Encoding created by otftotfm on Sun Feb  4 13:22:46 2007
+  % Command line follows encoding
+-/AutoEnc_2akyfqe2aeds3rufjtgfugzlmf [
++/AutoEnc_nj7gbmn5bwmzrlazor7ink6lxh [
+  %00
+    /Gamma /Delta /Theta /Lambda /Xi /Pi /Sigma /Upsilon
+-  /Phi /Psi /Omega /f_f /f_i /f_l /f_f_i /f_f_l
++  /Phi /Psi /Omega /ff /fi /fl /ffi /ffl
+  %10
+    /dotlessi /.notdef /grave /acute /caron /breve /macron /ring
+    /cedilla /germandbls /ae /oe /oslash /AE /OE /Oslash
+  %20
+-  /T_h /exclam /quotedblright /numbersign.fitted /dollar.fitted 
+/percent /ampersand /quoteright
++  /f_b /exclam /quotedblright /numbersign.fitted /dollar.fitted 
+/percent /ampersand /quoteright
+    /parenleft /parenright /asterisk /plus /comma /hyphen /period /slash
+  %30
+-  /zero.fitted /one.fitted /two.fitted /three.fitted /four.fitted 
+/five.fitted /six.fitted /seven.fitted
+-  /eight.fitted /nine.fitted /colon /semicolon /exclamdown /equal 
+/questiondown /question
++  /uniF639 /uniF6DC /uniF63A /uniF63B /uniF63C /uniF63D /uniF63E /uniF63F
++  /uniF640 /uniF641 /colon /semicolon /exclamdown /equal /questiondown 
+/question
+  %40
+    /at /A /B /C /D /E /F /G
+    /H /I /J /K /L /M /N /O
+@@ -29,8 +29,8 @@
+    /p /q /r /s /t /u /v /w
+    /x /y /z /endash /emdash /hungarumlaut /tilde /dieresis
+  %80
+-  /f_b /f_h /f_j /f_k /f_t /f_f_b /f_f_h /f_f_j
+-  /f_f_k /f_f_t /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
++  /f_h /f_j /f_k /f_t /T_h /f_f_b /f_f_h /f_f_k
++  /f_f_t /f_f_j /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+  %90
+    /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+    /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+
+Looks like we'll have to give the non-standard ligatures in the mn-*.enc 
+fixed slots. Perhaps it'll be best to withdraw RC1 from Berlios, too. 
+It's complete crap.
+
+Michael
+
+
+From andreas.buehmann at web.de  Wed Feb  7 00:32:18 2007
+From: andreas.buehmann at web.de (Andreas =?iso-8859-1?q?B=FChmann?=)
+Date: Wed, 7 Feb 2007 00:32:18 +0100
+Subject: [Minionpro-devel] RC2
+In-Reply-To: <45C90A50.8010200@tum.de>
+References: <45C90A50.8010200@tum.de>
+Message-ID: <200702070032.18891.andreas.buehmann@web.de>
+
+Hello Michael,
+
+> In the different font versions the non-standard ligatures are assigned
+> different encoding slots.
+
+the same is true for /zero.denominator and /zero.numerator and perhaps
+other symbols that are not fixed to an encoding slot. (One of my scripts
+spotted only the cases where the mapping is ambiguous, e.g.:
+
+> ./analyze map-2000-1000
+WARNING: /.notdef => /.notdef /threequartersemdash
+WARNING: /T_h => /f_b /T_h
+WARNING: /f_b => /f_b /f_h
+WARNING: /f_f_j => /f_f_j /f_f_k
+WARNING: /f_f_t => /f_f_j /f_f_t
+WARNING: /f_h => /f_h /f_j
+WARNING: /f_j => /f_j /f_k
+WARNING: /f_k => /f_k /f_t
+WARNING: /f_t => /f_t /T_h
+WARNING: /zero.denominator => /uniF655 /uniF661
+WARNING: /zero.numerator => /uniF655 /uniF661
+
+Of course, there could be many more (non-ambiguous) wrong mappings.)
+
+Have a good night,
+
+Andreas
+
+
+
+From michael.zedler at tum.de  Wed Feb  7 09:28:22 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Wed, 07 Feb 2007 09:28:22 +0100
+Subject: [Minionpro-devel] RC2
+In-Reply-To: <200702070032.18891.andreas.buehmann@web.de>
+References: <45C90A50.8010200@tum.de>
+	<200702070032.18891.andreas.buehmann@web.de>
+Message-ID: <45C98DA6.2060203@tum.de>
+
+Hi Andreas,
+
+Andreas B?hmann schrieb:
+>> ./analyze map-2000-1000
+> WARNING: /.notdef => /.notdef /threequartersemdash
+> WARNING: /T_h => /f_b /T_h
+> WARNING: /f_b => /f_b /f_h
+> WARNING: /f_f_j => /f_f_j /f_f_k
+> WARNING: /f_f_t => /f_f_j /f_f_t
+> WARNING: /f_h => /f_h /f_j
+> WARNING: /f_j => /f_j /f_k
+> WARNING: /f_k => /f_k /f_t
+> WARNING: /f_t => /f_t /T_h
+> WARNING: /zero.denominator => /uniF655 /uniF661
+> WARNING: /zero.numerator => /uniF655 /uniF661
+
+Thanks for the list. But in order to understand it correctly, what 
+exactly is printed in column 1,2,3? Is it v2000 - v1001 - v1000?
+
+> Of course, there could be many more (non-ambiguous) wrong mappings.)
+
+Why?
+
+Michael
+
+
+From blumensath at mathematik.tu-darmstadt.de  Wed Feb  7 09:35:44 2007
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Wed, 7 Feb 2007 09:35:44 +0100
+Subject: [Minionpro-devel] RC2
+In-Reply-To: <45C90A50.8010200@tum.de>
+References: <45C90A50.8010200@tum.de>
+Message-ID: <20070207083544.GA17899@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Michael Zedler wrote:
+> please don't release RC2 yet. In the different font versions the 
+> non-standard ligatures are assigned different encoding slots.
+
+Since rc1 had so many problems, I think we should release rc2 as soon as
+possible. I will upload it as is, but only with the v2.000 enc-files.
+(I assume the metrics you send me are for version 2?)
+
+> Looks like we'll have to give the non-standard ligatures in the
+> mn-*.enc fixed slots. Perhaps it'll be best to withdraw RC1 from
+> Berlios, too. It's complete crap.
+
+I've removed rc1.
+
+I think the best solution with the encoding problem would be to persuade
+Eddie to have otftotfm produce deterministic output. (Say determine the
+ordering of the additional ligatures from the ordering of the glyphs
+referencing them.)
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070207/a3a933b1/attachment.pgp>
+
+From andreas.buehmann at web.de  Wed Feb  7 11:17:39 2007
+From: andreas.buehmann at web.de (Andreas =?iso-8859-1?q?B=FChmann?=)
+Date: Wed, 7 Feb 2007 11:17:39 +0100
+Subject: [Minionpro-devel] RC2
+In-Reply-To: <45C98DA6.2060203@tum.de>
+References: <45C90A50.8010200@tum.de>
+	<200702070032.18891.andreas.buehmann@web.de>
+	<45C98DA6.2060203@tum.de>
+Message-ID: <200702071117.39442.andreas.buehmann@web.de>
+
+Hello,
+
+> Thanks for the list. But in order to understand it correctly, what 
+> exactly is printed in column 1,2,3? Is it v2000 - v1001 - v1000?
+
+in this case, it's v2000 on the left of the => and v1000 on the right.
+This is what I did: I used the MinionPro.map files (of v2000 and v1000
+in this case) to find the pairs of enc files that should be mapped (used
+for the same TeX font) and derived pairs of matching glyphs from these
+(file "map-2000-1000" in my example, which looks like this):
+
+/a      /a
+/A      /A
+/aacute /aacute
+/Aacute /Aacute
+/aacute.sc      /Aacutesmall
+/Aacute.swash   /Aacute.swash
+/abreve /abreve
+/Abreve /Abreve
+/abreve.sc      /uniF66D
+...
+
+(v2000 glyph, v1000 glyph)
+
+In this list, you can find ambiguous mappings like
+
+/zero.denominator       /uniF655
+/zero.denominator       /uniF661
+/zero.numerator /uniF655
+/zero.numerator /uniF661
+
+which lead to the warnings shown:
+
+> > WARNING: /zero.denominator => /uniF655 /uniF661
+> > WARNING: /zero.numerator => /uniF655 /uniF66
+
+> > Of course, there could be many more (non-ambiguous) wrong mappings.)
+> 
+> Why?
+
+Well, there could be cases where glyphs /A.2000 =~ /A.1000 and /B.2000
+=~ /B.1000 are allocated in the order /A.2000 /B.2000 in one encoding
+and in the order /B.1000 /A.1000 in the other (of course, this only
+happens if none of the glyphs is fixed to a certain encoding slot). Then
+my list would contain
+
+/A.2000 /B.1000
+/B.2000 /A.1000
+
+and if these glyphs are not used in a different way in another encoding,
+the mapping would be wrong but not ambiguous. Or isn't this possible?
+
+Regards,
+
+Andreas
+
+
+
+From michael.zedler at tum.de  Wed Feb  7 12:13:27 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Wed, 07 Feb 2007 12:13:27 +0100
+Subject: [Minionpro-devel] RC2
+In-Reply-To: <200702071117.39442.andreas.buehmann@web.de>
+References: <45C90A50.8010200@tum.de>	<200702070032.18891.andreas.buehmann@web.de>	<45C98DA6.2060203@tum.de>
+	<200702071117.39442.andreas.buehmann@web.de>
+Message-ID: <45C9B457.1030504@tum.de>
+
+Andreas B?hmann schrieb:
+> Well, there could be cases where glyphs /A.2000 =~ /A.1000 and /B.2000
+> =~ /B.1000 are allocated in the order /A.2000 /B.2000 in one encoding
+> and in the order /B.1000 /A.1000 in the other (of course, this only
+> happens if none of the glyphs is fixed to a certain encoding slot). Then
+> my list would contain
+> 
+> /A.2000 /B.1000
+> /B.2000 /A.1000
+> 
+> and if these glyphs are not used in a different way in another encoding,
+> the mapping would be wrong but not ambiguous. Or isn't this possible?
+
+yes, this could be possible. The main suspects are the lgi/lgr 
+encodings, that's quite quick to check out.
+
+Michael
+
+
+From michael.zedler at tum.de  Wed Feb  7 12:16:17 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Wed, 07 Feb 2007 12:16:17 +0100
+Subject: [Minionpro-devel] RC2
+In-Reply-To: <200702070032.18891.andreas.buehmann@web.de>
+References: <45C90A50.8010200@tum.de>
+	<200702070032.18891.andreas.buehmann@web.de>
+Message-ID: <45C9B501.8040307@tum.de>
+
+Andreas B?hmann schrieb:
+> WARNING: /zero.denominator => /uniF655 /uniF661
+> WARNING: /zero.numerator => /uniF655 /uniF661
+
+This ambiguity seems to be due to /pertenthousand in the ts1-encoding.
+The cleanest solution: patch otftotfm to give deterministic encodings.
+
+But actually in this case we don't need to worry, if we use v2 metrics, 
+then for the v1.00[01] encodings we'd just need the mapping
+
+/zero.denominator => /uniF655
+/zero.numerator => /uniF661
+
+Michael
+
+
+From michael.zedler at tum.de  Wed Feb  7 13:37:06 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Wed, 07 Feb 2007 13:37:06 +0100
+Subject: [Minionpro-devel] RC2
+In-Reply-To: <200702070032.18891.andreas.buehmann@web.de>
+References: <45C90A50.8010200@tum.de>
+	<200702070032.18891.andreas.buehmann@web.de>
+Message-ID: <45C9C7F2.9040004@tum.de>
+
+Andreas B?hmann schrieb:
+> WARNING: /.notdef => /.notdef /threequartersemdash
+
+ok, the glyph naming is
+
+v1.000: /threequartersemdash
+v1.001/v2.000: /uni2014.alt (for the regular shapes with unicode 
+position E0FB, for the italic shapes it's E177)
+
+Appending --unicoding 'threequartersemdash =: uni2014.alt' to the ts1 
+metrics calls wasn't successful, neither
+   --unicoding 'threequartersemdash =: emdash' 
+--include-alternates=emdash -faalt
+This returned emdash.cap which is too long.
+
+I had to specify uniE0FB or uniE177 manually. Or did I oversee something?
+
+Michael
+
+
+From michael.zedler at tum.de  Wed Feb  7 18:07:26 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Wed, 07 Feb 2007 18:07:26 +0100
+Subject: [Minionpro-devel] RC2
+In-Reply-To: <20070207083544.GA17899@mathematik.tu-darmstadt.de>
+References: <45C90A50.8010200@tum.de>
+	<20070207083544.GA17899@mathematik.tu-darmstadt.de>
+Message-ID: <45CA074E.2000104@tum.de>
+
+Achim Blumensath schrieb:
+> Hello,
+> 
+> Michael Zedler wrote:
+>> please don't release RC2 yet. In the different font versions the 
+>> non-standard ligatures are assigned different encoding slots.
+> 
+> Since rc1 had so many problems, I think we should release rc2 as soon as
+> possible. I will upload it as is, but only with the v2.000 enc-files.
+> (I assume the metrics you send me are for version 2?)
+
+yes, they are v2000.
+
+>> Looks like we'll have to give the non-standard ligatures in the
+>> mn-*.enc fixed slots. Perhaps it'll be best to withdraw RC1 from
+>> Berlios, too. It's complete crap.
+> 
+> I've removed rc1.
+> 
+> I think the best solution with the encoding problem would be to persuade
+> Eddie to have otftotfm produce deterministic output. (Say determine the
+> ordering of the additional ligatures from the ordering of the glyphs
+> referencing them.)
+
+ok, you persuade him?
+
+Michael
+
+
+From blumensath at mathematik.tu-darmstadt.de  Thu Feb  8 09:58:10 2007
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Thu, 8 Feb 2007 09:58:10 +0100
+Subject: [Minionpro-devel] MinionPro 2.1 rc2
+Message-ID: <20070208085810.GC28571@mathematik.tu-darmstadt.de>
+
+Hello,
+
+I've uploaded the second release candidate to BerliOS. This version only
+includes support for version 2.000 of MinionPro.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070208/2630efb8/attachment.pgp>
+
+From j-engel at gmx.de  Thu Feb  8 10:05:43 2007
+From: j-engel at gmx.de (Johannes Engel)
+Date: Thu, 08 Feb 2007 10:05:43 +0100
+Subject: [Minionpro-devel] MinionPro 2.1 rc2
+In-Reply-To: <20070208085810.GC28571@mathematik.tu-darmstadt.de>
+References: <20070208085810.GC28571@mathematik.tu-darmstadt.de>
+Message-ID: <45CAE7E7.7040909@gmx.de>
+
+Achim Blumensath schrieb:
+> Hello,
+>
+> I've uploaded the second release candidate to BerliOS. This version only
+> includes support for version 2.000 of MinionPro.
+>
+> Achim
+Is there any chance to get it running with 1.001?
+
+Greetings, Johannes
+
+
+From michael.zedler at tum.de  Thu Feb  8 10:07:18 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Thu, 08 Feb 2007 10:07:18 +0100
+Subject: [Minionpro-devel] MinionPro 2.1 rc2
+In-Reply-To: <45CAE7E7.7040909@gmx.de>
+References: <20070208085810.GC28571@mathematik.tu-darmstadt.de>
+	<45CAE7E7.7040909@gmx.de>
+Message-ID: <45CAE846.60303@tum.de>
+
+Johannes Engel schrieb:
+> Achim Blumensath schrieb:
+>> Hello,
+>>
+>> I've uploaded the second release candidate to BerliOS. This version only
+>> includes support for version 2.000 of MinionPro.
+>>
+>> Achim
+> Is there any chance to get it running with 1.001?
+
+only with source.zip
+
+Michael
+
+
+From blumensath at mathematik.tu-darmstadt.de  Thu Feb  8 10:16:16 2007
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Thu, 8 Feb 2007 10:16:16 +0100
+Subject: [Minionpro-devel] MinionPro 2.1 rc2
+In-Reply-To: <45CAE7E7.7040909@gmx.de>
+References: <20070208085810.GC28571@mathematik.tu-darmstadt.de>
+	<45CAE7E7.7040909@gmx.de>
+Message-ID: <20070208091616.GD28571@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Johannes Engel wrote:
+> Achim Blumensath schrieb:
+> > I've uploaded the second release candidate to BerliOS. This version only
+> > includes support for version 2.000 of MinionPro.
+> 
+> Is there any chance to get it running with 1.001?
+
+If you do not want to generate the metrics yourself you could try to mix
+the metrics and encoding files from Release 1 with the contents of the
+tex/latex/MinionPro directory from the new metrics-base archive.
+
+If I remember correctly only the style files have changed much in the
+new release.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070208/771fe53c/attachment.pgp>
+
+From j-engel at gmx.de  Thu Feb  8 10:44:35 2007
+From: j-engel at gmx.de (Johannes Engel)
+Date: Thu, 08 Feb 2007 10:44:35 +0100
+Subject: [Minionpro-devel] MinionPro 2.1 rc2
+In-Reply-To: <45CAE846.60303@tum.de>
+References: <20070208085810.GC28571@mathematik.tu-darmstadt.de>	<45CAE7E7.7040909@gmx.de>
+	<45CAE846.60303@tum.de>
+Message-ID: <45CAF103.9030007@gmx.de>
+
+Michael Zedler schrieb:
+> Johannes Engel schrieb:
+>   
+>> Achim Blumensath schrieb:
+>>     
+>>> Hello,
+>>>
+>>> I've uploaded the second release candidate to BerliOS. This version only
+>>> includes support for version 2.000 of MinionPro.
+>>>
+>>> Achim
+>>>       
+>> Is there any chance to get it running with 1.001?
+>>     
+>
+> only with source.zip
+But that is not available on the servers. :(
+
+Greetings, Johannes
+
+
+From blumensath at mathematik.tu-darmstadt.de  Thu Feb  8 11:09:40 2007
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Thu, 8 Feb 2007 11:09:40 +0100
+Subject: [Minionpro-devel] MinionPro 2.1 rc2
+In-Reply-To: <45CAF103.9030007@gmx.de>
+References: <20070208085810.GC28571@mathematik.tu-darmstadt.de>
+	<45CAE7E7.7040909@gmx.de> <45CAE846.60303@tum.de>
+	<45CAF103.9030007@gmx.de>
+Message-ID: <20070208100940.GG28571@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Johannes Engel wrote:
+> But that is not available on the servers. :(
+
+Sorry, for that. Something went wrong with the upload. Please try again.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070208/cb5b1973/attachment.pgp>
+
+From engel at math.uni-wuppertal.de  Thu Feb  8 11:19:45 2007
+From: engel at math.uni-wuppertal.de (Johannes Engel)
+Date: Thu, 08 Feb 2007 11:19:45 +0100
+Subject: [Minionpro-devel] MinionPro 2.1 rc2
+In-Reply-To: <20070208100940.GG28571@mathematik.tu-darmstadt.de>
+References: <20070208085810.GC28571@mathematik.tu-darmstadt.de>	<45CAE7E7.7040909@gmx.de>
+	<45CAE846.60303@tum.de>	<45CAF103.9030007@gmx.de>
+	<20070208100940.GG28571@mathematik.tu-darmstadt.de>
+Message-ID: <45CAF941.3040009@math.uni-wuppertal.de>
+
+Achim Blumensath schrieb:
+> Hello,
+>
+> Johannes Engel wrote:
+>   
+>> But that is not available on the servers. :(
+>>     
+>
+> Sorry, for that. Something went wrong with the upload. Please try again.
+>
+> Achim
+OK, everything works perfectly now. Thanks a lot!
+I'm just generating the metrics...
+
+Greetings, Johannes
+
+
+From j-engel at gmx.de  Thu Feb  8 17:15:32 2007
+From: j-engel at gmx.de (Johannes Engel)
+Date: Thu, 08 Feb 2007 17:15:32 +0100
+Subject: [Minionpro-devel] MinionPro 2.1 rc2
+In-Reply-To: <20070208085810.GC28571@mathematik.tu-darmstadt.de>
+References: <20070208085810.GC28571@mathematik.tu-darmstadt.de>
+Message-ID: <45CB4CA4.80308@gmx.de>
+
+Achim Blumensath schrieb:
+> Hello,
+>
+> I've uploaded the second release candidate to BerliOS. This version only
+> includes support for version 2.000 of MinionPro.
+>   
+OK, I generated metrics for 1.001. Is anyone interested in that?
+
+Greetings, Johannes
+
+
+From michael.zedler at tum.de  Sat Feb 10 22:17:27 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Sat, 10 Feb 2007 22:17:27 +0100
+Subject: [Minionpro-devel] base-encodings
+Message-ID: <45CE3667.2020403@tum.de>
+
+Hi,
+
+I've put the encoding files for the new --base-encoding option of 
+otftotfm 2.52 on http://www.hft.ei.tum.de/mz/baseencodings.tar.bz2
+
+The base encoding files for v1000, v1001, and v2000 are included.
+
+Michael
+
+
+From towolf at tuebingen.mpg.de  Mon Feb 19 00:06:51 2007
+From: towolf at tuebingen.mpg.de (Tobias Wolf)
+Date: Mon, 19 Feb 2007 00:06:51 +0100
+Subject: [Minionpro-devel] Ligatures and pdftex > 1.40.0
+Message-ID: <1171840011.5239.12.camel@sams>
+
+Salve,
+
+  a question regarding text selection and -more important- indexability.
+The documentation states that ligatures are only resolved when a new
+pdfTeX is used with the version 2.x fonts. My problem is that I like the
+opticals, which I only have available in v1.01. At any rate, ligatures,
+letterspaced small caps and others are not selectable when I compile
+with pdfTeX 1.40.3.
+  I found a mailing list posting from Dec. 2005 that stated that
+dvipdfmx would work with on-the-fly CMAP generation. It does, in fact,
+even with the older fonts. My problem is that I?d like to use the full
+set and pdfTeX.
+  Can I combine the acroread 7 fonts with the other opticals to at least
+gain indexed text for the normal copy, or is there an even better way?
+
+Best regards,
+Tobias
+
+
+p.s.: a bonus question?: which typewriter font do you recommend?
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: smime.p7s
+Type: application/x-pkcs7-signature
+Size: 3219 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070219/a308e049/attachment.bin>
+
+From marius.kleiner.gwrggs23d at epfl.ch  Thu Feb 22 13:52:05 2007
+From: marius.kleiner.gwrggs23d at epfl.ch (Marius Kleiner)
+Date: Thu, 22 Feb 2007 13:52:05 +0100
+Subject: [Minionpro-devel] Warning about changed encoding
+	(MinionPro/MnSymbol)
+Message-ID: <63B85BF2-9E62-42E4-AEDC-40B111C49A72@epfl.ch>
+
+Hi, the following question is related to both MnSymbol and MinionPro:
+
+The MnSymbol package and the MinionPro package redeclare some symbol  
+fonts with different encodings:
+symbols as U (standard LaTeX: OMS)
+operators as T1 (standard LaTeX: OT1).
+
+For this, LaTeX issues a font warning:
+
+> LaTeX Font Warning: Encoding `OMS' has changed to `U' for symbol font
+> (Font)              `symbols' in the math version `normal' on input  
+> line 120.
+>
+(this one is caused by MnSymbol.sty) and
+
+> LaTeX Font Warning: Encoding `OT1' has changed to `T1' for symbol font
+> (Font)              `operators' in the math version `normal' on  
+> input line 111.
+>
+(caused by MinionPro.sty).
+
+The respective lines in the .sty files are
+   \DeclareSymbolFont{symbols}{U}{MnSymbolF}{m}{n}            (in  
+MnSymbol.sty)
+and
+   \DeclareSymbolFont{operators}{T1} {\Mn at Math@Family}{m}{n}  (in  
+MinionPro.sty)
+
+First, does this warning indicate that something might actually go  
+wrong?
+What do I have to do to get rid of this warning? (It is rather  
+annoying and might distract from actual problems.)
+
+I am using MnSymbol 1.4 and MinionPro 2.0
+
+Thanks
+Marius
+
+
+
+From michael.zedler at tum.de  Thu Feb 22 14:41:14 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Thu, 22 Feb 2007 14:41:14 +0100
+Subject: [Minionpro-devel] Warning about changed
+	encoding	(MinionPro/MnSymbol)
+In-Reply-To: <63B85BF2-9E62-42E4-AEDC-40B111C49A72@epfl.ch>
+References: <63B85BF2-9E62-42E4-AEDC-40B111C49A72@epfl.ch>
+Message-ID: <45DD9D7A.50406@tum.de>
+
+Hello,
+
+Marius Kleiner schrieb:
+> First, does this warning indicate that something might actually go  
+> wrong?
+
+no
+
+> What do I have to do to get rid of this warning? (It is rather  
+> annoying and might distract from actual problems.)
+
+\documentclass{article}
+\makeatletter
+    \let\@font at info\@gobble
+    \let\@font at warning\@gobble
+\makeatother
+\usepackage{MinionPro}
+
+Michael
+
+
+From blumensath at mathematik.tu-darmstadt.de  Thu Feb 22 14:47:46 2007
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Thu, 22 Feb 2007 14:47:46 +0100
+Subject: [Minionpro-devel] Warning about changed encoding
+	(MinionPro/MnSymbol)
+In-Reply-To: <63B85BF2-9E62-42E4-AEDC-40B111C49A72@epfl.ch>
+References: <63B85BF2-9E62-42E4-AEDC-40B111C49A72@epfl.ch>
+Message-ID: <20070222134746.GK11495@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Marius Kleiner wrote:
+> The MnSymbol package and the MinionPro package redeclare some symbol  
+> fonts with different encodings:
+> symbols as U (standard LaTeX: OMS)
+> operators as T1 (standard LaTeX: OT1).
+> 
+> For this, LaTeX issues a font warning:
+
+These warnings are harmless.
+
+> What do I have to do to get rid of this warning?
+
+Unfortunately, there is no way to turn them off (without disabling all
+font related warnings).
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070222/603334ab/attachment.pgp>
+
+From michael.zedler at tum.de  Thu Feb 22 15:11:22 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Thu, 22 Feb 2007 15:11:22 +0100
+Subject: [Minionpro-devel] Ligatures and pdftex > 1.40.0
+In-Reply-To: <1171840011.5239.12.camel@sams>
+References: <1171840011.5239.12.camel@sams>
+Message-ID: <45DDA48A.9090303@tum.de>
+
+Hello,
+
+Tobias Wolf schrieb:
+>   a question regarding text selection and -more important- indexability.
+> The documentation states that ligatures are only resolved when a new
+> pdfTeX is used with the version 2.x fonts. My problem is that I like the
+> opticals, which I only have available in v1.01. At any rate, ligatures,
+> letterspaced small caps and others are not selectable when I compile
+> with pdfTeX 1.40.3.
+
+I don't have pdftex 1.40 installed. But concerning glyph names and thus 
+automatic cmap generation, font versions v1.001 and v2.000 do not differ 
+with respect to ligatures and small caps. An example where they differ 
+are proportional lining figures and tabular text figures.
+
+IIRC there was some noise on the pdftex mailing list that a text file 
+required for automatic cmap generation was missing in one of the pdftex 
+1.40 releases. Quite possible this is the cause to your problem.
+
+>   Can I combine the acroread 7 fonts with the other opticals to at least
+> gain indexed text for the normal copy, or is there an even better way?
+
+You can compile from sources.
+
+> p.s.: a bonus question?: which typewriter font do you recommend?
+
+Not satisfied with lmtt?
+
+Michael
+
+
+From andreas.buehmann at web.de  Thu Feb 22 16:04:12 2007
+From: andreas.buehmann at web.de (Andreas =?utf-8?q?B=C3=BChmann?=)
+Date: Thu, 22 Feb 2007 16:04:12 +0100
+Subject: [Minionpro-devel] Ligatures and pdftex > 1.40.0
+In-Reply-To: <1171840011.5239.12.camel@sams>
+References: <1171840011.5239.12.camel@sams>
+Message-ID: <200702221604.12987.andreas.buehmann@web.de>
+
+Hi,
+
+> At any rate, ligatures, letterspaced small caps and others are not
+> selectable when I compile with pdfTeX 1.40.3.
+
+pdfTeX's new ToUnicode feature doesn't seem to be enabled by default.
+Did you follow the usage guidelines at
+http://sarovar.org/tracker/?func=detail&atid=495&aid=580&group_id=106 ?
+
+I can search all of the ligatures (or convert them to text) in the
+following document if compiled with pdftex-1.40.3 (TeXLive 2007) and
+1.001 fonts:
+
+\input glyphtounicode
+\pdfgentounicode=1
+\documentclass{article}
+\usepackage{MinionPro}
+\begin{document}
+fft fj ffj ff fi fl ffi ffl ft Th
+\end{document}
+
+Regards,
+
+Andreas
+
+
+
+From michael.zedler at tum.de  Thu Feb 22 18:16:25 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Thu, 22 Feb 2007 18:16:25 +0100
+Subject: [Minionpro-devel] Ligatures and pdftex > 1.40.0
+In-Reply-To: <200702221604.12987.andreas.buehmann@web.de>
+References: <1171840011.5239.12.camel@sams>
+	<200702221604.12987.andreas.buehmann@web.de>
+Message-ID: <45DDCFE9.6080606@tum.de>
+
+Hi Andreas,
+
+Andreas B?hmann schrieb:
+> \input glyphtounicode
+> \pdfgentounicode=1
+
+Could you give a head up for this feature? Can one do something like
+\pdftounicode{uniF639}{0030}
+\pdftounicode{uniF63A}{0031}
+\pdftounicode{uniF63B}{0032}
+\pdftounicode{uniF63C}{0033}
+\pdftounicode{uniF63D}{0034}
+\pdftounicode{uniF63E}{0035}
+\pdftounicode{uniF63F}{0036}
+\pdftounicode{uniF640}{0037}
+\pdftounicode{uniF641}{0038}
+\pdftounicode{uniF6DC}{0039}
+\pdftounicode{uniF643}{0030}
+\pdftounicode{uniF644}{0031}
+\pdftounicode{uniF645}{0032}
+\pdftounicode{uniF646}{0033}
+\pdftounicode{uniF647}{0034}
+\pdftounicode{uniF648}{0035}
+\pdftounicode{uniF649}{0036}
+\pdftounicode{uniF64A}{0037}
+\pdftounicode{uniF64B}{0038}
+\pdftounicode{uniF64C}{0039}
+
+to get CMAP entries for proportional lf and tabular osf using font 
+version 1.00x?
+
+Best,
+Michael
+
+
+From michael.zedler at tum.de  Thu Feb 22 19:11:24 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Thu, 22 Feb 2007 19:11:24 +0100
+Subject: [Minionpro-devel] --pack
+Message-ID: <45DDDCCC.5090606@tum.de>
+
+Hello,
+
+just wanted to let you know: With otftotfm 2.58 the --pack option 
+appears to be working nicely.
+
+If you'd like to give it a look
+   http://www.hft.ei.tum.de/mz/minionpro-rc3-test1.tar.bz2
+and one of the enc file archives depending on your font version
+   http://www.hft.ei.tum.de/mz/enc-v1000.tar.bz2
+   http://www.hft.ei.tum.de/mz/enc-v1001.tar.bz2
+   http://www.hft.ei.tum.de/mz/enc-v2000.tar.bz2
+
+Michael
+
+
+From andreas.buehmann at web.de  Thu Feb 22 20:20:21 2007
+From: andreas.buehmann at web.de (Andreas =?iso-8859-1?q?B=FChmann?=)
+Date: Thu, 22 Feb 2007 20:20:21 +0100
+Subject: [Minionpro-devel] Ligatures and pdftex > 1.40.0
+In-Reply-To: <45DDCFE9.6080606@tum.de>
+References: <1171840011.5239.12.camel@sams>
+	<200702221604.12987.andreas.buehmann@web.de>
+	<45DDCFE9.6080606@tum.de>
+Message-ID: <200702222020.21600.andreas.buehmann@web.de>
+
+> Could you give a head up for this feature? Can one do something like
+> \pdftounicode{uniF639}{0030} [...]
+> to get CMAP entries for proportional lf and tabular osf using font 
+> version 1.00x?
+
+Yes, so it seems:
+
+http://www-user.rhrk.uni-kl.de/~buehmann/minionpro/tounicode.tex
+http://www-user.rhrk.uni-kl.de/~buehmann/minionpro/tounicode.pdf
+
+Regards,
+
+Andreas
+
+
+
+From michael.zedler at tum.de  Thu Feb 22 21:21:52 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Thu, 22 Feb 2007 21:21:52 +0100
+Subject: [Minionpro-devel] Ligatures and pdftex > 1.40.0
+In-Reply-To: <200702222020.21600.andreas.buehmann@web.de>
+References: <1171840011.5239.12.camel@sams>	<200702221604.12987.andreas.buehmann@web.de>	<45DDCFE9.6080606@tum.de>
+	<200702222020.21600.andreas.buehmann@web.de>
+Message-ID: <45DDFB60.30308@tum.de>
+
+Andreas B?hmann schrieb:
+>> Could you give a head up for this feature? Can one do something like
+>> \pdftounicode{uniF639}{0030} [...]
+>> to get CMAP entries for proportional lf and tabular osf using font 
+>> version 1.00x?
+> 
+> Yes, so it seems:
+> 
+> http://www-user.rhrk.uni-kl.de/~buehmann/minionpro/tounicode.tex
+> http://www-user.rhrk.uni-kl.de/~buehmann/minionpro/tounicode.pdf
+
+Cool. I've attached a file covering v1.00x glyph names starting with 
+/uni[EF].
+
+Michael
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: minionprosubstitutions.tex
+Type: application/x-tex
+Size: 4636 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070222/b22e2e3f/attachment.tex>
+
+From andreas.buehmann at web.de  Thu Feb 22 21:40:48 2007
+From: andreas.buehmann at web.de (Andreas =?iso-8859-15?q?B=FChmann?=)
+Date: Thu, 22 Feb 2007 21:40:48 +0100
+Subject: [Minionpro-devel] Ligatures and pdftex > 1.40.0
+In-Reply-To: <45DDFB60.30308@tum.de>
+References: <1171840011.5239.12.camel@sams>
+	<200702222020.21600.andreas.buehmann@web.de>
+	<45DDFB60.30308@tum.de>
+Message-ID: <200702222140.48714.andreas.buehmann@web.de>
+
+> Cool. I've attached a file covering v1.00x glyph names starting with 
+> /uni[EF].
+
+Cool; now I can even search for figures in \smallfrac's. ;-) (BTW, it's
+\pdfglyphtounicode, not \pdftounicode.)
+
+Have a good night,
+
+Andreas
+
+
+
+From michael.zedler at tum.de  Thu Feb 22 22:15:48 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Thu, 22 Feb 2007 22:15:48 +0100
+Subject: [Minionpro-devel] Ligatures and pdftex > 1.40.0
+In-Reply-To: <200702222140.48714.andreas.buehmann@web.de>
+References: <1171840011.5239.12.camel@sams>	<200702222020.21600.andreas.buehmann@web.de>	<45DDFB60.30308@tum.de>
+	<200702222140.48714.andreas.buehmann@web.de>
+Message-ID: <45DE0804.7030307@tum.de>
+
+Andreas B?hmann schrieb:
+>> Cool. I've attached a file covering v1.00x glyph names starting with 
+>> /uni[EF].
+> 
+> Cool; now I can even search for figures in \smallfrac's. ;-) (BTW, it's
+> \pdfglyphtounicode, not \pdftounicode.)
+
+Yeah, smallfrac-searching!
+
+For those out there with a pre-v2.000 font version installed, does the 
+following table cover the common problems regarding searching pdf files? 
+What would be also of interest; if you have v1.000 and generate the pdf 
+through ghostscript, can you search for standard ligatures 
+(fi/fl/ff/ffi/ffl), small caps, TLF/OsF with other viewers than Adobe 
+Reader?
+
+> %   Font Version & Program                          & Problem \\ 
+> %   \midrule
+> %   1.000        & Ghostscript, pre-1.40 pdftex     & LF/TOsF, non-standard ligatures, swashes \\
+> %   1.001, 2.000 & Ghostscript, pre-1.40 pdftex     & LF/OsF/TOsF, ligatures, swashes, small caps \\
+> %   1.00x        & Distiller, dvipdfmx              & LF/TOsF  \\            
+> %   1.00x        & pdftex 1.40                      & ok with extra substitution file \\
+> %   2.000        & Distiller, dvipdfmx, pdftex 1.40 & ok \\
+
+Michael
+
+
+From j-engel at gmx.de  Fri Feb 23 22:25:37 2007
+From: j-engel at gmx.de (Johannes Engel)
+Date: Fri, 23 Feb 2007 22:25:37 +0100
+Subject: [Minionpro-devel] --pack
+In-Reply-To: <45DDDCCC.5090606@tum.de>
+References: <45DDDCCC.5090606@tum.de>
+Message-ID: <45DF5BD1.9010608@gmx.de>
+
+Michael Zedler schrieb:
+> Hello,
+>
+> just wanted to let you know: With otftotfm 2.58 the --pack option 
+> appears to be working nicely.
+>
+> If you'd like to give it a look
+>    http://www.hft.ei.tum.de/mz/minionpro-rc3-test1.tar.bz2
+> and one of the enc file archives depending on your font version
+>    http://www.hft.ei.tum.de/mz/enc-v1000.tar.bz2
+>    http://www.hft.ei.tum.de/mz/enc-v1001.tar.bz2
+>    http://www.hft.ei.tum.de/mz/enc-v2000.tar.bz2
+>   
+Works great for me. :)
+
+Greetings, Johannes
+
+
+From j-engel at gmx.de  Fri Feb 23 22:44:53 2007
+From: j-engel at gmx.de (Johannes Engel)
+Date: Fri, 23 Feb 2007 22:44:53 +0100
+Subject: [Minionpro-devel] Ligatures and pdftex > 1.40.0
+In-Reply-To: <45DE0804.7030307@tum.de>
+References: <1171840011.5239.12.camel@sams>	<200702222020.21600.andreas.buehmann@web.de>	<45DDFB60.30308@tum.de>	<200702222140.48714.andreas.buehmann@web.de>
+	<45DE0804.7030307@tum.de>
+Message-ID: <45DF6055.2010300@gmx.de>
+
+Michael Zedler schrieb:
+> Andreas B?hmann schrieb:
+>   
+>>> Cool. I've attached a file covering v1.00x glyph names starting with 
+>>> /uni[EF].
+>>>       
+>> Cool; now I can even search for figures in \smallfrac's. ;-) (BTW, it's
+>> \pdfglyphtounicode, not \pdftounicode.)
+>>     
+>
+> Yeah, smallfrac-searching!
+>
+> For those out there with a pre-v2.000 font version installed, does the 
+> following table cover the common problems regarding searching pdf files? 
+> What would be also of interest; if you have v1.000 and generate the pdf 
+> through ghostscript, can you search for standard ligatures 
+> (fi/fl/ff/ffi/ffl), small caps, TLF/OsF with other viewers than Adobe 
+> Reader?
+>
+>   
+>> %   Font Version & Program                          & Problem \\ 
+>> %   \midrule
+>> %   1.000        & Ghostscript, pre-1.40 pdftex     & LF/TOsF, non-standard ligatures, swashes \\
+>> %   1.001, 2.000 & Ghostscript, pre-1.40 pdftex     & LF/OsF/TOsF, ligatures, swashes, small caps \\
+>> %   1.00x        & Distiller, dvipdfmx              & LF/TOsF  \\            
+>> %   1.00x        & pdftex 1.40                      & ok with extra substitution file \\
+>> %   2.000        & Distiller, dvipdfmx, pdftex 1.40 & ok \\
+>>     
+I just discovered a maybe interesting fact:
+Using your conversion file together with the glyphlist from sarovar and
+1.001 fonts Acrobat Reader for Linux 7.0.9 does not search correctly,
+instead finds "double words" (see attached picture), whereas kpdf works
+as expected.
+
+Greetings, Johannes
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: acroread_find.png
+Type: image/png
+Size: 9093 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070223/b4ec6ca8/attachment.png>
+
+From michael.zedler at tum.de  Fri Feb 23 22:51:24 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Fri, 23 Feb 2007 22:51:24 +0100
+Subject: [Minionpro-devel] Ligatures and pdftex > 1.40.0
+In-Reply-To: <45DF6055.2010300@gmx.de>
+References: <1171840011.5239.12.camel@sams>	<200702222020.21600.andreas.buehmann@web.de>	<45DDFB60.30308@tum.de>	<200702222140.48714.andreas.buehmann@web.de>	<45DE0804.7030307@tum.de>
+	<45DF6055.2010300@gmx.de>
+Message-ID: <45DF61DC.1010403@tum.de>
+
+Johannes Engel schrieb:
+> I just discovered a maybe interesting fact:
+> Using your conversion file together with the glyphlist from sarovar and
+> 1.001 fonts Acrobat Reader for Linux 7.0.9 does not search correctly,
+> instead finds "double words" (see attached picture)
+
+But copy+paste into a text editor works with AR7, I suppose?
+
+BTW, on your screenshot the kerning between 67 appears to be wrong. Is 
+this also the case at higher resolution?
+
+Michael
+
+
+From j-engel at gmx.de  Fri Feb 23 22:59:08 2007
+From: j-engel at gmx.de (Johannes Engel)
+Date: Fri, 23 Feb 2007 22:59:08 +0100
+Subject: [Minionpro-devel] Ligatures and pdftex > 1.40.0
+In-Reply-To: <45DF61DC.1010403@tum.de>
+References: <1171840011.5239.12.camel@sams>	<200702222020.21600.andreas.buehmann@web.de>	<45DDFB60.30308@tum.de>	<200702222140.48714.andreas.buehmann@web.de>	<45DE0804.7030307@tum.de>	<45DF6055.2010300@gmx.de>
+	<45DF61DC.1010403@tum.de>
+Message-ID: <45DF63AC.8040303@gmx.de>
+
+Michael Zedler schrieb:
+> Johannes Engel schrieb:
+>   
+>> I just discovered a maybe interesting fact:
+>> Using your conversion file together with the glyphlist from sarovar and
+>> 1.001 fonts Acrobat Reader for Linux 7.0.9 does not search correctly,
+>> instead finds "double words" (see attached picture)
+>>     
+>
+> But copy+paste into a text editor works with AR7, I suppose?
+>
+> BTW, on your screenshot the kerning between 67 appears to be wrong. Is 
+> this also the case at higher resolution?
+>
+> Michael
+copy&paste works as expected.
+I attach a screenshot with enlarged resolution.
+
+Greetings, Johannes
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: 67kerning.png
+Type: image/png
+Size: 4464 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070223/678c8294/attachment.png>
+

@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Minionpro-devel] ArnoPro and this project
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/minionpro-devel/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20ArnoPro%20and%20this%20project&In-Reply-To=%3CE7E6E89F-ED10-43DF-841D-1D2D75B9E87C%40tum.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000218.html">
+   <LINK REL="Next"  HREF="000220.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Minionpro-devel] ArnoPro and this project</H1>
+    <B>Michael Zedler</B> 
+    <A HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20ArnoPro%20and%20this%20project&In-Reply-To=%3CE7E6E89F-ED10-43DF-841D-1D2D75B9E87C%40tum.de%3E"
+       TITLE="[Minionpro-devel] ArnoPro and this project">michael.zedler at tum.de
+       </A><BR>
+    <I>Thu Sep  6 15:23:40 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000218.html">[Minionpro-devel] ArnoPro and this project
+</A></li>
+        <LI>Next message: <A HREF="000220.html">[Minionpro-devel] ArnoPro and this project
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#219">[ date ]</a>
+              <a href="thread.html#219">[ thread ]</a>
+              <a href="subject.html#219">[ subject ]</a>
+              <a href="author.html#219">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Am 06.09.2007 um 14:44 schrieb Bernhard Enders:
+&gt;<i> On 9/6/07, Micha&#322; St&#281;pie&#324; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/minionpro-devel">michal.stepien at bezda.com</A>&gt; wrote:
+</I>&gt;&gt;<i> I would like to ask whether developers of MinionPro package
+</I>&gt;&gt;<i> consider support for ArnoPro font? ArnoPro font may become in near  
+</I>&gt;&gt;<i> future
+</I>&gt;&gt;<i> so popular like minion and it has a lot of advantages, for instance
+</I>&gt;&gt;<i> richer suit of glyphs (especially in the case of superscript).
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> It would be fantastic because ArnoPro is a really nice looking
+</I>&gt;<i> typeface with full of (greek, math, and more) symbols! I'm not a
+</I>&gt;<i> MinionPro developer, but the first problem I see in the development of
+</I>&gt;<i> a ArnoPro package based on MinionPro is the all new naming scheme
+</I>&gt;<i> (e.g., the prefix of ligatures) used by Adobe, which differs
+</I>&gt;<i> substantially from MinionPro. I've already tried to adapt MinionPro to
+</I>&gt;<i> ArnoPro myself, but, in my opinion, there is no easy way (automated)
+</I>&gt;<i> to do this. Maybe the best thing to do is start from the beginning
+</I>&gt;<i> and, in this case, I'm here at your service.
+</I>
+The adaptation of our setup to ArnoPro should be fairly easy. The  
+different glyph naming scheme for certain opentype features doesn't  
+matter much as those are mostly automatically selected via otftotfm.  
+Exceptions where mn-*.enc may have to be altered, or better, where  
+unicoding-statements would have to be added to a .cfg file are
+  - encoding slots where explicitly alternates are selected, e.g.,  
+&quot;glpyh.xxx&quot;
+  - encoding slots pointing to the 'private use area', i.e., unie000- 
+unif8ff
+
+I've typeset a couple of lines of ArnoPro with xetex, Latin glyphs  
+resemble those of Minion with a slight attitude, the Greek ones are a  
+bit more calligraphic/less cool, so they'll probably appeal better to  
+those typesetting ancient greek texts. Stroke thicknesses and style  
+should be compatible with MnSymbol, that makes life easy.
+
+Why do you fancy the extra symbols, in particular superscript  
+letters? Such things are pretty much covered by optical shapes.
+
+Looking forward to seeing some sample math documents typeset with  
+Arno ;-)
+Michael
+
+PS: I just notice that Arno comes with five instead of four optical  
+sizes. No idea how difficult it would be to extend fontaxes.sty/ 
+otfontdef.sty.
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000218.html">[Minionpro-devel] ArnoPro and this project
+</A></li>
+	<LI>Next message: <A HREF="000220.html">[Minionpro-devel] ArnoPro and this project
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#219">[ date ]</a>
+              <a href="thread.html#219">[ thread ]</a>
+              <a href="subject.html#219">[ subject ]</a>
+              <a href="author.html#219">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/minionpro-devel">More information about the Minionpro-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Minionpro-devel] Access a particular glyph
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/minionpro-devel/2007-June/index.html" >
+   <LINK REL="made" HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20Access%20a%20particular%20glyph&In-Reply-To=%3C200706060717.46588.molitor%40uni-bonn.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000193.html">
+   <LINK REL="Next"  HREF="000195.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Minionpro-devel] Access a particular glyph</H1>
+    <B>Dr. Ernst Molitor</B> 
+    <A HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20Access%20a%20particular%20glyph&In-Reply-To=%3C200706060717.46588.molitor%40uni-bonn.de%3E"
+       TITLE="[Minionpro-devel] Access a particular glyph">molitor at uni-bonn.de
+       </A><BR>
+    <I>Wed Jun  6 09:17:46 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000193.html">[Minionpro-devel] Access a particular glyph
+</A></li>
+        <LI>Next message: <A HREF="000195.html">[Minionpro-devel] Access a particular glyph
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#194">[ date ]</a>
+              <a href="thread.html#194">[ thread ]</a>
+              <a href="subject.html#194">[ subject ]</a>
+              <a href="author.html#194">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dear Achim Blumensath, 
+
+while I agree there is no easy way to access the &quot;st&quot; glyph alleged to in the 
+first mail on this topic, one might possibly exchange it for another one 
+(which will then be inaccessible, of course). 
+
+To make use of the &quot;Recipe&quot; glyph (a contraction of the characters R and p, 
+used on physician's recipes, as a shorthand for the latin &quot;recipe&quot;, &quot;he/she 
+shall receive&quot;) included in the MinionPro fonts, I made a minor change to the 
+file enc/mn-ts1.enc, since the &quot;Rp&quot; glyph is at position F6DD: 
+
+--- mn-ts1.enc.~1.19.~  2006-01-17 21:38:03.000000000 +0000
++++ mn-ts1.enc  2007-03-23 07:32:05.000000000 +0000
+@@ -30,7 +30,7 @@
+   /breve /caron /hungarumlaut /dblgrave /dagger /daggerdbl /bardbl /perthousand
+   /bullet /centigrade /dollaroldstyle /centoldstyle /florin /colonmonetary /won /textnaira
+ % 0x90
+-  /textguarani /peseta /lira /textrecipe /interrobang /interrobangdown /dong /trademark
++  /textguarani /peseta /lira /uniF6DD /interrobang /interrobangdown /dong /trademark
+   /pertenthousand /paragraph /bahtthai /numero /textdiscount /estimated /bulletinverse /textservicemark
+ % 0xA0
+   /textlquill /textrquill /cent /sterling /currency /yen /brokenbar /section
+
+With this change, after running your installation scripts (admittedly, this 
+takes a while on my boxen), I have the &quot;\textrecipe&quot; available (files 
+<A HREF="http://microbiology-bonn.de/~ernst/test.ltx">http://microbiology-bonn.de/~ernst/test.ltx</A> and 
+<A HREF="http://microbiology-bonn.de/~ernst/test.pdf">http://microbiology-bonn.de/~ernst/test.pdf</A> are an example of its use).
+
+So, I'd assume that one could make the st ligature available in exchange for 
+another glyph (or maybe one could make use of one of the &quot;notdef&quot; 
+positions??).
+
+Best wishes and regards, 
+and many, many thanks for the most useful MinionPro LateX package,
+
+Yours
+
+Ernst Molitor
+
+
+On Wednesday 06 June 2007 06:06:56 Achim Blumensath wrote:
+&gt;<i> Hello,
+</I>&gt;<i>
+</I>&gt;<i> &gt; I would really like to use the &#171; st &#187; ligature
+</I>&gt;<i>
+</I>&gt;<i> I'm afraid there is no way to access this glyph with our package. The
+</I>&gt;<i> easiest way to use it would probably be to use some other program to
+</I>&gt;<i> create an eps file with your logo and include that in your LaTeX
+</I>&gt;<i> document.
+</I>&gt;<i>
+</I>&gt;<i> Achim
+</I>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000193.html">[Minionpro-devel] Access a particular glyph
+</A></li>
+	<LI>Next message: <A HREF="000195.html">[Minionpro-devel] Access a particular glyph
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#194">[ date ]</a>
+              <a href="thread.html#194">[ thread ]</a>
+              <a href="subject.html#194">[ subject ]</a>
+              <a href="author.html#194">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/minionpro-devel">More information about the Minionpro-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Minionpro-devel] Changing MinionPro font size
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/minionpro-devel/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20Changing%20MinionPro%20font%20size&In-Reply-To=%3C2257ea30704171425q27e715eai631b7b6cc502df67%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000131.html">
+   <LINK REL="Next"  HREF="000133.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Minionpro-devel] Changing MinionPro font size</H1>
+    <B>Bernhard Enders</B> 
+    <A HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20Changing%20MinionPro%20font%20size&In-Reply-To=%3C2257ea30704171425q27e715eai631b7b6cc502df67%40mail.gmail.com%3E"
+       TITLE="[Minionpro-devel] Changing MinionPro font size">bgeneto at gmail.com
+       </A><BR>
+    <I>Tue Apr 17 23:25:20 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000131.html">[Minionpro-devel] MinionPro rc3 and Yap Dvips render method	error
+</A></li>
+        <LI>Next message: <A HREF="000133.html">[Minionpro-devel] Make \preceq more equal to \leq
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#132">[ date ]</a>
+              <a href="thread.html#132">[ thread ]</a>
+              <a href="subject.html#132">[ subject ]</a>
+              <a href="author.html#132">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Sorry my ignorance, but Adobe Minion Pro fonts seem to be smaller (by
+design) than Times Roman or Palatino at the same point size, since
+there is no option like &quot;scaled&quot; in the MinionPro package, what can
+one do to change the &quot;base&quot; font size to, say, 13 pt easily? One
+solution would be to redefine every LaTeX font command this way:
+
+\makeatletter\renewcommand\normalsize{\@setfontsize\normalsize{24}{48}}\makeatother
+
+But this way one have also change the default baselineskip for each
+font size, probably messing other things. Is there any support in the
+MinionPro package for this size changing or are there any known
+package to support this kind of requirement?
+
+Thanks in advance,
+
+Bernhard.
+
+ps.: Yap is really buggy with the latest version (rc3) of MinionPro.
+The issue can be found in the Yap's Knowledge database.
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000131.html">[Minionpro-devel] MinionPro rc3 and Yap Dvips render method	error
+</A></li>
+	<LI>Next message: <A HREF="000133.html">[Minionpro-devel] Make \preceq more equal to \leq
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#132">[ date ]</a>
+              <a href="thread.html#132">[ thread ]</a>
+              <a href="subject.html#132">[ subject ]</a>
+              <a href="author.html#132">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/minionpro-devel">More information about the Minionpro-devel
+mailing list</a><br>
+</body></html>

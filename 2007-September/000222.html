@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Minionpro-devel] ArnoPro and this project
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/minionpro-devel/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20ArnoPro%20and%20this%20project&In-Reply-To=%3C46E0D871.7070406%40cis.upenn.edu%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000221.html">
+   <LINK REL="Next"  HREF="000224.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Minionpro-devel] ArnoPro and this project</H1>
+    <B>Geoffrey Alan Washburn</B> 
+    <A HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20ArnoPro%20and%20this%20project&In-Reply-To=%3C46E0D871.7070406%40cis.upenn.edu%3E"
+       TITLE="[Minionpro-devel] ArnoPro and this project">geoffw at cis.upenn.edu
+       </A><BR>
+    <I>Fri Sep  7 06:49:53 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000221.html">[Minionpro-devel] ArnoPro and this project
+</A></li>
+        <LI>Next message: <A HREF="000224.html">[Minionpro-devel] about math fonts
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#222">[ date ]</a>
+              <a href="thread.html#222">[ thread ]</a>
+              <a href="subject.html#222">[ subject ]</a>
+              <a href="author.html#222">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Micha&#322; St&#281;pie&#324; wrote:
+&gt;<i> I'm just latex user and for forcing minion to use inferior
+</I>&gt;<i> figures was top 
+</I>    I'm not sure I understand what you mean here.
+
+&gt;<i> $ ./otftofd *otf
+</I>&gt;<i>
+</I>&gt;<i> otftotfm: warning: not enough room in encoding, ignoring 18 glyphs
+</I>&gt;<i> otftotfm: (This encoding doesn't have room for all the glyphs used by the
+</I>&gt;<i> otftotfm: font, so I've ignored these:
+</I>&gt;<i> otftotfm:   T_T T_h Tcaron_h f_b f_f_b f_f_h f_f_j f_f_k f_f_t f_h f_i f_j 
+</I>&gt;<i> f_k
+</I>&gt;<i> otftotfm:   f_l f_r f_t t_t u0162_u0068.)
+</I>&gt;<i> otftotfm: warning: 'kern' feature ignored, too complex for me
+</I>&gt;<i>   
+</I>&gt;<i> but I cant't for instance prepare encoding
+</I>&gt;<i> file for t1 which would enable me using ligatures.
+</I>&gt;<i> The same I got with autoinst.
+</I>&gt;<i>   
+</I>    This seems kind of strange.  The version of cork.enc (T1) that comes 
+with my LaTeX installation has both the f_i and f_l ligatures 
+specified.  I wonder what it is trying to displace them with.  What does 
+running
+
+    grep /fl `kpsewhich cork.enc`
+
+tell you?
+
+    Looking closely at the documentation for otftotfm seems to indicate 
+that the above message might be resulting simply from the small-caps 
+version of ArnoPro, where these ligatures probably do not exist. 
+
+&gt;<i> This is why I ask about possible 'ArnoPro package'.
+</I>&gt;<i>   
+</I>
+    I suppose my point was that unless there is a plan for such a 
+package, that this is probably the best automation you can expect as a 
+starting point (though I'm definitely open to addressing deficiencies).  
+I hadn't really heard about autoinst before, however.  It seems to do a 
+few more things for you, but overall the design appears to be remarkable 
+similar to my own.  Of course, no one should trust programs written in 
+Perl :-) 
+
+    As an alternative using XeTeX may be your next best choice, but I 
+haven't really had the time to investigate the ins and outs there.
+
+-- 
+[ Geoff Washburn 
+|<i> <A HREF="https://lists.berlios.de/mailman/listinfo/minionpro-devel">geoffw at cis.upenn.edu</A> 
+</I>|<i> <A HREF="http://www.cis.upenn.edu/~geoffw/">http://www.cis.upenn.edu/~geoffw/</A> ]
+</I>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070907/05cedc4f/attachment.html">https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070907/05cedc4f/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000221.html">[Minionpro-devel] ArnoPro and this project
+</A></li>
+	<LI>Next message: <A HREF="000224.html">[Minionpro-devel] about math fonts
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#222">[ date ]</a>
+              <a href="thread.html#222">[ thread ]</a>
+              <a href="subject.html#222">[ subject ]</a>
+              <a href="author.html#222">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/minionpro-devel">More information about the Minionpro-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Minionpro-devel] (no subject)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/minionpro-devel/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20%28no%20subject%29&In-Reply-To=%3C388DC9FF-EE7F-4764-A014-97A3B2F26DEF%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000234.html">
+   <LINK REL="Next"  HREF="000236.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Minionpro-devel] (no subject)</H1>
+    <B>Brian Aydemir</B> 
+    <A HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20%28no%20subject%29&In-Reply-To=%3C388DC9FF-EE7F-4764-A014-97A3B2F26DEF%40gmail.com%3E"
+       TITLE="[Minionpro-devel] (no subject)">brian.aydemir at gmail.com
+       </A><BR>
+    <I>Thu Dec 13 16:52:35 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000234.html">[Minionpro-devel] Problem with MinionPro on Mac OS X
+</A></li>
+        <LI>Next message: <A HREF="000236.html">[Minionpro-devel] Auf alle Zeichen der MinionPro zugreifen
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#235">[ date ]</a>
+              <a href="thread.html#235">[ thread ]</a>
+              <a href="subject.html#235">[ subject ]</a>
+              <a href="author.html#235">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+I have observed something curious when I use the MinionPro package  
+(version 2.1).  Consider the results below of running pdffonts on a  
+file produced using pdflatex.
+
+% pdffonts notes.pdf
+name                                 type              emb sub uni  
+object ID
+------------------------------------ ----------------- --- --- ---  
+---------
+EXVQAK+MinionPro-BoldDisp            Type 1            yes yes  
+no      89  0
+ZKXMIT+MinionPro-BoldSubh            Type 1            yes yes  
+no      90  0
+SENIKY+MinionPro-Regular             Type 1            yes yes  
+no      91  0
+SENIKY+MinionPro-Regular             Type 1            yes yes  
+no      92  0
+NYCNMT+MinionPro-Bold                Type 1            yes yes  
+no      93  0
+ITKCZE+MnSymbol10                    Type 1            yes yes  
+no      94  0
+ZAAFPY+MinionPro-It                  Type 1            yes yes  
+no      95  0
+SENIKY+MinionPro-Regular             Type 1            yes yes  
+no      96  0
+PDDZBW+SFTT1095                      Type 1            yes yes no      
+103  0
+ZAAFPY+MinionPro-It                  Type 1            yes yes no      
+117  0
+... [output truncated for brevity] ...
+
+I notice that, for example, MinionPro-Regular shows up as multiple  
+objects here, instead of just once.  For no other font package (that  
+I have used) have I observed anything similar; I'm used to fonts  
+showing up only once.
+
+Can anyone explain to me what is going on here?
+
+Thanks,
+Brian
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000234.html">[Minionpro-devel] Problem with MinionPro on Mac OS X
+</A></li>
+	<LI>Next message: <A HREF="000236.html">[Minionpro-devel] Auf alle Zeichen der MinionPro zugreifen
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#235">[ date ]</a>
+              <a href="thread.html#235">[ thread ]</a>
+              <a href="subject.html#235">[ subject ]</a>
+              <a href="author.html#235">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/minionpro-devel">More information about the Minionpro-devel
+mailing list</a><br>
+</body></html>

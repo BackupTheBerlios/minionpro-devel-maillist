@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Minionpro-devel] Installation issue
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/minionpro-devel/2009-August/index.html" >
+   <LINK REL="made" HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20Installation%20issue&In-Reply-To=%3C4A805A64.2080907%40opencsw.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000320.html">
+   <LINK REL="Next"  HREF="000302.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Minionpro-devel] Installation issue</H1>
+    <B>Markus Mayer</B> 
+    <A HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20Installation%20issue&In-Reply-To=%3C4A805A64.2080907%40opencsw.org%3E"
+       TITLE="[Minionpro-devel] Installation issue">mmayer at opencsw.org
+       </A><BR>
+    <I>Mon Aug 10 19:35:32 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000320.html">[Minionpro-devel] Where is enc-2.030.zip?
+</A></li>
+        <LI>Next message: <A HREF="000302.html">[Minionpro-devel] Installation issue
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#301">[ date ]</a>
+              <a href="thread.html#301">[ thread ]</a>
+              <a href="subject.html#301">[ subject ]</a>
+              <a href="author.html#301">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+I did not run into this problem the first time I installed MinionPro (on 
+a different machine). I am sure I forgot something obvious.
+
+Running strace on pdftex, I can tell it's looking for 
+base-MinionPro-ab.enc &amp; co in the current directory rather than 
+/usr/local/share/texmf/dvips/MinionPro, where they actually are.
+
+The result is that old style figures and ligatures won't show up 
+properly in the PDF. &quot;Regular&quot; characters are displayed correctly.
+
+$ cat test.tex
+\documentclass[12pt]{article}
+\usepackage[mathlf]{MinionPro}
+
+\begin{document}
+\section*{T{}his is my test document}
+
+Some numbers here: 0 1 2 3 4 5
+
+Some ligatures: Th ff fi fj fl
+
+It works if I break them: T{}h f{}f f{}i f{}j f{}l
+\end{document}
+
+$ pdflatex test
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6)
+  %&amp;-line parsing enabled.
+entering extended mode
+(./test.tex
+LaTeX2e &lt;2005/12/01&gt;
+Babel &lt;v3.8h&gt; and hyphenation patterns for english, usenglishmax, 
+dumylang, noh
+yphenation, loaded.
+(/usr/share/texmf-texlive/tex/latex/base/article.cls
+Document Class: article 2005/09/16 v1.4f Standard LaTeX document class
+(/usr/share/texmf-texlive/tex/latex/base/size12.clo))
+(/usr/local/share/texmf/tex/latex/MinionPro/MinionPro.sty
+(/usr/local/share/texmf/tex/latex/MinionPro/MinionPro-FontDef.sty
+(/usr/local/share/texmf/tex/latex/MinionPro/otfontdef.sty
+(/usr/share/texmf-texlive/tex/latex/graphics/keyval.sty)))
+(/usr/share/texmf-texlive/tex/latex/base/textcomp.sty
+(/usr/share/texmf-texlive/tex/latex/base/ts1enc.def))
+(/usr/local/share/texmf/tex/latex/MnSymbol/MnSymbol.sty
+(/usr/share/texmf-texlive/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texmf-texlive/tex/latex/amsmath/amstext.sty
+(/usr/share/texmf-texlive/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texmf-texlive/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texmf-texlive/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texmf-texlive/tex/latex/amsfonts/eufrak.sty)
+
+LaTeX Font Warning: Encoding `OMS' has changed to `U' for symbol font
+(Font)              `symbols' in the math version `normal' on input line 
+120.
+
+
+LaTeX Font Warning: Encoding `OMS' has changed to `U' for symbol font
+(Font)              `symbols' in the math version `bold' on input line 120.
+
+)
+
+LaTeX Font Warning: Encoding `OT1' has changed to `T1' for symbol font
+(Font)              `operators' in the math version `normal' on input 
+line 163.
+
+
+
+LaTeX Font Warning: Encoding `OT1' has changed to `T1' for symbol font
+(Font)              `operators' in the math version `bold' on input line 
+163.
+
+(/usr/local/share/texmf/tex/latex/MinionPro/fontaxes.sty)
+(/usr/local/share/texmf/tex/latex/MinionPro/OT1MinionPro-OsF.fd
+(/usr/local/share/texmf/tex/latex/MinionPro/MinionPro-FontDef.sty)))
+(./test.aux) (/usr/share/texmf-texlive/tex/latex/base/ts1cmr.fd) 
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./test.aux) )
+
+pdfTeX warning: pdflatex (file base-MinionPro-ab.enc): cannot open 
+encoding file for reading
+
+
+pdfTeX warning: pdflatex (file base-MinionPro-aa.enc): cannot open 
+encoding file for reading
+
+
+pdfTeX warning: pdflatex (file base-MinionPro-aa.enc): cannot open 
+encoding file for reading
+&lt;/usr/local/share/texmf/fonts/type1/adobe/MinionPro/MinionPro-Bold.pfb&gt;&lt;/usr/lo
+cal/share/texmf/fonts/type1/adobe/MinionPro/MinionPro-Regular.pfb&gt;
+Output written on test.pdf (1 page, 97727 bytes).
+Transcript written on test.log.
+
+$ ls -l /usr/local/share/texmf/dvips/MinionPro
+total 60
+drwxr-sr-x 2 root staff  4096 Aug  7 12:21 .
+drwxr-sr-x 3 root staff  4096 Aug  7 12:21 ..
+-rw-r--r-- 1 root root  32470 Apr 28  2007 MinionPro.map
+-rw-r--r-- 1 root root   2505 Apr 28  2007 base-MinionPro-aa.enc
+-rw-r--r-- 1 root root   2542 Apr 28  2007 base-MinionPro-ab.enc
+-rw-r--r-- 1 root root   3396 Apr 28  2007 base-MinionPro-ac.enc
+-rw-r--r-- 1 root root   3547 Apr 28  2007 base-MinionPro-ad.enc
+-rw-r--r-- 1 root root   2722 Apr 28  2007 base-MinionPro-ae.enc
+
+Any idea what I can do to fix the search path? I tried &quot;updmap-sys 
+--enable Map MinionPro.map&quot; and mktexlsr several times to no avail.
+
+Thanks,
+-Markus
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000320.html">[Minionpro-devel] Where is enc-2.030.zip?
+</A></li>
+	<LI>Next message: <A HREF="000302.html">[Minionpro-devel] Installation issue
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#301">[ date ]</a>
+              <a href="thread.html#301">[ thread ]</a>
+              <a href="subject.html#301">[ subject ]</a>
+              <a href="author.html#301">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/minionpro-devel">More information about the Minionpro-devel
+mailing list</a><br>
+</body></html>

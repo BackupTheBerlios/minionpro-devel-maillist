@@ -1,0 +1,647 @@
+From blumensath at mathematik.tu-darmstadt.de  Thu Mar 22 10:28:16 2007
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Thu, 22 Mar 2007 10:28:16 +0100
+Subject: [Minionpro-devel] MinionPro 2.1 rc3
+In-Reply-To: <200702071117.39442.andreas.buehmann@web.de>
+References: <45C90A50.8010200@tum.de>
+	<200702070032.18891.andreas.buehmann@web.de>
+	<45C98DA6.2060203@tum.de>
+	<200702071117.39442.andreas.buehmann@web.de>
+Message-ID: <20070322092815.GA26269@mathematik.tu-darmstadt.de>
+
+Hello,
+
+I've put Release Candidate 3 on BerliOS. Due to Michaels work on the
+encodings we managed to reduce the size of the archives by several
+megabytes. I hope this will be the final release candidate. So please
+test it extensively.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070322/04c3f033/attachment.pgp>
+
+From michael.zedler at tum.de  Thu Mar 22 20:44:41 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Thu, 22 Mar 2007 20:44:41 +0100
+Subject: [Minionpro-devel] MinionPro 2.1 rc3
+In-Reply-To: <20070322092815.GA26269@mathematik.tu-darmstadt.de>
+References: <45C90A50.8010200@tum.de>	<200702070032.18891.andreas.buehmann@web.de>	<45C98DA6.2060203@tum.de>	<200702071117.39442.andreas.buehmann@web.de>
+	<20070322092815.GA26269@mathematik.tu-darmstadt.de>
+Message-ID: <4602DCA9.4010700@tum.de>
+
+Achim Blumensath schrieb:
+> Hello,
+> 
+> I've put Release Candidate 3 on BerliOS. Due to Michaels work on the
+> encodings we managed to reduce the size of the archives by several
+> megabytes. I hope this will be the final release candidate. So please
+> test it extensively.
+
+Hello,
+
+I'd suggest to move MinionPro.map from the enc-archives to 
+metrics-base.zip. Also it may be useful to add a comment to the enc 
+files mentioning the font version they belong to.
+
+Something else: MnSymbol defines \emptyset and \varnothing to be the 
+same symbol while for CM/Lucida/MathTimePro2 they are different. 
+Reasonable to map \emptyset to \slashedzero in MinionPro.sty?
+
+Michael
+
+
+From mk at mcqm.net  Sun Mar 25 16:37:27 2007
+From: mk at mcqm.net (Marco Kuhlmann)
+Date: Sun, 25 Mar 2007 16:37:27 +0200
+Subject: [Minionpro-devel] MinionPro 2.1 rc3
+In-Reply-To: <20070322092815.GA26269@mathematik.tu-darmstadt.de>
+References: <45C90A50.8010200@tum.de>
+	<200702070032.18891.andreas.buehmann@web.de>
+	<45C98DA6.2060203@tum.de>
+	<200702071117.39442.andreas.buehmann@web.de>
+	<20070322092815.GA26269@mathematik.tu-darmstadt.de>
+Message-ID: <039DAA2F-4695-4634-9E1C-953F380B2980@mcqm.net>
+
+     Hello,
+
+I tried the source.zip from RC 3, but scripts/makeall failed on me as  
+follows (last 100 lines of the log):
+
+./scripts/makeall --verbose --nogreek --nocyrillic --novietnamese -- 
+wide-spacing
+
+otftotfm: ./enc/mn-BoldItCapt-l1-ly1.enckern:117: warning:  
+'space_dotbelowcomb_Iota' has no encoding, ignoring positioning
+otftotfm: ./enc/mn-BoldItCapt-l1-ly1.enckern:118: warning:  
+'space_dotbelowcomb_iota' has no encoding, ignoring positioning
+otftotfm: ./enc/mn-BoldItCapt-l1-ly1.enckern:119: warning:  
+'space_dotbelowcomb_upsilon' has no encoding, ignoring positioning
+otftotfm: ./enc/mn-BoldItCapt-l1-ly1.enckern:120: warning:  
+'space_dotbelowcomb_lambda' has no encoding, ignoring positioning
+otftotfm: ./enc/mn-BoldItCapt-l1-ly1.enckern:121: warning:  
+'space_dotbelowcomb_beta' has no encoding, ignoring positioning
+otftotfm: ./enc/mn-BoldItCapt-l1-ly1.enckern:122: warning:  
+'space_dotbelowcomb_zeta' has no encoding, ignoring positioning
+otftotfm: ./enc/mn-BoldItCapt-l1-ly1.enckern:123: warning:  
+'space_dotbelowcomb_eta' has no encoding, ignoring positioning
+otftotfm: ./enc/mn-BoldItCapt-l1-ly1.enckern:124: warning:  
+'space_dotbelowcomb_etasub' has no encoding, ignoring positioning
+otftotfm: ./enc/mn-BoldItCapt-l1-ly1.enckern:125: warning:  
+'space_dotbelowcomb_Gamma' has no encoding, ignoring positioning
+otftotfm: ./enc/mn-BoldItCapt-l1-ly1.enckern:126: warning:  
+'space_dotbelowcomb_omicron' has no encoding, ignoring positioning
+otftotfm: ./enc/mn-BoldItCapt-l1-ly1.enckern:127: warning:  
+'space_dotbelowcomb_omegasub' has no encoding, ignoring positioning
+otftotfm: ./enc/mn-BoldItCapt-l1-ly1.enckern:128: warning:  
+'space_dotbelowcomb_alpha' has no encoding, ignoring positioning
+otftotfm: ./enc/mn-BoldItCapt-l1-ly1.enckern:129: warning:  
+'space_dotbelowcomb_alphasub' has no encoding, ignoring positioning
+otftotfm: ./enc/mn-BoldItCapt-l1-ly1.enckern:130: warning:  
+'space_dotbelowcomb_epsilon' has no encoding, ignoring positioning
+otftotfm: ./enc/mn-BoldItCapt-l1-ly1.enckern:131: warning:  
+'space_dotbelowcomb_Eta' has no encoding, ignoring positioning
+otftotfm: ./enc/mn-BoldItCapt-l1-ly1.enckern:132: warning:  
+'space_dotbelowcomb_psi' has no encoding, ignoring positioning
+otftotfm: ./enc/mn-BoldItCapt-l1-ly1.enckern:133: warning:  
+'space_dotbelowcomb_gamma' has no encoding, ignoring positioning
+otftotfm: ./enc/mn-BoldItCapt-l1-ly1.enckern:134: warning:  
+'space_dotbelowcomb_Psi' has no encoding, ignoring positioning
+otftotfm: ./enc/mn-BoldItCapt-l1-ly1.enckern:135: warning:  
+'space_dotbelowcomb_Mu' has no encoding, ignoring positioning
+otftotfm: warning: no boundary character, ignoring some ligatures and/ 
+or kerns
+otftotfm: (You may want to try the --boundary-char option.)
+I had to round some heights by 0.0195007 units.
+I had to round some depths by 0.0065002 units.
+I had to round some heights by 0.0195007 units.
+I had to round some depths by 0.0065002 units.
+done.
+rm: base-fonts-MinionPro-*: No such file or directory
+maketfm failed, exiting ...
+
+I don't quite know what to make of it, and whether a rm -f in the  
+script would do the trick.
+
+     Best,
+     Marco
+
+
+
+
+From chandra at ee.uwa.edu.au  Fri Mar 23 10:10:17 2007
+From: chandra at ee.uwa.edu.au (R (Chandra) Chandrasekhar)
+Date: Fri, 23 Mar 2007 18:10:17 +0900
+Subject: [Minionpro-devel] MyriadPro access
+Message-ID: <46039979.5000106@ee.uwa.edu.au>
+
+Dear Folks,
+
+Thank you for this package and this work.  I have installed the package and 
+found it very helpful. I have also installed the MnSymbol package and got it to 
+work with MinionPro.
+
+My Ubuntu acroread package has the following fonts:
+
+AdobePiStd.otf              MinionPro-BoldIt.otf   MyriadPro-Bold.otf
+CourierStd-BoldOblique.otf  MinionPro-Bold.otf     MyriadPro-It.otf
+CourierStd-Bold.otf         MinionPro-It.otf       MyriadPro-Regular.otf
+CourierStd-Oblique.otf      MinionPro-Regular.otf  <Put your OTF files here.>
+CourierStd.otf              MyriadPro-BoldIt.otf
+
+I am keen on using the MyriadPro fonts as matching sans serif fonts along with 
+MinionPro.
+
+Can you please advise how I  may do this.  If it is not possible at present, 
+could you please treat this as a feature request to include it in a future release.
+
+Also, is there any documentation on options etc., apart from the style file 
+advising on usage?
+
+Thank you very much.
+
+--Chandra
+   23 Mar 07
+------------------
+Dr R (Chandra) Chandrasekhar
+Adjunct Senior Lecturer
+M018, Centre for Intelligent Information Processing Systems (CIIPS)
+School of Electrical, Electronic and Computer Engineering
+The University of Western Australia
+35 Stirling Highway, Crawley, WA 6009, AUSTRALIA
+Office: +61-(8)-6488-1763  Fax: +61-(8)-6488-1168
+email: chandra at ee.uwa.edu.au
+CRICOS Provider Code: 00126G
+------------------
+
+
+From andreas.buehmann at web.de  Sun Mar 25 20:45:46 2007
+From: andreas.buehmann at web.de (Andreas =?iso-8859-1?q?B=FChmann?=)
+Date: Sun, 25 Mar 2007 20:45:46 +0200
+Subject: [Minionpro-devel] MinionPro 2.1 rc3
+In-Reply-To: <039DAA2F-4695-4634-9E1C-953F380B2980@mcqm.net>
+References: <45C90A50.8010200@tum.de>
+	<20070322092815.GA26269@mathematik.tu-darmstadt.de>
+	<039DAA2F-4695-4634-9E1C-953F380B2980@mcqm.net>
+Message-ID: <200703252045.46431.andreas.buehmann@web.de>
+
+Hello,
+
+> rm: base-fonts-MinionPro-*: No such file or directory
+> 
+> I don't quite know what to make of it, and whether a rm -f in the  
+> script would do the trick.
+
+yes, you're right; those base-* files are only created if
+makeall/maketfm is called with the --pack option.
+
+Thanks for the report,
+
+Andreas
+
+
+
+From michael.zedler at tum.de  Sun Mar 25 20:55:40 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Sun, 25 Mar 2007 20:55:40 +0200
+Subject: [Minionpro-devel] MinionPro 2.1 rc3
+In-Reply-To: <039DAA2F-4695-4634-9E1C-953F380B2980@mcqm.net>
+References: <45C90A50.8010200@tum.de>	<200702070032.18891.andreas.buehmann@web.de>	<45C98DA6.2060203@tum.de>	<200702071117.39442.andreas.buehmann@web.de>	<20070322092815.GA26269@mathematik.tu-darmstadt.de>
+	<039DAA2F-4695-4634-9E1C-953F380B2980@mcqm.net>
+Message-ID: <4606C5AC.70300@tum.de>
+
+Moin,
+
+ich w?rde an Deiner Stelle die "--pack"-Option benutzen, daf?r ben?tigte 
+Dateien im Anhang.
+
+Gru?,
+Michael
+
+Marco Kuhlmann schrieb:
+>      Hello,
+> 
+> I tried the source.zip from RC 3, but scripts/makeall failed on me as  
+> follows (last 100 lines of the log):
+> 
+> ./scripts/makeall --verbose --nogreek --nocyrillic --novietnamese -- 
+> wide-spacing
+> 
+> otftotfm: ./enc/mn-BoldItCapt-l1-ly1.enckern:117: warning:  
+> 'space_dotbelowcomb_Iota' has no encoding, ignoring positioning
+> otftotfm: ./enc/mn-BoldItCapt-l1-ly1.enckern:118: warning:  
+> 'space_dotbelowcomb_iota' has no encoding, ignoring positioning
+> otftotfm: ./enc/mn-BoldItCapt-l1-ly1.enckern:119: warning:  
+> 'space_dotbelowcomb_upsilon' has no encoding, ignoring positioning
+> otftotfm: ./enc/mn-BoldItCapt-l1-ly1.enckern:120: warning:  
+> 'space_dotbelowcomb_lambda' has no encoding, ignoring positioning
+> otftotfm: ./enc/mn-BoldItCapt-l1-ly1.enckern:121: warning:  
+> 'space_dotbelowcomb_beta' has no encoding, ignoring positioning
+> otftotfm: ./enc/mn-BoldItCapt-l1-ly1.enckern:122: warning:  
+> 'space_dotbelowcomb_zeta' has no encoding, ignoring positioning
+> otftotfm: ./enc/mn-BoldItCapt-l1-ly1.enckern:123: warning:  
+> 'space_dotbelowcomb_eta' has no encoding, ignoring positioning
+> otftotfm: ./enc/mn-BoldItCapt-l1-ly1.enckern:124: warning:  
+> 'space_dotbelowcomb_etasub' has no encoding, ignoring positioning
+> otftotfm: ./enc/mn-BoldItCapt-l1-ly1.enckern:125: warning:  
+> 'space_dotbelowcomb_Gamma' has no encoding, ignoring positioning
+> otftotfm: ./enc/mn-BoldItCapt-l1-ly1.enckern:126: warning:  
+> 'space_dotbelowcomb_omicron' has no encoding, ignoring positioning
+> otftotfm: ./enc/mn-BoldItCapt-l1-ly1.enckern:127: warning:  
+> 'space_dotbelowcomb_omegasub' has no encoding, ignoring positioning
+> otftotfm: ./enc/mn-BoldItCapt-l1-ly1.enckern:128: warning:  
+> 'space_dotbelowcomb_alpha' has no encoding, ignoring positioning
+> otftotfm: ./enc/mn-BoldItCapt-l1-ly1.enckern:129: warning:  
+> 'space_dotbelowcomb_alphasub' has no encoding, ignoring positioning
+> otftotfm: ./enc/mn-BoldItCapt-l1-ly1.enckern:130: warning:  
+> 'space_dotbelowcomb_epsilon' has no encoding, ignoring positioning
+> otftotfm: ./enc/mn-BoldItCapt-l1-ly1.enckern:131: warning:  
+> 'space_dotbelowcomb_Eta' has no encoding, ignoring positioning
+> otftotfm: ./enc/mn-BoldItCapt-l1-ly1.enckern:132: warning:  
+> 'space_dotbelowcomb_psi' has no encoding, ignoring positioning
+> otftotfm: ./enc/mn-BoldItCapt-l1-ly1.enckern:133: warning:  
+> 'space_dotbelowcomb_gamma' has no encoding, ignoring positioning
+> otftotfm: ./enc/mn-BoldItCapt-l1-ly1.enckern:134: warning:  
+> 'space_dotbelowcomb_Psi' has no encoding, ignoring positioning
+> otftotfm: ./enc/mn-BoldItCapt-l1-ly1.enckern:135: warning:  
+> 'space_dotbelowcomb_Mu' has no encoding, ignoring positioning
+> otftotfm: warning: no boundary character, ignoring some ligatures and/ 
+> or kerns
+> otftotfm: (You may want to try the --boundary-char option.)
+> I had to round some heights by 0.0195007 units.
+> I had to round some depths by 0.0065002 units.
+> I had to round some heights by 0.0195007 units.
+> I had to round some depths by 0.0065002 units.
+> done.
+> rm: base-fonts-MinionPro-*: No such file or directory
+> maketfm failed, exiting ...
+> 
+> I don't quite know what to make of it, and whether a rm -f in the  
+> script would do the trick.
+> 
+>      Best,
+>      Marco
+> 
+> 
+> _______________________________________________
+> Minionpro-devel mailing list
+> Minionpro-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/minionpro-devel
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: pack.zip
+Type: application/x-zip-compressed
+Size: 17659 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070325/b0421e02/attachment.bin>
+
+From blumensath at mathematik.tu-darmstadt.de  Mon Mar 26 09:11:02 2007
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Mon, 26 Mar 2007 09:11:02 +0200
+Subject: [Minionpro-devel] MyriadPro access
+In-Reply-To: <46039979.5000106@ee.uwa.edu.au>
+References: <46039979.5000106@ee.uwa.edu.au>
+Message-ID: <20070326071102.GC5519@mathematik.tu-darmstadt.de>
+
+Hello,
+
+R (Chandra) Chandrasekhar wrote:
+> I am keen on using the MyriadPro fonts as matching sans serif fonts
+> along with MinionPro.
+> 
+> Can you please advise how I  may do this.
+
+There is preliminary support for using MyriadPro in our source
+distribution, but I'm not sure how complete it is. If you want to give
+it a try, you can use our scripts to generate the metrics. The LaTeX
+support files can be obtained by replacing in MinionPro.dtx every
+reference to MinionPro by MyriadPro.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070326/f6f4b451/attachment.pgp>
+
+From sebastian-schubert at gmx.de  Wed Mar 28 23:18:36 2007
+From: sebastian-schubert at gmx.de (Sebastian Schubert)
+Date: Wed, 28 Mar 2007 23:18:36 +0200
+Subject: [Minionpro-devel] MinionPro 2.1 rc3
+In-Reply-To: <20070322092815.GA26269@mathematik.tu-darmstadt.de> (Achim
+	Blumensath's message of "Thu\, 22 Mar 2007 10\:28\:16 +0100")
+References: <45C90A50.8010200@tum.de>
+	<200702070032.18891.andreas.buehmann@web.de> <45C98DA6.2060203@tum.de>
+	<200702071117.39442.andreas.buehmann@web.de>
+	<20070322092815.GA26269@mathematik.tu-darmstadt.de>
+Message-ID: <87fy7pnk2b.fsf@Satux.Puorg>
+
+Achim Blumensath <blumensath at mathematik.tu-darmstadt.de> writes:
+
+> Hello,
+>
+> I've put Release Candidate 3 on BerliOS.
+
+I tested the recent cvs sources with standard options and without the
+--pack option (at least for now; I own a mixture of different font
+versions).  I found two (?) minor (?)  problems (using TeXLive 2007):
+
+I ran the MinionPro.dtx throuch pdflatex and I got the following error:
+
+kpathsea: Running mktexpk --mfmode / --bdpi 1200 --mag 0+1091/1200 --dpi
+1091 MinionPro-Regular-osf-lgr--base
+mktexpk: don't know how to create bitmap font for
+MinionPro-Regular-osf-lgr--base.
+
+,----[ missfont.log ]
+| mktexpk --mfmode / --bdpi 1200 --mag 0+1091/1200 --dpi 1091
+| MinionPro-Regular-osf-lgr--base
+`----
+
+ cat MinionPro.map | grep lgr
+
+gives nothing (just a guess).
+
+The problem corresponds to the command
+
+fixed {\fontencoding{LGR}\selectfont\char60 R} in \acro{LGI} encoding
+
+in the version history.
+
+
+In addtion I was not able to find any hints concerning pdfgentounicode
+in the pdfTeX manual.  You mean pdftex-a.pdf, don't you?
+
+
+Hope this isn't a completly useless posting only caused by my lack of
+knowledge.
+
+Thanks for your work
+
+Sebastian
+
+
+From andreas.buehmann at web.de  Thu Mar 29 09:00:47 2007
+From: andreas.buehmann at web.de (Andreas =?iso-8859-1?q?B=FChmann?=)
+Date: Thu, 29 Mar 2007 09:00:47 +0200
+Subject: [Minionpro-devel] MinionPro 2.1 rc3
+In-Reply-To: <87fy7pnk2b.fsf@Satux.Puorg>
+References: <45C90A50.8010200@tum.de>
+	<20070322092815.GA26269@mathematik.tu-darmstadt.de>
+	<87fy7pnk2b.fsf@Satux.Puorg>
+Message-ID: <200703290900.47490.andreas.buehmann@web.de>
+
+Hello Sebastian,
+
+>  cat MinionPro.map | grep lgr
+> gives nothing (just a guess).
+
+is this really the MinionPro.map that was generated during your makeall
+run?
+
+> In addtion I was not able to find any hints concerning pdfgentounicode
+> in the pdfTeX manual.  You mean pdftex-a.pdf, don't you?
+
+Yes, but unfortunately, \pdfgentounicode and \pdfglyphtounicode haven't
+made their way into the documentation yet. For the time being, you can
+find an explanation on this page describing the original patch:
+
+http://sarovar.org/tracker/index.php?func=detail&aid=580&group_id=106&atid=495
+
+Regards,
+
+Andreas
+
+
+
+From michael.zedler at tum.de  Thu Mar 29 11:29:57 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Thu, 29 Mar 2007 11:29:57 +0200
+Subject: [Minionpro-devel] MinionPro 2.1 rc3
+In-Reply-To: <87fy7pnk2b.fsf@Satux.Puorg>
+References: <45C90A50.8010200@tum.de>	<200702070032.18891.andreas.buehmann@web.de>
+	<45C98DA6.2060203@tum.de>	<200702071117.39442.andreas.buehmann@web.de>	<20070322092815.GA26269@mathematik.tu-darmstadt.de>
+	<87fy7pnk2b.fsf@Satux.Puorg>
+Message-ID: <460B8715.1090907@tum.de>
+
+Sebastian Schubert schrieb:
+
+> I tested the recent cvs sources with standard options and without the
+> --pack option (at least for now; I own a mixture of different font
+> versions). 
+
+It should be possible to use the ready-made metrics on Berlios now also 
+if different font versions are used:
+Assuming you'll have a mixture using all three font versions:
+download each enc*zip, rename them according to the scheme
+   base-MinionPro-aa.enc -> base-MinionPro-aav1001.enc
+and rename the encoding vector name like
+   % CODINGSCHEME FONTSPECIFIC
+   /MinionPro-Base-Encoding-aa [
+-->
+   % CODINGSCHEME FONTSPECIFIC
+   /MinionPro-Base-Encoding-aav1001 [
+
+Last step: In MinionPro.map alter the entries according to
+MinionPro-Regular-Base-aa MinionPro-Regular "MinionPro-Base-Encoding-aa 
+ReEncodeFont" <[base-MinionPro-aa.enc <MinionPro-Regular.pfb
+
+-->
+
+MinionPro-Regular-Base-aa MinionPro-Regular 
+"MinionPro-Base-Encoding-aav1001 ReEncodeFont" 
+<[base-MinionPro-aav1001.enc <MinionPro-Regular.pfb
+
+Michael
+
+
+From sebastian-schubert at gmx.de  Thu Mar 29 12:03:56 2007
+From: sebastian-schubert at gmx.de (Sebastian Schubert)
+Date: Thu, 29 Mar 2007 12:03:56 +0200
+Subject: [Minionpro-devel] MinionPro 2.1 rc3
+In-Reply-To: <200703290900.47490.andreas.buehmann@web.de> ("Andreas
+	=?utf-8?Q?B=C3=BChmann=22's?= message of "Thu\, 29 Mar 2007 09\:00\:47
+	+0200")
+References: <45C90A50.8010200@tum.de>
+	<20070322092815.GA26269@mathematik.tu-darmstadt.de>
+	<87fy7pnk2b.fsf@Satux.Puorg>
+	<200703290900.47490.andreas.buehmann@web.de>
+Message-ID: <87irckbc37.fsf@Satux.Puorg>
+
+Andreas B?hmann <andreas.buehmann at web.de> writes:
+
+> Hello Sebastian,
+>
+>>  cat MinionPro.map | grep lgr
+>> gives nothing (just a guess).
+>
+> is this really the MinionPro.map that was generated during your makeall
+> run?
+
+Yes.  Here is exactly what I did (just to be sure):
+
+Copying source and font files into a folder. 
+Removing the fullfamily, opticals weights I do not have in line 77 of
+makeoml and in make-oml-fullfamily-opticals.tex.
+Then
+
+sebschub at Satux /tmp/sebschub/MinionPro $ ./scripts/makeall
+Creating PostScript fonts ...
+Creating TeX metrics ...
+Processing font MinionPro-Regular ... lf-t1, lf-ot1, lf-ly1, lf-ts1,
+lf-lgr, lf-lgi, lf-t2a, lf-t2b, lf-t2c, lf-x2, lf-ot2, lf-sc-t1,
+lf-sc-ot1, lf-sc-ly1, lf-sc-ts1, lf-sc-l2-t1, lf-sc-l2-ot1,
+lf-sc-l2-ly1, lf-sc-l2-ts1, tlf-t1, tlf-ot1, tlf-ly1, tlf-ts1, tlf-lgr,
+tlf-lgi, tlf-t2a, tlf-t2b, tlf-t2c, tlf-x2, tlf-ot2, tlf-sc-t1,
+tlf-sc-ot1, tlf-sc-ly1, tlf-sc-ts1, tlf-sc-l2-t1, tlf-sc-l2-ot1,
+tlf-sc-l2-ly1, tlf-sc-l2-ts1, osf-t1, osf-ot1, osf-ly1, osf-ts1,
+osf-lgr, osf-lgi, osf-t2a, osf-t2b, osf-t2c, osf-x2, osf-ot2, osf-sc-t1,
+osf-sc-ot1, osf-sc-ly1, osf-sc-ts1, osf-sc-l2-t1, osf-sc-l2-ot1,
+osf-sc-l2-ly1, osf-sc-l2-ts1, tosf-t1, tosf-ot1, tosf-ly1, tosf-ts1,
+tosf-lgr, tosf-lgi, tosf-t2a, tosf-t2b, tosf-t2c, tosf-x2, tosf-ot2,
+tosf-sc-t1, tosf-sc-ot1, tosf-sc-ly1, tosf-sc-ts1, tosf-sc-l2-t1,
+tosf-sc-l2-ot1, tosf-sc-l2-ly1, tosf-sc-l2-ts1, tosf-oml, extra-u, done.
+...
+
+
+sebschub at Satux /tmp/sebschub/MinionPro $ cd dvips/
+sebschub at Satux /tmp/sebschub/MinionPro/dvips $ ls -l MinionPro.map
+-rw-r--r-- 1 sebschub sebschub 483845 29. M?r 11:56 MinionPro.map
+sebschub at Satux /tmp/sebschub/MinionPro/dvips $ cat MinionPro.map | grep lgr
+sebschub at Satux /tmp/sebschub/MinionPro/dvips $
+
+Thanks
+Sebastian
+
+
+From andreas.buehmann at web.de  Thu Mar 29 14:27:04 2007
+From: andreas.buehmann at web.de (Andreas =?utf-8?q?B=C3=BChmann?=)
+Date: Thu, 29 Mar 2007 14:27:04 +0200
+Subject: [Minionpro-devel] MinionPro 2.1 rc3
+In-Reply-To: <87irckbc37.fsf@Satux.Puorg>
+References: <45C90A50.8010200@tum.de>
+	<200703290900.47490.andreas.buehmann@web.de>
+	<87irckbc37.fsf@Satux.Puorg>
+Message-ID: <200703291427.04595.andreas.buehmann@web.de>
+
+* Sebastian Schubert <sebastian-schubert at gmx.de>:
+> mktexpk: don't know how to create bitmap font for
+> MinionPro-Regular-osf-lgr--base.
+>
+>  cat MinionPro.map | grep lgr
+> gives nothing (just a guess).
+
+I can confirm that the map lines are missing from MinionPro.map. This
+seems to be due to a bug in otftotfm 2.61: I was able to reduce the
+otftotfm calls that generate the lgr fonts to the following mininum:
+
+  otftotfm 'otf/MinionPro-Regular.otf' 'without-unicoding'
+  otftotfm --unicoding 'does.not.exist =: foo' 'otf/MinionPro-Regular.otf' 'with-unicoding'
+
+Only the first call outputs a map line, the second one does not (while
+they produce identical TFM files):
+
+otftotfm: warning: no encoding provided
+otftotfm: (Use '-e ENCODING' to choose an encoding. '-e texnansx' often works,
+otftotfm: or say '-e -' to turn off this warning.)
+I had to round some heights by 15.5000000 units.
+I had to round some depths by 4.5000000 units.
+without-unicoding MinionPro-Regular "AutoEnc_qglvkfpwsrmnwkwmuoclaw4ysc ReEncodeFont" <[a_qglvkf.enc <MinionPro-Regular.pfb
+otftotfm: warning: no encoding provided
+otftotfm: (Use '-e ENCODING' to choose an encoding. '-e texnansx' often works,
+otftotfm: or say '-e -' to turn off this warning.)
+otftotfm: --unicoding command: target 'does.not.exist' has no encoding, ignoring UNICODING
+I had to round some heights by 15.5000000 units.
+I had to round some depths by 4.5000000 units.
+
+I am sending a copy of this mail to Eddie Kohler, the developer of
+otftotfm.
+
+Thanks for the bug report. Regards,
+
+Andreas
+
+
+
+From hansjoerg.pehofer at uibk.ac.at  Sat Mar 31 19:15:12 2007
+From: hansjoerg.pehofer at uibk.ac.at (Hansjoerg Pehofer)
+Date: Sat, 31 Mar 2007 19:15:12 +0200
+Subject: [Minionpro-devel] MinionPro 2.1 rc3
+In-Reply-To: <20070322092815.GA26269@mathematik.tu-darmstadt.de> (Achim
+	Blumensath's message of "Thu\, 22 Mar 2007 10\:28\:16 +0100")
+References: <45C90A50.8010200@tum.de>
+	<200702070032.18891.andreas.buehmann@web.de> <45C98DA6.2060203@tum.de>
+	<200702071117.39442.andreas.buehmann@web.de>
+	<20070322092815.GA26269@mathematik.tu-darmstadt.de>
+Message-ID: <m2k5wx1gin.fsf@85-124-52-234.dynamic.xdsl-line.inode.at>
+
+Hello,
+
+Achim Blumensath <blumensath at mathematik.tu-darmstadt.de> writes:
+> I hope this will be the final release candidate. So please test it
+> extensively.
+
+Superscript figures following an 'f' or 'ff' are set too close to it,
+especially with the footnotefigures option turned on.
+
+Uff\footnote{}    <-- too close
+Uff\/\footnote{}  <-- seems ok
+
+Maybe the kerning could be altered or disabled generally for these
+pairs?
+
+Kind regards,
+Hansj?rg
+
+
+From sebastian-schubert at gmx.de  Sat Mar 31 19:34:24 2007
+From: sebastian-schubert at gmx.de (Sebastian Schubert)
+Date: Sat, 31 Mar 2007 19:34:24 +0200
+Subject: [Minionpro-devel] MinionPro 2.1 rc3
+In-Reply-To: <460B8715.1090907@tum.de> (Michael Zedler's message of "Thu\,
+	29 Mar 2007 11\:29\:57 +0200")
+References: <45C90A50.8010200@tum.de>
+	<200702070032.18891.andreas.buehmann@web.de> <45C98DA6.2060203@tum.de>
+	<200702071117.39442.andreas.buehmann@web.de>
+	<20070322092815.GA26269@mathematik.tu-darmstadt.de>
+	<87fy7pnk2b.fsf@Satux.Puorg> <460B8715.1090907@tum.de>
+Message-ID: <87odm9co67.fsf@Satux.Puorg>
+
+Michael Zedler <michael.zedler at tum.de> writes:
+
+> Sebastian Schubert schrieb:
+>
+>> I tested the recent cvs sources with standard options and without the
+>> --pack option (at least for now; I own a mixture of different font
+>> versions). 
+>
+> It should be possible to use the ready-made metrics on Berlios now
+[guide]
+
+
+Thanks, it works.
+
+Sebastian
+
+

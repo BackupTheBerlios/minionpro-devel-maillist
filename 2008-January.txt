@@ -1,0 +1,144 @@
+From blumensath at mathematik.tu-darmstadt.de  Thu Jan  3 10:53:54 2008
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Thu, 3 Jan 2008 10:53:54 +0100
+Subject: [Minionpro-devel] Cyrillic quote and guillemet ligatures
+In-Reply-To: <271241.27273.qm@web34507.mail.mud.yahoo.com>
+References: <271241.27273.qm@web34507.mail.mud.yahoo.com>
+Message-ID: <20080103095354.GA3719@mathematik.tu-darmstadt.de>
+
+Alexander Pavlov wrote:
+> Would it be possible to modify the T2x encodings for Minion fonts to
+> include quote ligatures the waystandard t2a.enc does?
+> % LIGKERN quoteleft quoteleft =: quotedblleft ;
+> % LIGKERN quoteright quoteright =: quotedblright ;
+> % LIGKERN comma comma =: quotedblbase ; less less =:guillemotleft ;
+> % LIGKERN greater greater =: guillemotright ;
+
+Thanks for the report. I've added the ligatures in the CVS version.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20080103/4a82cae8/attachment.pgp>
+
+From Ullrich.Groh at gmx.de  Wed Jan 23 18:41:39 2008
+From: Ullrich.Groh at gmx.de (Ullrich Groh)
+Date: Wed, 23 Jan 2008 18:41:39 +0100
+Subject: [Minionpro-devel] Ligaturs in small Fonts...
+Message-ID: <1989175175.20080123184139@gmx.de>
+
+Hy there,
+
+first of all: congratulations! The MinionPro/MnSymbol-packages are
+great!
+
+Now the question:
+
+I have installed the latest MinionPro-package and the opticals-fonts
+from "Adobe Type Classics for Learning".
+
+Is it possible that there are no ligatures if switch to "\tiny"???
+Within all other sizes there are ligatures but in tiny they seem to be
+missing. Or is this a feature in order to improve readability???
+
+Thanks in advance,
+
+greetings,
+
+  Ulli
+
+--
+Ullrich Groh
+E-Mail: Ullrich.Groh ?d gmx.de
+
+
+
+From blumensath at mathematik.tu-darmstadt.de  Fri Jan 25 10:39:57 2008
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Fri, 25 Jan 2008 10:39:57 +0100
+Subject: [Minionpro-devel] Ligaturs in small Fonts...
+In-Reply-To: <1989175175.20080123184139@gmx.de>
+References: <1989175175.20080123184139@gmx.de>
+Message-ID: <20080125093957.GC19631@mathematik.tu-darmstadt.de>
+
+Hello,
+
+> I have installed the latest MinionPro-package and the opticals-fonts
+> from "Adobe Type Classics for Learning".
+> 
+> Is it possible that there are no ligatures if switch to "\tiny"???
+
+If I remember correctly, not all fonts in this collection have the same
+version number. If this is true, you can only use our package with
+the smallfamily option. (Our you could use our sources to generate the
+metrics yourself.)
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20080125/aa478dd4/attachment.pgp>
+
+From blumensath at mathematik.tu-darmstadt.de  Fri Jan 25 13:36:23 2008
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Fri, 25 Jan 2008 13:36:23 +0100
+Subject: [Minionpro-devel] Ligaturs in small Fonts...
+In-Reply-To: <20080125093957.GC19631@mathematik.tu-darmstadt.de>
+References: <1989175175.20080123184139@gmx.de>
+	<20080125093957.GC19631@mathematik.tu-darmstadt.de>
+Message-ID: <20080125123623.GF19631@mathematik.tu-darmstadt.de>
+
+Hello,
+
+> > I have installed the latest MinionPro-package and the opticals-fonts
+> > from "Adobe Type Classics for Learning".
+> > 
+> > Is it possible that there are no ligatures if switch to "\tiny"???
+> 
+> If I remember correctly, not all fonts in this collection have the same
+> version number. If this is true, you can only use our package with
+> the smallfamily option. (Our you could use our sources to generate the
+> metrics yourself.)
+
+Michael just reminded me: If your problem is that instead of ligatures
+you get separate glyphs (instead of black boxes), then this is by
+design. For small font sizes we use a bit of letter spacing to make them
+more readable.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20080125/7f6a3cb1/attachment.pgp>
+

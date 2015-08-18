@@ -1,0 +1,224 @@
+From mmayer at opencsw.org  Wed Jul 29 22:18:59 2009
+From: mmayer at opencsw.org (Markus Mayer)
+Date: Wed, 29 Jul 2009 13:18:59 -0700
+Subject: [Minionpro-devel] Th ligature
+Message-ID: <4A70AEB3.6070208@opencsw.org>
+
+Hi,
+
+I have been using the MinionPro package for a few months now. I was 
+wondering if there's an easy way to disable certain ligatures on a 
+per-document basis.
+
+I am particularly interested in not using the Th ligature. If it can't 
+be done per document, can it be done system-wide?
+
+Thanks,
+-Markus
+
+
+From blumensath at mathematik.tu-darmstadt.de  Thu Jul 30 15:57:14 2009
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Thu, 30 Jul 2009 15:57:14 +0200
+Subject: [Minionpro-devel] Th ligature
+In-Reply-To: <4A70AEB3.6070208@opencsw.org>
+References: <4A70AEB3.6070208@opencsw.org>
+Message-ID: <20090730135714.GC30375@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Markus Mayer wrote:
+> I have been using the MinionPro package for a few months now. I was 
+> wondering if there's an easy way to disable certain ligatures on a 
+> per-document basis.
+
+You can disable /all/ ligatures of a font via the microtype package.
+I don't know of any simply way to disable only selected ligatures.
+Of course, you can use our source packages to create your own metrics
+with certain ligatures disable.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: Digital signature
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20090730/cf9f6bfe/attachment.pgp>
+
+From schubert.seb at googlemail.com  Thu Jul 30 17:18:51 2009
+From: schubert.seb at googlemail.com (Sebastian Schubert)
+Date: Thu, 30 Jul 2009 17:18:51 +0200
+Subject: [Minionpro-devel] Th ligature
+In-Reply-To: <20090730135714.GC30375@mathematik.tu-darmstadt.de>
+References: <4A70AEB3.6070208@opencsw.org>
+	<20090730135714.GC30375@mathematik.tu-darmstadt.de>
+Message-ID: <200907301718.56020.schubert.seb@googlemail.com>
+
+Hi,
+
+* On Thursday 30 July 2009, 15:57:14, Achim Blumensath wrote:
+> Hello,
+>
+> Markus Mayer wrote:
+> > I have been using the MinionPro package for a few months now. I was
+> > wondering if there's an easy way to disable certain ligatures on a
+> > per-document basis.
+>
+> You can disable /all/ ligatures of a font via the microtype package.
+> I don't know of any simply way to disable only selected ligatures.
+
+Apparently, you can:
+
+microtype v2.3b manual, section 8:
+"It is also possible to disable selected ligatures only. The optional 
+argument may contain a comma-separated list of characters for which the 
+ligature mechanism should be inhibited:
+\DisableLigatures[?,!]{encoding = T1} % inhibit ?? !?, but not ? ? ? ...
+The character that begins the ligature(s) is what matters. This command
+may only be used in the preamble, and only once. It requires pdfTEX 1.30 
+or newer."
+
+
+\documentclass[a4paper]{scrartcl}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{MinionPro}
+
+\usepackage{microtype}
+
+\DisableLigatures[T]{encoding=T1}
+
+\begin{document}
+
+The fly coffee find
+
+\end{document}
+
+
+Sebastian
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 197 bytes
+Desc: This is a digitally signed message part.
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20090730/53565a9a/attachment.pgp>
+
+From schubert.seb at googlemail.com  Thu Jul 30 22:39:10 2009
+From: schubert.seb at googlemail.com (Sebastian Schubert)
+Date: Thu, 30 Jul 2009 22:39:10 +0200
+Subject: [Minionpro-devel] Error with lcdf typetools 2.79, not with 2.69
+Message-ID: <200907302239.14293.schubert.seb@googlemail.com>
+
+Hi,
+
+I recently used the cvs sources. When using lcdf typetools 2.69 
+everything is fine, with 2.79 I get an error, though.
+
+Here is the output of a plain makeall:
+
+...
+
+Metrics written on MinionPro-SemiboldIt-integral-mn-tint.mtx.
+(./MinionPro-SemiboldIt-integral-mn-tint.mtx) (./mn-dint.etx)
+(./MinionPro-SemiboldItDisp-integral-cn1.pl)
+Metrics written on MinionPro-SemiboldItDisp-integral-cn1-mn-dint.mtx.
+(./MinionPro-SemiboldItDisp-integral-cn1-mn-dint.mtx)
+(./mn-intop-semibold-text.mtx) (./mn-intop-semibold-disp.mtx)
+(./mn-symbol-fi.etx) (./mn-symbol-fi.etx) (./mn-symbol-fi.etx)
+(./mn-symbol-fi.etx)
+Virtual font written on MnSymbolFI-Semibold12.vpl.
+ )
+No pages of output.
+Transcript written on make-MnSymbolFI.log.
+This is TeX, Version 3.1415926 (Web2C 7.5.7)
+(./make-oml-smallfamily.tex (./fontinst-macros.tex
+(/usr/share/texmf-dist/tex/fontinst/base/fontinst.sty
+(/usr/share/texmf-dist/tex/fontinst/base/trig.sty)
+No file fontinst.rc.
+)) (./mn-symbol-a.etx) (./MnSymbolA10.pl)
+Metrics written on MnSymbolA10-mn-symbol-a.mtx.
+(./MnSymbolA10-mn-symbol-a.mtx) (./mn-symbol-c.etx) (./MnSymbolC10.pl)
+Metrics written on MnSymbolC10-mn-symbol-c.mtx.
+(./MnSymbolC10-mn-symbol-c.mtx) (./mn-symbol-d.etx) (./MnSymbolD10.pl)
+Metrics written on MnSymbolD10-mn-symbol-d.mtx.
+(./MnSymbolD10-mn-symbol-d.mtx) (./mn-symbol-e.etx) (./MnSymbolE10.pl)
+Metrics written on MnSymbolE10-mn-symbol-e.mtx.
+(./MnSymbolE10-mn-symbol-e.mtx) (./mn-oml-up.etx)
+(./MinionPro-Regular-tosf-oml.vpl)
+Metrics written on MinionPro-Regular-tosf-oml-mn-oml-up.mtx.
+(./MinionPro-Regular-tosf-oml-mn-oml-up.mtx) (./mn-oml-it.etx)
+(./MinionPro-It-tosf-oml.vpl)
+Metrics written on MinionPro-It-tosf-oml-mn-oml-it.mtx.
+(./MinionPro-It-tosf-oml-mn-oml-it.mtx) (./adjust-oml.mtx
+! Missing number, treated as zero.
+<to be read again>
+                   \g-UPpi1
+\glyph_metrics #1#2#3#4#5#6->\a_count =#1
+                                         \b_count =#2\c_count 
+=#3\d_count =#4
+\glyph ...al_expr_to \e_count {#2}\ifnum \e_count
+                                                  =\one_thousand \edef 
+\a_ma...
+
+\shiftglyph ...{#1} \movert {#2} \glyph {#1}{1000}
+                                                   \movert {#4} 
+\resetitalic...
+
+\adjustmetrics ...\shiftglyph {#1}{#2}{#3}{#4}{#6}
+                                                   \resetkern {#1}{skew}
+{#5}
+l.87 \adjustmetrics{UPpi1}{0}{0}{0}{0}{20}
+
+?
+
+
+Any idea?
+
+Thanks
+Sebastian
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 198 bytes
+Desc: This is a digitally signed message part.
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20090730/9ea67f35/attachment.pgp>
+
+From schubert.seb at googlemail.com  Fri Jul 31 21:08:59 2009
+From: schubert.seb at googlemail.com (Sebastian Schubert)
+Date: Fri, 31 Jul 2009 21:08:59 +0200
+Subject: [Minionpro-devel] Howto put cyrillic small letter ef into slot of
+	varphi in MyriadPro?
+Message-ID: <200907312109.03533.schubert.seb@googlemail.com>
+
+Hi,
+
+I recently tried to get MyriadPro working. So far it works really nice. 
+However, there is no phi but varphi symbol in MyriadPro-TOsf in the OML 
+encoding (I used nfssfont.tex to create a table).
+
+To solve this, I would like to use the cyrillic small letter ef for the 
+phi. It looks good to me. Could you point me to a way to accomplish 
+that? I have no idea where to start.
+
+Cheers
+Sebastian
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 198 bytes
+Desc: This is a digitally signed message part.
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20090731/0e047499/attachment.pgp>
+

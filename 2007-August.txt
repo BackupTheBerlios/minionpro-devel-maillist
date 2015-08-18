@@ -1,0 +1,242 @@
+From bdeb at willmore.eu  Thu Aug 16 15:18:38 2007
+From: bdeb at willmore.eu (Ben Willmore)
+Date: Thu, 16 Aug 2007 14:18:38 +0100
+Subject: [Minionpro-devel] MinionPro equations
+Message-ID: <bd9b873a0708160618j2bdc8f8ap17d5bfb23e3437d4@mail.gmail.com>
+
+I like the MinionPro package for text, but (on my system at least)
+equations can look very strange.  For example, the code below produces
+the PDF file at: http://willmore.eu/minion.pdf
+
+To my eye, the braces are far too heavy, make the appearance of
+equations very uneven.  This happens both on screen and in printed
+copies of the document.
+
+I wonder:
+
+* Do the braces look excessively heavy to other people or is my sense
+of aesthetics out of whack?
+* Do the braces appear this heavy on other systems or have I messed up
+the installation of the font somehow?
+
+Ben
+
+%%%%%%%%%%%%%%%
+\documentclass[11pt]{article}
+\usepackage[lf]{MinionPro}
+
+\begin{document}
+Here is an equation:
+\begin{equation}
+I = \frac{1}{\sqrt{2}}
+\left[
+\begin{array}{rrr}
+ 1&2&3 \\
+ 1&2&3 \\
+ 1&2&3 \\
+\end{array}
+\right]\\
+\end{equation}
+\end{document}
+%%%%%%%%%%%%%%%
+
+
+From axel.retif at mac.com  Thu Aug 16 15:43:55 2007
+From: axel.retif at mac.com (Axel E. Retif)
+Date: Thu, 16 Aug 2007 08:43:55 -0500
+Subject: [Minionpro-devel] MinionPro equations
+In-Reply-To: <bd9b873a0708160618j2bdc8f8ap17d5bfb23e3437d4@mail.gmail.com>
+References: <bd9b873a0708160618j2bdc8f8ap17d5bfb23e3437d4@mail.gmail.com>
+Message-ID: <435DACE3-8EE0-4529-8576-A504BEE05442@mac.com>
+
+On  16 Aug, 2007, at 08:18, Ben Willmore wrote:
+
+> I like the MinionPro package for text, but (on my system at least)
+> equations can look very strange.  For example, the code below produces
+> the PDF file at: http://willmore.eu/minion.pdf
+>
+> To my eye, the braces are far too heavy, make the appearance of
+> equations very uneven.  This happens both on screen and in printed
+> copies of the document.
+
+Typesetting your example, I get a very similar output, but not  
+exactly, because you're using the bitmapped MnSymbol, while I'm using  
+the new postscript (*.pfb) fonts, which look better. Take a look at  
+your \sqrt at a 1000 magnification and you'll see it's very obvious.
+
+
+Best,
+
+Axel
+
+
+From blumensath at mathematik.tu-darmstadt.de  Fri Aug 17 08:19:15 2007
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Fri, 17 Aug 2007 08:19:15 +0200
+Subject: [Minionpro-devel] MinionPro equations
+In-Reply-To: <bd9b873a0708160618j2bdc8f8ap17d5bfb23e3437d4@mail.gmail.com>
+References: <bd9b873a0708160618j2bdc8f8ap17d5bfb23e3437d4@mail.gmail.com>
+Message-ID: <20070817061915.GA19082@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Ben Willmore wrote:
+> To my eye, the braces are far too heavy, make the appearance of
+> equations very uneven.  This happens both on screen and in printed
+> copies of the document.
+
+I intentionally made the delimiters thicker than the Computer Modern
+ones. But I'm not sure I didn't overdo it a bit. In particular I'm not
+that satisfied with the round parentheses.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070817/971e12bc/attachment.pgp>
+
+From michal.stepien at bezda.com  Sat Aug 25 00:35:09 2007
+From: michal.stepien at bezda.com (=?iso-8859-2?Q?Micha=B3_St=EApie=F1?=)
+Date: Sat, 25 Aug 2007 00:35:09 +0200
+Subject: [Minionpro-devel] Problem with quotedblright and loosequotes
+Message-ID: <d9992134cdf19a410ee697f6f472bfab.qmail@home.pl>
+
+I've observed that loosequote option to Minion.sty is quite useful 
+according to fact
+that single quoteright are commonly used for instance in
+French or English and this option is some kind of a workaround
+obscure kerning settings of quotes in MinionPro.
+However turning this option on affects also quotedblright -- distance
+between two quoterights of whose quotedblright is composed
+is significantly increased. Example of such situation
+you can see in example http://www.bezda.com/loosequotes.pdf .
+
+Thanks for any answer.
+
+Micha? St?pie?
+
+
+
+From michal.stepien at bezda.com  Mon Aug 27 03:03:56 2007
+From: michal.stepien at bezda.com (=?iso-8859-2?Q?Micha=B3_St=EApie=F1?=)
+Date: Mon, 27 Aug 2007 03:03:56 +0200
+Subject: [Minionpro-devel] How to use superiors?
+Message-ID: <212fd83522340bb8a8dc340962d219f9.qmail@home.pl>
+
+My question is as follows: how can I use superiors letters.
+They are "? ? ? ? ? ? ? ? ? ? ? ? ? ? ?" and looks nice as ordinals.
+Other problem is how to turn on two alternatives K,R,k,r?
+
+Thanks for any answer.
+
+
+
+From blumensath at mathematik.tu-darmstadt.de  Mon Aug 27 08:15:46 2007
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Mon, 27 Aug 2007 08:15:46 +0200
+Subject: [Minionpro-devel] Problem with quotedblright and loosequotes
+In-Reply-To: <d9992134cdf19a410ee697f6f472bfab.qmail@home.pl>
+References: <d9992134cdf19a410ee697f6f472bfab.qmail@home.pl>
+Message-ID: <20070827061546.GA5265@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Micha? St?pie? wrote:
+> I've observed that loosequote option to Minion.sty is quite useful
+> according to fact that single quoteright are commonly used for
+> instance in French or English and this option is some kind of a
+> workaround obscure kerning settings of quotes in MinionPro. However
+> turning this option on affects also quotedblright
+
+Yes, this is intended for consistency reasons. If you use single quotes
+and double quotes with the loosequotes option the spacing should be the
+same.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070827/f24bf334/attachment.pgp>
+
+From blumensath at mathematik.tu-darmstadt.de  Mon Aug 27 08:21:50 2007
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Mon, 27 Aug 2007 08:21:50 +0200
+Subject: [Minionpro-devel] How to use superiors?
+In-Reply-To: <212fd83522340bb8a8dc340962d219f9.qmail@home.pl>
+References: <212fd83522340bb8a8dc340962d219f9.qmail@home.pl>
+Message-ID: <20070827062150.GC5265@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Micha? St?pie? wrote:
+> My question is as follows: how can I use superiors letters.They are
+> "??? ??? ??? ??? ??? ??? ??? ??? ??? ??? ??? ??? ??? ??? ???" and
+> looks nice as ordinals.Other problem is how to turn on two
+> alternatives K,R,k,r?
+
+You package only support superior figures.
+
+One way to use these glyphs would be to use our scripts to compile the
+metrics yourselves. You can add an encoding file of your own containing
+these glyphs.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070827/f2bbdc5e/attachment.pgp>
+
+From michael.zedler at tum.de  Mon Aug 27 10:31:39 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Mon, 27 Aug 2007 10:31:39 +0200
+Subject: [Minionpro-devel] How to use superiors?
+In-Reply-To: <212fd83522340bb8a8dc340962d219f9.qmail@home.pl>
+References: <212fd83522340bb8a8dc340962d219f9.qmail@home.pl>
+Message-ID: <5B194014-8301-4371-B4D5-F17C187D9650@tum.de>
+
+Am 27.08.2007 um 03:03 schrieb Micha? St?pie?:
+> My question is as follows: how can I use superiors letters.
+> They are "? ? ? ? ? ? ? ? ? ? ? ? ? ?  
+> ?" and looks nice as ordinals.
+> Other problem is how to turn on two alternatives K,R,k,r?
+>
+> Thanks for any answer.
+
+For such things I'd use XeTeX for the text, for math our setup. XeTeX  
+is now also available for Windows in Miktex 2.7beta.
+
+Michael
+
+
+
+

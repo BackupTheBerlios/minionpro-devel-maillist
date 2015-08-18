@@ -1,0 +1,117 @@
+From gaburici at cs.umd.edu  Tue Nov  6 05:30:01 2007
+From: gaburici at cs.umd.edu (Vasile Gaburici)
+Date: Mon, 5 Nov 2007 23:30:01 -0500 (EST)
+Subject: [Minionpro-devel] Using MnSymbol arrows as binary operators (with
+	proper spacing)
+Message-ID: <Pine.LNX.4.58.0711052322030.28344@fireball.cs.umd.edu>
+
+
+	I'm trying to use \sevdash as binary operator because it looks
+good as set-difference-like operator along with \sqcup and \sqcap. I
+cannot use the normal \ because that goes with \cup and \cap which I also
+use in the same document.
+
+	The trouble is that even if I use \mathbin{\sevdash}, I still get
+more spacing around it than the predefined binary operators get. I'm no
+font expert, but it looks like in MnSymbol there's more space left around
+arrows (especially to the right). Correct? Can it be fixed just from
+LaTeX?
+
+	Thanks,
+	Vasile Gaburici
+
+
+From blumensath at mathematik.tu-darmstadt.de  Tue Nov  6 14:07:09 2007
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Tue, 6 Nov 2007 14:07:09 +0100
+Subject: [Minionpro-devel] Using MnSymbol arrows as binary operators
+	(with proper spacing)
+In-Reply-To: <Pine.LNX.4.58.0711052322030.28344@fireball.cs.umd.edu>
+References: <Pine.LNX.4.58.0711052322030.28344@fireball.cs.umd.edu>
+Message-ID: <20071106130709.GB32160@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Vasile Gaburici wrote:
+> 	I'm trying to use \sevdash as binary operator because it looks
+> good as set-difference-like operator along with \sqcup and \sqcap.
+[...]
+> 	The trouble is that even if I use \mathbin{\sevdash}, I still get
+> more spacing around it than the predefined binary operators get.
+
+You could try
+
+  \mathbin{\mkern-2mu\sevdash\mkern-2mu}
+
+(adjust the -2 until the spacing is right).
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20071106/69651130/attachment.pgp>
+
+From gaburici at cs.umd.edu  Tue Nov  6 17:13:16 2007
+From: gaburici at cs.umd.edu (Vasile Gaburici)
+Date: Tue, 6 Nov 2007 11:13:16 -0500 (EST)
+Subject: [Minionpro-devel] Using MnSymbol arrows as binary operators
+ (with proper spacing)
+In-Reply-To: <20071106130709.GB32160@mathematik.tu-darmstadt.de>
+References: <Pine.LNX.4.58.0711052322030.28344@fireball.cs.umd.edu>
+	<20071106130709.GB32160@mathematik.tu-darmstadt.de>
+Message-ID: <Pine.LNX.4.58.0711061050500.11564@fireball.cs.umd.edu>
+
+
+	Thanks for the tip. It looks like the space is not equal on both
+sides so \mathbin{\mkern-1mu\sevdash\mkern-3mu} looks better; it aligns
+with \sqcup almost perfectly. Previously I was using \mathbin{\sevdash}\!,
+but putting the \mkern inside \mathbin gives better alignment.
+
+	Thanks,
+	Vasile Gaburici
+
+On Tue, 6 Nov 2007, Achim Blumensath wrote:
+
+> Date: Tue, 6 Nov 2007 14:07:09 +0100
+> From: Achim Blumensath <blumensath at mathematik.tu-darmstadt.de>
+> Reply-To: minionpro-devel at lists.berlios.de
+> To: minionpro-devel at lists.berlios.de
+> Subject: Re: [Minionpro-devel] Using MnSymbol arrows as binary operators
+>     (with proper spacing)
+>
+> Hello,
+>
+> Vasile Gaburici wrote:
+> > 	I'm trying to use \sevdash as binary operator because it looks
+> > good as set-difference-like operator along with \sqcup and \sqcap.
+> [...]
+> > 	The trouble is that even if I use \mathbin{\sevdash}, I still get
+> > more spacing around it than the predefined binary operators get.
+>
+> You could try
+>
+>   \mathbin{\mkern-2mu\sevdash\mkern-2mu}
+>
+> (adjust the -2 until the spacing is right).
+>
+> Achim
+> --
+> ________________________________________________________________________
+>                                                               | \_____/ |
+>    Achim Blumensath                                          \O/ \___/\ |
+>    TU Darmstadt                                              =o=  \ /\ \|
+>    www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+> ____________________________________________________________________\___|
+>
+
+

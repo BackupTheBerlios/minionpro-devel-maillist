@@ -1,0 +1,308 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Minionpro-devel] minion pro with gwTeX
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/minionpro-devel/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20minion%20pro%20with%20gwTeX&In-Reply-To=%3C9A89D9E1-E986-4B6A-908E-9CD05C069C9F%40philosophy.rutgers.edu%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000187.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Minionpro-devel] minion pro with gwTeX</H1>
+    <B>Ted Sider</B> 
+    <A HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20minion%20pro%20with%20gwTeX&In-Reply-To=%3C9A89D9E1-E986-4B6A-908E-9CD05C069C9F%40philosophy.rutgers.edu%3E"
+       TITLE="[Minionpro-devel] minion pro with gwTeX">sider at philosophy.rutgers.edu
+       </A><BR>
+    <I>Thu May 31 15:48:47 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000187.html">[Minionpro-devel] minion pro with gwTeX
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#188">[ date ]</a>
+              <a href="thread.html#188">[ thread ]</a>
+              <a href="subject.html#188">[ subject ]</a>
+              <a href="author.html#188">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+On May 31, 2007, at 2:31 AM, Achim Blumensath wrote:
+
+&gt;<i> Hello,
+</I>&gt;<i>
+</I>&gt;<i> Ted Sider wrote:
+</I>&gt;&gt;<i> As near as I can tell (though I'm no expert), the information
+</I>&gt;&gt;<i> for the MinionPro font isn't making its way into  	
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> 	/usr/local/teTeX/share/texmf.local/fonts/map/pdftex/updmap/ 
+</I>&gt;&gt;<i> pdftex.map
+</I>&gt;<i>
+</I>&gt;<i> What is the output of
+</I>&gt;<i>
+</I>&gt;<i>   sudo updmap-sys --enable Map MinionPro.map
+</I>&gt;<i>
+</I>&gt;<i> Achim
+</I>
+
+Hi Achim,
+
+thanks for replying.   I've pasted the output below.  Meanwhile, just  
+a couple more things that I've learned, which may or may not be  
+relevant.  First, when I emailed earlier, I hadn't realized that the / 
+usr/local/teTeX hierarchy is irrelevant to my distribution of gwTeX  
+(which is the most recent one, based on TeXLive 2007.)  I think it's  
+left over on the machine from an earlier TeX installation.  Second:   
+I actually have two machines.  On one, I got MinionPro to work, on  
+the other I've failed.  And I've noticed a few differences between  
+these machines.  First, when I run updmap (see the output below), on  
+each machine it says that the config file it's using is /usr/local/ 
+gwTeX/texmf.local/web2c/updmap.cfg.   But when I look inside this  
+file, it has Map MinionPro.map on the machine in which things are NOT  
+working.  On the machine where the font IS working, /usr/local/gwTeX/ 
+texmf.local/web2c/updmap.cfg does NOT contain this command.   Second,  
+I noticed that the .tfm files on the computer where everything is  
+working are different from the files on the computer where it isn't  
+working.  The nonworking computer has, e.g., MinionPro-Regular-Base- 
+aa.tfm; whereas the working computer has, e.g., MinionPro-Regular-lf- 
+l1-lgi--base.tfm.  I also note that the .tfm files on the working  
+computer were created in 2005, whereas the .tfm files on the  
+nonworking computer were created by me recently.  (I installed  
+MinionPro on the working computer a few months ago; could this have  
+something to do with the fact that the package was recently updated?)
+
+Output follows:
+
+
+
+
+fsp-macbookpro-7:/usr/local jillnorth$ sudo updmap-sys --enable Map  
+MinionPro.map
+Password:
+updmap: This is updmap, version 1167072206
+updmap: using transcript file `/usr/local/gwTeX/texmf.local/web2c/ 
+updmap.log'
+updmap: initial config file is `/usr/local/gwTeX/texmf.local/web2c/ 
+updmap.cfg'
+updmap: configuration (updmap.cfg) unchanged. Map files will not be  
+recreated.
+fsp-macbookpro-7:/usr/local jillnorth$ sudo updmap- 
+sys                         updmap: This is updmap, version 1167072206
+updmap: using transcript file `/usr/local/gwTeX/texmf.local/web2c/ 
+updmap.log'
+
+updmap is creating new map files using the following configuration:
+
+   config file: `/usr/local/gwTeX/texmf.local/web2c/updmap.cfg'
+   dvips output directory: `/usr/local/gwTeX/texmf.local/fonts/map/ 
+dvips/updmap'
+   pdftex output directory: `/usr/local/gwTeX/texmf.local/fonts/map/ 
+pdftex/updmap'
+   dvipdfm output directory: `/usr/local/gwTeX/texmf.local/fonts/map/ 
+dvipdfm/updmap'
+
+   prefer outlines: `true'
+   texhash enabled: `false'
+   download standard fonts (dvips): `false'
+   download standard fonts (pdftex): `true'
+   download standard fonts (dvipdfm): `true'
+
+updmap: Scanning for LW35 support files
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/tetex/dvips35.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/tetex/pdftex35.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/tetex/dvipdfm35.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/tetex/ps2pk35.map'
+
+updmap: Scanning for MixedMap entries:
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/ams/ams-bsr-interpolated.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/ams/ams-bsr.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/ams/ams-cmcsc-bsr-interpolated.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/cc-pl/ccpl.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/cm/cmother-bsr.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/cm/cmtext-bsr-interpolated.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/cm/cmtext-bsr.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/cs/csother.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/cs/cstext.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/eurosym/eurosym.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/latex-fonts/latex-bsr.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/manfnt/manfnt.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/pl/plother.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/pl/pltext.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/rsfs/rsfs.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/stmaryrd/stmaryrd.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/tipa/tipa.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/cmex/ttcmex.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/vntex/vnrother.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/vntex/vnrtext.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/wasy/wasy.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/xypic/xypic.map'
+
+updmap: Scanning for Map entries:
+updmap: using map file `/Users/jillnorth/Library/texmf/fonts/map/ 
+dvips/MinionPro/MinionPro.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/antp/antp.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/antt/antt.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/vntex/arevvn.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/psnfss/charter.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/vntex/chartervn.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/cjhebrew/cjhebrew.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/vntex/cmbrightvn.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/cmcyr/cmcyr.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/vntex/comicvn.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/vntex/concretevn.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/dictsym/dictsym.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/doublestroke/dstroke.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/esvect/esvect.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/fourier/fourier.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/psnfss/fpls.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/vntex/grotesqvn.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/iwona/iwona.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/lm/lm.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/marvosym/marvosym.map'
+updmap: using map file `/Users/jillnorth/Library/texmf/fonts/map/ 
+dvips/mathdesign/mdbch.map'
+updmap: using map file `/Users/jillnorth/Library/texmf/fonts/map/ 
+dvips/mathdesign/mdput.map'
+updmap: using map file `/Users/jillnorth/Library/texmf/fonts/map/ 
+dvips/mathdesign/mdugm.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/mflogo/mflogo.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+pdftex/vntex/mscorevn.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/omega/omega.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/psnfss/pazo.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/pxfonts/pxfonts.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/qfonts/qcr.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/qfonts/qhv.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/qfonts/qzc.map'
+updmap: using map file `/usr/local/gwTeX/texmf.gwtex/fonts/map/dvips/ 
+relsymb/relsymb.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/txfonts/txfonts.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/vntex/txttvn.map'
+updmap: using map file `/Users/jillnorth/Library/texmf/fonts/map/ 
+dvips/ugm/ugm.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/vntex/urwvn.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/psnfss/utopia.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/vntex/vntopia.map'
+updmap: using map file `/usr/local/gwTeX/texmf.texlive/fonts/map/ 
+dvips/gothic/yfrak.map'
+
+updmap: Generating output for ps2pk...
+updmap: Generating output for dvips...
+updmap: Generating output for pdftex...
+updmap: Generating output for dvipdfm...
+updmap: All output generated!
+
+
+updmap: Files generated:
+-rw-r--r--   1 root  wheel   72917 May 31 09:41 /usr/local/gwTeX/ 
+texmf.local/fonts/map/dvipdfm/updmap/dvipdfm_dl14.map
+-rw-r--r--   1 root  wheel   73544 May 31 09:41 /usr/local/gwTeX/ 
+texmf.local/fonts/map/dvipdfm/updmap/dvipdfm_ndl14.map
+-rw-r--r--   1 root  wheel    8921 May 31 09:41 /usr/local/gwTeX/ 
+texmf.local/fonts/map/dvips/updmap/builtin35.map
+-rw-r--r--   1 root  wheel   12980 May 31 09:41 /usr/local/gwTeX/ 
+texmf.local/fonts/map/dvips/updmap/download35.map
+-rw-r--r--   1 root  wheel  209725 May 31 09:41 /usr/local/gwTeX/ 
+texmf.local/fonts/map/dvips/updmap/ps2pk.map
+-rw-r--r--   1 root  wheel  188434 May 31 09:41 /usr/local/gwTeX/ 
+texmf.local/fonts/map/dvips/updmap/psfonts_pk.map
+-rw-r--r--   1 root  wheel  205672 May 31 09:41 /usr/local/gwTeX/ 
+texmf.local/fonts/map/dvips/updmap/psfonts_t1.map
+-rw-r--r--   1 root  wheel  209732 May 31 09:41 /usr/local/gwTeX/ 
+texmf.local/fonts/map/pdftex/updmap/pdftex_dl14.map
+-rw-r--r--   1 root  wheel  208182 May 31 09:41 /usr/local/gwTeX/ 
+texmf.local/fonts/map/pdftex/updmap/pdftex_ndl14.map
+
+updmap: Map file links:
+psfonts.map -&gt; psfonts_t1.map
+pdftex.map -&gt; pdftex_dl14.map
+dvipdfm.map -&gt; dvipdfm_dl14.map
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000187.html">[Minionpro-devel] minion pro with gwTeX
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#188">[ date ]</a>
+              <a href="thread.html#188">[ thread ]</a>
+              <a href="subject.html#188">[ subject ]</a>
+              <a href="author.html#188">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/minionpro-devel">More information about the Minionpro-devel
+mailing list</a><br>
+</body></html>

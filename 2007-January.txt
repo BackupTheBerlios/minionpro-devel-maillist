@@ -1,0 +1,1724 @@
+From mk at mcqm.net  Mon Jan  1 00:22:56 2007
+From: mk at mcqm.net (Marco Kuhlmann)
+Date: Mon, 1 Jan 2007 00:22:56 +0100
+Subject: [Minionpro-devel] Experiences when creating metrics for version
+	2.015
+In-Reply-To: <0FF28A86-AF00-4D4B-8952-232796A000C5@mcqm.net>
+References: <56028A52-909C-4061-A28F-21324C8A139A@mcqm.net>
+	<0FF28A86-AF00-4D4B-8952-232796A000C5@mcqm.net>
+Message-ID: <4805A745-60A7-4769-97CC-CF1187DC2731@mcqm.net>
+
+Am 31.12.2006 um 18:08 schrieb Marco Kuhlmann:
+
+> Getting back to my own mail, it seems that the /foo1-glyphs are
+> actually missing from the virtual fonts: as an example, the LaTeX
+> command \varphi does not yield any output. Could it be that these
+> glyphs have different names in the new versions of the font? Would it
+> be worth to play around with mn-oml.enc (which seems to handle that
+> part)? What is the best way to test whether the glyph mentioned in
+> the encoding file actually makes it into the the virtual font?
+
+Getting back to myself once more: I have now found out that the  
+missing glyphs were caused by the broken installation of otftotfm  
+that is shipped with Gerben Wierda's latest i-Package. The program as  
+it is installed in this package cannot find the glyphlists that are  
+used by otftotfm to resolve non-standard glyph names -- such as  
+theta1. Re-compiling with a working installation of otftotfm seems to  
+work fine!
+
+     Happy new year again,
+     Marco
+
+
+
+From blumensath at mathematik.tu-darmstadt.de  Thu Jan  4 10:32:36 2007
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Thu, 4 Jan 2007 10:32:36 +0100
+Subject: [Minionpro-devel] Experiences when creating metrics for version
+	2.015
+In-Reply-To: <56028A52-909C-4061-A28F-21324C8A139A@mcqm.net>
+References: <56028A52-909C-4061-A28F-21324C8A139A@mcqm.net>
+Message-ID: <20070104093236.GC10485@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Marco Kuhlmann wrote:
+> 1. The program gawk, which is called in scripts/maketfm, does not
+> seem to exist on standard installations of Mac OS X 10.4 (including
+> the latest Xcode). I modified scripts/maketfm to use awk instead;
+> this seemed to work fine.
+
+Fixed in CVS.
+
+> 6. Independently of my experiences with the current minionpro CVS, I  
+> noticed an error in MnSymbol 1.4-rc1: The symbol \uplus does not look  
+> like a U with a plus inside it, but seems to be mapped to the glyph  
+> called \landupint in the documentation to MnSymbol.
+
+Also fixed.
+
+Thanks for your reports.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070104/375b1891/attachment.pgp>
+
+From axretif at igo.com.mx  Sat Jan 13 21:41:31 2007
+From: axretif at igo.com.mx (Axel E. Retif)
+Date: Sat, 13 Jan 2007 14:41:31 -0600
+Subject: [Minionpro-devel] MnSymbol --Map or MixedMap?
+Message-ID: <6B7F3E06-A312-417C-9731-714823C8876C@igo.com.mx>
+
+Is MnSymbol.map a Map or a MixedMap? I had no problems enabling it as  
+a Map file, but now that I'm shifting to version 1.4 from 1.3, I want  
+to do it right.
+
+(I understand MinionPro.map is a Map, not a MixedMap, right?)
+
+Thank you and best regards,
+
+
+Axel
+
+
+From axretif at igo.com.mx  Sun Jan 14 06:26:49 2007
+From: axretif at igo.com.mx (Axel E. Retif)
+Date: Sat, 13 Jan 2007 23:26:49 -0600
+Subject: [Minionpro-devel] MnSymbol --Map or MixedMap?
+In-Reply-To: <6B7F3E06-A312-417C-9731-714823C8876C@igo.com.mx>
+References: <6B7F3E06-A312-417C-9731-714823C8876C@igo.com.mx>
+Message-ID: <4C176607-9FCA-4BCF-B2B4-616E772B8870@igo.com.mx>
+
+On Jan 13, 2007, at 14:41, Axel E. Retif wrote:
+
+> Is MnSymbol.map a Map or a MixedMap? I had no problems enabling it as
+> a Map file, but now that I'm shifting to version 1.4 from 1.3, I want
+> to do it right.
+
+Now I see in the README of version 1.4 that Achim Blumensath says
+
+> If you installed the PostScript fonts you also need to run updmap or
+> updmap-sys to make them available:
+>
+>   $ updmap-sys --enable Map MnSymbol.map
+
+So I'll enable the map as Map, not MixedMap. But I have read a 2005  
+message from Reinhard Kotucha
+
+http://www.tug.org/pipermail/tex-live/2005-October/009107.html
+
+where he says
+
+> ... I had to remove
+>
+>   MixedMap MnSymbol.map
+>
+> MnSymbol.map is not present in the current texmf tree...
+
+Therefore, I'm still confused.
+
+Best,
+
+Axel
+
+
+> (I understand MinionPro.map is a Map, not a MixedMap, right?)
+>
+> Thank you and best regards,
+>
+>
+> Axel
+> _______________________________________________
+> Minionpro-devel mailing list
+> Minionpro-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/minionpro-devel
+>
+
+
+
+From axretif at igo.com.mx  Sun Jan 14 09:55:25 2007
+From: axretif at igo.com.mx (Axel E. Retif)
+Date: Sun, 14 Jan 2007 02:55:25 -0600
+Subject: [Minionpro-devel] MnSymbol 1.4 collides with MinionPro 2.0
+Message-ID: <C766005E-C967-48F9-A53C-7A1ADF873E3F@igo.com.mx>
+
+I had problems with MnSymbol 2.1 because it defines \hbar and so does  
+MinionPro 2.0, and I don't know which other incompatibilities might  
+arise.
+
+I've seen from CVS that MinionPro 2.1 first undefines \hbar and then  
+redefines it, but I don't have the time right now to install the new  
+MinionPro 2.1. Would it be possible for the moment just to use the  
+new MnSymbol*.pfbs from v1.4, as Achim Blumensath says they are  
+better traced?
+
+Thank you
+
+Axel
+
+
+From michael.zedler at tum.de  Sun Jan 14 13:17:54 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Sun, 14 Jan 2007 13:17:54 +0100
+Subject: [Minionpro-devel] MnSymbol 1.4 collides with MinionPro 2.0
+In-Reply-To: <C766005E-C967-48F9-A53C-7A1ADF873E3F@igo.com.mx>
+References: <C766005E-C967-48F9-A53C-7A1ADF873E3F@igo.com.mx>
+Message-ID: <45AA1F72.9020608@tum.de>
+
+Axel E. Retif schrieb:
+> I had problems with MnSymbol 2.1 because it defines \hbar and so does  
+> MinionPro 2.0, and I don't know which other incompatibilities might  
+> arise.
+
+\usepackage{MnSymbol}
+\let\hbar\undefined
+\uspackage[...]{MinionPro}
+
+should do. Achim, perhaps you can add a compatibility switch to 
+MnSymbol.sty? If MinionPro.sty is loaded and the version is the old one, 
+then don't define hbar?
+
+> I've seen from CVS that MinionPro 2.1 first undefines \hbar and then  
+> redefines it, but I don't have the time right now to install the new  
+> MinionPro 2.1. Would it be possible for the moment just to use the  
+> new MnSymbol*.pfbs from v1.4, as Achim Blumensath says they are  
+> better traced?
+
+The metrics changed, not that a good idea. BTW, the new pfb are not 
+traced, but directly converted via MetaPost and FontForge.
+
+Michael
+
+
+From ralf.stubner at web.de  Sun Jan 14 12:51:52 2007
+From: ralf.stubner at web.de (Ralf Stubner)
+Date: Sun, 14 Jan 2007 12:51:52 +0100
+Subject: [Minionpro-devel] MnSymbol --Map or MixedMap?
+In-Reply-To: <6B7F3E06-A312-417C-9731-714823C8876C@igo.com.mx>
+References: <6B7F3E06-A312-417C-9731-714823C8876C@igo.com.mx>
+Message-ID: <20070114115152.GA30579@thinkpad>
+
+On Sat, Jan 13, 2007 at 14:41 -0600, Axel E. Retif wrote:
+> Is MnSymbol.map a Map or a MixedMap? I had no problems enabling it as  
+> a Map file, but now that I'm shifting to version 1.4 from 1.3, I want  
+> to do it right.
+
+I would use MixedMap, since MixedMap is meant for fonts whoch exist as
+both Type1 and Metafont, whihc is the case for MnSymbol. However, as
+long as dvipsPreferOutline is set to true in updmap.cfg, there is no
+differnce between Map and MixedMap in default operations. However, if
+you use MixedMap you are able to explicitly select the Metafont versions
+via 'dvips -Ppk'.
+
+cheerio
+ralf
+
+
+From axretif at igo.com.mx  Sun Jan 14 19:48:00 2007
+From: axretif at igo.com.mx (Axel E. Retif)
+Date: Sun, 14 Jan 2007 12:48:00 -0600
+Subject: [Minionpro-devel] MnSymbol 1.4 collides with MinionPro 2.0
+In-Reply-To: <45AA1F72.9020608@tum.de>
+References: <C766005E-C967-48F9-A53C-7A1ADF873E3F@igo.com.mx>
+	<45AA1F72.9020608@tum.de>
+Message-ID: <E026394E-B50C-40DA-ABBB-C6E41790E9BC@igo.com.mx>
+
+On Jan 14, 2007, at 06:17, Michael Zedler wrote:
+
+> Axel E. Retif schrieb:
+>> I had problems with MnSymbol 2.1 because it defines \hbar and so does
+>> MinionPro 2.0, and I don't know which other incompatibilities might
+>> arise.
+>
+> \usepackage{MnSymbol}
+> \let\hbar\undefined
+> \uspackage[...]{MinionPro}
+>
+> should do.
+
+Thank you.
+
+> Achim, perhaps you can add a compatibility switch to
+> MnSymbol.sty? If MinionPro.sty is loaded and the version is the old  
+> one,
+> then don't define hbar?
+
+It would be good, because in CTAN you only find MinionPro v2.0; to  
+get 2.1 you have to do it via CVS.
+
+>> I've seen from CVS that MinionPro 2.1 first undefines \hbar and then
+>> redefines it, but I don't have the time right now to install the new
+>> MinionPro 2.1. Would it be possible for the moment just to use the
+>> new MnSymbol*.pfbs from v1.4, as Achim Blumensath says they are
+>> better traced?
+>
+> The metrics changed, not that a good idea.
+
+Then I won't.
+
+> BTW, the new pfb are not traced, but directly converted via  
+> MetaPost and FontForge.
+
+Nice. Thank you again for your great job.
+
+Best,
+
+Axel
+
+
+
+From axretif at igo.com.mx  Sun Jan 14 20:00:03 2007
+From: axretif at igo.com.mx (Axel E. Retif)
+Date: Sun, 14 Jan 2007 13:00:03 -0600
+Subject: [Minionpro-devel] MnSymbol --Map or MixedMap?
+In-Reply-To: <20070114115152.GA30579@thinkpad>
+References: <6B7F3E06-A312-417C-9731-714823C8876C@igo.com.mx>
+	<20070114115152.GA30579@thinkpad>
+Message-ID: <7C52823E-CF8A-45F9-94A0-1F21A1D87A4B@igo.com.mx>
+
+On Jan 14, 2007, at 05:51, Ralf Stubner wrote:
+
+> On Sat, Jan 13, 2007 at 14:41 -0600, Axel E. Retif wrote:
+>> Is MnSymbol.map a Map or a MixedMap? I had no problems enabling it as
+>> a Map file, but now that I'm shifting to version 1.4 from 1.3, I want
+>> to do it right.
+>
+> I would use MixedMap, since MixedMap is meant for fonts whoch exist as
+> both Type1 and Metafont, whihc is the case for MnSymbol. However, as
+> long as dvipsPreferOutline is set to true in updmap.cfg, there is no
+> differnce between Map and MixedMap in default operations.
+
+This is the answer to my question, and explains why I haven't had any  
+problems enabling MnSymbol as Map, because indeed I have  
+``dvipsPreferOutline true'' in updmap.cfg.
+
+> However, if you use MixedMap you are able to explicitly select the  
+> Metafont versions
+> via 'dvips -Ppk'.
+
+Thank you.
+
+Best,
+
+Axel
+
+
+
+From blumensath at mathematik.tu-darmstadt.de  Mon Jan 15 12:59:28 2007
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Mon, 15 Jan 2007 12:59:28 +0100
+Subject: [Minionpro-devel] MnSymbol 1.4 collides with MinionPro 2.0
+In-Reply-To: <45AA1F72.9020608@tum.de>
+References: <C766005E-C967-48F9-A53C-7A1ADF873E3F@igo.com.mx>
+	<45AA1F72.9020608@tum.de>
+Message-ID: <20070115115928.GD28075@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Michael Zedler wrote:
+> Axel E. Retif schrieb:
+> > I had problems with MnSymbol 2.1 because it defines \hbar and so does  
+> > MinionPro 2.0, and I don't know which other incompatibilities might  
+> > arise.
+> 
+> Achim, perhaps you can add a compatibility switch to MnSymbol.sty? If
+> MinionPro.sty is loaded and the version is the old one, then don't
+> define hbar?
+
+I think it would be better to release a new version of MinionPro. If we
+update MnSymbol and MinionPro on CTAN simultaneously then there
+shouldn't be any problem. People will either use both old versions or
+both new ones.
+
+If I remember correctly the only remaining problem with a new MinionPro
+release was the 'looseqotes' option which uses new features of pdftex.
+Does anyone know whether they are really present in pdftex 1.40? (There
+was talk about removing them again. I don't know what came out of it.)
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070115/a44f1c0f/attachment.pgp>
+
+From michael.zedler at tum.de  Mon Jan 15 13:10:29 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Mon, 15 Jan 2007 13:10:29 +0100
+Subject: [Minionpro-devel] MnSymbol 1.4 collides with MinionPro 2.0
+In-Reply-To: <20070115115928.GD28075@mathematik.tu-darmstadt.de>
+References: <C766005E-C967-48F9-A53C-7A1ADF873E3F@igo.com.mx>	<45AA1F72.9020608@tum.de>
+	<20070115115928.GD28075@mathematik.tu-darmstadt.de>
+Message-ID: <45AB6F35.6040902@tum.de>
+
+Achim Blumensath schrieb:
+> If I remember correctly the only remaining problem with a new MinionPro
+> release was the 'looseqotes' option which uses new features of pdftex.
+> Does anyone know whether they are really present in pdftex 1.40? (There
+> was talk about removing them again. I don't know what came out of it.)
+
+microtype 2.0 just came out and it still supports \SetExtraKerning.
+
+Anyway, I'd be in favour of adding a compatibility switch. Say, in 
+miktex the user installed MnSymbol via the package manager, the 
+MinionPro package by hand. With the next miktex update his old documents 
+won't work any longer.
+
+BTW, something with the minionint option seems to be broken,
+\documentclass{article}
+\usepackage[minionint]{MinionPro}
+\begin{document}
+\[\iint\]
+\end{document}
+
+Compiling this with dvips works flawlessly, with pdftex the integral is 
+distorted.
+
+Michael
+
+
+From sebsweb at free.fr  Mon Jan 15 13:07:07 2007
+From: sebsweb at free.fr (Sebastien Morin)
+Date: Mon, 15 Jan 2007 16:07:07 +0400
+Subject: [Minionpro-devel] MnSymbol 1.4 collides with MinionPro 2.0
+In-Reply-To: <20070115115928.GD28075@mathematik.tu-darmstadt.de>
+References: <C766005E-C967-48F9-A53C-7A1ADF873E3F@igo.com.mx>
+	<45AA1F72.9020608@tum.de>
+	<20070115115928.GD28075@mathematik.tu-darmstadt.de>
+Message-ID: <200701151607.07430.sebsweb@free.fr>
+
+Happy New Year!
+
+Le lundi 15 janvier 2007 15:59, Achim Blumensath a ?crit?:
+> I think it would be better to release a new version of MinionPro.
+
+This would be a very good idea, I think! ;-)
+I can't wait to test this new version!
+
+
+From blumensath at mathematik.tu-darmstadt.de  Tue Jan 23 12:39:32 2007
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Tue, 23 Jan 2007 12:39:32 +0100
+Subject: [Minionpro-devel] [ANN] MnSymbol 1.4
+Message-ID: <20070123113932.GB18848@mathematik.tu-darmstadt.de>
+
+Hello,
+
+I've uploaded the final version of MnSymbol 1.4 to BerliOS and CTAN.
+
+I'm planning to release a new version of MinionPro shortly. If you know
+of any unresolved issues please tell me. I'm already aware of:
+
+o Problems with \iint and pdftex 1.30.
+o The loosequotes option doesn't seem to work.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070123/310ef1ce/attachment.pgp>
+
+From sebastian-schubert at gmx.de  Tue Jan 23 23:17:38 2007
+From: sebastian-schubert at gmx.de (Sebastian Schubert)
+Date: Tue, 23 Jan 2007 23:17:38 +0100
+Subject: [Minionpro-devel] math bold: eb -> b?
+Message-ID: <87ac09o0al.fsf@Satux.Puorg>
+
+Hi,
+
+What do you think of printing bold math using semibold not bold?  If I
+have math included in the headlines I like to have it some kind of bold
+as well.  \boldmath uses bold in opposite to semibold of the headline
+which looks strange.  So a bold=eb would solve this problem.  If one
+needs a bolder math symbol (eg in the headlines) there is still eb.
+Unfortunately, bm seems to still use eb.
+
+
+\documentclass{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[medfamily, opticals]{MinionPro}
+
+\usepackage{bm}
+
+\DeclareMathAlphabet\mathbf {T1} {MinionPro-OsF}{b}{n}
+\SetMathAlphabet\mathit  {bold}{T1} {MinionPro-OsF}{b}{it}
+\SetSymbolFont{operators}{bold}{T1} {MinionPro-OsF}{b}{n}
+\SetSymbolFont{letters}  {bold}{OML}{MinionPro-TOsF} {b}{it}
+\DeclareMathVersion{boldtabular}
+\SetSymbolFont{operators}{boldtabular}{T1} {MinionPro-OsF}{b}{n}
+\SetSymbolFont{letters}  {boldtabular}{OML}{MinionPro-TOsF}  {b}{it}
+\SetMathAlphabet\mathit  {boldtabular}{T1} {MinionPro-OsF}{b}{it}
+
+
+\DeclareMathAlphabet\mathebf {T1} {MinionPro-OsF}{eb}{n}
+
+\addtokomafont{sectioning}{\rmfamily\boldmath}
+
+
+\begin{document}
+
+\section{Test $\mathebf{x}\mathbf{x}x$}
+
+$\mathbf{x \alpha} \bm{\alpha x}$
+
+\end{document}
+
+
+From blumensath at mathematik.tu-darmstadt.de  Wed Jan 24 09:55:16 2007
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Wed, 24 Jan 2007 09:55:16 +0100
+Subject: [Minionpro-devel] math bold: eb -> b?
+In-Reply-To: <87ac09o0al.fsf@Satux.Puorg>
+References: <87ac09o0al.fsf@Satux.Puorg>
+Message-ID: <20070124085516.GA28681@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Sebastian Schubert wrote:
+> What do you think of printing bold math using semibold not bold?  If I
+> have math included in the headlines I like to have it some kind of
+> bold as well.  \boldmath uses bold in opposite to semibold of the
+> headline which looks strange.  So a bold=eb would solve this problem.
+> If one needs a bolder math symbol (eg in the headlines) there is still
+> eb. Unfortunately, bm seems to still use eb.
+
+We decided to use bold in math because the semibold letters are hard to
+distinguish from the medium ones. For instance, it is customary in
+physics to denote vectors by bold symbols and their length by the
+corresponding medium one. In these cases it is important that the reader
+can easily distinguish between them.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070124/b5bcefa1/attachment.pgp>
+
+From blumensath at mathematik.tu-darmstadt.de  Wed Jan 24 10:17:45 2007
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Wed, 24 Jan 2007 10:17:45 +0100
+Subject: [Minionpro-devel] Preparing for the next MinionPro release
+Message-ID: <20070124091745.GB28681@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Achim Blumensath wrote:
+> I'm planning to release a new version of MinionPro shortly. If you know
+> of any unresolved issues please tell me. I'm already aware of:
+> 
+> o Problems with \iint and pdftex 1.30.
+> o The loosequotes option doesn't seem to work.
+
+pdftex 1.40.1 also has problems with \iint. I've submitted a bug to the
+pdftex people.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070124/75d478e5/attachment.pgp>
+
+From michael.zedler at tum.de  Wed Jan 24 10:23:47 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Wed, 24 Jan 2007 10:23:47 +0100
+Subject: [Minionpro-devel] Preparing for the next MinionPro release
+In-Reply-To: <20070124091745.GB28681@mathematik.tu-darmstadt.de>
+References: <20070124091745.GB28681@mathematik.tu-darmstadt.de>
+Message-ID: <45B725A3.1000508@tum.de>
+
+Achim Blumensath schrieb:
+> Hello,
+> 
+> Achim Blumensath wrote:
+>> I'm planning to release a new version of MinionPro shortly. If you know
+>> of any unresolved issues please tell me. I'm already aware of:
+>>
+>> o Problems with \iint and pdftex 1.30.
+>> o The loosequotes option doesn't seem to work.
+> 
+> pdftex 1.40.1 also has problems with \iint. I've submitted a bug to the
+> pdftex people.
+
+I didn't have the time yet to investigate the iint-issue in detail. 
+Perhaps it's not a pdftex problem...
+
+Since the addition of the POSITION commands of the LGI encoding the 
+-integral encoding files are virtual fonts, not plain tfm.
+But the fontinst files were not yet adapted, perhaps this triggers the 
+bug? The easiest to test this would be a modification of maketfm so that 
+for the integral encodings the kern files (and thus the LGI POSITION 
+commands) are not used.
+
+Michael
+
+
+From axretif at igo.com.mx  Wed Jan 24 10:38:36 2007
+From: axretif at igo.com.mx (Axel E. Retif)
+Date: Wed, 24 Jan 2007 03:38:36 -0600
+Subject: [Minionpro-devel] Preparing for the next MinionPro release
+In-Reply-To: <45B725A3.1000508@tum.de>
+References: <20070124091745.GB28681@mathematik.tu-darmstadt.de>
+	<45B725A3.1000508@tum.de>
+Message-ID: <942580B1-A9D7-4D46-8A6E-99C87E8674B4@igo.com.mx>
+
+On Jan 24, 2007, at 03:23 , Michael Zedler wrote:
+
+> Achim Blumensath schrieb:
+>> Hello,
+>>
+>> Achim Blumensath wrote:
+>>> I'm planning to release a new version of MinionPro shortly. If  
+>>> you know
+>>> of any unresolved issues please tell me. I'm already aware of:
+>>>
+>>> o Problems with \iint and pdftex 1.30.
+>>> o The loosequotes option doesn't seem to work.
+>>
+>> pdftex 1.40.1 also has problems with \iint. I've submitted a bug  
+>> to the
+>> pdftex people.
+>
+> I didn't have the time yet to investigate the iint-issue in detail.
+> Perhaps it's not a pdftex problem...
+
+With the example provided by Artur A. Marczok on 29/10/06
+
+\documentclass{scrartcl}
+\usepackage[minionint]{MinionPro}
+
+\begin{document}
+    \[\iint_u^o\]
+    \[\int_u^o, \iint_u^o, \iiint_u^o\]
+    $\int_u^o,\iint_u^o,\iiint_u^o$
+\end{document}
+
+I have no problems using pdfTeX 1.40.1 and
+
+MinionPro.sty: [2005/09/25 v2.0 MinionPro support for LaTeX]
+MnSymbol.sty:  [2005/08/28 v1.3 support for the MnSymbol font]
+
+Best,
+
+Axel
+
+
+
+From blumensath at mathematik.tu-darmstadt.de  Wed Jan 24 11:07:13 2007
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Wed, 24 Jan 2007 11:07:13 +0100
+Subject: [Minionpro-devel] Preparing for the next MinionPro release
+In-Reply-To: <45B725A3.1000508@tum.de>
+References: <20070124091745.GB28681@mathematik.tu-darmstadt.de>
+	<45B725A3.1000508@tum.de>
+Message-ID: <20070124100713.GC28681@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Michael Zedler wrote:
+> Achim Blumensath schrieb:
+> > pdftex 1.40.1 also has problems with \iint. I've submitted a bug to the
+> > pdftex people.
+> 
+> I didn't have the time yet to investigate the iint-issue in detail. 
+> Perhaps it's not a pdftex problem...
+
+The virtual fonts are correct since the dvips + ps2pdf route works fine.
+Therefore, it must be a pdftex problem.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070124/872531f6/attachment.pgp>
+
+From axretif at igo.com.mx  Wed Jan 24 11:12:29 2007
+From: axretif at igo.com.mx (Axel E. Retif)
+Date: Wed, 24 Jan 2007 04:12:29 -0600
+Subject: [Minionpro-devel] Preparing for the next MinionPro release
+In-Reply-To: <20070124100713.GC28681@mathematik.tu-darmstadt.de>
+References: <20070124091745.GB28681@mathematik.tu-darmstadt.de>
+	<45B725A3.1000508@tum.de>
+	<20070124100713.GC28681@mathematik.tu-darmstadt.de>
+Message-ID: <328150CA-E025-49E5-8035-4D2763C65B49@igo.com.mx>
+
+On Jan 24, 2007, at 04:07 , Achim Blumensath wrote:
+
+> Hello,
+>
+> Michael Zedler wrote:
+>> Achim Blumensath schrieb:
+>>> pdftex 1.40.1 also has problems with \iint. I've submitted a bug  
+>>> to the
+>>> pdftex people.
+>>
+>> I didn't have the time yet to investigate the iint-issue in detail.
+>> Perhaps it's not a pdftex problem...
+>
+> The virtual fonts are correct since the dvips + ps2pdf route works  
+> fine.
+> Therefore, it must be a pdftex problem.
+
+I tried it both ways, dvips + ps2pdf and direct pdf, and both worked  
+fine.
+
+Best,
+
+Axel
+
+
+
+From blumensath at mathematik.tu-darmstadt.de  Wed Jan 24 12:10:20 2007
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Wed, 24 Jan 2007 12:10:20 +0100
+Subject: [Minionpro-devel] Preparing for the next MinionPro release
+In-Reply-To: <328150CA-E025-49E5-8035-4D2763C65B49@igo.com.mx>
+References: <20070124091745.GB28681@mathematik.tu-darmstadt.de>
+	<45B725A3.1000508@tum.de>
+	<20070124100713.GC28681@mathematik.tu-darmstadt.de>
+	<328150CA-E025-49E5-8035-4D2763C65B49@igo.com.mx>
+Message-ID: <20070124111020.GD28681@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Axel E. Retif wrote:
+> > Michael Zedler wrote:
+> >> Achim Blumensath schrieb:
+> >>> pdftex 1.40.1 also has problems with \iint. I've submitted a bug
+> >>> to the pdftex people.
+> >>
+> >> I didn't have the time yet to investigate the iint-issue in detail.
+> >> Perhaps it's not a pdftex problem...
+> >
+> > The virtual fonts are correct since the dvips + ps2pdf route works
+> > fine. Therefore, it must be a pdftex problem.
+> 
+> I tried it both ways, dvips + ps2pdf and direct pdf, and both worked
+> fine.
+
+Did you use the PostScript version of the MnSymbol fonts or the MetaFont
+version? I used the MetaFont fonts. I haven't yet tried whether the
+PostScript fonts make a difference.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070124/e09b0426/attachment.pgp>
+
+From michael.zedler at tum.de  Wed Jan 24 12:15:24 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Wed, 24 Jan 2007 12:15:24 +0100
+Subject: [Minionpro-devel] Preparing for the next MinionPro release
+In-Reply-To: <20070124111020.GD28681@mathematik.tu-darmstadt.de>
+References: <20070124091745.GB28681@mathematik.tu-darmstadt.de>	<45B725A3.1000508@tum.de>	<20070124100713.GC28681@mathematik.tu-darmstadt.de>	<328150CA-E025-49E5-8035-4D2763C65B49@igo.com.mx>
+	<20070124111020.GD28681@mathematik.tu-darmstadt.de>
+Message-ID: <45B73FCC.5020509@tum.de>
+
+Achim Blumensath schrieb:
+> Did you use the PostScript version of the MnSymbol fonts or the MetaFont
+> version? I used the MetaFont fonts. I haven't yet tried whether the
+> PostScript fonts make a difference.
+
+The minimal example
+
+\documentclass{scrartcl}
+\usepackage[minionint]{MinionPro}
+
+\begin{document}
+     \[\iint_u^o\]
+     \[\int_u^o, \iint_u^o, \iiint_u^o\]
+     $\int_u^o,\iint_u^o,\iiint_u^o$
+\end{document}
+
+doesn't include the MnSymbol fonts.
+
+hft198:~/Documents zedler$ pdffonts tmp.pdf
+name                                 type         emb sub uni object ID
+------------------------------------ ------------ --- --- --- ---------
+JMUWKG+MinionPro-It-Slant_40-Extend_750 Type 1       yes yes no       6  0
+WHLTOC+MinionPro-It                  Type 1       yes yes no       9  0
+MZIJPK+MinionPro-Regular             Type 1       yes yes no      12  0
+QUPZOU+MinionPro-It                  Type 1       yes yes no      15  0
+TBQINV+MinionPro-Regular             Type 1       yes yes no      18  0
+
+
+Michael
+
+
+From axretif at igo.com.mx  Wed Jan 24 12:18:52 2007
+From: axretif at igo.com.mx (Axel E. Retif)
+Date: Wed, 24 Jan 2007 05:18:52 -0600
+Subject: [Minionpro-devel] Preparing for the next MinionPro release
+In-Reply-To: <20070124111020.GD28681@mathematik.tu-darmstadt.de>
+References: <20070124091745.GB28681@mathematik.tu-darmstadt.de>
+	<45B725A3.1000508@tum.de>
+	<20070124100713.GC28681@mathematik.tu-darmstadt.de>
+	<328150CA-E025-49E5-8035-4D2763C65B49@igo.com.mx>
+	<20070124111020.GD28681@mathematik.tu-darmstadt.de>
+Message-ID: <8FD4C667-D4FE-4549-81EC-BD38ABA9F685@igo.com.mx>
+
+On Jan 24, 2007, at 05:10 , Achim Blumensath wrote:
+
+> Hello,
+>
+> Axel E. Retif wrote:
+>>> Michael Zedler wrote:
+>>>> Achim Blumensath schrieb:
+>>>>> pdftex 1.40.1 also has problems with \iint. I've submitted a bug
+>>>>> to the pdftex people.
+>>>>
+>>>> I didn't have the time yet to investigate the iint-issue in detail.
+>>>> Perhaps it's not a pdftex problem...
+>>>
+>>> The virtual fonts are correct since the dvips + ps2pdf route works
+>>> fine. Therefore, it must be a pdftex problem.
+>>
+>> I tried it both ways, dvips + ps2pdf and direct pdf, and both worked
+>> fine.
+>
+> Did you use the PostScript version of the MnSymbol fonts or the  
+> MetaFont
+> version? I used the MetaFont fonts. I haven't yet tried whether the
+> PostScript fonts make a difference.
+
+I use the Postscript version, but in the example there are no  
+MnSymbol fonts (because of the minionint option, right?, just  
+MinionPro-It and MinionPro-Regular, according to Acrobat.
+
+Best,
+
+Axel
+
+
+
+From marczok at t-online.de  Wed Jan 24 13:56:49 2007
+From: marczok at t-online.de (Artur A. Marczok)
+Date: Wed, 24 Jan 2007 13:56:49 +0100
+Subject: [Minionpro-devel] Preparing for the next MinionPro release
+In-Reply-To: <942580B1-A9D7-4D46-8A6E-99C87E8674B4@igo.com.mx>
+References: <20070124091745.GB28681@mathematik.tu-darmstadt.de>	<45B725A3.1000508@tum.de>
+	<942580B1-A9D7-4D46-8A6E-99C87E8674B4@igo.com.mx>
+Message-ID: <45B75791.5070506@t-online.de>
+
+Axel E. Retif schrieb:
+>
+> \documentclass{scrartcl}
+> \usepackage[minionint]{MinionPro}
+>
+> \begin{document}
+>     \[\iint_u^o\]
+>     \[\int_u^o, \iint_u^o, \iiint_u^o\]
+>     $\int_u^o,\iint_u^o,\iiint_u^o$
+> \end{document}
+>
+> I have no problems using pdfTeX 1.40.1 and
+>
+> MinionPro.sty: [2005/09/25 v2.0 MinionPro support for LaTeX]
+> MnSymbol.sty:  [2005/08/28 v1.3 support for the MnSymbol font]
+>
+>   
+
+Problems with pdftex 1.21a, pdftex 1.30.6, pdftex 1.40.1:
+
+
+http://rundungsfehler.de/mathe/iint-pdftex-1.21a.zip
+http://rundungsfehler.de/mathe/iint-pdftex-1.30.6.zip
+http://rundungsfehler.de/mathe/iint-pdftex-1.40.1.zip
+
+
+Best,
+
+Artur
+
+
+
+
+
+From michael.zedler at tum.de  Thu Jan 25 19:49:22 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Thu, 25 Jan 2007 19:49:22 +0100
+Subject: [Minionpro-devel] math bold: eb -> b?
+In-Reply-To: <87ac09o0al.fsf@Satux.Puorg>
+References: <87ac09o0al.fsf@Satux.Puorg>
+Message-ID: <45B8FBB2.6040809@tum.de>
+
+Sebastian Schubert schrieb:
+> Hi,
+> 
+> What do you think of printing bold math using semibold not bold?  If I
+> have math included in the headlines I like to have it some kind of bold
+> as well.  \boldmath uses bold in opposite to semibold of the headline
+> which looks strange.  So a bold=eb would solve this problem.  If one
+> needs a bolder math symbol (eg in the headlines) there is still eb.
+> Unfortunately, bm seems to still use eb.
+
+How about
+
+\documentclass{scrbook}
+\usepackage[fullfamily,opticals]{MinionPro}
+\addtokomafont{sectioning}{\rmfamily\mathversion{sbold}}
+\makeatletter
+   \DeclareMathVersion{sbold}
+   \SetSymbolFont{operators}{sbold}{T1} {\Mn at Math@Family}{b}{n}
+   \SetSymbolFont{letters}  {sbold}{OML}{MinionPro-OsF} 
+{b}{\Mn at Math@LetterShape}
+   \SetMathAlphabet\mathit  {sbold}{T1} {\Mn at Math@Family}{b}{it}
+\makeatother
+\SetSymbolFont{MnSyA}       {sbold}{U}  {MnSymbolA}{b}{n}
+\SetSymbolFont{MnSyB}       {sbold}{U}  {MnSymbolB}{b}{n}
+\SetSymbolFont{MnSyC}       {sbold}{U}  {MnSymbolC}{b}{n}
+\SetSymbolFont{MnSyD}       {sbold}{U}  {MnSymbolD}{b}{n}
+\SetSymbolFont{largesymbols}{sbold}{OMX}{MnSymbolE}{b}{n}
+\SetSymbolFont{symbols}     {sbold}{U}  {MnSymbolF}{b}{n}
+
+\begin{document}
+   \chapter{Hallo $a=b$}
+   Hallo
+\end{document}
+
+Michael
+
+
+From sebastian-schubert at gmx.de  Thu Jan 25 23:54:07 2007
+From: sebastian-schubert at gmx.de (Sebastian Schubert)
+Date: Thu, 25 Jan 2007 23:54:07 +0100
+Subject: [Minionpro-devel] math bold: eb -> b?
+In-Reply-To: <45B8FBB2.6040809@tum.de> (Michael Zedler's message of "Thu\,
+	25 Jan 2007 19\:49\:22 +0100")
+References: <87ac09o0al.fsf@Satux.Puorg> <45B8FBB2.6040809@tum.de>
+Message-ID: <87zm86ogz4.fsf@Satux.Puorg>
+
+Michael Zedler <michael.zedler at tum.de> writes:
+
+> Sebastian Schubert schrieb:
+
+[b math in headlines]
+
+> How about
+>
+> \documentclass{scrbook}
+> \usepackage[fullfamily,opticals]{MinionPro}
+> \addtokomafont{sectioning}{\rmfamily\mathversion{sbold}}
+> \makeatletter
+>    \DeclareMathVersion{sbold}
+>    \SetSymbolFont{operators}{sbold}{T1} {\Mn at Math@Family}{b}{n}
+>    \SetSymbolFont{letters}  {sbold}{OML}{MinionPro-OsF} 
+> {b}{\Mn at Math@LetterShape}
+>    \SetMathAlphabet\mathit  {sbold}{T1} {\Mn at Math@Family}{b}{it}
+> \makeatother
+> \SetSymbolFont{MnSyA}       {sbold}{U}  {MnSymbolA}{b}{n}
+> \SetSymbolFont{MnSyB}       {sbold}{U}  {MnSymbolB}{b}{n}
+> \SetSymbolFont{MnSyC}       {sbold}{U}  {MnSymbolC}{b}{n}
+> \SetSymbolFont{MnSyD}       {sbold}{U}  {MnSymbolD}{b}{n}
+> \SetSymbolFont{largesymbols}{sbold}{OMX}{MnSymbolE}{b}{n}
+> \SetSymbolFont{symbols}     {sbold}{U}  {MnSymbolF}{b}{n}
+>
+> \begin{document}
+>    \chapter{Hallo $a=b$}
+>    Hallo
+> \end{document}
+
+Yes, that works fine.
+
+OT: What do you think of including a function that prints its argument
+completly in upright or completly in italic greek?  The reason (now
+ontopic again):  I want to define a command that prints its argument in
+upright bold (also greek letters).  My idea:
+
+\documentclass{scrbook}
+
+\usepackage[fullfamily,opticals]{MinionPro}
+\addtokomafont{sectioning}{\rmfamily\mathversion{sbold}}
+
+\makeatletter
+\DeclareMathVersion{sbold}
+\SetSymbolFont{operators}{sbold}{T1} {\Mn at Math@Family}{b}{n}
+\SetSymbolFont{letters}  {sbold}{OML}{MinionPro-OsF} 
+{b}{\Mn at Math@LetterShape}
+\SetMathAlphabet\mathit  {sbold}{T1} {\Mn at Math@Family}{b}{it}
+\makeatother
+\SetSymbolFont{MnSyA}       {sbold}{U}  {MnSymbolA}{b}{n}
+\SetSymbolFont{MnSyB}       {sbold}{U}  {MnSymbolB}{b}{n}
+\SetSymbolFont{MnSyC}       {sbold}{U}  {MnSymbolC}{b}{n}
+\SetSymbolFont{MnSyD}       {sbold}{U}  {MnSymbolD}{b}{n}
+\SetSymbolFont{largesymbols}{sbold}{OMX}{MnSymbolE}{b}{n}
+\SetSymbolFont{symbols}     {sbold}{U}  {MnSymbolF}{b}{n}
+
+\usepackage{bm}
+
+\makeatletter
+\newcommand\vect[1]{\Mn at greek@select{up}{upper}\Mn at greek@select{up}{lower}
+  \bm{\mathrm{#1}}\Mn at load@greek}
+\makeatother
+
+\begin{document}
+
+\chapter{Hallo $\vect{a\alpha}a\alpha$}
+Hallo
+$\vect{a\alpha}\alpha$
+
+\end{document}
+
+
+There seems to be a problem with fontaxes.sty (only in the headline,
+where sbold is applied):
+
+Package fontaxes Warning: I don't know how to decode
+(fontaxes)                shape `sbold' on input line 28.
+
+! Undefined control sequence.
+\fa at math@align ->\@nil 
+                       
+l.28 \chapter{Hallo $\vect{a\alpha}a\alpha$}
+                                            
+
+Thanks
+
+Sebastian
+
+
+From andreas.buehmann at web.de  Fri Jan 26 09:21:47 2007
+From: andreas.buehmann at web.de (Andreas =?iso-8859-1?q?B=FChmann?=)
+Date: Fri, 26 Jan 2007 09:21:47 +0100
+Subject: [Minionpro-devel] math bold: eb -> b?
+In-Reply-To: <87zm86ogz4.fsf@Satux.Puorg>
+References: <87ac09o0al.fsf@Satux.Puorg> <45B8FBB2.6040809@tum.de>
+	<87zm86ogz4.fsf@Satux.Puorg>
+Message-ID: <200701260921.47201.andreas.buehmann@web.de>
+
+Hello,
+
+* Sebastian Schubert <sebastian-schubert at gmx.de> [2007-01-25 23:54]:
+> There seems to be a problem with fontaxes.sty (only in the headline,
+> where sbold is applied):
+> 
+> Package fontaxes Warning: I don't know how to decode
+> (fontaxes)                shape `sbold' on input line 28.
+
+fontaxes tries to split the name of the math version (the warning is
+wrong in this respect: It's not a shape that is decoded) into two parts
+(or values of two axes): math weight (normal, bold) and math alignment
+(proportional, tabular). This is necessary for being able to alter only
+a single aspect (axis) of the math version.
+
+But the package does not know about the mapping of 'sbold' to these
+axes. Unfortunately, at the moment, extending the mapping table used
+internally is not straigtforward (for a user of the package; as a
+developer, you need to look at \fa at math@weight at domain,
+\fa at math@align at domain, and \fa at naming@exception).
+
+As soon as I find the time, I'll think about better extension interfaces
+in the package.
+
+Regards,
+
+Andreas
+
+
+
+From michael.zedler at tum.de  Fri Jan 26 12:19:03 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Fri, 26 Jan 2007 12:19:03 +0100
+Subject: [Minionpro-devel] fix: iint etc with minionint-option
+Message-ID: <45B9E3A7.8020309@tum.de>
+
+Hello,
+
+I patched maketfm so that the integral encoding is not a virtual font 
+anymore. Now with the minionint option \iint works ok with pdftex again.
+
+Michael
+
+
+From blumensath at mathematik.tu-darmstadt.de  Fri Jan 26 12:24:17 2007
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Fri, 26 Jan 2007 12:24:17 +0100
+Subject: [Minionpro-devel] fix: iint etc with minionint-option
+In-Reply-To: <45B9E3A7.8020309@tum.de>
+References: <45B9E3A7.8020309@tum.de>
+Message-ID: <20070126112417.GD18655@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Michael Zedler wrote:
+> I patched maketfm so that the integral encoding is not a virtual font 
+> anymore. Now with the minionint option \iint works ok with pdftex again.
+
+Nice.
+
+BTW, I just got this message from the pdftex maintainers:
+
+> indeed this is a bug of pdftex. I found the bug, should be fixed soon.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070126/b309925f/attachment.pgp>
+
+From michael.zedler at tum.de  Fri Jan 26 12:45:39 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Fri, 26 Jan 2007 12:45:39 +0100
+Subject: [Minionpro-devel] fix: iint etc with minionint-option
+In-Reply-To: <20070126112417.GD18655@mathematik.tu-darmstadt.de>
+References: <45B9E3A7.8020309@tum.de>
+	<20070126112417.GD18655@mathematik.tu-darmstadt.de>
+Message-ID: <45B9E9E3.70304@tum.de>
+
+Hi Achim,
+
+you fiddled with the loosequotes option in MnSymbol.sty. Is this issue 
+now fixed? Could you provide a sample pdf, please?
+
+Michael
+
+
+From blumensath at mathematik.tu-darmstadt.de  Fri Jan 26 13:08:08 2007
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Fri, 26 Jan 2007 13:08:08 +0100
+Subject: [Minionpro-devel] fix: iint etc with minionint-option
+In-Reply-To: <45B9E9E3.70304@tum.de>
+References: <45B9E3A7.8020309@tum.de>
+	<20070126112417.GD18655@mathematik.tu-darmstadt.de>
+	<45B9E9E3.70304@tum.de>
+Message-ID: <20070126120808.GE18655@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Michael Zedler wrote:
+> you fiddled with the loosequotes option in MnSymbol.sty. Is this issue
+> now fixed? Could you provide a sample pdf, please?
+
+No. I fixed some bugs such that using the option does not result in an
+error, but as far as I can see it has no effect on the spacing.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070126/0239f1c5/attachment.pgp>
+
+From Olivier.Guibe at univ-rouen.fr  Fri Jan 26 14:16:39 2007
+From: Olivier.Guibe at univ-rouen.fr (=?iso-8859-1?Q?Olivier=2EGuib=E9?=)
+Date: Fri, 26 Jan 2007 14:16:39 +0100
+Subject: [Minionpro-devel] loosequote option
+In-Reply-To: <mailman.85.1169809274.31695.minionpro-devel@lists.berlios.de>
+References: <mailman.85.1169809274.31695.minionpro-devel@lists.berlios.de>
+Message-ID: <20070126131639.GB8986@vitali>
+
+
+Hello
+
+First I would like to thank people who
+made MinionPro and MnSymbol packages.
+Because in french we have a lot of apostrophes
+and because the space seems too small for me
+I wanted to use the loosequote option which
+gives an error message.
+So I use in the preamble of my document the following
+\SetExtraKerning
+          { encoding = {OT1,T1,LGR,U,OT2,T2A,T2B,T2C,T5,X2},
+           family   = {MinionPro-OsF,MinionPro-LF,MinionPro-TOsF,MinionPro-TLF},
+          series= {m,b,i,s},
+                  shape    = {n,sc,it} }
+         { \textquotedblleft = {30,30},  \textquotedblright = {30,30},
+           \textquoteleft    = {30,30},  \textquoteright    = {30,30}}
+which is not a very elegant solution.
+
+I use microtype v2.0-beta 7, and pdftex 1.40.0-beta-20061017 
+which is patched to avoid the error message 
+(in pure pdf output) "This can't happen (flushing)".
+I plan to compile-install pdftex-1.40.1.
+
+best regards
+O.G.
+
+-- 
+Olivier Guib?
+Laboratoire de Math?matiques Rapha?l Salem 
+UMR 6085 CNRS -- Universit? de Rouen 
+Avenue de l'Universit?, BP.12
+76801 Saint-?tienne du Rouvray (France)
+tel: (33) [0]2 32 95 52 56
+fax: (33) [0]2 32 95 52 86
+
+
+
+
+From blumensath at mathematik.tu-darmstadt.de  Fri Jan 26 15:24:55 2007
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Fri, 26 Jan 2007 15:24:55 +0100
+Subject: [Minionpro-devel] loosequote option
+In-Reply-To: <20070126131639.GB8986@vitali>
+References: <mailman.85.1169809274.31695.minionpro-devel@lists.berlios.de>
+	<20070126131639.GB8986@vitali>
+Message-ID: <20070126142455.GG18655@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Olivier.Guib? wrote:
+> Because in french we have a lot of apostrophes
+> and because the space seems too small for me
+> I wanted to use the loosequote option which
+> gives an error message.
+
+Did you try the latest version? Some days ago I fixed a few bugs
+related to the loosequotes option.
+
+It would be great if you could verify whether the current version works
+correctly. I manages to fix the error message but I didn't observe any
+change in spacing when enabling the option.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070126/e120a827/attachment.pgp>
+
+From michael.zedler at tum.de  Sat Jan 27 13:09:51 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Sat, 27 Jan 2007 13:09:51 +0100
+Subject: [Minionpro-devel] fix: iint etc with minionint-option
+In-Reply-To: <20070126120808.GE18655@mathematik.tu-darmstadt.de>
+References: <45B9E3A7.8020309@tum.de>	<20070126112417.GD18655@mathematik.tu-darmstadt.de>	<45B9E9E3.70304@tum.de>
+	<20070126120808.GE18655@mathematik.tu-darmstadt.de>
+Message-ID: <45BB410F.1030608@tum.de>
+
+Achim Blumensath schrieb:
+> Hello,
+> 
+> Michael Zedler wrote:
+>> you fiddled with the loosequotes option in MnSymbol.sty. Is this issue
+>> now fixed? Could you provide a sample pdf, please?
+> 
+> No. I fixed some bugs such that using the option does not result in an
+> error, but as far as I can see it has no effect on the spacing.
+
+Contacted the microtype maintainer.
+
+Michael
+
+
+From Olivier.Guibe at univ-rouen.fr  Sat Jan 27 15:05:12 2007
+From: Olivier.Guibe at univ-rouen.fr (=?iso-8859-1?Q?Olivier=2EGuib=E9?=)
+Date: Sat, 27 Jan 2007 15:05:12 +0100
+Subject: [Minionpro-devel] loosequotes option
+In-Reply-To: <mailman.88.1169895669.3373.minionpro-devel@lists.berlios.de>
+References: <mailman.88.1169895669.3373.minionpro-devel@lists.berlios.de>
+Message-ID: <20070127140512.GA8363@univ-rouen.fr>
+
+
+Dear Achim
+
+I tried the latest version (only MinionPro.sty in the directory cvs)
+and there is no difference between loosequotes option or not.
+I am not a specialist in latex package construction but I modified
+MinionPro.sty in the following way
+\RequirePackage[kerning=true]{microtype}} instead of \RequirePackage{microtype}}
+shape    = {n,sc,it} instead of shape = n
+and then it seems OK for me.
+
+kerning=true is for microtype 2.0beta 
+shape={n,sc,it} is for a bigger space not only in normal (upright) shape.
+
+Best regards
+O.G.
+
+>
+>Did you try the latest version? Some days ago I fixed a few bugs
+>related to the loosequotes option.
+>
+>It would be great if you could verify whether the current version works
+>correctly. I manages to fix the error message but I didn't observe any
+>change in spacing when enabling the option.
+>
+>Achim
+>-- 
+
+
+From michael.zedler at tum.de  Sat Jan 27 15:11:13 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Sat, 27 Jan 2007 15:11:13 +0100
+Subject: [Minionpro-devel] loosequotes option
+In-Reply-To: <20070127140512.GA8363@univ-rouen.fr>
+References: <mailman.88.1169895669.3373.minionpro-devel@lists.berlios.de>
+	<20070127140512.GA8363@univ-rouen.fr>
+Message-ID: <45BB5D81.8070502@tum.de>
+
+Olivier.Guib? schrieb:
+> Dear Achim
+> 
+> I tried the latest version (only MinionPro.sty in the directory cvs)
+> and there is no difference between loosequotes option or not.
+> I am not a specialist in latex package construction but I modified
+> MinionPro.sty in the following way
+> \RequirePackage[kerning=true]{microtype}} instead of \RequirePackage{microtype}}
+> shape    = {n,sc,it} instead of shape = n
+> and then it seems OK for me.
+> 
+> kerning=true is for microtype 2.0beta 
+> shape={n,sc,it} is for a bigger space not only in normal (upright) shape.
+
+Can you send me a sample pdf, one with loosequote, one without, please?
+
+Michael
+
+
+From Olivier.Guibe at univ-rouen.fr  Sat Jan 27 15:43:57 2007
+From: Olivier.Guibe at univ-rouen.fr (=?iso-8859-1?Q?Olivier=2EGuib=E9?=)
+Date: Sat, 27 Jan 2007 15:43:57 +0100
+Subject: [Minionpro-devel] loosequotes option
+In-Reply-To: <mailman.88.1169895669.3373.minionpro-devel@lists.berlios.de>
+References: <mailman.88.1169895669.3373.minionpro-devel@lists.berlios.de>
+Message-ID: <20070127144357.GA12038@univ-rouen.fr>
+
+
+
+Hello
+
+I have only MinionPro Digest.
+I saw your message on the Berlios site.
+You can find two pdf files on
+http://math.mad.free.fr/depot/testwith.pdf
+and
+http://math.mad.free.fr/depot/testwithout.pdf
+to see the difference between loosequotes option or not.
+
+Best regards
+O.G.
+
+
+From michael.zedler at tum.de  Sun Jan 28 11:04:16 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Sun, 28 Jan 2007 11:04:16 +0100
+Subject: [Minionpro-devel] loosequotes option
+In-Reply-To: <20070127144357.GA12038@univ-rouen.fr>
+References: <mailman.88.1169895669.3373.minionpro-devel@lists.berlios.de>
+	<20070127144357.GA12038@univ-rouen.fr>
+Message-ID: <45BC7520.8010101@tum.de>
+
+Hello,
+
+Olivier.Guib? schrieb:
+> You can find two pdf files on
+> http://math.mad.free.fr/depot/testwith.pdf
+> and
+> http://math.mad.free.fr/depot/testwithout.pdf
+> to see the difference between loosequotes option or not.
+
+Thanks for the files. I got from Robert Schlicht also the note that the 
+option [kerning=true] was missing.
+
+Apart from this he noted that this extra kerning prevents to following 
+word from being hyphenated. This he says is a current pdftex limitation. 
+So for long words one'd have to hyphenate manually
+   l'?lectroenc?phalogramme -> l'?lec\-tro\-en\-c?\-pha\-lo\-gramme
+
+Michael
+
+
+From sebastian-schubert at gmx.de  Sun Jan 28 20:22:40 2007
+From: sebastian-schubert at gmx.de (Sebastian Schubert)
+Date: Sun, 28 Jan 2007 20:22:40 +0100
+Subject: [Minionpro-devel] aligned equation numbers
+Message-ID: <87k5z75533.fsf@Satux.Puorg>
+
+Hi,
+
+Another minor issue: Is it possible to align the parentheses in an align
+or gather environement for an equal number of digits?
+
+Example:
+
+\documentclass{article}
+\usepackage{MinionPro}
+%\usepackage{amsmath}
+\begin{document}
+\figureversion{tabular} 98765432123456789
+\begin{gather}
+  a\\
+  b\\
+  c\\
+  d\\
+  e\\
+  f\\
+  g\\
+\end{gather}
+\end{document}
+
+Without MinionPro the equation numbers look better.  figureversion does
+not seem to be applied to the numbers.
+
+Thanks (again)
+
+Sebastian
+
+
+From michael.zedler at tum.de  Sun Jan 28 20:30:01 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Sun, 28 Jan 2007 20:30:01 +0100
+Subject: [Minionpro-devel] aligned equation numbers
+In-Reply-To: <87k5z75533.fsf@Satux.Puorg>
+References: <87k5z75533.fsf@Satux.Puorg>
+Message-ID: <45BCF9B9.4020106@tum.de>
+
+Sebastian Schubert schrieb:
+> Hi,
+> 
+> Another minor issue: Is it possible to align the parentheses in an align
+> or gather environement for an equal number of digits?
+
+\documentclass{article}
+\usepackage{MinionPro}
+
+\makeatletter
+\def\maketag@@@#1{\hbox{\m at th\normalfont\figureversion{tabular}#1}}
+\makeatletter
+
+\begin{document}
+\begin{gather}
+   a\\
+   b\\
+   c\\
+   d\\
+   e\\
+   f\\
+   g\\
+\end{gather}
+\end{document}
+
+Michael
+
+
+
+From sebastian-schubert at gmx.de  Sun Jan 28 22:35:15 2007
+From: sebastian-schubert at gmx.de (Sebastian Schubert)
+Date: Sun, 28 Jan 2007 22:35:15 +0100
+Subject: [Minionpro-devel] aligned equation numbers
+In-Reply-To: <45BCF9B9.4020106@tum.de> (Michael Zedler's message of "Sun\,
+	28 Jan 2007 20\:30\:01 +0100")
+References: <87k5z75533.fsf@Satux.Puorg> <45BCF9B9.4020106@tum.de>
+Message-ID: <87fy9usulo.fsf@Satux.Puorg>
+
+Michael Zedler <michael.zedler at tum.de> writes:
+
+> Sebastian Schubert schrieb:
+>> Hi,
+>> 
+>> Another minor issue: Is it possible to align the parentheses in an align
+>> or gather environement for an equal number of digits?
+
+[...]
+> \makeatletter
+> \def\maketag@@@#1{\hbox{\m at th\normalfont\figureversion{tabular}#1}}
+> \makeatletter
+[...]
+
+Works nicely!
+
+Thank you as always.
+
+Sebastian
+
+
+From blumensath at mathematik.tu-darmstadt.de  Mon Jan 29 08:14:55 2007
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Mon, 29 Jan 2007 08:14:55 +0100
+Subject: [Minionpro-devel] loosequotes option
+In-Reply-To: <45BC7520.8010101@tum.de>
+References: <mailman.88.1169895669.3373.minionpro-devel@lists.berlios.de>
+	<20070127144357.GA12038@univ-rouen.fr> <45BC7520.8010101@tum.de>
+Message-ID: <20070129071455.GA17144@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Michael Zedler wrote:
+> I got from Robert Schlicht also the note that the option
+> [kerning=true] was missing.
+
+Fixed in CVS.
+
+> Apart from this he noted that this extra kerning prevents to following 
+> word from being hyphenated. This he says is a current pdftex limitation. 
+> So for long words one'd have to hyphenate manually
+>    l'?lectroenc?phalogramme -> l'?lec\-tro\-en\-c?\-pha\-lo\-gramme
+
+I guess that's something users will have to live with.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070129/4b064c8a/attachment.pgp>
+
+From michael.zedler at tum.de  Mon Jan 29 17:18:10 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Mon, 29 Jan 2007 17:18:10 +0100
+Subject: [Minionpro-devel] loosequotes option
+In-Reply-To: <20070129071455.GA17144@mathematik.tu-darmstadt.de>
+References: <mailman.88.1169895669.3373.minionpro-devel@lists.berlios.de>	<20070127144357.GA12038@univ-rouen.fr>
+	<45BC7520.8010101@tum.de>
+	<20070129071455.GA17144@mathematik.tu-darmstadt.de>
+Message-ID: <45BE1E42.3080007@tum.de>
+
+Achim Blumensath schrieb:
+>> Apart from this he noted that this extra kerning prevents to following 
+>> word from being hyphenated. This he says is a current pdftex limitation. 
+>> So for long words one'd have to hyphenate manually
+>>    l'?lectroenc?phalogramme -> l'?lec\-tro\-en\-c?\-pha\-lo\-gramme
+> 
+> I guess that's something users will have to live with.
+
+ok. Perhaps this limitation should be mentioned in the documentation.
+
+Ready for a release candidate? Do we proceed like with the previous 
+release - I create metrics and documentation, you do the packaging?
+
+Michael
+
+
+From blumensath at mathematik.tu-darmstadt.de  Tue Jan 30 12:38:16 2007
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Tue, 30 Jan 2007 12:38:16 +0100
+Subject: [Minionpro-devel] loosequotes option
+In-Reply-To: <45BE1E42.3080007@tum.de>
+References: <45BE1E42.3080007@tum.de>
+Message-ID: <20070130113816.GB28146@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Michael Zedler wrote:
+> Ready for a release candidate?
+
+I think so. For which font versions should we provide the metrics.
+Just version 2?
+
+> Do we proceed like with the previous release - I create metrics and
+> documentation, you do the packaging?
+
+Sounds good.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070130/a06e8183/attachment.pgp>
+
+From michael.zedler at tum.de  Tue Jan 30 12:44:46 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Tue, 30 Jan 2007 12:44:46 +0100
+Subject: [Minionpro-devel] loosequotes option
+In-Reply-To: <20070130113816.GB28146@mathematik.tu-darmstadt.de>
+References: <45BE1E42.3080007@tum.de>
+	<20070130113816.GB28146@mathematik.tu-darmstadt.de>
+Message-ID: <45BF2FAE.2090601@tum.de>
+
+Achim Blumensath schrieb:
+> Hello,
+> 
+> Michael Zedler wrote:
+>> Ready for a release candidate?
+> 
+> I think so. For which font versions should we provide the metrics.
+> Just version 2?
+
+I think so. The metrics didn't change much from 1.000->1.001->2.000.
+
+Michael
+
+
+From Olivier.Guibe at univ-rouen.fr  Wed Jan 31 12:11:51 2007
+From: Olivier.Guibe at univ-rouen.fr (=?iso-8859-1?Q?Olivier=2EGuib=E9?=)
+Date: Wed, 31 Jan 2007 12:11:51 +0100
+Subject: [Minionpro-devel] bash/sh problem with scripts/install
+In-Reply-To: <45BF2FAE.2090601@tum.de>
+References: <45BE1E42.3080007@tum.de>
+	<20070130113816.GB28146@mathematik.tu-darmstadt.de>
+	<45BF2FAE.2090601@tum.de>
+Message-ID: <20070131111151.GB6271@vitali>
+
+Hello
+
+On my Edgy-Ubuntu the script scripts/install
+gives an error message. There was such a problem
+with asymptote and it is due to the -strict- behavior
+of sh on Ubuntu...
+The problem is solved if
+#!/bin/sh is replaced by #!/bin/bash
+
+Moreover I generate again the metrics of MinionPro
+with --wide-spacing option and I reinstall the fonts with
+the script. But I do not see any difference with
+respect to the famous space apostrophe ?
+I verify that the file MinionPro-Regular-osf-t1.tfm  is different
+depending on the two cases. Using tftopl with wide-spacing I have
+(CHARACTER O 47
+   (CHARWD R 0.283)
+   (CHARHT R 0.705)
+and without wide-spacing
+(CHARACTER O 47
+   (CHARWD R 0.223)
+   (CHARHT R 0.705)
+There are exactly 6 differences +checksum
+and it concerns CHARWD 
+
+
+Best regards
+O.G.
+
+
+-- 
+Olivier Guib?
+Laboratoire de Math?matiques Rapha?l Salem 
+UMR 6085 CNRS -- Universit? de Rouen 
+Avenue de l'Universit?, BP.12
+76801 Saint-?tienne du Rouvray (France)
+tel: (33) [0]2 32 95 52 56
+fax: (33) [0]2 32 95 52 86
+
+
+
+
+From michael.zedler at tum.de  Wed Jan 31 13:19:59 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Wed, 31 Jan 2007 13:19:59 +0100
+Subject: [Minionpro-devel] bash/sh problem with scripts/install
+In-Reply-To: <20070131111151.GB6271@vitali>
+References: <45BE1E42.3080007@tum.de>	<20070130113816.GB28146@mathematik.tu-darmstadt.de>	<45BF2FAE.2090601@tum.de>
+	<20070131111151.GB6271@vitali>
+Message-ID: <45C0896F.80403@tum.de>
+
+Olivier.Guib? schrieb:
+> Moreover I generate again the metrics of MinionPro
+> with --wide-spacing option and I reinstall the fonts with
+> the script. But I do not see any difference with
+> respect to the famous space apostrophe ?
+> I verify that the file MinionPro-Regular-osf-t1.tfm  is different
+> depending on the two cases. Using tftopl with wide-spacing I have
+
+you'd have to look at the vpl, not the pl.
+
+Michael
+
+

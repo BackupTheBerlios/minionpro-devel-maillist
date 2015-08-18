@@ -1,0 +1,227 @@
+From nplatis at freemail.gr  Mon Jan  4 00:43:51 2010
+From: nplatis at freemail.gr (Nikos Platis)
+Date: Mon, 4 Jan 2010 01:43:51 +0200
+Subject: [Minionpro-devel] (no subject)
+Message-ID: <ad976fb81001031543k49daf1acp65ab76e5d20a6f1b@mail.gmail.com>
+
+Hi.
+
+Some time ago I had reported a bug with the greek part of MinionPro, here is
+the link to the first message of the thread:
+https://lists.berlios.de/pipermail/minionpro-devel/2009-September/000322.html
+
+In a recent message to this list I saw that the package would no longer be
+maintained due to lack of time of the developer(s).
+
+Would it be possible to provide some instructions on what to look for and
+what to change in order to correct that bug?
+
+Thanks in advance (and best wishes for the New Year)
+
+Nikos Platis
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20100104/c4646546/attachment.html>
+
+From nplatis at freemail.gr  Sat Jan  9 17:09:36 2010
+From: nplatis at freemail.gr (Nikos Platis)
+Date: Sat, 9 Jan 2010 18:09:36 +0200
+Subject: [Minionpro-devel] (no subject)
+In-Reply-To: <ad976fb81001031543k49daf1acp65ab76e5d20a6f1b@mail.gmail.com>
+References: <ad976fb81001031543k49daf1acp65ab76e5d20a6f1b@mail.gmail.com>
+Message-ID: <ad976fb81001090809w254ed2f8y7194dcfdc06678e3@mail.gmail.com>
+
+To reply to my own email, I found out the following:
+
+Contrary to the reply received in
+https://lists.berlios.de/pipermail/minionpro-devel/2009-September/000323.html
+this behaviour *was* intentional. Digging through the available source code,
+I found the following in scripts/maketfm :
+
+get_lgr_flags() {
+  case "$1" in
+    *It*) lgr_flags="--unicoding 'kappa =: kappasymbolgreek kappa'
+--unicoding 'theta =: theta1 theta' $lgr_it_flags $greek_flags";;
+    *)    lgr_flags="$lgr_rm_flags $greek_flags";;
+  esac
+}
+
+So it seems that all italic fonts are set to use the "alternative" versions
+of kappa and theta.
+
+I removed these flags and generated did a makeall, which gave me the
+required result.
+
+Maybe this should be made an option of the font generation or usage.
+
+Nikos Platis
+
+
+On Mon, Jan 4, 2010 at 01:43, Nikos Platis <nplatis at freemail.gr> wrote:
+
+> Hi.
+>
+> Some time ago I had reported a bug with the greek part of MinionPro, here
+> is the link to the first message of the thread:
+>
+> https://lists.berlios.de/pipermail/minionpro-devel/2009-September/000322.html
+>
+> In a recent message to this list I saw that the package would no longer be
+> maintained due to lack of time of the developer(s).
+>
+> Would it be possible to provide some instructions on what to look for and
+> what to change in order to correct that bug?
+>
+> Thanks in advance (and best wishes for the New Year)
+>
+> Nikos Platis
+>
+>
+> _______________________________________________
+> Minionpro-devel mailing list
+> Minionpro-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/minionpro-devel
+>
+>
+
+
+-- 
+-----------------------------------------------------------------------
+Nikos Platis
+Lecturer                                    http://www.uop.gr/~nplatis/
+University of Peloponnese                        email:  nplatis at uop.gr
+Department of Computer Science and Technology      tel: +30 2710 372264
+-----------------------------------------------------------------------
+"The empires of the future are the empires of the mind." - W. Churchill
+-----------------------------------------------------------------------
+               New Textbook:  Graphics&  Visualization
+          http://www.akpeters.com/product.asp?ProdCode=2744
+-----------------------------------------------------------------------
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20100109/2af918b8/attachment.html>
+
+From blumensath at mathematik.tu-darmstadt.de  Mon Jan 11 11:39:03 2010
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Mon, 11 Jan 2010 11:39:03 +0100
+Subject: [Minionpro-devel] (no subject)
+In-Reply-To: <ad976fb81001090809w254ed2f8y7194dcfdc06678e3@mail.gmail.com>
+References: <ad976fb81001031543k49daf1acp65ab76e5d20a6f1b@mail.gmail.com>
+	<ad976fb81001090809w254ed2f8y7194dcfdc06678e3@mail.gmail.com>
+Message-ID: <20100111103903.GE20182@mathematik.tu-darmstadt.de>
+
+Hello,
+
+sorry for the late reply. I was on vacation.
+
+Nikos Platis wrote:
+> To reply to my own email, I found out the following:
+> 
+> Contrary to the reply received in
+> https://lists.berlios.de/pipermail/minionpro-devel/2009-September/000323.html
+> this behaviour *was* intentional. I found the following in
+> scripts/maketfm :
+
+No, I don't think so. As far as I can recall, this code was written with
+the math fonts in mind.
+
+To fix the problem with the greek encodings, one should modify the
+corresponding enc files enc/mn-lgi.enc and enc/mn-lgr.enc.
+
+I already tried to fix the CVS versions. Did you give it a try?
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: Digital signature
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20100111/7199136d/attachment.pgp>
+
+From blumensath at mathematik.tu-darmstadt.de  Mon Jan 11 13:09:48 2010
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Mon, 11 Jan 2010 13:09:48 +0100
+Subject: [Minionpro-devel] (no subject)
+In-Reply-To: <20100111103903.GE20182@mathematik.tu-darmstadt.de>
+References: <ad976fb81001031543k49daf1acp65ab76e5d20a6f1b@mail.gmail.com>
+	<ad976fb81001090809w254ed2f8y7194dcfdc06678e3@mail.gmail.com>
+	<20100111103903.GE20182@mathematik.tu-darmstadt.de>
+Message-ID: <20100111120948.GG20182@mathematik.tu-darmstadt.de>
+
+Hello,
+
+I wrote:
+> Nikos Platis wrote:
+> > To reply to my own email, I found out the following:
+> > 
+> > Contrary to the reply received in
+> > https://lists.berlios.de/pipermail/minionpro-devel/2009-September/000323.html
+> > this behaviour *was* intentional. I found the following in
+> > scripts/maketfm :
+> 
+> No, I don't think so. As far as I can recall, this code was written
+> with the math fonts in mind.
+
+Sorry, this was nonsense. I should have taken an actual look at the
+code.
+
+You are right, it looks like the behaviour is intentional. I suggest to
+simply remove the code in question from maketfm.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: Digital signature
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20100111/5d4d9ac5/attachment.pgp>
+
+From nplatis at freemail.gr  Sat Jan 30 23:19:29 2010
+From: nplatis at freemail.gr (Nikos Platis)
+Date: Sun, 31 Jan 2010 00:19:29 +0200
+Subject: [Minionpro-devel] Error processing fonts from source
+Message-ID: <ad976fb81001301419p1a4e98eap55b22abe081a2b79@mail.gmail.com>
+
+I tried to process the MinionPro fonts from the source distribution (both
+the one available on CTAN and the one from CVS), in order to be able to make
+a change I wanted to the greek italic characters.
+
+The problem is that (even using the exact original scripts, without any
+changes) I am getting errors, which I think come from fontinst.
+
+I attach the relevant logs in a zip file. Please note that I enter 'x' after
+the first error, so the processing stops there; if I press 'Enter' instead,
+I get many more similar errors.
+
+Program versions: lcdf typetools: 2.66 and 2.79, fontinst: 1.933
+
+Thanks in advance for any help.
+
+Nikos Platis
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20100131/47a8c3c9/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: make-oml-logs.zip
+Type: application/zip
+Size: 5934 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20100131/47a8c3c9/attachment.zip>
+

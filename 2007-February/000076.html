@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Minionpro-devel] Warning about changed encoding	(MinionPro/MnSymbol)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/minionpro-devel/2007-February/index.html" >
+   <LINK REL="made" HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20Warning%20about%20changed%20encoding%0A%09%28MinionPro/MnSymbol%29&In-Reply-To=%3C63B85BF2-9E62-42E4-AEDC-40B111C49A72%40epfl.ch%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000090.html">
+   <LINK REL="Next"  HREF="000077.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Minionpro-devel] Warning about changed encoding	(MinionPro/MnSymbol)</H1>
+    <B>Marius Kleiner</B> 
+    <A HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20Warning%20about%20changed%20encoding%0A%09%28MinionPro/MnSymbol%29&In-Reply-To=%3C63B85BF2-9E62-42E4-AEDC-40B111C49A72%40epfl.ch%3E"
+       TITLE="[Minionpro-devel] Warning about changed encoding	(MinionPro/MnSymbol)">marius.kleiner.gwrggs23d at epfl.ch
+       </A><BR>
+    <I>Thu Feb 22 13:52:05 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000090.html">[Minionpro-devel] Ligatures and pdftex &gt; 1.40.0
+</A></li>
+        <LI>Next message: <A HREF="000077.html">[Minionpro-devel] Warning about changed	encoding	(MinionPro/MnSymbol)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#76">[ date ]</a>
+              <a href="thread.html#76">[ thread ]</a>
+              <a href="subject.html#76">[ subject ]</a>
+              <a href="author.html#76">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi, the following question is related to both MnSymbol and MinionPro:
+
+The MnSymbol package and the MinionPro package redeclare some symbol  
+fonts with different encodings:
+symbols as U (standard LaTeX: OMS)
+operators as T1 (standard LaTeX: OT1).
+
+For this, LaTeX issues a font warning:
+
+&gt;<i> LaTeX Font Warning: Encoding `OMS' has changed to `U' for symbol font
+</I>&gt;<i> (Font)              `symbols' in the math version `normal' on input  
+</I>&gt;<i> line 120.
+</I>&gt;<i>
+</I>(this one is caused by MnSymbol.sty) and
+
+&gt;<i> LaTeX Font Warning: Encoding `OT1' has changed to `T1' for symbol font
+</I>&gt;<i> (Font)              `operators' in the math version `normal' on  
+</I>&gt;<i> input line 111.
+</I>&gt;<i>
+</I>(caused by MinionPro.sty).
+
+The respective lines in the .sty files are
+   \DeclareSymbolFont{symbols}{U}{MnSymbolF}{m}{n}            (in  
+MnSymbol.sty)
+and
+   \DeclareSymbolFont{operators}{T1} {\<A HREF="https://lists.berlios.de/mailman/listinfo/minionpro-devel">Mn at Math</A>@Family}{m}{n}  (in  
+MinionPro.sty)
+
+First, does this warning indicate that something might actually go  
+wrong?
+What do I have to do to get rid of this warning? (It is rather  
+annoying and might distract from actual problems.)
+
+I am using MnSymbol 1.4 and MinionPro 2.0
+
+Thanks
+Marius
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000090.html">[Minionpro-devel] Ligatures and pdftex &gt; 1.40.0
+</A></li>
+	<LI>Next message: <A HREF="000077.html">[Minionpro-devel] Warning about changed	encoding	(MinionPro/MnSymbol)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#76">[ date ]</a>
+              <a href="thread.html#76">[ thread ]</a>
+              <a href="subject.html#76">[ subject ]</a>
+              <a href="author.html#76">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/minionpro-devel">More information about the Minionpro-devel
+mailing list</a><br>
+</body></html>

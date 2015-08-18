@@ -1,0 +1,381 @@
+From vgaburici at gmail.com  Wed Aug  6 20:38:22 2008
+From: vgaburici at gmail.com (Vasile Gaburici)
+Date: Wed, 6 Aug 2008 21:38:22 +0300
+Subject: [Minionpro-devel] =?utf-8?q?Minion_Math_by_Johannes_K=C3=BCster_/?=
+	=?utf-8?q?_typoma=2Ecom=3F?=
+Message-ID: <bef0d710808061138u17613218v79b758487c943cfe@mail.gmail.com>
+
+There was a talk at TUG 2008
+(http://www.ucc.ie/en/tug2008/prog/booklet.html#kuester) called
+"Minion Math: the design of a new math font family". The font hasn't
+been "released" yet, but it's available to typoma customers
+(http://www.typoma.com/en/fonts.html). Is this a completely different
+project from MnSymbol?
+
+
+From michael.zedler at tum.de  Wed Aug  6 21:59:32 2008
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Wed, 6 Aug 2008 21:59:32 +0200
+Subject: [Minionpro-devel]
+ =?iso-8859-1?q?Minion_Math_by_Johannes_K=FCster?=
+ =?iso-8859-1?q?_/_typoma=2Ecom=3F?=
+In-Reply-To: <bef0d710808061138u17613218v79b758487c943cfe@mail.gmail.com>
+References: <bef0d710808061138u17613218v79b758487c943cfe@mail.gmail.com>
+Message-ID: <74FF1B8C-76CF-4CE8-9FB9-04DA52C24D3F@tum.de>
+
+Hello,
+
+Am 06.08.2008 um 20:38 schrieb Vasile Gaburici:
+> There was a talk at TUG 2008
+> (http://www.ucc.ie/en/tug2008/prog/booklet.html#kuester) called
+> "Minion Math: the design of a new math font family". The font hasn't
+> been "released" yet, but it's available to typoma customers
+> (http://www.typoma.com/en/fonts.html). Is this a completely different
+> project from MnSymbol?
+
+K?ster's work is indeed independent from ours.
+
+Michael
+
+From michal.stepien at bezda.com  Sat Aug 16 13:31:38 2008
+From: michal.stepien at bezda.com (=?iso-8859-2?Q?Micha=B3_St=EApie=F1?=)
+Date: Sat, 16 Aug 2008 13:31:38 +0200
+Subject: [Minionpro-devel] ligatures f_b and f_k
+Message-ID: <47467bfc6b3319752b0ee701b5cdb293.qmail@home.pl>
+
+I used minionpro package with:
+Version 2.015;PS 002.000;Core 1.0.38;makeotf.lib1.7.9032
+
+I tried both source package and binary package and
+I cannot manage to use ligatures f_b and f_k.
+What should I do to get them?
+
+
+Micha? St?pie?
+
+
+
+From vgaburici at gmail.com  Fri Aug 15 09:56:51 2008
+From: vgaburici at gmail.com (Vasile Gaburici)
+Date: Fri, 15 Aug 2008 10:56:51 +0300
+Subject: [Minionpro-devel] Testing if the mailing list is still dead
+Message-ID: <bef0d710808150056ja1441cdm832d914936b76492@mail.gmail.com>
+
+Is it?
+
+
+From vgaburici at gmail.com  Fri Aug 15 18:39:35 2008
+From: vgaburici at gmail.com (Vasile Gaburici)
+Date: Fri, 15 Aug 2008 19:39:35 +0300
+Subject: [Minionpro-devel] Why is the MnSymbol "S" font not ran through
+	mf2pt1?
+Message-ID: <bef0d710808150939t5dd0d7a7qcc54555e50126a12@mail.gmail.com>
+
+I'm trying to do a reproducible build of MnSymbol. The A to F chunks
+are passed through mf2pt1, but the S chunk is only auto traced. Why?
+
+Also, why is patch_mf_sources not applied to mf sources already?
+
+Thanks,
+Vasile
+
+
+From dave at lab6.com  Wed Aug  6 22:18:38 2008
+From: dave at lab6.com (Dave Crossland)
+Date: Wed, 6 Aug 2008 21:18:38 +0100
+Subject: [Minionpro-devel]
+	=?utf-8?q?Minion_Math_by_Johannes_K=C3=BCster_/?=
+	=?utf-8?q?_typoma=2Ecom=3F?=
+In-Reply-To: <bef0d710808061138u17613218v79b758487c943cfe@mail.gmail.com>
+References: <bef0d710808061138u17613218v79b758487c943cfe@mail.gmail.com>
+Message-ID: <2285a9d20808061318q7dd30780kd56245dc4994835a@mail.gmail.com>
+
+2008/8/6 Vasile Gaburici <vgaburici at gmail.com>:
+> There was a talk at TUG 2008
+> (http://www.ucc.ie/en/tug2008/prog/booklet.html#kuester) called
+> "Minion Math: the design of a new math font family". The font hasn't
+> been "released" yet, but it's available to typoma customers
+> (http://www.typoma.com/en/fonts.html). Is this a completely different
+> project from MnSymbol?
+
+Yes, I think so.
+
+Here are my notes from that talk - online at
+http://understandinglimited.com/2008/08/05/tug2008-day-2/ - sorry they
+aren't detailed, I was preparing my own slides ;-)
+
+Minion Math
+=============
+
+I wanted a math font that improves over existing math fonts: something
+that is very consistent (Computer Modern uses some AMS Math glyphs?)
+and comprehensive and versatile (not just one width, one optical size,
+one weight)
+
+Why start with Minion? I like it. It has Greek letters and optical
+sizes already. 1990 Adobe font, had Multiple Master versions, and then
+Greek glyphs.
+
+Weights: Regular-Medium-Semi bold-Bold
+
+Optical Sizes: Display-Subhead-Regular-Caption-Tiny
+
+In the final release, they will offer full Unicode math support, full
+math alphabets, and a real Math italic. I plan to fill the Unicode
+block for mathematical characters totally.
+
+?
+
+Consistent look, consistent metrics.
+
+Q: legal status?
+
+A: yes I have a legal agreement, I'm licensed to use their trademark
+and to publish my font.
+
+From blumensath at mathematik.tu-darmstadt.de  Wed Aug 20 09:38:57 2008
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Wed, 20 Aug 2008 09:38:57 +0200
+Subject: [Minionpro-devel] ligatures f_b and f_k
+In-Reply-To: <47467bfc6b3319752b0ee701b5cdb293.qmail@home.pl>
+References: <47467bfc6b3319752b0ee701b5cdb293.qmail@home.pl>
+Message-ID: <20080820073857.GB32443@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Micha? St?pie? wrote:
+> I used minionpro package with:
+> Version 2.015;PS 002.000;Core 1.0.38;makeotf.lib1.7.9032
+> 
+> I tried both source package and binary package and
+> I cannot manage to use ligatures f_b and f_k.
+> What should I do to get them?
+
+You need to select a font encoding that contains these glyphs. OT1 does,
+but T1 does not.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: Digital signature
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20080820/30c4a149/attachment.pgp>
+
+From vgaburici at gmail.com  Wed Aug 20 12:04:52 2008
+From: vgaburici at gmail.com (Vasile Gaburici)
+Date: Wed, 20 Aug 2008 13:04:52 +0300
+Subject: [Minionpro-devel] ligatures f_b and f_k
+In-Reply-To: <20080820073857.GB32443@mathematik.tu-darmstadt.de>
+References: <47467bfc6b3319752b0ee701b5cdb293.qmail@home.pl>
+	<20080820073857.GB32443@mathematik.tu-darmstadt.de>
+Message-ID: <bef0d710808200304l10a7c53frc4d0fbdcc44123d5@mail.gmail.com>
+
+A bit of background info is in order. MinionPro is generated with
+otftotfm. This tool does a little more than simply filling in the TeX
+encodings; if it did just that you'd never be able to access ligatures
+like f_b, f_k or T_h because those aren't in any of the TeX standard
+font encodings. So, otftotfm works around this limitation by filling
+in unused slots in TeX font encodings with any ligatures it can find
+in the OpenType fonts, and then generates a *new* TeX font encoding
+for that particular font. If you wonder how TeX finds out the extra
+ligatures: otftotfm puts the information the tfm files it generates.
+All hail Eddie Kohler :)
+
+If you're doing your own font installation and want extra ligatures
+but also want to stick to a single encoding, LY1 is usually the best
+choice because the T1 encoding is almost full. On the other hand, OT1
+is 7-bit so there's plenty of room, but lacks most accented
+characters; these will be visually composed by overlapping boxes, but
+won't be searcheable in the PDF, and the typography is sometimes
+inferior. Using two font encodings at the same time is a bit painful
+if both encodings define the same accents, etc. You need to consult
+the LaTeX Companion section 7.11.4, or the documentation for the
+ltoutenc LaTeX source file on how to select the defaults.
+
+But if you're using the MinionPro package the work has already been
+done. It seems to me, perhaps one of the devs can confirm, that T1 and
+OT1 are preferred because there is no protrusion info for LY1 in
+mt-MinionPro.cfg. Unfortunately I've got lost in the code trying to
+figure out how MinionPro maps the TeX font encodings to one of its 5
+encoding files:
+texmf/fonts/enc/dvips/MinionPro/base-MinionPro-a{a,b,c,d,e}.enc
+
+Perhaps the devs can help? Basically, when you want a certain ligature
+you can just look in one of those 5 files to see which one has it, and
+if you knew what TeX encoding that corresponds to, things would be
+simple. For a font installed directly with otftotfm it's trivial to
+find this out, but MinionPro uses some layers of macros, which I'd
+have to spend more time tracing...
+
+On Wed, Aug 20, 2008 at 10:38 AM, Achim Blumensath
+<blumensath at mathematik.tu-darmstadt.de> wrote:
+> Hello,
+>
+> Micha? St?pie? wrote:
+>> I used minionpro package with:
+>> Version 2.015;PS 002.000;Core 1.0.38;makeotf.lib1.7.9032
+>>
+>> I tried both source package and binary package and
+>> I cannot manage to use ligatures f_b and f_k.
+>> What should I do to get them?
+>
+> You need to select a font encoding that contains these glyphs. OT1 does,
+> but T1 does not.
+>
+> Achim
+> --
+> ________________________________________________________________________
+>                                                              | \_____/ |
+>   Achim Blumensath                                          \O/ \___/\ |
+>   TU Darmstadt                                              =o=  \ /\ \|
+>   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+> ____________________________________________________________________\___|
+>
+> -----BEGIN PGP SIGNATURE-----
+> Version: GnuPG v1.4.6 (GNU/Linux)
+>
+> iD8DBQFIq8oREJmibKiR73IRAtT2AJkBXjxyEBuCDcHNW7w0YnD81naFrgCeN3MG
+> +kBfRWWPKRvJKMSA2/282JY=
+> =0JG+
+> -----END PGP SIGNATURE-----
+>
+> _______________________________________________
+> Minionpro-devel mailing list
+> Minionpro-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/minionpro-devel
+>
+>
+
+
+From michael.zedler at tum.de  Wed Aug 20 19:19:36 2008
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Wed, 20 Aug 2008 19:19:36 +0200
+Subject: [Minionpro-devel] ligatures f_b and f_k
+In-Reply-To: <bef0d710808200304l10a7c53frc4d0fbdcc44123d5@mail.gmail.com>
+References: <47467bfc6b3319752b0ee701b5cdb293.qmail@home.pl>
+	<20080820073857.GB32443@mathematik.tu-darmstadt.de>
+	<bef0d710808200304l10a7c53frc4d0fbdcc44123d5@mail.gmail.com>
+Message-ID: <656559DE-9961-4B76-A1B2-7E16476A755B@tum.de>
+
+Am 20.08.2008 um 12:04 schrieb Vasile Gaburici:
+> But if you're using the MinionPro package the work has already been
+> done. It seems to me, perhaps one of the devs can confirm, that T1 and
+> OT1 are preferred because there is no protrusion info for LY1 in
+> mt-MinionPro.cfg. Unfortunately I've got lost in the code trying to
+> figure out how MinionPro maps the TeX font encodings to one of its 5
+> encoding files:
+> texmf/fonts/enc/dvips/MinionPro/base-MinionPro-a{a,b,c,d,e}.enc
+>
+> Perhaps the devs can help? Basically, when you want a certain ligature
+> you can just look in one of those 5 files to see which one has it, and
+> if you knew what TeX encoding that corresponds to, things would be
+> simple. For a font installed directly with otftotfm it's trivial to
+> find this out, but MinionPro uses some layers of macros, which I'd
+> have to spend more time tracing...
+
+The is all done by otftotfm itself, using virtual fonts. See  
+otftotfm's man page, the --base-encodings option specifically.
+
+Michael
+
+
+From vgaburici at gmail.com  Thu Aug 21 17:23:37 2008
+From: vgaburici at gmail.com (Vasile Gaburici)
+Date: Thu, 21 Aug 2008 18:23:37 +0300
+Subject: [Minionpro-devel] Unnecessary \pdfglyphtounicode calls?
+Message-ID: <bef0d710808210823i54e33ed8q8aa81c87369cb1e9@mail.gmail.com>
+
+I see that MinionPro.sty contains CMap additions like:
+
+  \pdfglyphtounicode{uniF628}{2030}% perthousand.oldstyle
+  \pdfglyphtounicode{uniF62C}{0028}% parenleft.denominator
+
+But they are all of the blather.alternate form. According to the Adobe
+documentation[*], pdftex should automatically drop the dot and
+anything after it in the name when the CMap is generated. So all those
+lines in MinionPro.sty should be unnecessary. If they are necessary
+however, than that's a bug in pdftex. Did you guys discuss this with
+the pdftex devs? AFAICT, no other package in TeXLive 2008 makes any
+calls to \pdfglyphtounicode besides the master pdftex list in
+glyphtounicode.tex, of course.
+
+[*] References:
+http://www.adobe.com/devnet/opentype/archives/glyph.html
+http://blogs.adobe.com/typblography/typotechnica2007/Glyph%20names.pdf
+
+
+From michael.zedler at tum.de  Thu Aug 21 17:33:58 2008
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Thu, 21 Aug 2008 17:33:58 +0200
+Subject: [Minionpro-devel] Unnecessary \pdfglyphtounicode calls?
+In-Reply-To: <bef0d710808210823i54e33ed8q8aa81c87369cb1e9@mail.gmail.com>
+References: <bef0d710808210823i54e33ed8q8aa81c87369cb1e9@mail.gmail.com>
+Message-ID: <1F9982B6-B6E8-42DB-8D24-29A2E4BBF495@tum.de>
+
+Am 21.08.2008 um 17:23 schrieb Vasile Gaburici:
+
+> I see that MinionPro.sty contains CMap additions like:
+>
+>   \pdfglyphtounicode{uniF628}{2030}% perthousand.oldstyle
+>   \pdfglyphtounicode{uniF62C}{0028}% parenleft.denominator
+>
+> But they are all of the blather.alternate form. According to the Adobe
+> documentation[*], pdftex should automatically drop the dot and
+> anything after it in the name when the CMap is generated. So all those
+> lines in MinionPro.sty should be unnecessary. If they are necessary
+> however, than that's a bug in pdftex. Did you guys discuss this with
+> the pdftex devs? AFAICT, no other package in TeXLive 2008 makes any
+> calls to \pdfglyphtounicode besides the master pdftex list in
+> glyphtounicode.tex, of course.
+
+Older versions of the fonts have glyphnames /uniF628 instead of / 
+perthousand.oldstyle, thus these lines are included.
+
+Michael
+
+
+From vgaburici at gmail.com  Thu Aug 21 17:41:14 2008
+From: vgaburici at gmail.com (Vasile Gaburici)
+Date: Thu, 21 Aug 2008 18:41:14 +0300
+Subject: [Minionpro-devel] Unnecessary \pdfglyphtounicode calls?
+In-Reply-To: <1F9982B6-B6E8-42DB-8D24-29A2E4BBF495@tum.de>
+References: <bef0d710808210823i54e33ed8q8aa81c87369cb1e9@mail.gmail.com>
+	<1F9982B6-B6E8-42DB-8D24-29A2E4BBF495@tum.de>
+Message-ID: <bef0d710808210841y3e88412dh7fe9174f70464afa@mail.gmail.com>
+
+*Smacks forehead*, yes, of course, the perthousand.oldstyle is a comment :)
+
+On Thu, Aug 21, 2008 at 6:33 PM, Michael Zedler <michael.zedler at tum.de> wrote:
+> Am 21.08.2008 um 17:23 schrieb Vasile Gaburici:
+>
+>> I see that MinionPro.sty contains CMap additions like:
+>>
+>>  \pdfglyphtounicode{uniF628}{2030}% perthousand.oldstyle
+>>  \pdfglyphtounicode{uniF62C}{0028}% parenleft.denominator
+>>
+>> But they are all of the blather.alternate form. According to the Adobe
+>> documentation[*], pdftex should automatically drop the dot and
+>> anything after it in the name when the CMap is generated. So all those
+>> lines in MinionPro.sty should be unnecessary. If they are necessary
+>> however, than that's a bug in pdftex. Did you guys discuss this with
+>> the pdftex devs? AFAICT, no other package in TeXLive 2008 makes any
+>> calls to \pdfglyphtounicode besides the master pdftex list in
+>> glyphtounicode.tex, of course.
+>
+> Older versions of the fonts have glyphnames /uniF628 instead of
+> /perthousand.oldstyle, thus these lines are included.
+>
+> Michael
+>
+>
+
+

@@ -1,0 +1,31 @@
+From michael.ummels at rwth-aachen.de  Tue Sep 20 12:01:34 2011
+From: michael.ummels at rwth-aachen.de (Michael Ummels)
+Date: Tue, 20 Sep 2011 12:01:34 +0200
+Subject: [Minionpro-devel] fontaxes and tabfigures
+Message-ID: <CAAPT17R47h1nqQy5E76oybae4FxGXRrDw_-5Y+P8Hbaq-8gckw@mail.gmail.com>
+
+Hi,
+
+as discussed with Andreas and Achim, I have taken over maintenance of
+the fontaxes and tabfigures package, which have been distributed
+together with the MinionPro package. These packages are now available
+directly from CTAN and I expect them to be included in TeXLive, which
+should ease the use of these packages with fonts different from Minion
+Pro:
+
+http://ctan.org/pkg/fontaxes
+http://ctan.org/pkg/tabfigures
+
+The development of these packages is now hosted at GitHub:
+
+https://github.com/ummels/fontaxes
+https://github.com/ummels/tabfigures
+
+So far, there have just been a few internal changes, but I hope to add
+more features soon. In any case, these packages should remain working
+just fine with MinionPro.
+
+Best regards,
+Michael
+
+

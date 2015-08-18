@@ -1,0 +1,357 @@
+From michal.stepien at bezda.com  Thu Sep  6 14:32:31 2007
+From: michal.stepien at bezda.com (=?iso-8859-2?Q?Micha=B3_St=EApie=F1?=)
+Date: Thu, 06 Sep 2007 14:32:31 +0200
+Subject: [Minionpro-devel] ArnoPro and this project
+References: <d9992134cdf19a410ee697f6f472bfab.qmail@home.pl>
+Message-ID: <0aec330faab7e5e2221a0e9832bfc924.qmail@home.pl>
+
+I would like to ask whether developers of MinionPro package
+consider support for ArnoPro font? ArnoPro font may become in near future
+so popular like minion and it has a lot of advantages, for instance
+richer suit of glyphs (especially in the case of superscript).
+
+Thanks for any answers
+
+
+
+From bgeneto at gmail.com  Thu Sep  6 14:44:30 2007
+From: bgeneto at gmail.com (Bernhard Enders)
+Date: Thu, 6 Sep 2007 09:44:30 -0300
+Subject: [Minionpro-devel] ArnoPro and this project
+In-Reply-To: <0aec330faab7e5e2221a0e9832bfc924.qmail@home.pl>
+References: <d9992134cdf19a410ee697f6f472bfab.qmail@home.pl>
+	<0aec330faab7e5e2221a0e9832bfc924.qmail@home.pl>
+Message-ID: <2257ea30709060544u3cadd753ide4a6fec28cd6388@mail.gmail.com>
+
+On 9/6/07, Micha? St?pie? <michal.stepien at bezda.com> wrote:
+> I would like to ask whether developers of MinionPro package
+> consider support for ArnoPro font? ArnoPro font may become in near future
+> so popular like minion and it has a lot of advantages, for instance
+> richer suit of glyphs (especially in the case of superscript).
+>
+
+It would be fantastic because ArnoPro is a really nice looking
+typeface with full of (greek, math, and more) symbols! I'm not a
+MinionPro developer, but the first problem I see in the development of
+a ArnoPro package based on MinionPro is the all new naming scheme
+(e.g., the prefix of ligatures) used by Adobe, which differs
+substantially from MinionPro. I've already tried to adapt MinionPro to
+ArnoPro myself, but, in my opinion, there is no easy way (automated)
+to do this. Maybe the best thing to do is start from the beginning
+and, in this case, I'm here at your service.
+
+All the best,
+
+Bernhard Enders.
+
+From michael.zedler at tum.de  Thu Sep  6 15:23:40 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Thu, 6 Sep 2007 15:23:40 +0200
+Subject: [Minionpro-devel] ArnoPro and this project
+In-Reply-To: <2257ea30709060544u3cadd753ide4a6fec28cd6388@mail.gmail.com>
+References: <d9992134cdf19a410ee697f6f472bfab.qmail@home.pl>
+	<0aec330faab7e5e2221a0e9832bfc924.qmail@home.pl>
+	<2257ea30709060544u3cadd753ide4a6fec28cd6388@mail.gmail.com>
+Message-ID: <E7E6E89F-ED10-43DF-841D-1D2D75B9E87C@tum.de>
+
+Am 06.09.2007 um 14:44 schrieb Bernhard Enders:
+> On 9/6/07, Micha? St?pie? <michal.stepien at bezda.com> wrote:
+>> I would like to ask whether developers of MinionPro package
+>> consider support for ArnoPro font? ArnoPro font may become in near  
+>> future
+>> so popular like minion and it has a lot of advantages, for instance
+>> richer suit of glyphs (especially in the case of superscript).
+>>
+>
+> It would be fantastic because ArnoPro is a really nice looking
+> typeface with full of (greek, math, and more) symbols! I'm not a
+> MinionPro developer, but the first problem I see in the development of
+> a ArnoPro package based on MinionPro is the all new naming scheme
+> (e.g., the prefix of ligatures) used by Adobe, which differs
+> substantially from MinionPro. I've already tried to adapt MinionPro to
+> ArnoPro myself, but, in my opinion, there is no easy way (automated)
+> to do this. Maybe the best thing to do is start from the beginning
+> and, in this case, I'm here at your service.
+
+The adaptation of our setup to ArnoPro should be fairly easy. The  
+different glyph naming scheme for certain opentype features doesn't  
+matter much as those are mostly automatically selected via otftotfm.  
+Exceptions where mn-*.enc may have to be altered, or better, where  
+unicoding-statements would have to be added to a .cfg file are
+  - encoding slots where explicitly alternates are selected, e.g.,  
+"glpyh.xxx"
+  - encoding slots pointing to the 'private use area', i.e., unie000- 
+unif8ff
+
+I've typeset a couple of lines of ArnoPro with xetex, Latin glyphs  
+resemble those of Minion with a slight attitude, the Greek ones are a  
+bit more calligraphic/less cool, so they'll probably appeal better to  
+those typesetting ancient greek texts. Stroke thicknesses and style  
+should be compatible with MnSymbol, that makes life easy.
+
+Why do you fancy the extra symbols, in particular superscript  
+letters? Such things are pretty much covered by optical shapes.
+
+Looking forward to seeing some sample math documents typeset with  
+Arno ;-)
+Michael
+
+PS: I just notice that Arno comes with five instead of four optical  
+sizes. No idea how difficult it would be to extend fontaxes.sty/ 
+otfontdef.sty.
+
+From geoffw at cis.upenn.edu  Thu Sep  6 15:50:59 2007
+From: geoffw at cis.upenn.edu (Geoffrey Alan Washburn)
+Date: Thu, 06 Sep 2007 09:50:59 -0400
+Subject: [Minionpro-devel] ArnoPro and this project
+In-Reply-To: <E7E6E89F-ED10-43DF-841D-1D2D75B9E87C@tum.de>
+References: <d9992134cdf19a410ee697f6f472bfab.qmail@home.pl>	<0aec330faab7e5e2221a0e9832bfc924.qmail@home.pl>	<2257ea30709060544u3cadd753ide4a6fec28cd6388@mail.gmail.com>
+	<E7E6E89F-ED10-43DF-841D-1D2D75B9E87C@tum.de>
+Message-ID: <46E005C3.7040601@cis.upenn.edu>
+
+Michael Zedler wrote:
+> PS: I just notice that Arno comes with five instead of four optical  
+> sizes. No idea how difficult it would be to extend fontaxes.sty/ 
+> otfontdef.sty.
+>   
+    This seems like another opportunity to shamelessly plug "otftofd" 
+(http://free-the-mallocs.com/otftofd).  It is a tool I have written that 
+specially automates the task of generating the infrastructure for a 
+collection of OpenType fonts, especially those with several optical 
+variants.  Basic usage is to just run "otftofd *.otf" in the directory 
+with your font files and it will reconstruct all the appropriate 
+infrastructure for you.  Because it handles the detail of determining 
+the optical sizes available from the files themselves, it does not 
+matter how many optical variants exist. 
+
+    Now the infrastructure it generates is not nearly as polished 
+(optimized font encodings, kerning, etc.) as the Minionpro package, 
+because it is entirely automated (though you can tell it to use custom 
+encodings), but it is a good starting point if you would like to try out 
+a new typeface (and cannot use XeTeX for whatever reasons). 
+
+-- 
+[ Geoff Washburn 
+| geoffw at cis.upenn.edu 
+| http://www.cis.upenn.edu/~geoffw/ ]
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070906/721aa5ae/attachment.html>
+
+From michal.stepien at bezda.com  Thu Sep  6 16:57:30 2007
+From: michal.stepien at bezda.com (=?iso-8859-2?Q?Micha=B3_St=EApie=F1?=)
+Date: Thu, 06 Sep 2007 16:57:30 +0200
+Subject: [Minionpro-devel] ArnoPro and this project
+Message-ID: <dec259cb36ce16a8f2af0b69479f9157.qmail@home.pl>
+
+$ ./otftofd *otf
+
+otftotfm: warning: not enough room in encoding, ignoring 18 glyphs
+otftotfm: (This encoding doesn't have room for all the glyphs used by the
+otftotfm: font, so I've ignored these:
+otftotfm:   T_T T_h Tcaron_h f_b f_f_b f_f_h f_f_j f_f_k f_f_t f_h f_i f_j 
+f_k
+otftotfm:   f_l f_r f_t t_t u0162_u0068.)
+otftotfm: warning: 'kern' feature ignored, too complex for me
+
+I'm just latex user and for forcing minion to use inferior
+figures was top but I cant't for instance prepare encoding
+file for t1 which would enable me using ligatures.
+The same I got with autoinst.
+
+This is why I ask about possible 'ArnoPro package'.
+
+
+
+From geoffw at cis.upenn.edu  Fri Sep  7 06:49:53 2007
+From: geoffw at cis.upenn.edu (Geoffrey Alan Washburn)
+Date: Fri, 07 Sep 2007 00:49:53 -0400
+Subject: [Minionpro-devel] ArnoPro and this project
+In-Reply-To: <dec259cb36ce16a8f2af0b69479f9157.qmail@home.pl>
+References: <dec259cb36ce16a8f2af0b69479f9157.qmail@home.pl>
+Message-ID: <46E0D871.7070406@cis.upenn.edu>
+
+Micha? St?pie? wrote:
+> I'm just latex user and for forcing minion to use inferior
+> figures was top 
+    I'm not sure I understand what you mean here.
+
+> $ ./otftofd *otf
+>
+> otftotfm: warning: not enough room in encoding, ignoring 18 glyphs
+> otftotfm: (This encoding doesn't have room for all the glyphs used by the
+> otftotfm: font, so I've ignored these:
+> otftotfm:   T_T T_h Tcaron_h f_b f_f_b f_f_h f_f_j f_f_k f_f_t f_h f_i f_j 
+> f_k
+> otftotfm:   f_l f_r f_t t_t u0162_u0068.)
+> otftotfm: warning: 'kern' feature ignored, too complex for me
+>   
+> but I cant't for instance prepare encoding
+> file for t1 which would enable me using ligatures.
+> The same I got with autoinst.
+>   
+    This seems kind of strange.  The version of cork.enc (T1) that comes 
+with my LaTeX installation has both the f_i and f_l ligatures 
+specified.  I wonder what it is trying to displace them with.  What does 
+running
+
+    grep /fl `kpsewhich cork.enc`
+
+tell you?
+
+    Looking closely at the documentation for otftotfm seems to indicate 
+that the above message might be resulting simply from the small-caps 
+version of ArnoPro, where these ligatures probably do not exist. 
+
+> This is why I ask about possible 'ArnoPro package'.
+>   
+
+    I suppose my point was that unless there is a plan for such a 
+package, that this is probably the best automation you can expect as a 
+starting point (though I'm definitely open to addressing deficiencies).  
+I hadn't really heard about autoinst before, however.  It seems to do a 
+few more things for you, but overall the design appears to be remarkable 
+similar to my own.  Of course, no one should trust programs written in 
+Perl :-) 
+
+    As an alternative using XeTeX may be your next best choice, but I 
+haven't really had the time to investigate the ins and outs there.
+
+-- 
+[ Geoff Washburn 
+| geoffw at cis.upenn.edu 
+| http://www.cis.upenn.edu/~geoffw/ ]
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070907/05cedc4f/attachment.html>
+
+From blumensath at mathematik.tu-darmstadt.de  Fri Sep  7 08:04:47 2007
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Fri, 7 Sep 2007 08:04:47 +0200
+Subject: [Minionpro-devel] ArnoPro and this project
+In-Reply-To: <0aec330faab7e5e2221a0e9832bfc924.qmail@home.pl>
+References: <d9992134cdf19a410ee697f6f472bfab.qmail@home.pl>
+	<0aec330faab7e5e2221a0e9832bfc924.qmail@home.pl>
+Message-ID: <20070907060447.GA6093@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Micha? St?pie? wrote:
+> I would like to ask whether developers of MinionPro package
+> consider support for ArnoPro font?
+
+Personally, I do have no plans to work on this. I don't own the font.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070907/acae0e67/attachment.pgp>
+
+From shinghao at gmail.com  Sat Sep  8 05:43:35 2007
+From: shinghao at gmail.com (Hao Xing)
+Date: Sat, 8 Sep 2007 11:43:35 +0800
+Subject: [Minionpro-devel] about math fonts
+Message-ID: <2bcd08ba0709072043j2d9772dan50802d063dd43a78@mail.gmail.com>
+
+Hello,
+
+I would like to ask if it's possible to make all the letters in
+mathmode upright.
+because by issuing frenchmath option, only greek letter changes but
+latin letter stay the same.
+
+Thanks
+
+
+From ogrizzo at libero.it  Sat Sep  8 10:45:24 2007
+From: ogrizzo at libero.it (Ottavio G. Rizzo)
+Date: Sat, 08 Sep 2007 10:45:24 +0200
+Subject: [Minionpro-devel] about math fonts
+In-Reply-To: <2bcd08ba0709072043j2d9772dan50802d063dd43a78@mail.gmail.com>
+References: <2bcd08ba0709072043j2d9772dan50802d063dd43a78@mail.gmail.com>
+Message-ID: <1189241124.2588.4.camel@amelia.lor8>
+
+Il giorno sab, 08/09/2007 alle 11.43 +0800, Hao Xing ha scritto:
+> Hello,
+> 
+> I would like to ask if it's possible to make all the letters in
+> mathmode upright.
+> because by issuing frenchmath option, only greek letter changes but
+> latin letter stay the same.
+
+I don't know your field of expertise, but speaking as a mathematician
+--- since it's math fonts we're talking about --- that would look
+*weird*
+
+Are you sure you don't want to use \operatorname or \DeclareMathOperator
+as of the amsmath package?
+
+Cheers,
+ Ottavio G. Rizzo
+
+
+
+From shinghao at gmail.com  Sat Sep  8 11:27:23 2007
+From: shinghao at gmail.com (Hao Xing)
+Date: Sat, 8 Sep 2007 17:27:23 +0800
+Subject: [Minionpro-devel] about math fonts
+In-Reply-To: <1189241124.2588.4.camel@amelia.lor8>
+References: <2bcd08ba0709072043j2d9772dan50802d063dd43a78@mail.gmail.com>
+	<1189241124.2588.4.camel@amelia.lor8>
+Message-ID: <2bcd08ba0709080227i68ec5671ube61883669fadb7f@mail.gmail.com>
+
+Thanks for your reply. Well..., I know math letters should appear
+italic in literature now , I just wonder if the frenchmath should like
+the style in Henri Cartan's Elementary theory of analytic function or
+in those books of Bourbaki: the uppercase letters and greeks appear
+upright  and only lowercase appears italic.
+
+On 9/8/07, Ottavio G. Rizzo <ogrizzo at libero.it> wrote:
+> Il giorno sab, 08/09/2007 alle 11.43 +0800, Hao Xing ha scritto:
+> > Hello,
+> >
+> > I would like to ask if it's possible to make all the letters in
+> > mathmode upright.
+> > because by issuing frenchmath option, only greek letter changes but
+> > latin letter stay the same.
+>
+> I don't know your field of expertise, but speaking as a mathematician
+> --- since it's math fonts we're talking about --- that would look
+> *weird*
+>
+> Are you sure you don't want to use \operatorname or \DeclareMathOperator
+> as of the amsmath package?
+>
+> Cheers,
+>  Ottavio G. Rizzo
+>
+> _______________________________________________
+> Minionpro-devel mailing list
+> Minionpro-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/minionpro-devel
+>
+
+
+-- 
+Xing, Hao
+
+Institute of Acoustics
+Chinese Academy of Science
+Beijing 100080
+P. R. China
+Phones : +86 10 62554013
+
+

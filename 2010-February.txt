@@ -1,0 +1,899 @@
+From blumensath at mathematik.tu-darmstadt.de  Mon Feb  1 11:28:46 2010
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Mon, 1 Feb 2010 11:28:46 +0100
+Subject: [Minionpro-devel] Error processing fonts from source
+In-Reply-To: <ad976fb81001301419p1a4e98eap55b22abe081a2b79@mail.gmail.com>
+References: <ad976fb81001301419p1a4e98eap55b22abe081a2b79@mail.gmail.com>
+Message-ID: <20100201102846.GD6241@mathematik.tu-darmstadt.de>
+
+Hello,
+
+> I tried to process the MinionPro fonts from the source distribution
+> (both the one available on CTAN and the one from CVS), in order to be
+> able to make a change I wanted to the greek italic characters.
+> 
+> The problem is that (even using the exact original scripts, without
+> any changes) I am getting errors, which I think come from fontinst.
+
+I'm not sure, but my guess is that it's a problem with recent versions
+of LCDF typetools. Some glyphnames have changed, e.g. "lscript" became
+"lsquare". You have to change the enc files in the "enc" directory to
+use the new names.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: Digital signature
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20100201/3f1d81e4/attachment.pgp>
+
+From zhouyan1014 at gmail.com  Tue Feb 16 13:14:56 2010
+From: zhouyan1014 at gmail.com (Yan Zhou)
+Date: Tue, 16 Feb 2010 12:14:56 +0000
+Subject: [Minionpro-devel] Add more glyphs to the encoding
+Message-ID: <B527DC41-FE0E-4323-B4B8-1619FB1C8D3A@gmail.com>
+
+Inspired by the excellent MinionPro project, I wrote my own scripts to add more Pro fonts to my LaTeX system. Given Garamond Premier Pro as an example, there are lots ligatures and accented glyphs. I tend o keep all accented glyphs in T1 encoding but also include those ligatures. There is no enough slots in the encoding. Even I choose OT1 or LY1, if I want to add these rich accented glyphs, the slots is still not enough.
+
+I work around this problem by stick to the T1 encoding, but removed all accents (000-012), and moved them to the empty slots in TS1 encoding. And then declare new names for them in the TS1 encoding.
+
+Is there any better way to solve this problem?
+
+Cheers,
+Yan
+
+From awirsing at zedat.fu-berlin.de  Tue Feb 16 18:13:46 2010
+From: awirsing at zedat.fu-berlin.de (Andreas Wirsing)
+Date: Tue, 16 Feb 2010 18:13:46 +0100
+Subject: [Minionpro-devel] Problem with Minion Pro Installation
+Message-ID: <73B26D2B-5716-44E3-914D-025C70D91AA1@zedat.fu-berlin.de>
+
+Hello,
+
+I use TeXLive 2009 (MacTeX-2009) on Mac OS X.6.
+I recently installed Minion Pro according to the installing proscedure described here:
+http://www.ctan.org/tex-archive/fonts/minionpro/
+But then I discovered that the \epsilon in the math environment was missing when compiled with pdflatex. This issue has been reported before:
+http://www.meinews.net/minionpro-t409793.html
+(I used the same Minion Pro fonts as described in that thread.
+otfinfo -v MinionPro-It.otf
+Version 2.030;PS 2.000;hotconv 1.0.51;makeotf.lib2.0.18671)
+I have also these Minion Pro fonts on my system:
+Version 2.015;PS 002.000;Core 1.0.38;makeotf.lib1.7.9032
+Version 2.012;PS 002.000;Core 1.0.38;makeotf.lib1.6.6565 (only the base metrics)
+Trying to install Version 2.015 was also not successful for some reason.
+So I decided to try to install again the 2.030 Version according to this procedure:
+https://lists.berlios.de/pipermail/minionpro-devel/2008-July/000268.html
+although I downloaded the latest versions of maketfm and glyph-list-2.030 from here:
+http://cvs.berlios.de/cgi-bin/viewvc.cgi/minionpro/MinionPro/scripts/
+and used the command:
+sudo ./scripts/makeall --nodotlessj --pack=./scripts/glyph-list-2.030
+I got these warnings several times:
+Warning: missing glyph `hookrightchar'.
+Warning: missing glyph `hookleftchar'.
+But everything seemed to be ok.
+Then I installed them with:
+sudo ./scripts/install
+added MinionPro.map to updmap.cfg:
+sudo updmap-sys --enable Map=MinionPro.map
+and updated it:
+sudo updmap-sys
+
+For this basic tex example:
+\documentclass{scrartcl}
+\usepackage{MinionPro}
+\begin{document}
+test
+\end{document}
+
+I got this log file:
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009)
+ \write18 enabled.
+entering extended mode
+(./Untitled.tex
+LaTeX2e <2009/09/24>
+Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, german-x-2009-06-19, ngerman-x-2009-06-19, ancientgreek, ibycus, ar
+abic, basque, bulgarian, catalan, pinyin, coptic, croatian, czech, danish, dutc
+h, esperanto, estonian, farsi, finnish, french, galician, german, ngerman, mono
+greek, greek, hungarian, icelandic, indonesian, interlingua, irish, italian, ku
+rmanji, latin, latvian, lithuanian, mongolian, mongolian2a, bokmal, nynorsk, po
+lish, portuguese, romanian, russian, sanskrit, serbian, slovak, slovenian, span
+ish, swedish, turkish, ukenglish, ukrainian, uppersorbian, welsh, loaded.
+(/usr/local/texlive/2009/texmf-dist/tex/latex/koma-script/scrartcl.cls
+Document Class: scrartcl 2009/07/24 v3.04a KOMA-Script document class (article)
+
+(/usr/local/texlive/2009/texmf-dist/tex/latex/koma-script/scrkbase.sty
+(/usr/local/texlive/2009/texmf-dist/tex/latex/koma-script/scrbase.sty
+(/usr/local/texlive/2009/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/koma-script/scrlfile.sty
+Package scrlfile, 2009/03/25 v3.03 KOMA-Script package (loading files)
+                  Copyright (C) Markus Kohm
+
+))) (/usr/local/texlive/2009/texmf-dist/tex/latex/koma-script/tocbasic.sty)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/koma-script/scrsize11pt.clo)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/koma-script/typearea.sty
+Package typearea, 2009/07/24 v3.04a KOMA-Script package (type area)
+                  Copyright (C) Frank Neukam, 1992-1994
+                  Copyright (C) Markus Kohm, 1994-
+
+)) (/usr/local/texlive/2009/../texmf-local/tex/latex/MinionPro/MinionPro.sty
+(/usr/local/texlive/2009/../texmf-local/tex/latex/MinionPro/MinionPro-FontDef.s
+ty (/usr/local/texlive/2009/../texmf-local/tex/latex/MinionPro/otfontdef.sty))
+(/usr/local/texlive/2009/texmf-dist/tex/latex/base/textcomp.sty
+(/usr/local/texlive/2009/texmf-dist/tex/latex/base/ts1enc.def))
+(/usr/local/texlive/2009/texmf-dist/tex/latex/mnsymbol/MnSymbol.sty
+(/usr/local/texlive/2009/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2009/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/local/texlive/2009/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/local/texlive/2009/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/local/texlive/2009/texmf-dist/tex/latex/amsfonts/eufrak.sty))
+(/usr/local/texlive/2009/../texmf-local/tex/latex/MinionPro/fontaxes.sty)
+(/usr/local/texlive/2009/../texmf-local/tex/latex/MinionPro/OT1MinionPro-OsF.fd
+
+(/usr/local/texlive/2009/../texmf-local/tex/latex/MinionPro/MinionPro-FontDef.s
+ty))) (./Untitled.aux)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/base/ts1cmr.fd) [1{/Users/awirsin
+g/.texlive2009/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./Untitled.aux)
+kpathsea: Running mktexpk --mfmode / --bdpi 600 --mag 0+597/600 --dpi 597 MinionPro-Regular-Base-ab
+mktexpk: don't know how to create bitmap font for MinionPro-Regular-Base-ab.
+kpathsea: Appending font creation commands to missfont.log.
+ 
+)
+!pdfTeX error: /usr/texbin/pdflatex (file MinionPro-Regular-Base-ab): Font Mini
+onPro-Regular-Base-ab at 597 not found
+ ==> Fatal error occurred, no output PDF file produced!
+
+
+Can anybody help me with this. I almost spent 2 whole days trying to make this work and don't know what else to try.
+
+Thanks in advance,
+A.
+
+
+
+From Olivier.Guibe at univ-rouen.fr  Tue Feb 16 22:08:34 2010
+From: Olivier.Guibe at univ-rouen.fr (Olivier =?iso-8859-1?Q?Guib=E9?=)
+Date: Tue, 16 Feb 2010 22:08:34 +0100
+Subject: [Minionpro-devel] Problem with Minion Pro Installation
+In-Reply-To: <73B26D2B-5716-44E3-914D-025C70D91AA1@zedat.fu-berlin.de>
+References: <73B26D2B-5716-44E3-914D-025C70D91AA1@zedat.fu-berlin.de>
+Message-ID: <20100216210834.GA2679@d630-guibe>
+
+Hello
+
+I had a similar problem with Texlive2009 -vanilla installation-
+on Ubuntu Karmic. Latex+dvips was ok but pdflatex not !
+I tried a latex document with lmodern and a second one with MinionPro
+to understand.
+It was a directory problem. Something changed with texlive2009.
+I copy the files *.enc to
+/usr/local/texlive/2009/texmf-dist/fonts/enc/dvips/MinionPro/
+
+and I put the MinionPro.map in the texlive/2009/(....) directory
+and not in the texmf-local.
+Perhaps it is not complete.
+Ok it is not very clean, but it works. 
+
+
+
+O.G.
+
+On Tue, Feb 16, 2010 at 06:13:46PM +0100, Andreas Wirsing wrote:
+>Date: Tue, 16 Feb 2010 18:13:46 +0100
+>From: Andreas Wirsing <awirsing at zedat.fu-berlin.de>
+>To: minionpro-devel at lists.berlios.de
+>Subject: [Minionpro-devel] Problem with Minion Pro Installation
+>X-Mailer: Apple Mail (2.1077)
+>
+>Hello,
+>
+>I use TeXLive 2009 (MacTeX-2009) on Mac OS X.6.
+>I recently installed Minion Pro according to the installing proscedure described here:
+>http://www.ctan.org/tex-archive/fonts/minionpro/
+>But then I discovered that the \epsilon in the math environment was missing when compiled with pdflatex. This issue has been reported before:
+>http://www.meinews.net/minionpro-t409793.html
+>(I used the same Minion Pro fonts as described in that thread.
+>otfinfo -v MinionPro-It.otf
+>Version 2.030;PS 2.000;hotconv 1.0.51;makeotf.lib2.0.18671)
+>I have also these Minion Pro fonts on my system:
+>Version 2.015;PS 002.000;Core 1.0.38;makeotf.lib1.7.9032
+>Version 2.012;PS 002.000;Core 1.0.38;makeotf.lib1.6.6565 (only the base metrics)
+>Trying to install Version 2.015 was also not successful for some reason.
+>So I decided to try to install again the 2.030 Version according to this procedure:
+>https://lists.berlios.de/pipermail/minionpro-devel/2008-July/000268.html
+>although I downloaded the latest versions of maketfm and glyph-list-2.030 from here:
+>http://cvs.berlios.de/cgi-bin/viewvc.cgi/minionpro/MinionPro/scripts/
+>and used the command:
+>sudo ./scripts/makeall --nodotlessj --pack=./scripts/glyph-list-2.030
+>I got these warnings several times:
+>Warning: missing glyph `hookrightchar'.
+>Warning: missing glyph `hookleftchar'.
+>But everything seemed to be ok.
+>Then I installed them with:
+>sudo ./scripts/install
+>added MinionPro.map to updmap.cfg:
+>sudo updmap-sys --enable Map=MinionPro.map
+>and updated it:
+>sudo updmap-sys
+>
+>For this basic tex example:
+>\documentclass{scrartcl}
+>\usepackage{MinionPro}
+>\begin{document}
+>test
+>\end{document}
+>
+>I got this log file:
+>This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009)
+> \write18 enabled.
+>entering extended mode
+>(./Untitled.tex
+>LaTeX2e <2009/09/24>
+>Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
+>yphenation, german-x-2009-06-19, ngerman-x-2009-06-19, ancientgreek, ibycus, ar
+>abic, basque, bulgarian, catalan, pinyin, coptic, croatian, czech, danish, dutc
+>h, esperanto, estonian, farsi, finnish, french, galician, german, ngerman, mono
+>greek, greek, hungarian, icelandic, indonesian, interlingua, irish, italian, ku
+>rmanji, latin, latvian, lithuanian, mongolian, mongolian2a, bokmal, nynorsk, po
+>lish, portuguese, romanian, russian, sanskrit, serbian, slovak, slovenian, span
+>ish, swedish, turkish, ukenglish, ukrainian, uppersorbian, welsh, loaded.
+>(/usr/local/texlive/2009/texmf-dist/tex/latex/koma-script/scrartcl.cls
+>Document Class: scrartcl 2009/07/24 v3.04a KOMA-Script document class (article)
+>
+>(/usr/local/texlive/2009/texmf-dist/tex/latex/koma-script/scrkbase.sty
+>(/usr/local/texlive/2009/texmf-dist/tex/latex/koma-script/scrbase.sty
+>(/usr/local/texlive/2009/texmf-dist/tex/latex/graphics/keyval.sty)
+>(/usr/local/texlive/2009/texmf-dist/tex/latex/koma-script/scrlfile.sty
+>Package scrlfile, 2009/03/25 v3.03 KOMA-Script package (loading files)
+>                  Copyright (C) Markus Kohm
+>
+>))) (/usr/local/texlive/2009/texmf-dist/tex/latex/koma-script/tocbasic.sty)
+>(/usr/local/texlive/2009/texmf-dist/tex/latex/koma-script/scrsize11pt.clo)
+>(/usr/local/texlive/2009/texmf-dist/tex/latex/koma-script/typearea.sty
+>Package typearea, 2009/07/24 v3.04a KOMA-Script package (type area)
+>                  Copyright (C) Frank Neukam, 1992-1994
+>                  Copyright (C) Markus Kohm, 1994-
+>
+>)) (/usr/local/texlive/2009/../texmf-local/tex/latex/MinionPro/MinionPro.sty
+>(/usr/local/texlive/2009/../texmf-local/tex/latex/MinionPro/MinionPro-FontDef.s
+>ty (/usr/local/texlive/2009/../texmf-local/tex/latex/MinionPro/otfontdef.sty))
+>(/usr/local/texlive/2009/texmf-dist/tex/latex/base/textcomp.sty
+>(/usr/local/texlive/2009/texmf-dist/tex/latex/base/ts1enc.def))
+>(/usr/local/texlive/2009/texmf-dist/tex/latex/mnsymbol/MnSymbol.sty
+>(/usr/local/texlive/2009/texmf-dist/tex/latex/amsmath/amsmath.sty
+>For additional information on amsmath, use the `?' option.
+>(/usr/local/texlive/2009/texmf-dist/tex/latex/amsmath/amstext.sty
+>(/usr/local/texlive/2009/texmf-dist/tex/latex/amsmath/amsgen.sty))
+>(/usr/local/texlive/2009/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+>(/usr/local/texlive/2009/texmf-dist/tex/latex/amsmath/amsopn.sty))
+>(/usr/local/texlive/2009/texmf-dist/tex/latex/amsfonts/eufrak.sty))
+>(/usr/local/texlive/2009/../texmf-local/tex/latex/MinionPro/fontaxes.sty)
+>(/usr/local/texlive/2009/../texmf-local/tex/latex/MinionPro/OT1MinionPro-OsF.fd
+>
+>(/usr/local/texlive/2009/../texmf-local/tex/latex/MinionPro/MinionPro-FontDef.s
+>ty))) (./Untitled.aux)
+>(/usr/local/texlive/2009/texmf-dist/tex/latex/base/ts1cmr.fd) [1{/Users/awirsin
+>g/.texlive2009/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./Untitled.aux)
+>kpathsea: Running mktexpk --mfmode / --bdpi 600 --mag 0+597/600 --dpi 597 MinionPro-Regular-Base-ab
+>mktexpk: don't know how to create bitmap font for MinionPro-Regular-Base-ab.
+>kpathsea: Appending font creation commands to missfont.log.
+>
+>)
+>!pdfTeX error: /usr/texbin/pdflatex (file MinionPro-Regular-Base-ab): Font Mini
+>onPro-Regular-Base-ab at 597 not found
+> ==> Fatal error occurred, no output PDF file produced!
+>
+>
+>Can anybody help me with this. I almost spent 2 whole days trying to make this work and don't know what else to try.
+>
+>Thanks in advance,
+>A.
+>
+>_______________________________________________
+>Minionpro-devel mailing list
+>Minionpro-devel at lists.berlios.de
+>https://lists.berlios.de/mailman/listinfo/minionpro-devel
+
+
+From awirsing at zedat.fu-berlin.de  Tue Feb 16 22:45:55 2010
+From: awirsing at zedat.fu-berlin.de (Andreas Wirsing)
+Date: Tue, 16 Feb 2010 22:45:55 +0100
+Subject: [Minionpro-devel] Problem with Minion Pro Installation
+In-Reply-To: <20100216210834.GA2679@d630-guibe>
+References: <73B26D2B-5716-44E3-914D-025C70D91AA1@zedat.fu-berlin.de>
+	<20100216210834.GA2679@d630-guibe>
+Message-ID: <32F59D34-55DD-448F-A459-9E0265220BCF@zedat.fu-berlin.de>
+
+On Feb. 16, 2010, at 22:08 , Olivier Guib? wrote:
+
+> Hello
+> 
+> I had a similar problem with Texlive2009 -vanilla installation-
+> on Ubuntu Karmic. Latex+dvips was ok but pdflatex not !
+
+I think, the problem is different. I compiled the below example with plain latex. This resulted at least in a dvi file, but dvips gave a more informative error and no ps file:
+
+This is dvips(k) 5.98 Copyright 2009 Radical Eye Software (www.radicaleye.com)
+' TeX output 2010.02.16:2228' -> Untitled.ps
+
+kpathsea: Running mktexpk --mfmode ljfour --bdpi 600 --mag 0+597/600 --dpi 597 MinionPro-Regular-Base-aa
+mktexpk: don't know how to create bitmap font for MinionPro-Regular-Base-aa.
+kpathsea: Appending font creation commands to missfont.log.
+dvips: Font MinionPro-Regular-Base-aa not found,  using cmr10 instead.
+
+</usr/local/texlive/2009/texmf-dist/fonts/pk/ljfour/public/cm/dpi600/cmr10.pk>
+dvips: Design size mismatch in font MinionPro-Regular-Base-aa
+
+kpathsea: Running mktexpk --mfmode ljfour --bdpi 600 --mag 0+597/600 --dpi 597 MinionPro-Regular-Base-ac
+mktexpk: don't know how to create bitmap font for MinionPro-Regular-Base-ac.
+dvips: Font MinionPro-Regular-Base-ac not found,  using cmr10 instead.
+
+</usr/local/texlive/2009/texmf-dist/fonts/pk/ljfour/public/cm/dpi600/cmr10.pk>
+dvips: Design size mismatch in font MinionPro-Regular-Base-ac
+dvips: ! invalid char 148 from font MinionPro-Regular-Base-aa
+
+> It was a directory problem. Something changed with texlive2009.
+> I copy the files *.enc to
+> /usr/local/texlive/2009/texmf-dist/fonts/enc/dvips/MinionPro/
+> 
+> and I put the MinionPro.map in the texlive/2009/(....) directory
+> and not in the texmf-local.
+> Perhaps it is not complete.
+> Ok it is not very clean, but it works. 
+
+Right.
+I tried this also, but wasn't successful.
+
+>> For this basic tex example:
+>> \documentclass{scrartcl}
+>> \usepackage{MinionPro}
+>> \begin{document}
+>> test
+>> \end{document}
+>> 
+
+
+
+From blumensath at mathematik.tu-darmstadt.de  Wed Feb 17 09:27:57 2010
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Wed, 17 Feb 2010 09:27:57 +0100
+Subject: [Minionpro-devel] Problem with Minion Pro Installation
+In-Reply-To: <73B26D2B-5716-44E3-914D-025C70D91AA1@zedat.fu-berlin.de>
+References: <73B26D2B-5716-44E3-914D-025C70D91AA1@zedat.fu-berlin.de>
+Message-ID: <20100217082757.GB12204@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Andreas Wirsing wrote:
+> sudo updmap-sys --enable Map=MinionPro.map
+> and updated it:
+> sudo updmap-sys
+
+Where did you install the file MinionPro.map?
+What's the output of updmap-sys ?
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: Digital signature
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20100217/ee62de6b/attachment.pgp>
+
+From blumensath at mathematik.tu-darmstadt.de  Wed Feb 17 09:29:08 2010
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Wed, 17 Feb 2010 09:29:08 +0100
+Subject: [Minionpro-devel] Add more glyphs to the encoding
+In-Reply-To: <B527DC41-FE0E-4323-B4B8-1619FB1C8D3A@gmail.com>
+References: <B527DC41-FE0E-4323-B4B8-1619FB1C8D3A@gmail.com>
+Message-ID: <20100217082908.GC12204@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Yan Zhou wrote:
+> I work around this problem by stick to the T1 encoding, but removed
+> all accents (000-012), and moved them to the empty slots in TS1
+> encoding. And then declare new names for them in the TS1 encoding.
+> 
+> Is there any better way to solve this problem?
+
+No, not until there is a TeX engine supporting fonts with more that 256
+glyphs.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: Digital signature
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20100217/bce852c2/attachment.pgp>
+
+From awirsing at zedat.fu-berlin.de  Wed Feb 17 10:26:14 2010
+From: awirsing at zedat.fu-berlin.de (Andreas Wirsing)
+Date: Wed, 17 Feb 2010 10:26:14 +0100
+Subject: [Minionpro-devel] Problem with Minion Pro Installation
+In-Reply-To: <20100217082757.GB12204@mathematik.tu-darmstadt.de>
+References: <73B26D2B-5716-44E3-914D-025C70D91AA1@zedat.fu-berlin.de>
+	<20100217082757.GB12204@mathematik.tu-darmstadt.de>
+Message-ID: <0CB7BBE5-B11C-4EF9-9C5F-764CF2E56292@zedat.fu-berlin.de>
+
+Hello,
+
+On Feb. 17, 2010, at 9:27 , Achim Blumensath wrote:
+> 
+> Where did you install the file MinionPro.map?
+
+./scripts/install installs it in /usr/local/texlive/texmf-local/fonts/map/dvips/MinionPro
+
+> What's the output of updmap-sys ?
+
+updmap: This is updmap, version $Id: updmap 14402 2009-07-23 17:09:15Z karl $
+updmap: using transcript file `/usr/local/texlive/2009/texmf-var/web2c/updmap.log'
+updmap is creating new map files using the following configuration:
+
+  config file: `/usr/local/texlive/2009/texmf-config/web2c/updmap.cfg'
+  dvips output directory: `/usr/local/texlive/2009/texmf-var/fonts/map/dvips/updmap'
+  pdftex output directory: `/usr/local/texlive/2009/texmf-var/fonts/map/pdftex/updmap'
+  dvipdfm output directory: `/usr/local/texlive/2009/texmf-var/fonts/map/dvipdfm/updmap'
+
+  prefer outlines: `true'
+  texhash enabled: `false'
+  download standard fonts (dvips): `false'
+  download standard fonts (pdftex): `true'
+  download standard fonts (dvipdfm): `true'
+
+updmap: scanning for LW35 support files
+updmap: using map file `/usr/local/texlive/2009/texmf/fonts/map/dvips/tetex/dvips35.map'
+updmap: using map file `/usr/local/texlive/2009/texmf/fonts/map/dvips/tetex/pdftex35.map'
+updmap: using map file `/usr/local/texlive/2009/texmf/fonts/map/dvips/tetex/dvipdfm35.map'
+updmap: using map file `/usr/local/texlive/2009/texmf/fonts/map/dvips/tetex/ps2pk35.map'
+
+updmap: Scanning for MixedMap entries:
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/allrunes/allrunes.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/arabtex/arabtex.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/cbfonts/cbgreek-full.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/cc-pl/ccpl.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/cm-super/cm-super-t1.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/cm-super/cm-super-t2a.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/cm-super/cm-super-t2b.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/cm-super/cm-super-t2c.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/cm-super/cm-super-ts1.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/cm-super/cm-super-x2.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/amsfonts/cm.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/amsfonts/cmextra.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/cmll/cmll.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/cm/cmtext-bsr-interpolated.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/cs/csother.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/cs/cstext.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/amsfonts/cyrillic.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/velthuis/dvng.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/esint-type1/esint.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/ethiop-t1/ethiop.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/eurosym/eurosym.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/hfbright/hfbright.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/ibygrk/iby.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/amsfonts/latxfont.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/lxfonts/lxfonts.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/manfnt/manfnt.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/mflogo/mflogo.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/montex/mongolian.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/musixtex/musix.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/pigpen/pigpen.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/pl/plother.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/pl/pltext.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/rsfs/rsfs.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/semaphor/semaf.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/stmaryrd/stmaryrd.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/amsfonts/symbols.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/tipa/tipa.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/trajan/trajan.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/vntex/vnrother.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/vntex/vnrtext.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/wasy/wasy.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/xypic/xypic.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/yhmath/yhmath.map'
+
+updmap: Scanning for Map entries:
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/initials/Acorn.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/initials/AnnSton.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/initials/ArtNouv.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/initials/ArtNouvc.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/initials/Carrickc.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/initials/Eichenla.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/initials/Eileen.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/initials/EileenBl.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/initials/Elzevier.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/initials/GotIn.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/initials/GoudyIn.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/initials/Kinigcap.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/initials/Konanur.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/initials/Kramer.map'
+updmap: using map file `/usr/local/texlive/2009/../texmf-local/fonts/map/dvips/MinionPro/MinionPro.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/mnsymbol/MnSymbol.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/initials/MorrisIn.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/initials/Nouveaud.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/initials/Romantik.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/initials/Rothdn.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/initials/RoyalIn.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/initials/Sanremo.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/skaknew/SkakNew.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/initials/Starburst.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/initials/Typocaps.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/initials/Zallman.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/antp/antp.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/antt/antt.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/arabi/arabi.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/archaic/archaicprw.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/arev/arev.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/vntex/arevvn.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/ascii/ascii.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/augie/augie.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/auncial-new/auncial.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/aurical/aurical.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/belleek/belleek.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/bera/bera.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/arphic/bkaiu.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/arphic/bsmiu.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/burmese/burmese.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/ccicons/ccicons.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/psnfss/charter.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/vntex/chartervn.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/chemarrow/chemarrow.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/ocherokee/cherokee.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/cjhebrew/cjhebrew.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/cm-lgc/cm-lgc.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/vntex/cmbrightvn.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/cmcyr/cmcyr.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/carolmin-ps/cmin.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/vntex/comicvn.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/vntex/concretevn.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/cyklop/cyklop.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/wadalab/dgj.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/dictsym/dictsym.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/wadalab/dmj.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/doublestroke/dstroke.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/epigrafica/epigrafica.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/epiolmec/epiolmec.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/esvect/esvect.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/amsfonts/euler.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/fge/fge.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/inconsolata/fi4.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/foekfont/foekfont.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/fonetika/fonetika.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/fourier/fourier-utopia-expert.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/fourier/fourier.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/psnfss/fpls.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/garuda-c90/garuda-c90.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/arphic/gbsnu.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/gfsartemisia/gfsartemisia.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/gfsbaskerville/gfsbaskerville.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/gfsbodoni/gfsbodoni.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/gfscomplutum/gfscomplutum.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/gfsdidot/gfsdidot.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/gfsneohellenic/gfsneohellenic.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/gfsporson/gfsporson.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/gfssolomos/gfssolomos.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/arphic/gkaiu.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/txfontsb/gptimes.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/vntex/grotesqvn.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/grverb/grverb.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/staves/icelandic.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/iwona/iwona.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/kerkis/kerkis.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/knitting/knitfont.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/kpfonts/kpfonts.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/kurier/kurier.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/lithuanian/l7x-urwvn.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/libertine/libertine.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/linearA/linearA.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/lm/lm.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/marvosym/marvosym.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/wadalab/mc2j.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/wadalab/mcj.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/mathdesign/mdbch.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/mathdesign/mdput.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/mathdesign/mdugm.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/wadalab/mr2j.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/wadalab/mrj.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/pdftex/vntex/mscorevn.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/norasi-c90/norasi-c90.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/oinuit/oinuit.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/omega/omega.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/psnfss/pazo.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/brushscr/pbsi.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/phaistos/phaistos.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/pxfonts/pxfonts.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/tex-gyre/qag.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/tex-gyre/qbk.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/tex-gyre/qcr.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/tex-gyre/qcs.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/tex-gyre/qhv.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/tex-gyre/qpl.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/tex-gyre/qtm.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/tex-gyre/qzc.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/recycle/recycle.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/sanskrit/skt.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/zefonts/slantcm.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/tabvar/tabvar.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/groff/troff-updmap.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/txfonts/txfonts.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/vntex/txttvn.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/antiqua/uaq.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/grotesq/ugq.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/uhc/umj.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/vntex/urwvn.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/psnfss/utopia.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/vntex/vntopia.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/gothic/yfrak.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/libris/yly.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/venturissans/yv1.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/venturis2/yv2.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/venturissans2/yv3.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/venturisold/yvo.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/venturis/yvt.map'
+updmap: using map file `/usr/local/texlive/2009/texmf-dist/fonts/map/dvips/eurofont/zpeu.map'
+
+updmap: Generating output for ps2pk...
+updmap: Generating output for dvips...
+updmap: Generating output for pdftex...
+updmap: Generating output for dvipdfm...
+updmap: All output generated.
+
+
+updmap: Files generated:
+-rw-r--r--  1 root  wheel  221817 Feb 17 10:15 /usr/local/texlive/2009/texmf-var/fonts/map/dvipdfm/updmap/dvipdfm_dl14.map
+-rw-r--r--  1 root  wheel  222444 Feb 17 10:15 /usr/local/texlive/2009/texmf-var/fonts/map/dvipdfm/updmap/dvipdfm_ndl14.map
+-rw-r--r--  1 root  wheel    8931 Feb 17 10:14 /usr/local/texlive/2009/texmf-var/fonts/map/dvips/updmap/builtin35.map
+-rw-r--r--  1 root  wheel   12990 Feb 17 10:14 /usr/local/texlive/2009/texmf-var/fonts/map/dvips/updmap/download35.map
+-rw-r--r--  1 root  wheel  617199 Feb 17 10:14 /usr/local/texlive/2009/texmf-var/fonts/map/dvips/updmap/ps2pk.map
+-rw-r--r--  1 root  wheel  357657 Feb 17 10:14 /usr/local/texlive/2009/texmf-var/fonts/map/dvips/updmap/psfonts_pk.map
+-rw-r--r--  1 root  wheel  613146 Feb 17 10:14 /usr/local/texlive/2009/texmf-var/fonts/map/dvips/updmap/psfonts_t1.map
+-rw-r--r--  1 root  wheel  617206 Feb 17 10:15 /usr/local/texlive/2009/texmf-var/fonts/map/pdftex/updmap/pdftex_dl14.map
+-rw-r--r--  1 root  wheel  615656 Feb 17 10:15 /usr/local/texlive/2009/texmf-var/fonts/map/pdftex/updmap/pdftex_ndl14.map
+
+updmap: Map file links or copies:
+lrwxr-xr-x  1 root  wheel  16 Feb 17 10:15 /usr/local/texlive/2009/texmf-var/fonts/map/dvipdfm/updmap/dvipdfm.map -> dvipdfm_dl14.map
+lrwxr-xr-x  1 root  wheel  14 Feb 17 10:15 /usr/local/texlive/2009/texmf-var/fonts/map/dvips/updmap/psfonts.map -> psfonts_t1.map
+lrwxr-xr-x  1 root  wheel  15 Feb 17 10:15 /usr/local/texlive/2009/texmf-var/fonts/map/pdftex/updmap/pdftex.map -> pdftex_dl14.map
+
+updmap: Done.
+
+
+
+From zhouyan1014 at gmail.com  Wed Feb 17 13:15:32 2010
+From: zhouyan1014 at gmail.com (Yan Zhou)
+Date: Wed, 17 Feb 2010 12:15:32 +0000
+Subject: [Minionpro-devel] Add more glyphs to the encoding
+In-Reply-To: <20100217082908.GC12204@mathematik.tu-darmstadt.de>
+References: <B527DC41-FE0E-4323-B4B8-1619FB1C8D3A@gmail.com>
+	<20100217082908.GC12204@mathematik.tu-darmstadt.de>
+Message-ID: <53E35B9C-379B-4EA7-B785-C7B59E2C7484@gmail.com>
+
+Thanks,
+
+But I have another problem. This solution is not very robust. The supposed behaviour is that, if I input \`A, it should pick up the glyph from the T1, if I input \`\pounds, it should pick the accent from TS1. However, without \UndeclareTextCommand \` form T1 this won't be the real behaviour. \`\pounds will put a ligature in position 000 above \pounds. But if I undeclare \` form T1, and declare the default to TS1, the \`\pounds works correctly, but \`A will produced the accented A rather than the glyph in T1. So I redeclare all the TextComposite commands in T1. This time \`A work correctly but \`\pounds does not work at all. The output says, ... can only be used in preamble..., and no more clue for the problem. 
+
+What I do now is keep the T1 untouched, and declare something like \lowergrave in TS1 and declare it the default. But this mean one has to remember when to use \` and when to use \lowergrave otherwise s/he won't get the right glyphs. In most cases, this is not a problem, since such \`\pounds is not usual among texts. But I wonder is there any more robust way to do this.
+
+On 17 Feb 2010, at 08:29, Achim Blumensath wrote:
+
+> Hello,
+> 
+> Yan Zhou wrote:
+>> I work around this problem by stick to the T1 encoding, but removed
+>> all accents (000-012), and moved them to the empty slots in TS1
+>> encoding. And then declare new names for them in the TS1 encoding.
+>> 
+>> Is there any better way to solve this problem?
+> 
+> No, not until there is a TeX engine supporting fonts with more that 256
+> glyphs.
+> 
+> Achim
+> -- 
+> ________________________________________________________________________
+>                                                              | \_____/ |
+>   Achim Blumensath                                          \O/ \___/\ |
+>   TU Darmstadt                                              =o=  \ /\ \|
+>   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+> ____________________________________________________________________\___|
+> _______________________________________________
+> Minionpro-devel mailing list
+> Minionpro-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/minionpro-devel
+
+
+
+From blumensath at mathematik.tu-darmstadt.de  Wed Feb 17 13:30:45 2010
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Wed, 17 Feb 2010 13:30:45 +0100
+Subject: [Minionpro-devel] Problem with Minion Pro Installation
+In-Reply-To: <0CB7BBE5-B11C-4EF9-9C5F-764CF2E56292@zedat.fu-berlin.de>
+References: <73B26D2B-5716-44E3-914D-025C70D91AA1@zedat.fu-berlin.de>
+	<20100217082757.GB12204@mathematik.tu-darmstadt.de>
+	<0CB7BBE5-B11C-4EF9-9C5F-764CF2E56292@zedat.fu-berlin.de>
+Message-ID: <20100217123045.GF12204@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Andreas Wirsing wrote:
+> updmap: using map file `/usr/local/texlive/2009/../texmf-local/fonts/map/dvips/MinionPro/MinionPro.map'
+
+Ok. So updmap find the map file.
+
+Where did you install the PFB files?
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: Digital signature
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20100217/72925900/attachment.pgp>
+
+From awirsing at zedat.fu-berlin.de  Wed Feb 17 13:40:50 2010
+From: awirsing at zedat.fu-berlin.de (Andreas Wirsing)
+Date: Wed, 17 Feb 2010 13:40:50 +0100
+Subject: [Minionpro-devel] Problem with Minion Pro Installation
+In-Reply-To: <20100217123045.GF12204@mathematik.tu-darmstadt.de>
+References: <73B26D2B-5716-44E3-914D-025C70D91AA1@zedat.fu-berlin.de>
+	<20100217082757.GB12204@mathematik.tu-darmstadt.de>
+	<0CB7BBE5-B11C-4EF9-9C5F-764CF2E56292@zedat.fu-berlin.de>
+	<20100217123045.GF12204@mathematik.tu-darmstadt.de>
+Message-ID: <74FE31C3-3ACA-4D2C-8E11-CD35ACC6B0CB@zedat.fu-berlin.de>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Hello,
+
+On Feb. 17, 2010, at 13:30 , Achim Blumensath wrote:
+
+> Where did you install the PFB files?
+
+(/usr/local/texlive/texmf-local/fonts/type1/adobe/MinionPro)$ ls -al
+total 7584
+drwxr-xr-x  24 root  wheel     816 Feb 17 00:30 .
+drwxr-xr-x   3 root  wheel     102 Jan 29 21:25 ..
+- -rw-r--r--   1 root  wheel  336021 Feb 17 10:10 MinionPro-Bold.pfb
+- -rw-r--r--   1 root  wheel  343659 Feb 17 10:10 MinionPro-BoldCn.pfb
+- -rw-r--r--   1 root  wheel  416375 Feb 17 10:10 MinionPro-BoldCnIt.pfb
+- -rw-r--r--   1 root  wheel       0 Feb 17 10:10 MinionPro-BoldCnItLCDFJ.pfb
+- -rw-r--r--   1 root  wheel       0 Feb 17 10:10 MinionPro-BoldCnLCDFJ.pfb
+- -rw-r--r--   1 root  wheel  419434 Feb 17 10:10 MinionPro-BoldIt.pfb
+- -rw-r--r--   1 root  wheel       0 Feb 17 10:10 MinionPro-BoldItLCDFJ.pfb
+- -rw-r--r--   1 root  wheel       0 Feb 17 10:10 MinionPro-BoldLCDFJ.pfb
+- -rw-r--r--   1 root  wheel  417971 Feb 17 10:10 MinionPro-It.pfb
+- -rw-r--r--   1 root  wheel       0 Feb 17 10:10 MinionPro-ItLCDFJ.pfb
+- -rw-r--r--   1 root  wheel  340848 Feb 17 10:10 MinionPro-Medium.pfb
+- -rw-r--r--   1 root  wheel  411758 Feb 17 10:10 MinionPro-MediumIt.pfb
+- -rw-r--r--   1 root  wheel       0 Feb 17 10:10 MinionPro-MediumItLCDFJ.pfb
+- -rw-r--r--   1 root  wheel       0 Feb 17 10:10 MinionPro-MediumLCDFJ.pfb
+- -rw-r--r--   1 root  wheel  336423 Feb 17 10:10 MinionPro-Regular.pfb
+- -rw-r--r--   1 root  wheel       0 Feb 17 10:10 MinionPro-RegularLCDFJ.pfb
+- -rw-r--r--   1 root  wheel  340531 Feb 17 10:10 MinionPro-Semibold.pfb
+- -rw-r--r--   1 root  wheel  416425 Feb 17 10:10 MinionPro-SemiboldIt.pfb
+- -rw-r--r--   1 root  wheel       0 Feb 17 10:10 MinionPro-SemiboldItLCDFJ.pfb
+- -rw-r--r--   1 root  wheel       0 Feb 17 10:10 MinionPro-SemiboldLCDFJ.pfb
+- -rw-r--r--   1 root  wheel   67646 Feb 17 00:30 MinionStd-Black.pfb
+- -rw-r--r--   1 root  wheel    7771 Feb 17 00:30 MinionStd-BlackLCDFJ.pfb
+
+I just recognize that some of them are empty (see above). Is that a Problem?
+
+Andreas
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.8 (Darwin)
+
+iEYEARECAAYFAkt749IACgkQ2n6+9ocRpdLwVwCgouSnHGxWt/dHyW0t4tDd9pVQ
++nIAoLLL74SDHCy5Jgcr9fwXhevdS0R/
+=jROI
+-----END PGP SIGNATURE-----
+
+
+From blumensath at mathematik.tu-darmstadt.de  Wed Feb 17 16:29:53 2010
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Wed, 17 Feb 2010 16:29:53 +0100
+Subject: [Minionpro-devel] Problem with Minion Pro Installation
+In-Reply-To: <74FE31C3-3ACA-4D2C-8E11-CD35ACC6B0CB@zedat.fu-berlin.de>
+References: <73B26D2B-5716-44E3-914D-025C70D91AA1@zedat.fu-berlin.de>
+	<20100217082757.GB12204@mathematik.tu-darmstadt.de>
+	<0CB7BBE5-B11C-4EF9-9C5F-764CF2E56292@zedat.fu-berlin.de>
+	<20100217123045.GF12204@mathematik.tu-darmstadt.de>
+	<74FE31C3-3ACA-4D2C-8E11-CD35ACC6B0CB@zedat.fu-berlin.de>
+Message-ID: <20100217152953.GG12204@mathematik.tu-darmstadt.de>
+
+Hello,
+
+I just noticed that pdflatex uses a local map file:
+
+/Users/awirsing/.texlive2009/texmf-var/fonts/map/pdftex/updmap/pdftex.map
+
+In addition to the updmap-sys calls, you should also run the same
+commands with updmap.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: Digital signature
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20100217/76aaf7c7/attachment.pgp>
+
+From awirsing at zedat.fu-berlin.de  Wed Feb 17 18:36:44 2010
+From: awirsing at zedat.fu-berlin.de (Andreas Wirsing)
+Date: Wed, 17 Feb 2010 18:36:44 +0100
+Subject: [Minionpro-devel] Problem with Minion Pro Installation
+In-Reply-To: <20100217152953.GG12204@mathematik.tu-darmstadt.de>
+References: <73B26D2B-5716-44E3-914D-025C70D91AA1@zedat.fu-berlin.de>
+	<20100217082757.GB12204@mathematik.tu-darmstadt.de>
+	<0CB7BBE5-B11C-4EF9-9C5F-764CF2E56292@zedat.fu-berlin.de>
+	<20100217123045.GF12204@mathematik.tu-darmstadt.de>
+	<74FE31C3-3ACA-4D2C-8E11-CD35ACC6B0CB@zedat.fu-berlin.de>
+	<20100217152953.GG12204@mathematik.tu-darmstadt.de>
+Message-ID: <2F569F13-5C8A-4644-97C0-5C866D2887AE@zedat.fu-berlin.de>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Hello,
+
+> In addition to the updmap-sys calls, you should also run the same
+> commands with updmap.
+
+Great. This solved the problem. Everything's ok now. Thank you very much, I wouldn't have found this solution on my own.
+Also the \epsilon is now pdfed.
+
+Andreas
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.8 (Darwin)
+
+iEYEARECAAYFAkt8KSwACgkQ2n6+9ocRpdI3VACglcMc6+RHHsMkj2OK7OcRzI4X
+uAYAn1Afkn4aIKZ0uuCxvFCFL5bIei2r
+=cpbo
+-----END PGP SIGNATURE-----
+
+

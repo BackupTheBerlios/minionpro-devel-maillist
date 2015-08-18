@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Minionpro-devel] Something has changed
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/minionpro-devel/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20Something%20has%20changed&In-Reply-To=%3C6A67E76A-3F2E-4922-8301-8F7D2089BE6C%40tum.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000118.html">
+   <LINK REL="Next"  HREF="000120.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Minionpro-devel] Something has changed</H1>
+    <B>Michael Zedler</B> 
+    <A HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20Something%20has%20changed&In-Reply-To=%3C6A67E76A-3F2E-4922-8301-8F7D2089BE6C%40tum.de%3E"
+       TITLE="[Minionpro-devel] Something has changed">michael.zedler at tum.de
+       </A><BR>
+    <I>Thu Apr  5 13:50:35 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000118.html">[Minionpro-devel] Something has changed
+</A></li>
+        <LI>Next message: <A HREF="000120.html">[Minionpro-devel] Something has changed
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#119">[ date ]</a>
+              <a href="thread.html#119">[ thread ]</a>
+              <a href="subject.html#119">[ subject ]</a>
+              <a href="author.html#119">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Am 05.04.2007 um 13:03 schrieb Marco Kuhlmann:
+
+&gt;<i> Am 2007&#8211;04&#8211;05 um 12:12 schrieb Christoph Bier:
+</I>&gt;<i>
+</I>&gt;&gt;<i> Now I made a diff of the log files to send to this list and found
+</I>&gt;&gt;<i> that there were no hyphenation patterns loaded for ngerman. The
+</I>&gt;&gt;<i> TeXLive installation seems to be broken:
+</I>&gt;<i>
+</I>&gt;<i> Nice hint! I changed my document to use ukenglish instead of british
+</I>&gt;<i> as an option for babel, and get different hyphenations, even though
+</I>&gt;<i> (according to the babel documentation) the two options should be
+</I>&gt;<i> equivalent.
+</I>
+One has to bear in mind that the new metrics are all generated from  
+font version 2.000, so they may differ from the v1.00x ones slightly.
+I just tested on a miktex 2.5 system with MnSymbol 1.4 a 750 pages book
+  1) a setup with the old MinionPro release (v1001 metrics)
+  2) RC 3 (v2000 metrics)
+result: one different page break on one page, but I didn't spot a  
+single different line break.
+
+Inspecting
+   otftotfm -e ../enc/mn-t1.enc -p -fkern -fliga ../../fonts/otf/ 
+MinionPro/v2000/MinionPro-Regular.otf stand2000
+   otftotfm -e ../enc/mn-t1.enc -p -fkern -fliga ../../fonts/otf/ 
+MinionPro/v1001/MinionPro-Regular.otf stand1001
+   otftotfm -e ../enc/mn-t1.enc -p -fkern -fliga ../../fonts/otf/ 
+MinionPro/v1000/MinionPro-Regular.otf stand1000
+
+and then diffing the vpl there is no difference in CHARWD in 2000 and  
+1001, just a few between 2000 and 1000. But CHARHT/CHARDP do vary in  
+many cases (but only very slightly).
+
+Michael
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000118.html">[Minionpro-devel] Something has changed
+</A></li>
+	<LI>Next message: <A HREF="000120.html">[Minionpro-devel] Something has changed
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#119">[ date ]</a>
+              <a href="thread.html#119">[ thread ]</a>
+              <a href="subject.html#119">[ subject ]</a>
+              <a href="author.html#119">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/minionpro-devel">More information about the Minionpro-devel
+mailing list</a><br>
+</body></html>

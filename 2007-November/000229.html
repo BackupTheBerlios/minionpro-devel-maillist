@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Minionpro-devel] Using MnSymbol arrows as binary operators (with proper spacing)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/minionpro-devel/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20Using%20MnSymbol%20arrows%20as%20binary%20operators%0A%20%28with%20proper%20spacing%29&In-Reply-To=%3CPine.LNX.4.58.0711061050500.11564%40fireball.cs.umd.edu%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000228.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Minionpro-devel] Using MnSymbol arrows as binary operators (with proper spacing)</H1>
+    <B>Vasile Gaburici</B> 
+    <A HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20Using%20MnSymbol%20arrows%20as%20binary%20operators%0A%20%28with%20proper%20spacing%29&In-Reply-To=%3CPine.LNX.4.58.0711061050500.11564%40fireball.cs.umd.edu%3E"
+       TITLE="[Minionpro-devel] Using MnSymbol arrows as binary operators (with proper spacing)">gaburici at cs.umd.edu
+       </A><BR>
+    <I>Tue Nov  6 17:13:16 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000228.html">[Minionpro-devel] Using MnSymbol arrows as binary operators	(with proper spacing)
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#229">[ date ]</a>
+              <a href="thread.html#229">[ thread ]</a>
+              <a href="subject.html#229">[ subject ]</a>
+              <a href="author.html#229">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+	Thanks for the tip. It looks like the space is not equal on both
+sides so \mathbin{\mkern-1mu\sevdash\mkern-3mu} looks better; it aligns
+with \sqcup almost perfectly. Previously I was using \mathbin{\sevdash}\!,
+but putting the \mkern inside \mathbin gives better alignment.
+
+	Thanks,
+	Vasile Gaburici
+
+On Tue, 6 Nov 2007, Achim Blumensath wrote:
+
+&gt;<i> Date: Tue, 6 Nov 2007 14:07:09 +0100
+</I>&gt;<i> From: Achim Blumensath &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/minionpro-devel">blumensath at mathematik.tu-darmstadt.de</A>&gt;
+</I>&gt;<i> Reply-To: <A HREF="https://lists.berlios.de/mailman/listinfo/minionpro-devel">minionpro-devel at lists.berlios.de</A>
+</I>&gt;<i> To: <A HREF="https://lists.berlios.de/mailman/listinfo/minionpro-devel">minionpro-devel at lists.berlios.de</A>
+</I>&gt;<i> Subject: Re: [Minionpro-devel] Using MnSymbol arrows as binary operators
+</I>&gt;<i>     (with proper spacing)
+</I>&gt;<i>
+</I>&gt;<i> Hello,
+</I>&gt;<i>
+</I>&gt;<i> Vasile Gaburici wrote:
+</I>&gt;<i> &gt; 	I'm trying to use \sevdash as binary operator because it looks
+</I>&gt;<i> &gt; good as set-difference-like operator along with \sqcup and \sqcap.
+</I>&gt;<i> [...]
+</I>&gt;<i> &gt; 	The trouble is that even if I use \mathbin{\sevdash}, I still get
+</I>&gt;<i> &gt; more spacing around it than the predefined binary operators get.
+</I>&gt;<i>
+</I>&gt;<i> You could try
+</I>&gt;<i>
+</I>&gt;<i>   \mathbin{\mkern-2mu\sevdash\mkern-2mu}
+</I>&gt;<i>
+</I>&gt;<i> (adjust the -2 until the spacing is right).
+</I>&gt;<i>
+</I>&gt;<i> Achim
+</I>&gt;<i> --
+</I>&gt;<i> ________________________________________________________________________
+</I>&gt;<i>                                                               | \_____/ |
+</I>&gt;<i>    Achim Blumensath                                          \O/ \___/\ |
+</I>&gt;<i>    TU Darmstadt                                              =o=  \ /\ \|
+</I>&gt;<i>    www.mathematik.tu-darmstadt.de/~blumensath                /&quot;\   o----|
+</I>&gt;<i> ____________________________________________________________________\___|
+</I>&gt;<i>
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000228.html">[Minionpro-devel] Using MnSymbol arrows as binary operators	(with proper spacing)
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#229">[ date ]</a>
+              <a href="thread.html#229">[ thread ]</a>
+              <a href="subject.html#229">[ subject ]</a>
+              <a href="author.html#229">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/minionpro-devel">More information about the Minionpro-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Minionpro-devel] MinionPro 2.1 rc3
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/minionpro-devel/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20MinionPro%202.1%20rc3&In-Reply-To=%3C461D85CE.4090508%40cs.ucla.edu%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000113.html">
+   <LINK REL="Next"  HREF="000125.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Minionpro-devel] MinionPro 2.1 rc3</H1>
+    <B>Eddie Kohler</B> 
+    <A HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20MinionPro%202.1%20rc3&In-Reply-To=%3C461D85CE.4090508%40cs.ucla.edu%3E"
+       TITLE="[Minionpro-devel] MinionPro 2.1 rc3">kohler at cs.ucla.edu
+       </A><BR>
+    <I>Thu Apr 12 03:05:18 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000113.html">[Minionpro-devel] Math fonts from MinionPro Sources
+</A></li>
+        <LI>Next message: <A HREF="000125.html">[Minionpro-devel] Voss' mathmode
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#123">[ date ]</a>
+              <a href="thread.html#123">[ thread ]</a>
+              <a href="subject.html#123">[ subject ]</a>
+              <a href="author.html#123">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Andreas,
+
+Thanks for this bug report, which is fixed in 2.62.  Simple fix: I 
+downgraded the &quot;--unicoding command&quot; message from an error to a warning.
+
+2.62 also has a more significant fix.  The t1dotlessj program previously 
+generated fonts with bad UniqueID values, the same as the input font. 
+This can produce some real problems with older printers.  The new 
+version is smarter.  I'd recommend using it.
+
+Eddie
+
+
+Andreas B&#252;hmann wrote:
+&gt;<i> * Sebastian Schubert &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/minionpro-devel">sebastian-schubert at gmx.de</A>&gt;:
+</I>&gt;&gt;<i> mktexpk: don't know how to create bitmap font for
+</I>&gt;&gt;<i> MinionPro-Regular-osf-lgr--base.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  cat MinionPro.map | grep lgr
+</I>&gt;&gt;<i> gives nothing (just a guess).
+</I>&gt;<i> 
+</I>&gt;<i> I can confirm that the map lines are missing from MinionPro.map. This
+</I>&gt;<i> seems to be due to a bug in otftotfm 2.61: I was able to reduce the
+</I>&gt;<i> otftotfm calls that generate the lgr fonts to the following mininum:
+</I>&gt;<i> 
+</I>&gt;<i>   otftotfm 'otf/MinionPro-Regular.otf' 'without-unicoding'
+</I>&gt;<i>   otftotfm --unicoding 'does.not.exist =: foo' 'otf/MinionPro-Regular.otf' 'with-unicoding'
+</I>&gt;<i> 
+</I>&gt;<i> Only the first call outputs a map line, the second one does not (while
+</I>&gt;<i> they produce identical TFM files):
+</I>&gt;<i> 
+</I>&gt;<i> otftotfm: warning: no encoding provided
+</I>&gt;<i> otftotfm: (Use '-e ENCODING' to choose an encoding. '-e texnansx' often works,
+</I>&gt;<i> otftotfm: or say '-e -' to turn off this warning.)
+</I>&gt;<i> I had to round some heights by 15.5000000 units.
+</I>&gt;<i> I had to round some depths by 4.5000000 units.
+</I>&gt;<i> without-unicoding MinionPro-Regular &quot;AutoEnc_qglvkfpwsrmnwkwmuoclaw4ysc ReEncodeFont&quot; &lt;[a_qglvkf.enc &lt;MinionPro-Regular.pfb
+</I>&gt;<i> otftotfm: warning: no encoding provided
+</I>&gt;<i> otftotfm: (Use '-e ENCODING' to choose an encoding. '-e texnansx' often works,
+</I>&gt;<i> otftotfm: or say '-e -' to turn off this warning.)
+</I>&gt;<i> otftotfm: --unicoding command: target 'does.not.exist' has no encoding, ignoring UNICODING
+</I>&gt;<i> I had to round some heights by 15.5000000 units.
+</I>&gt;<i> I had to round some depths by 4.5000000 units.
+</I>&gt;<i> 
+</I>&gt;<i> I am sending a copy of this mail to Eddie Kohler, the developer of
+</I>&gt;<i> otftotfm.
+</I>&gt;<i> 
+</I>&gt;<i> Thanks for the bug report. Regards,
+</I>&gt;<i> 
+</I>&gt;<i> Andreas
+</I>&gt;<i> 
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000113.html">[Minionpro-devel] Math fonts from MinionPro Sources
+</A></li>
+	<LI>Next message: <A HREF="000125.html">[Minionpro-devel] Voss' mathmode
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#123">[ date ]</a>
+              <a href="thread.html#123">[ thread ]</a>
+              <a href="subject.html#123">[ subject ]</a>
+              <a href="author.html#123">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/minionpro-devel">More information about the Minionpro-devel
+mailing list</a><br>
+</body></html>

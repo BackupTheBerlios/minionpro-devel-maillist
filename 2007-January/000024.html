@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Minionpro-devel] math bold: eb -&gt; b?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/minionpro-devel/2007-January/index.html" >
+   <LINK REL="made" HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20math%20bold%3A%20eb%20-%3E%20b%3F&In-Reply-To=%3C45B8FBB2.6040809%40tum.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000014.html">
+   <LINK REL="Next"  HREF="000025.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Minionpro-devel] math bold: eb -&gt; b?</H1>
+    <B>Michael Zedler</B> 
+    <A HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20math%20bold%3A%20eb%20-%3E%20b%3F&In-Reply-To=%3C45B8FBB2.6040809%40tum.de%3E"
+       TITLE="[Minionpro-devel] math bold: eb -&gt; b?">michael.zedler at tum.de
+       </A><BR>
+    <I>Thu Jan 25 19:49:22 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000014.html">[Minionpro-devel] math bold: eb -&gt; b?
+</A></li>
+        <LI>Next message: <A HREF="000025.html">[Minionpro-devel] math bold: eb -&gt; b?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#24">[ date ]</a>
+              <a href="thread.html#24">[ thread ]</a>
+              <a href="subject.html#24">[ subject ]</a>
+              <a href="author.html#24">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Sebastian Schubert schrieb:
+&gt;<i> Hi,
+</I>&gt;<i> 
+</I>&gt;<i> What do you think of printing bold math using semibold not bold?  If I
+</I>&gt;<i> have math included in the headlines I like to have it some kind of bold
+</I>&gt;<i> as well.  \boldmath uses bold in opposite to semibold of the headline
+</I>&gt;<i> which looks strange.  So a bold=eb would solve this problem.  If one
+</I>&gt;<i> needs a bolder math symbol (eg in the headlines) there is still eb.
+</I>&gt;<i> Unfortunately, bm seems to still use eb.
+</I>
+How about
+
+\documentclass{scrbook}
+\usepackage[fullfamily,opticals]{MinionPro}
+\addtokomafont{sectioning}{\rmfamily\mathversion{sbold}}
+\makeatletter
+   \DeclareMathVersion{sbold}
+   \SetSymbolFont{operators}{sbold}{T1} {\<A HREF="https://lists.berlios.de/mailman/listinfo/minionpro-devel">Mn at Math</A>@Family}{b}{n}
+   \SetSymbolFont{letters}  {sbold}{OML}{MinionPro-OsF} 
+{b}{\<A HREF="https://lists.berlios.de/mailman/listinfo/minionpro-devel">Mn at Math</A>@LetterShape}
+   \SetMathAlphabet\mathit  {sbold}{T1} {\<A HREF="https://lists.berlios.de/mailman/listinfo/minionpro-devel">Mn at Math</A>@Family}{b}{it}
+\makeatother
+\SetSymbolFont{MnSyA}       {sbold}{U}  {MnSymbolA}{b}{n}
+\SetSymbolFont{MnSyB}       {sbold}{U}  {MnSymbolB}{b}{n}
+\SetSymbolFont{MnSyC}       {sbold}{U}  {MnSymbolC}{b}{n}
+\SetSymbolFont{MnSyD}       {sbold}{U}  {MnSymbolD}{b}{n}
+\SetSymbolFont{largesymbols}{sbold}{OMX}{MnSymbolE}{b}{n}
+\SetSymbolFont{symbols}     {sbold}{U}  {MnSymbolF}{b}{n}
+
+\begin{document}
+   \chapter{Hallo $a=b$}
+   Hallo
+\end{document}
+
+Michael
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000014.html">[Minionpro-devel] math bold: eb -&gt; b?
+</A></li>
+	<LI>Next message: <A HREF="000025.html">[Minionpro-devel] math bold: eb -&gt; b?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#24">[ date ]</a>
+              <a href="thread.html#24">[ thread ]</a>
+              <a href="subject.html#24">[ subject ]</a>
+              <a href="author.html#24">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/minionpro-devel">More information about the Minionpro-devel
+mailing list</a><br>
+</body></html>

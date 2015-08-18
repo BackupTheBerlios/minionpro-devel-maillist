@@ -1,0 +1,195 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Minionpro-devel] Problem with Minion Pro Installation
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/minionpro-devel/2010-February/index.html" >
+   <LINK REL="made" HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20Problem%20with%20Minion%20Pro%20Installation&In-Reply-To=%3C20100216210834.GA2679%40d630-guibe%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000335.html">
+   <LINK REL="Next"  HREF="000337.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Minionpro-devel] Problem with Minion Pro Installation</H1>
+    <B>Olivier Guib&#233;</B> 
+    <A HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20Problem%20with%20Minion%20Pro%20Installation&In-Reply-To=%3C20100216210834.GA2679%40d630-guibe%3E"
+       TITLE="[Minionpro-devel] Problem with Minion Pro Installation">Olivier.Guibe at univ-rouen.fr
+       </A><BR>
+    <I>Tue Feb 16 22:08:34 CET 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000335.html">[Minionpro-devel] Problem with Minion Pro Installation
+</A></li>
+        <LI>Next message: <A HREF="000337.html">[Minionpro-devel] Problem with Minion Pro Installation
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#336">[ date ]</a>
+              <a href="thread.html#336">[ thread ]</a>
+              <a href="subject.html#336">[ subject ]</a>
+              <a href="author.html#336">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello
+
+I had a similar problem with Texlive2009 -vanilla installation-
+on Ubuntu Karmic. Latex+dvips was ok but pdflatex not !
+I tried a latex document with lmodern and a second one with MinionPro
+to understand.
+It was a directory problem. Something changed with texlive2009.
+I copy the files *.enc to
+/usr/local/texlive/2009/texmf-dist/fonts/enc/dvips/MinionPro/
+
+and I put the MinionPro.map in the texlive/2009/(....) directory
+and not in the texmf-local.
+Perhaps it is not complete.
+Ok it is not very clean, but it works. 
+
+
+
+O.G.
+
+On Tue, Feb 16, 2010 at 06:13:46PM +0100, Andreas Wirsing wrote:
+&gt;<i>Date: Tue, 16 Feb 2010 18:13:46 +0100
+</I>&gt;<i>From: Andreas Wirsing &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/minionpro-devel">awirsing at zedat.fu-berlin.de</A>&gt;
+</I>&gt;<i>To: <A HREF="https://lists.berlios.de/mailman/listinfo/minionpro-devel">minionpro-devel at lists.berlios.de</A>
+</I>&gt;<i>Subject: [Minionpro-devel] Problem with Minion Pro Installation
+</I>&gt;<i>X-Mailer: Apple Mail (2.1077)
+</I>&gt;<i>
+</I>&gt;<i>Hello,
+</I>&gt;<i>
+</I>&gt;<i>I use TeXLive 2009 (MacTeX-2009) on Mac OS X.6.
+</I>&gt;<i>I recently installed Minion Pro according to the installing proscedure described here:
+</I>&gt;<i><A HREF="http://www.ctan.org/tex-archive/fonts/minionpro/">http://www.ctan.org/tex-archive/fonts/minionpro/</A>
+</I>&gt;<i>But then I discovered that the \epsilon in the math environment was missing when compiled with pdflatex. This issue has been reported before:
+</I>&gt;<i><A HREF="http://www.meinews.net/minionpro-t409793.html">http://www.meinews.net/minionpro-t409793.html</A>
+</I>&gt;<i>(I used the same Minion Pro fonts as described in that thread.
+</I>&gt;<i>otfinfo -v MinionPro-It.otf
+</I>&gt;<i>Version 2.030;PS 2.000;hotconv 1.0.51;makeotf.lib2.0.18671)
+</I>&gt;<i>I have also these Minion Pro fonts on my system:
+</I>&gt;<i>Version 2.015;PS 002.000;Core 1.0.38;makeotf.lib1.7.9032
+</I>&gt;<i>Version 2.012;PS 002.000;Core 1.0.38;makeotf.lib1.6.6565 (only the base metrics)
+</I>&gt;<i>Trying to install Version 2.015 was also not successful for some reason.
+</I>&gt;<i>So I decided to try to install again the 2.030 Version according to this procedure:
+</I>&gt;<i><A HREF="https://lists.berlios.de/pipermail/minionpro-devel/2008-July/000268.html">https://lists.berlios.de/pipermail/minionpro-devel/2008-July/000268.html</A>
+</I>&gt;<i>although I downloaded the latest versions of maketfm and glyph-list-2.030 from here:
+</I>&gt;<i><A HREF="http://cvs.berlios.de/cgi-bin/viewvc.cgi/minionpro/MinionPro/scripts/">http://cvs.berlios.de/cgi-bin/viewvc.cgi/minionpro/MinionPro/scripts/</A>
+</I>&gt;<i>and used the command:
+</I>&gt;<i>sudo ./scripts/makeall --nodotlessj --pack=./scripts/glyph-list-2.030
+</I>&gt;<i>I got these warnings several times:
+</I>&gt;<i>Warning: missing glyph `hookrightchar'.
+</I>&gt;<i>Warning: missing glyph `hookleftchar'.
+</I>&gt;<i>But everything seemed to be ok.
+</I>&gt;<i>Then I installed them with:
+</I>&gt;<i>sudo ./scripts/install
+</I>&gt;<i>added MinionPro.map to updmap.cfg:
+</I>&gt;<i>sudo updmap-sys --enable Map=MinionPro.map
+</I>&gt;<i>and updated it:
+</I>&gt;<i>sudo updmap-sys
+</I>&gt;<i>
+</I>&gt;<i>For this basic tex example:
+</I>&gt;<i>\documentclass{scrartcl}
+</I>&gt;<i>\usepackage{MinionPro}
+</I>&gt;<i>\begin{document}
+</I>&gt;<i>test
+</I>&gt;<i>\end{document}
+</I>&gt;<i>
+</I>&gt;<i>I got this log file:
+</I>&gt;<i>This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009)
+</I>&gt;<i> \write18 enabled.
+</I>&gt;<i>entering extended mode
+</I>&gt;<i>(./Untitled.tex
+</I>&gt;<i>LaTeX2e &lt;2009/09/24&gt;
+</I>&gt;<i>Babel &lt;v3.8l&gt; and hyphenation patterns for english, usenglishmax, dumylang, noh
+</I>&gt;<i>yphenation, german-x-2009-06-19, ngerman-x-2009-06-19, ancientgreek, ibycus, ar
+</I>&gt;<i>abic, basque, bulgarian, catalan, pinyin, coptic, croatian, czech, danish, dutc
+</I>&gt;<i>h, esperanto, estonian, farsi, finnish, french, galician, german, ngerman, mono
+</I>&gt;<i>greek, greek, hungarian, icelandic, indonesian, interlingua, irish, italian, ku
+</I>&gt;<i>rmanji, latin, latvian, lithuanian, mongolian, mongolian2a, bokmal, nynorsk, po
+</I>&gt;<i>lish, portuguese, romanian, russian, sanskrit, serbian, slovak, slovenian, span
+</I>&gt;<i>ish, swedish, turkish, ukenglish, ukrainian, uppersorbian, welsh, loaded.
+</I>&gt;<i>(/usr/local/texlive/2009/texmf-dist/tex/latex/koma-script/scrartcl.cls
+</I>&gt;<i>Document Class: scrartcl 2009/07/24 v3.04a KOMA-Script document class (article)
+</I>&gt;<i>
+</I>&gt;<i>(/usr/local/texlive/2009/texmf-dist/tex/latex/koma-script/scrkbase.sty
+</I>&gt;<i>(/usr/local/texlive/2009/texmf-dist/tex/latex/koma-script/scrbase.sty
+</I>&gt;<i>(/usr/local/texlive/2009/texmf-dist/tex/latex/graphics/keyval.sty)
+</I>&gt;<i>(/usr/local/texlive/2009/texmf-dist/tex/latex/koma-script/scrlfile.sty
+</I>&gt;<i>Package scrlfile, 2009/03/25 v3.03 KOMA-Script package (loading files)
+</I>&gt;<i>                  Copyright (C) Markus Kohm
+</I>&gt;<i>
+</I>&gt;<i>))) (/usr/local/texlive/2009/texmf-dist/tex/latex/koma-script/tocbasic.sty)
+</I>&gt;<i>(/usr/local/texlive/2009/texmf-dist/tex/latex/koma-script/scrsize11pt.clo)
+</I>&gt;<i>(/usr/local/texlive/2009/texmf-dist/tex/latex/koma-script/typearea.sty
+</I>&gt;<i>Package typearea, 2009/07/24 v3.04a KOMA-Script package (type area)
+</I>&gt;<i>                  Copyright (C) Frank Neukam, 1992-1994
+</I>&gt;<i>                  Copyright (C) Markus Kohm, 1994-
+</I>&gt;<i>
+</I>&gt;<i>)) (/usr/local/texlive/2009/../texmf-local/tex/latex/MinionPro/MinionPro.sty
+</I>&gt;<i>(/usr/local/texlive/2009/../texmf-local/tex/latex/MinionPro/MinionPro-FontDef.s
+</I>&gt;<i>ty (/usr/local/texlive/2009/../texmf-local/tex/latex/MinionPro/otfontdef.sty))
+</I>&gt;<i>(/usr/local/texlive/2009/texmf-dist/tex/latex/base/textcomp.sty
+</I>&gt;<i>(/usr/local/texlive/2009/texmf-dist/tex/latex/base/ts1enc.def))
+</I>&gt;<i>(/usr/local/texlive/2009/texmf-dist/tex/latex/mnsymbol/MnSymbol.sty
+</I>&gt;<i>(/usr/local/texlive/2009/texmf-dist/tex/latex/amsmath/amsmath.sty
+</I>&gt;<i>For additional information on amsmath, use the `?' option.
+</I>&gt;<i>(/usr/local/texlive/2009/texmf-dist/tex/latex/amsmath/amstext.sty
+</I>&gt;<i>(/usr/local/texlive/2009/texmf-dist/tex/latex/amsmath/amsgen.sty))
+</I>&gt;<i>(/usr/local/texlive/2009/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+</I>&gt;<i>(/usr/local/texlive/2009/texmf-dist/tex/latex/amsmath/amsopn.sty))
+</I>&gt;<i>(/usr/local/texlive/2009/texmf-dist/tex/latex/amsfonts/eufrak.sty))
+</I>&gt;<i>(/usr/local/texlive/2009/../texmf-local/tex/latex/MinionPro/fontaxes.sty)
+</I>&gt;<i>(/usr/local/texlive/2009/../texmf-local/tex/latex/MinionPro/OT1MinionPro-OsF.fd
+</I>&gt;<i>
+</I>&gt;<i>(/usr/local/texlive/2009/../texmf-local/tex/latex/MinionPro/MinionPro-FontDef.s
+</I>&gt;<i>ty))) (./Untitled.aux)
+</I>&gt;<i>(/usr/local/texlive/2009/texmf-dist/tex/latex/base/ts1cmr.fd) [1{/Users/awirsin
+</I>&gt;<i>g/.texlive2009/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./Untitled.aux)
+</I>&gt;<i>kpathsea: Running mktexpk --mfmode / --bdpi 600 --mag 0+597/600 --dpi 597 MinionPro-Regular-Base-ab
+</I>&gt;<i>mktexpk: don't know how to create bitmap font for MinionPro-Regular-Base-ab.
+</I>&gt;<i>kpathsea: Appending font creation commands to missfont.log.
+</I>&gt;<i>
+</I>&gt;<i>)
+</I>&gt;<i>!pdfTeX error: /usr/texbin/pdflatex (file MinionPro-Regular-Base-ab): Font Mini
+</I>&gt;<i>onPro-Regular-Base-ab at 597 not found
+</I>&gt;<i> ==&gt; Fatal error occurred, no output PDF file produced!
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>Can anybody help me with this. I almost spent 2 whole days trying to make this work and don't know what else to try.
+</I>&gt;<i>
+</I>&gt;<i>Thanks in advance,
+</I>&gt;<i>A.
+</I>&gt;<i>
+</I>&gt;<i>_______________________________________________
+</I>&gt;<i>Minionpro-devel mailing list
+</I>&gt;<i><A HREF="https://lists.berlios.de/mailman/listinfo/minionpro-devel">Minionpro-devel at lists.berlios.de</A>
+</I>&gt;<i><A HREF="https://lists.berlios.de/mailman/listinfo/minionpro-devel">https://lists.berlios.de/mailman/listinfo/minionpro-devel</A>
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000335.html">[Minionpro-devel] Problem with Minion Pro Installation
+</A></li>
+	<LI>Next message: <A HREF="000337.html">[Minionpro-devel] Problem with Minion Pro Installation
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#336">[ date ]</a>
+              <a href="thread.html#336">[ thread ]</a>
+              <a href="subject.html#336">[ subject ]</a>
+              <a href="author.html#336">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/minionpro-devel">More information about the Minionpro-devel
+mailing list</a><br>
+</body></html>

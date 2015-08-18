@@ -1,0 +1,1436 @@
+From blumensath at mathematik.tu-darmstadt.de  Wed Aug  5 16:03:17 2009
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Wed, 5 Aug 2009 16:03:17 +0200
+Subject: [Minionpro-devel] Error with lcdf typetools 2.79, not with 2.69
+In-Reply-To: <200907302239.14293.schubert.seb@googlemail.com>
+References: <200907302239.14293.schubert.seb@googlemail.com>
+Message-ID: <20090805140317.GE31266@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Sebastian Schubert wrote:
+> I recently used the cvs sources. When using lcdf typetools 2.69
+> everything is fine, with 2.79 I get an error, though.
+
+Sorry, for the late reply. Thanks for the report.
+I planned to take a look immediately, but I didn't manage to find the
+time yet.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: Digital signature
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20090805/ebfc2683/attachment.pgp>
+
+From lev.bishop+minio at gmail.com  Fri Aug  7 08:24:31 2009
+From: lev.bishop+minio at gmail.com (Lev Bishop)
+Date: Fri, 7 Aug 2009 02:24:31 -0400
+Subject: [Minionpro-devel] \textasteriskcentered not actually centered
+In-Reply-To: <ba40711f0908062310o7f5a67e8t793816996802c2c2@mail.gmail.com>
+References: <ba40711f0908062310o7f5a67e8t793816996802c2c2@mail.gmail.com>
+Message-ID: <ba40711f0908062324w3f223e6bjdbe2d733c186b68c@mail.gmail.com>
+
+The \textasteriskcentered is not actually centered. This is a problem
+because when you use it as a footnote symbol it gets superscripted
+again, ending up with a very small footnote symbol. This happens for
+example if you \usepackage{fixltx2e}.
+
+Also, on the topic of asterisks, is there any chance to get
+six-pointed asterisks added to MnSymbol? Maybe with a package option
+to choose those instead. I personally find the 5-pointed version quite
+ugly (it's the only symbol I've used from MinionPro / MnSymbol that I
+really wanted to replace -- everything else is quite tasteful). I have
+a problem with 5-pointed asterisks in general (they seem too
+lightweight somehow) and the Minion ones are especially ugly (to my
+mind) because they're not even symmetrical, being slightly rotated to
+the right. This applies to the MinionPro asterisk as well as the
+MnSymbol $*$, $\oast$, $\bigoast$ etc.
+
+Thanks,
+
+Lev Bishop
+
+
+From blumensath at mathematik.tu-darmstadt.de  Fri Aug  7 11:43:04 2009
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Fri, 7 Aug 2009 11:43:04 +0200
+Subject: [Minionpro-devel] \textasteriskcentered not actually centered
+In-Reply-To: <ba40711f0908062324w3f223e6bjdbe2d733c186b68c@mail.gmail.com>
+References: <ba40711f0908062310o7f5a67e8t793816996802c2c2@mail.gmail.com>
+	<ba40711f0908062324w3f223e6bjdbe2d733c186b68c@mail.gmail.com>
+Message-ID: <20090807094304.GC1255@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Lev Bishop wrote:
+> The \textasteriskcentered is not actually centered. This is a problem
+> because when you use it as a footnote symbol it gets superscripted
+> again, ending up with a very small footnote symbol. This happens for
+> example if you \usepackage{fixltx2e}.
+
+For a quick fix, you could define
+
+  \renewcommand\textasteriskcentered{$*$}
+
+> Also, on the topic of asterisks, is there any chance to get
+> six-pointed asterisks added to MnSymbol?
+
+Sorry, no. The five-pointed version was the choice of the designer of
+MinionPro. As far as I remember, this is typical for renaissance fonts.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: Digital signature
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20090807/fc4ed512/attachment.pgp>
+
+From lev.bishop+minio at gmail.com  Fri Aug  7 12:41:28 2009
+From: lev.bishop+minio at gmail.com (Lev Bishop)
+Date: Fri, 7 Aug 2009 06:41:28 -0400
+Subject: [Minionpro-devel] \textasteriskcentered not actually centered
+In-Reply-To: <20090807094304.GC1255@mathematik.tu-darmstadt.de>
+References: <ba40711f0908062310o7f5a67e8t793816996802c2c2@mail.gmail.com>
+	<ba40711f0908062324w3f223e6bjdbe2d733c186b68c@mail.gmail.com>
+	<20090807094304.GC1255@mathematik.tu-darmstadt.de>
+Message-ID: <ba40711f0908070341i550c1bf6k4c3c528ae15995ed@mail.gmail.com>
+
+On Fri, Aug 7, 2009 at 05:43, Achim Blumensath wrote:
+> Hello,
+>
+> Lev Bishop wrote:
+>> The \textasteriskcentered is not actually centered. This is a problem
+>> because when you use it as a footnote symbol it gets superscripted
+>> again, ending up with a very small footnote symbol. This happens for
+>> example if you \usepackage{fixltx2e}.
+>
+> For a quick fix, you could define
+>
+> ?\renewcommand\textasteriskcentered{$*$}
+
+Thanks. That works.
+
+>> Also, on the topic of asterisks, is there any chance to get
+>> six-pointed asterisks added to MnSymbol?
+>
+> Sorry, no. The five-pointed version was the choice of the designer of
+> MinionPro. As far as I remember, this is typical for renaissance fonts.
+
+I must say that I expected this response :-) But allow me one attempt
+to persuade you to reconsider...
+
+I can understand the choice of 5-pointed asterisk for marking
+footnotes, but I really think it seems wrong for the mathematical
+asterisks to be anything other than six-pointed. I see that at least
+one typographer agrees with me on this point:
+http://www.tug.org/TUGboat/Articles/tb27-0/kuster.pdf . "...most fonts
+already contain an asterisk * (U+002A), but normally the latter is not
+suitable for math, which uses a larger version, six-pointed..."
+
+And I see that all the fonts I have that contain the Unicode
+mathematical asterisk (U+2217) have it with a 6-pointed form. There
+are some fonts which use 5-pointed regular asterisks but six-pointed
+mathematical asterisks (for example the fonts from the Lucida family).
+
+Please consider to use the same model as is done with Lucida: keep the
+original Slimbach text asterisk but for the mathematical asterisks use
+a six-pointed form.
+
+Well, if I failed to change your mind, it's ok. But I thought I should try.
+
+Lev Bishop
+
+
+From blumensath at mathematik.tu-darmstadt.de  Fri Aug  7 12:59:29 2009
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Fri, 7 Aug 2009 12:59:29 +0200
+Subject: [Minionpro-devel] \textasteriskcentered not actually centered
+In-Reply-To: <ba40711f0908070341i550c1bf6k4c3c528ae15995ed@mail.gmail.com>
+References: <ba40711f0908062310o7f5a67e8t793816996802c2c2@mail.gmail.com>
+	<ba40711f0908062324w3f223e6bjdbe2d733c186b68c@mail.gmail.com>
+	<20090807094304.GC1255@mathematik.tu-darmstadt.de>
+	<ba40711f0908070341i550c1bf6k4c3c528ae15995ed@mail.gmail.com>
+Message-ID: <20090807105929.GE1255@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Lev Bishop wrote:
+> >> Also, on the topic of asterisks, is there any chance to get
+> >> six-pointed asterisks added to MnSymbol?
+> >
+> > Sorry, no. The five-pointed version was the choice of the designer of
+> > MinionPro. As far as I remember, this is typical for renaissance fonts.
+> 
+> I must say that I expected this response :-) But allow me one attempt
+> to persuade you to reconsider...
+> 
+> I can understand the choice of 5-pointed asterisk for marking
+> footnotes, but I really think it seems wrong for the mathematical
+> asterisks to be anything other than six-pointed.
+
+It would help if you could give any reasons supporting this point of
+view, instead of just saying that "it seems wrong".
+
+> I see that at least one typographer agrees with me on this point:
+> http://www.tug.org/TUGboat/Articles/tb27-0/kuster.pdf . "...most fonts
+> already contain an asterisk * (U+002A), but normally the latter is not
+> suitable for math, which uses a larger version, six-pointed..."
+
+The way I read that passage, the reason for the unsuitability of the
+supplied asterisk is that it is not centred. I don't think the number of
+points is that important.
+
+> Please consider to use the same model as is done with Lucida: keep the
+> original Slimbach text asterisk but for the mathematical asterisks use
+> a six-pointed form.
+
+That leads to inconsistency.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: Digital signature
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20090807/299c909f/attachment.pgp>
+
+From lev.bishop+minio at gmail.com  Fri Aug  7 14:25:44 2009
+From: lev.bishop+minio at gmail.com (Lev Bishop)
+Date: Fri, 7 Aug 2009 08:25:44 -0400
+Subject: [Minionpro-devel] \textasteriskcentered not actually centered
+In-Reply-To: <20090807105929.GE1255@mathematik.tu-darmstadt.de>
+References: <ba40711f0908062310o7f5a67e8t793816996802c2c2@mail.gmail.com>
+	<ba40711f0908062324w3f223e6bjdbe2d733c186b68c@mail.gmail.com>
+	<20090807094304.GC1255@mathematik.tu-darmstadt.de>
+	<ba40711f0908070341i550c1bf6k4c3c528ae15995ed@mail.gmail.com>
+	<20090807105929.GE1255@mathematik.tu-darmstadt.de>
+Message-ID: <ba40711f0908070525t3aa53c65kf67c8924436a29a8@mail.gmail.com>
+
+On Fri, Aug 7, 2009 at 06:59, Achim Blumensath wrote:
+
+>> I can understand the choice of 5-pointed asterisk for marking
+>> footnotes, but I really think it seems wrong for the mathematical
+>> asterisks to be anything other than six-pointed.
+>
+> It would help if you could give any reasons supporting this point of
+> view, instead of just saying that "it seems wrong".
+
+I understand that you would prefer something more concrete than my gut
+feeling, but this is all I have :-)
+
+I suppose the reason is that the five-pointed version seems very
+unfamiliar. I don't recall ever seeing a five-pointed mathematical
+asterisk in any books or papers I have read. I am not any kind of a
+typographer, so I don't have any reference books to look up all
+different fonts, but I just checked the mathematical books on my shelf
+and they all use six-pointed mathematical asterisks. As I said, even
+Lucida uses six-points for mathematics when it uses five-points for
+text. And I just found googled for some other mathematical fonts and I
+found Bitstream Charter uses 5-points for text but Micropress CH Math
+font (which is a mathematical extension of Bitstream Charter) also
+uses six points:
+http://www.micropress-inc.com/fonts/chmath/chf2.htm
+The same thing is true with Micropress HV Math:
+http://www.micropress-inc.com/fonts/hvmath/hvmain.htm
+And also Micropress PA Math:
+http://www.micropress-inc.com/fonts/pamath/pamain.htm
+
+>> I see that at least one typographer agrees with me on this point:
+>> http://www.tug.org/TUGboat/Articles/tb27-0/kuster.pdf . "...most fonts
+>> already contain an asterisk * (U+002A), but normally the latter is not
+>> suitable for math, which uses a larger version, six-pointed..."
+>
+> The way I read that passage, the reason for the unsuitability of the
+> supplied asterisk is that it is not centred. I don't think the number of
+> points is that important.
+
+Well, in I found a talk by him which you can listen to here:
+http://river-valley.tv/minion-math-a-new-math-font-family/
+(it seems he is designing some kind of a competitor to MnSymbol) he is
+quite specific (around the 21:30 mark). He says that mathematical
+asterisk should always be six-pointed with one vertical stroke and two
+cross strokes. His explanation for this is because mathematicians want
+the asterisk to look like the ones they draw by hand, and five-point
+asterisks are difficult by hand. (I find this a fairly weak argument,
+I admit, because many mathematical symbols are not so easy to draw by
+hand, for example fractur letters).
+
+>> Please consider to use the same model as is done with Lucida: keep the
+>> original Slimbach text asterisk but for the mathematical asterisks use
+>> a six-pointed form.
+>
+> That leads to inconsistency.
+
+Well, one way is inconsistent between the text and the mathematics,
+but the other way is (as far as I can tell) inconsistent with general
+mathematical typography.
+
+At least four fonts that I could find in a few minutes of searching
+the web (lucida, charter/ch math, hv math, pa math) preferred the
+former kind of inconsistency, and none that I could find preferred the
+latter.
+
+Lev
+
+
+From blumensath at mathematik.tu-darmstadt.de  Fri Aug  7 14:55:22 2009
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Fri, 7 Aug 2009 14:55:22 +0200
+Subject: [Minionpro-devel] \textasteriskcentered not actually centered
+In-Reply-To: <ba40711f0908070525t3aa53c65kf67c8924436a29a8@mail.gmail.com>
+References: <ba40711f0908062310o7f5a67e8t793816996802c2c2@mail.gmail.com>
+	<ba40711f0908062324w3f223e6bjdbe2d733c186b68c@mail.gmail.com>
+	<20090807094304.GC1255@mathematik.tu-darmstadt.de>
+	<ba40711f0908070341i550c1bf6k4c3c528ae15995ed@mail.gmail.com>
+	<20090807105929.GE1255@mathematik.tu-darmstadt.de>
+	<ba40711f0908070525t3aa53c65kf67c8924436a29a8@mail.gmail.com>
+Message-ID: <20090807125522.GG1255@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Lev Bishop wrote:
+> >> I can understand the choice of 5-pointed asterisk for marking
+> >> footnotes, but I really think it seems wrong for the mathematical
+> >> asterisks to be anything other than six-pointed.
+[...]
+> I suppose the reason is that the five-pointed version seems very
+> unfamiliar. I don't recall ever seeing a five-pointed mathematical
+> asterisk in any books or papers I have read.
+
+That's just because most mathematical texts are set in a baroque or
+romantic typeface like Times or Modern, which have asterisks with six
+tear-drop shaped arms.
+
+> He says that mathematical asterisk should always be six-pointed with
+> one vertical stroke and two cross strokes. His explanation for this is
+> because mathematicians want the asterisk to look like the ones they
+> draw by hand, and five-point asterisks are difficult by hand.
+
+I think the reason is rather the one you stated above: most people are
+more used to six-pointed asterisks.
+
+I do not accept this argument. In the same way you could argue that all
+mathematical texts should be set in Computer Modern: that's what most
+mathematicians are used to.
+
+It would be something different if the shape were that unfamiliar to
+readers that they could hardly read the symbol. But that's not the case
+here: most people would instantly agree that it's an asterisk, although
+one that looks a bit funny.
+
+> > That leads to inconsistency.
+> 
+> Well, one way is inconsistent between the text and the mathematics,
+> but the other way is (as far as I can tell) inconsistent with general
+> mathematical typography.
+
+It's not inconsistent, just different.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: Digital signature
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20090807/9beba628/attachment.pgp>
+
+From lev.bishop+minio at gmail.com  Fri Aug  7 19:36:18 2009
+From: lev.bishop+minio at gmail.com (Lev Bishop)
+Date: Fri, 7 Aug 2009 13:36:18 -0400
+Subject: [Minionpro-devel] \textasteriskcentered not actually centered
+In-Reply-To: <20090807125522.GG1255@mathematik.tu-darmstadt.de>
+References: <ba40711f0908062310o7f5a67e8t793816996802c2c2@mail.gmail.com>
+	<ba40711f0908062324w3f223e6bjdbe2d733c186b68c@mail.gmail.com>
+	<20090807094304.GC1255@mathematik.tu-darmstadt.de>
+	<ba40711f0908070341i550c1bf6k4c3c528ae15995ed@mail.gmail.com>
+	<20090807105929.GE1255@mathematik.tu-darmstadt.de>
+	<ba40711f0908070525t3aa53c65kf67c8924436a29a8@mail.gmail.com>
+	<20090807125522.GG1255@mathematik.tu-darmstadt.de>
+Message-ID: <ba40711f0908071036m806b2f0ma279f2304b51cf5c@mail.gmail.com>
+
+On Fri, Aug 7, 2009 at 08:55, Achim Blumensath wrote:
+>>  I don't recall ever seeing a five-pointed mathematical
+>> asterisk in any books or papers I have read.
+>
+> That's just because most mathematical texts are set in a baroque or
+> romantic typeface like Times or Modern, which have asterisks with six
+> tear-drop shaped arms.
+
+I'm sure you are right that most mathematical texts are set in baroque
+or modern typefaces. But it's more than that: even those texts that
+are set in old-style typefaces still use 6-armed asterisks. For
+example, the journals Nature and Nature Physics are currently set in
+Minion, but they use 6-armed math asterisks (I can send you a reprint
+if you'd like to see). Paul Hudak's book "The Haskell school of
+expression" is set in Lucida Bright, but uses 6-armed math asterisks.
+I'm sure there are other examples. These are just what I found now.
+
+One final argument for using 6-pointed $*$: it makes the five-pointed
+$\star$ much more easily distinguished from $*$.
+
+Lev
+
+
+From maresr12temp at gmail.com  Mon Aug 10 10:55:49 2009
+From: maresr12temp at gmail.com (Ben M.)
+Date: Mon, 10 Aug 2009 04:55:49 -0400
+Subject: [Minionpro-devel] Where is enc-2.030.zip?
+In-Reply-To: <e03c648c0908100150v2299d1cev686b290d267fc658@mail.gmail.com>
+References: <e03c648c0908100150v2299d1cev686b290d267fc658@mail.gmail.com>
+Message-ID: <e03c648c0908100155k450303e3rdb75dcd49b0d069e@mail.gmail.com>
+
+Is there any reason nobody has posted this file?  I'd rather not spend
+my time trying to generate it myself.
+
+Thank you so much for this great package!
+
+-Ben
+
+
+From mmayer at opencsw.org  Mon Aug 10 19:35:32 2009
+From: mmayer at opencsw.org (Markus Mayer)
+Date: Mon, 10 Aug 2009 10:35:32 -0700
+Subject: [Minionpro-devel] Installation issue
+Message-ID: <4A805A64.2080907@opencsw.org>
+
+Hi,
+
+I did not run into this problem the first time I installed MinionPro (on 
+a different machine). I am sure I forgot something obvious.
+
+Running strace on pdftex, I can tell it's looking for 
+base-MinionPro-ab.enc & co in the current directory rather than 
+/usr/local/share/texmf/dvips/MinionPro, where they actually are.
+
+The result is that old style figures and ligatures won't show up 
+properly in the PDF. "Regular" characters are displayed correctly.
+
+$ cat test.tex
+\documentclass[12pt]{article}
+\usepackage[mathlf]{MinionPro}
+
+\begin{document}
+\section*{T{}his is my test document}
+
+Some numbers here: 0 1 2 3 4 5
+
+Some ligatures: Th ff fi fj fl
+
+It works if I break them: T{}h f{}f f{}i f{}j f{}l
+\end{document}
+
+$ pdflatex test
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6)
+  %&-line parsing enabled.
+entering extended mode
+(./test.tex
+LaTeX2e <2005/12/01>
+Babel <v3.8h> and hyphenation patterns for english, usenglishmax, 
+dumylang, noh
+yphenation, loaded.
+(/usr/share/texmf-texlive/tex/latex/base/article.cls
+Document Class: article 2005/09/16 v1.4f Standard LaTeX document class
+(/usr/share/texmf-texlive/tex/latex/base/size12.clo))
+(/usr/local/share/texmf/tex/latex/MinionPro/MinionPro.sty
+(/usr/local/share/texmf/tex/latex/MinionPro/MinionPro-FontDef.sty
+(/usr/local/share/texmf/tex/latex/MinionPro/otfontdef.sty
+(/usr/share/texmf-texlive/tex/latex/graphics/keyval.sty)))
+(/usr/share/texmf-texlive/tex/latex/base/textcomp.sty
+(/usr/share/texmf-texlive/tex/latex/base/ts1enc.def))
+(/usr/local/share/texmf/tex/latex/MnSymbol/MnSymbol.sty
+(/usr/share/texmf-texlive/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texmf-texlive/tex/latex/amsmath/amstext.sty
+(/usr/share/texmf-texlive/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texmf-texlive/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texmf-texlive/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texmf-texlive/tex/latex/amsfonts/eufrak.sty)
+
+LaTeX Font Warning: Encoding `OMS' has changed to `U' for symbol font
+(Font)              `symbols' in the math version `normal' on input line 
+120.
+
+
+LaTeX Font Warning: Encoding `OMS' has changed to `U' for symbol font
+(Font)              `symbols' in the math version `bold' on input line 120.
+
+)
+
+LaTeX Font Warning: Encoding `OT1' has changed to `T1' for symbol font
+(Font)              `operators' in the math version `normal' on input 
+line 163.
+
+
+
+LaTeX Font Warning: Encoding `OT1' has changed to `T1' for symbol font
+(Font)              `operators' in the math version `bold' on input line 
+163.
+
+(/usr/local/share/texmf/tex/latex/MinionPro/fontaxes.sty)
+(/usr/local/share/texmf/tex/latex/MinionPro/OT1MinionPro-OsF.fd
+(/usr/local/share/texmf/tex/latex/MinionPro/MinionPro-FontDef.sty)))
+(./test.aux) (/usr/share/texmf-texlive/tex/latex/base/ts1cmr.fd) 
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./test.aux) )
+
+pdfTeX warning: pdflatex (file base-MinionPro-ab.enc): cannot open 
+encoding file for reading
+
+
+pdfTeX warning: pdflatex (file base-MinionPro-aa.enc): cannot open 
+encoding file for reading
+
+
+pdfTeX warning: pdflatex (file base-MinionPro-aa.enc): cannot open 
+encoding file for reading
+</usr/local/share/texmf/fonts/type1/adobe/MinionPro/MinionPro-Bold.pfb></usr/lo
+cal/share/texmf/fonts/type1/adobe/MinionPro/MinionPro-Regular.pfb>
+Output written on test.pdf (1 page, 97727 bytes).
+Transcript written on test.log.
+
+$ ls -l /usr/local/share/texmf/dvips/MinionPro
+total 60
+drwxr-sr-x 2 root staff  4096 Aug  7 12:21 .
+drwxr-sr-x 3 root staff  4096 Aug  7 12:21 ..
+-rw-r--r-- 1 root root  32470 Apr 28  2007 MinionPro.map
+-rw-r--r-- 1 root root   2505 Apr 28  2007 base-MinionPro-aa.enc
+-rw-r--r-- 1 root root   2542 Apr 28  2007 base-MinionPro-ab.enc
+-rw-r--r-- 1 root root   3396 Apr 28  2007 base-MinionPro-ac.enc
+-rw-r--r-- 1 root root   3547 Apr 28  2007 base-MinionPro-ad.enc
+-rw-r--r-- 1 root root   2722 Apr 28  2007 base-MinionPro-ae.enc
+
+Any idea what I can do to fix the search path? I tried "updmap-sys 
+--enable Map MinionPro.map" and mktexlsr several times to no avail.
+
+Thanks,
+-Markus
+
+
+From andreas.buehmann at web.de  Mon Aug 10 20:35:25 2009
+From: andreas.buehmann at web.de (=?ISO-8859-1?Q?Andreas_B=FChmann?=)
+Date: Mon, 10 Aug 2009 20:35:25 +0200
+Subject: [Minionpro-devel] Installation issue
+In-Reply-To: <4A805A64.2080907@opencsw.org>
+References: <4A805A64.2080907@opencsw.org>
+Message-ID: <4A80686D.1020505@web.de>
+
+Hello Markus,
+
+> Any idea what I can do to fix the search path?
+
+On my system, enc files are expected to be found below texmf/fonts/enc,
+not texmf/dvips. What does the following say on your system?
+
+kpsewhich -progname=pdflatex -show-path="enc files"
+
+Regards,
+
+Andreas
+
+
+From mmayer at opencsw.org  Mon Aug 10 21:08:52 2009
+From: mmayer at opencsw.org (Markus Mayer)
+Date: Mon, 10 Aug 2009 12:08:52 -0700
+Subject: [Minionpro-devel] Installation issue
+In-Reply-To: <4A80686D.1020505@web.de>
+References: <4A805A64.2080907@opencsw.org> <4A80686D.1020505@web.de>
+Message-ID: <4A807044.1030001@opencsw.org>
+
+Andreas B?hmann wrote:
+> Hello Markus,
+> 
+>> Any idea what I can do to fix the search path?
+> 
+> On my system, enc files are expected to be found below texmf/fonts/enc,
+> not texmf/dvips. What does the following say on your system?
+> 
+> kpsewhich -progname=pdflatex -show-path="enc files"
+
+It says
+
+$ kpsewhich -progname=pdflatex -show-path="enc files"
+.:/home/markus/.texmf-config/fonts/enc//:/home/markus/.texmf-var/fonts/enc//:
+/home/markus/texmf/fonts/enc//:/etc/texmf/fonts/enc//:!!/var/lib/texmf/fonts/enc//:
+!!/usr/local/share/texmf/fonts/enc//:!!/usr/share/texmf/fonts/enc//:
+!!/usr/share/texmf-texlive/fonts/enc//
+
+It's all one long line. I wrapped it here, so it's easier to read.
+
+I guess I should move the .enc files it's not finding into 
+/usr/local/share/texmf/fonts/enc?
+
+Thanks,
+-Markus
+
+
+From andreas.buehmann at web.de  Mon Aug 10 21:23:13 2009
+From: andreas.buehmann at web.de (=?ISO-8859-1?Q?Andreas_B=FChmann?=)
+Date: Mon, 10 Aug 2009 21:23:13 +0200
+Subject: [Minionpro-devel] Installation issue
+In-Reply-To: <4A807044.1030001@opencsw.org>
+References: <4A805A64.2080907@opencsw.org> <4A80686D.1020505@web.de>
+	<4A807044.1030001@opencsw.org>
+Message-ID: <4A8073A1.4080608@web.de>
+
+Markus Mayer schrieb:
+> I guess I should move the .enc files it's not finding into
+> /usr/local/share/texmf/fonts/enc?
+>   
+
+Yes, exactly. If I remember correctly, this part of the TEXMF directory
+structure was reorganized some TeXLive version(s?) ago.
+
+Andreas
+
+
+From mmayer at opencsw.org  Tue Aug 11 00:41:54 2009
+From: mmayer at opencsw.org (Markus Mayer)
+Date: Mon, 10 Aug 2009 15:41:54 -0700
+Subject: [Minionpro-devel] Installation issue
+In-Reply-To: <4A8073A1.4080608@web.de>
+References: <4A805A64.2080907@opencsw.org>
+	<4A80686D.1020505@web.de>	<4A807044.1030001@opencsw.org>
+	<4A8073A1.4080608@web.de>
+Message-ID: <4A80A232.2090009@opencsw.org>
+
+Andreas B?hmann wrote:
+> Markus Mayer schrieb:
+>> I guess I should move the .enc files it's not finding into
+>> /usr/local/share/texmf/fonts/enc?
+>>   
+> 
+> Yes, exactly. If I remember correctly, this part of the TEXMF directory
+> structure was reorganized some TeXLive version(s?) ago.
+
+Did that and ran mktexlsr again. Now it works.
+
+Thanks for your help!
+
+-Markus
+
+
+
+From blumensath at mathematik.tu-darmstadt.de  Tue Aug 11 10:57:48 2009
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Tue, 11 Aug 2009 10:57:48 +0200
+Subject: [Minionpro-devel] Where is enc-2.030.zip?
+In-Reply-To: <e03c648c0908100155k450303e3rdb75dcd49b0d069e@mail.gmail.com>
+References: <e03c648c0908100150v2299d1cev686b290d267fc658@mail.gmail.com>
+	<e03c648c0908100155k450303e3rdb75dcd49b0d069e@mail.gmail.com>
+Message-ID: <20090811085748.GD29374@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Ben M. wrote:
+> Is there any reason nobody has posted this file?  I'd rather not spend
+> my time trying to generate it myself.
+
+If someone sends me an enc-2.030.zip I can include it in the release.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: Digital signature
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20090811/f83ad882/attachment.pgp>
+
+From maresr12temp at gmail.com  Thu Aug 13 01:50:19 2009
+From: maresr12temp at gmail.com (Ben M.)
+Date: Wed, 12 Aug 2009 19:50:19 -0400
+Subject: [Minionpro-devel] Where is enc-2.030.zip?
+In-Reply-To: <20090811085748.GD29374@mathematik.tu-darmstadt.de>
+References: <e03c648c0908100150v2299d1cev686b290d267fc658@mail.gmail.com>
+	<e03c648c0908100155k450303e3rdb75dcd49b0d069e@mail.gmail.com>
+	<20090811085748.GD29374@mathematik.tu-darmstadt.de>
+Message-ID: <e03c648c0908121650x569f4eccp8ae244ebc9e5d6a8@mail.gmail.com>
+
+> If someone sends me an enc-2.030.zip I can include it in the release.
+
+Thank you Achim.  Unfortunately I'm having a difficult time with this
+package.  I'm running MikTeX 2.7 and 2.8 under Windows Vista with
+Cygwin.
+
+Here's what I'm trying to do.  I had version 2.015 of the MinionPro
+base fonts (Reg, Bold, It, BoldIt).  These work flawlessly, but I'd
+like to use optical fonts as well, so I got the full set of 2.030 from
+Adobe Font Folio 11.
+
+Following the instructions in "README" I added the extra metrics,
+generated the pfb, added them to my texmf, refreshed the filename
+database, and ran updmap.
+
+My document looks great with the optical fonts, however, several
+characters are missing, replaced by a boxed X.  These missing
+characters include \epsilon, \ell and \openg.  This is essentially the
+same problem reported by shuangwu on BerliOS:
+  http://developer.berlios.de/support/?func=detailsupport&support_id=102944&group_id=2184
+
+I don't know why this is happening, but based solely on the fact that
+there are enc-vX.XXX.zip files, my guess is that the encoding changed.
+ Is this a reasonable assumption?
+
+I compared the OTFs in character map, and there's a character that
+looks just like \upell at U+2113hex.  (See the attached images.)  So
+it looks like the unicode character remains unchanged.  The only place
+I see \ell in the entire package is MinionPro.sty:
+  \DeclareMathSymbol{\ell} {\mathord}{letters}{'140}
+  \DeclareMathSymbol{\upell} {\mathord}{letters}{'340}
+I certainly don't understand what's going wrong.  The .enc files don't
+look to me like they convey the information necessary to fix this
+problem.  Do I also need to replace the metrics or something?
+
+I tried to use Cygwin to run the scripts to compile things myself.
+I'm trying to follow the procedure you gave to Johannes on 17 Jul
+2008:
+
+  $ ./scripts/makeall --nodotlessj
+  $ ./scripts/generate-glyph-list.sh >./scripts/glyph-list-2.030
+  $ ./scripts/makeall --verbose --nodotlessj --pack=./scripts/glyph-list-2.030
+(previously there was a typo in the last line: "glyph-list.2.030")
+
+This was a huge pain for several reasons.  Makeall takes about an hour
+to run.  Unfortunately MiKTeX doesn't use kpathsea, so I get all these
+kpathsea errors about "texmf.cnf not found."  But I think all the
+necessary files are being found, and that this is ignorable.  The
+scripts seem to have a few minor errors:
+
+scripts/maketfm: line 23: ((: 2 < 2 || (2 == 2 && 79
+ < 62) : syntax error: invalid arithmetic operator (error token is "
+ < 62) ")
+scripts/beautify-enc.sh: line 3: ed: command not found
+
+And then there are some more serious errors, I suspect because
+fontinst might play weirdly with MiKTeX:
+
+[...]
+This is TFtoPL, Version 3.1 (MiKTeX 2.8 Beta 5)
+'000.
+This is TeX, Version 3.1415926 (MiKTeX 2.8 Beta 5)
+(C:\cygwin\usr\local\src\MinionPro\fontinst\make-MnSymbolFI-noopt.tex
+(C:\cygwin\usr\local\src\MinionPro\fontinst\fontinst-macros.tex
+("C:\Program Files\MiKTeX 2.8\tex\fontinst\base\fontinst.sty"
+("C:\Program Files\MiKTeX 2.8\tex\fontinst\base\trig.sty")
+No file fontinst.rc.
+)) (C:\cygwin\usr\local\src\MinionPro\fontinst\mn-symbol-f-partialints.etx)
+(C:\cygwin\usr\local\src\MinionPro\fontinst\MnSymbolF10.pl)
+Metrics written on MnSymbolF10-mn-symbol-f-partialints.mtx.
+[...]
+(C:\cygwin\usr\local\src\MinionPro\fontinst\MinionPro-It-tosf-oml-mn-oml-it.mtx
+) (C:\cygwin\usr\local\src\MinionPro\fontinst\adjust-oml.mtx
+! Missing number, treated as zero.
+<to be read again>
+                   \g-UPA
+\glyph_metrics #1#2#3#4#5#6->\a_count =#1
+                                         \b_count =#2\c_count =#3\d_count =#4
+\glyph ...al_expr_to \e_count {#2}\ifnum \e_count
+                                                  =\one_thousand \edef \a_ma...
+
+\shiftglyph ...{#1} \movert {#2} \glyph {#1}{1000}
+                                                   \movert {#4} \resetitalic...
+
+\adjustmetrics ...\shiftglyph {#1}{#2}{#3}{#4}{#6}
+                                                   \resetkern {#1}{skew}{#5}
+l.4 \adjustmetrics{UPA}{0}{0}{0}{10}{5}
+
+? [prompt]
+
+
+I ignored the errors and hoped for the best.  (Do these steps just
+copy the files to texmf, or do they do something vital?)  I then copy
+over the .enc, and nothing seems to change...
+[Digression: Okay, this is very strange: earlier I could edit
+base-MinionPro-ax.enc, swap the order of two characters, and then
+LaTeX would render accordingly.  Now my changes do nothing.  (I know
+it's reading the file since it complains about it.)]
+...so then I copy over the .tfm and .vf, but the result is to scramble
+the characters.
+
+Ugh, I spent too much time on this, thinking I almost had it.  It
+would probably help if I had a better idea of what I'm doing.  Any
+help would be greatly appreciated!
+
+-Ben
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: ell-2.015.png
+Type: image/png
+Size: 28606 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20090812/27723741/attachment.png>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: ell-2.030.png
+Type: image/png
+Size: 35183 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20090812/27723741/attachment-0001.png>
+
+From blumensath at mathematik.tu-darmstadt.de  Thu Aug 13 09:21:16 2009
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Thu, 13 Aug 2009 09:21:16 +0200
+Subject: [Minionpro-devel] Error with lcdf typetools 2.79, not with 2.69
+In-Reply-To: <200907302239.14293.schubert.seb@googlemail.com>
+References: <200907302239.14293.schubert.seb@googlemail.com>
+Message-ID: <20090813072116.GA14985@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Sebastian Schubert wrote:
+> I recently used the cvs sources. When using lcdf typetools 2.69
+> everything is fine, with 2.79 I get an error, though.
+
+I cannot reproduce the error. Are you sure that the only difference is
+the version of lcdf typetools, or are you using different TeX
+installations as well?
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: Digital signature
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20090813/a368b8b5/attachment.pgp>
+
+From blumensath at mathematik.tu-darmstadt.de  Thu Aug 13 09:38:21 2009
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Thu, 13 Aug 2009 09:38:21 +0200
+Subject: [Minionpro-devel] Where is enc-2.030.zip?
+In-Reply-To: <e03c648c0908121650x569f4eccp8ae244ebc9e5d6a8@mail.gmail.com>
+References: <e03c648c0908100150v2299d1cev686b290d267fc658@mail.gmail.com>
+	<e03c648c0908100155k450303e3rdb75dcd49b0d069e@mail.gmail.com>
+	<20090811085748.GD29374@mathematik.tu-darmstadt.de>
+	<e03c648c0908121650x569f4eccp8ae244ebc9e5d6a8@mail.gmail.com>
+Message-ID: <20090813073821.GB14985@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Ben M. wrote:
+> I don't know why this is happening, but based solely on the fact that
+> there are enc-vX.XXX.zip files, my guess is that the encoding changed.
+> Is this a reasonable assumption?
+
+Yes, Adobe changed the glyph names in the font.
+
+> I compared the OTFs in character map, and there's a character that
+> looks just like \upell at U+2113hex.  (See the attached images.)
+
+What is the PostScript name of the glyph? You can find out, for
+instance, with a font editor like fontforge.
+
+> So it looks like the unicode character remains unchanged.  The only
+> place I see \ell in the entire package is MinionPro.sty:
+>   \DeclareMathSymbol{\ell} {\mathord}{letters}{'140}
+>   \DeclareMathSymbol{\upell} {\mathord}{letters}{'340}
+> I certainly don't understand what's going wrong.  The .enc files don't
+> look to me like they convey the information necessary to fix this
+> problem.  Do I also need to replace the metrics or something?
+
+No, you only need to update the encoding files.
+
+I just noticed that the glyphlist file changed in newer versions of lcdf
+typetools. Try replacing the /lscript in enc/mn-oml.enc with /lsquare.
+
+> I tried to use Cygwin to run the scripts to compile things myself.
+> I'm trying to follow the procedure you gave to Johannes on 17 Jul
+> 2008:
+> 
+>   $ ./scripts/makeall --nodotlessj
+>   $ ./scripts/generate-glyph-list.sh >./scripts/glyph-list-2.030
+>   $ ./scripts/makeall --verbose --nodotlessj --pack=./scripts/glyph-list-2.030
+> (previously there was a typo in the last line: "glyph-list.2.030")
+> 
+> This was a huge pain for several reasons.  Makeall takes about an hour
+> to run.  Unfortunately MiKTeX doesn't use kpathsea, so I get all these
+> kpathsea errors about "texmf.cnf not found."  But I think all the
+> necessary files are being found, and that this is ignorable.  The
+> scripts seem to have a few minor errors:
+> 
+> scripts/maketfm: line 23: ((: 2 < 2 || (2 == 2 && 79
+>  < 62) : syntax error: invalid arithmetic operator (error token is "
+>  < 62) ")
+> scripts/beautify-enc.sh: line 3: ed: command not found
+
+You need to install some Unix software like bash and ed. I think they
+are included in cygwin, for instance.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: Digital signature
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20090813/85babc70/attachment.pgp>
+
+From maresr12temp at gmail.com  Thu Aug 13 11:20:50 2009
+From: maresr12temp at gmail.com (Ben M.)
+Date: Thu, 13 Aug 2009 05:20:50 -0400
+Subject: [Minionpro-devel] Where is enc-2.030.zip?
+In-Reply-To: <20090813073821.GB14985@mathematik.tu-darmstadt.de>
+References: <e03c648c0908100150v2299d1cev686b290d267fc658@mail.gmail.com>
+	<e03c648c0908100155k450303e3rdb75dcd49b0d069e@mail.gmail.com>
+	<20090811085748.GD29374@mathematik.tu-darmstadt.de>
+	<e03c648c0908121650x569f4eccp8ae244ebc9e5d6a8@mail.gmail.com>
+	<20090813073821.GB14985@mathematik.tu-darmstadt.de>
+Message-ID: <e03c648c0908130220k48146eber33ec99bc2773bcf4@mail.gmail.com>
+
+Hi Achim, thanks so much for getting back to me!
+
+> What is the PostScript name of the glyph? You can find out, for
+> instance, with a font editor like fontforge.
+
+Wow, fontforge is incredible!  But I'm not sure how to get the
+"PostScript" name.  "Glyph info" doesn't say anything interesting, so
+here is the hover text.  I hope what you want is included.
+8467 (0x2113) U+2113  "uni2113"  SCRIPT SMALL L
+ = mathematical symbol 'ell'
+ = liter (traditional symbol)
+ * despite its character name, this symbol is derived from a special
+italicized version of the small letter l
+ * the SI recommended symbol for liter is 006C
+ -> (mathematical script small l - 1D4C1)
+ = <font> 006C latin small letter l
+
+>> I certainly don't understand what's going wrong. ?The .enc files don't
+>> look to me like they convey the information necessary to fix this
+>> problem. ?Do I also need to replace the metrics or something?
+>
+> No, you only need to update the encoding files.
+
+What specifically do you mean by "the encoding files?"  Do you mean:
+  base-MinionPro-aX.enc?
+
+> I just noticed that the glyphlist file changed in newer versions of lcdf
+> typetools. Try replacing the /lscript in enc/mn-oml.enc with /lsquare.
+
+Okay, I will try that, but I have to do it later since it needs to
+compile.  Also, will this fix just the \ell, or will I need to
+manually make similar modifications for all characters?
+
+Speaking of that, assuming I only need to generate
+base-MinionPro-aX.enc, is it necessary to run makeall twice, as in:
+>> ? $ ./scripts/makeall --nodotlessj
+>> ? $ ./scripts/generate-glyph-list.sh >./scripts/glyph-list-2.030
+>> ? $ ./scripts/makeall --verbose --nodotlessj --pack=./scripts/glyph-list-2.030
+>> (previously there was a typo in the last line: "glyph-list.2.030")
+
+
+>> scripts/beautify-enc.sh: line 3: ed: command not found
+>
+> You need to install some Unix software like bash and ed. I think they
+> are included in cygwin, for instance.
+
+I installed ed, so hopefully now the beautify-enc script will work.
+
+Finally, must I worry about
+"C:\cygwin\usr\local\src\MinionPro\fontinst\adjust-oml.mtx
+! Missing number, treated as zero." or is this safe to ignore if I
+only want the .enc files?
+
+Thank you so much for your help!  After a while, I'll let you know
+what happens with the recompile.
+
+-Ben
+
+
+From blumensath at mathematik.tu-darmstadt.de  Thu Aug 13 11:30:51 2009
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Thu, 13 Aug 2009 11:30:51 +0200
+Subject: [Minionpro-devel] Where is enc-2.030.zip?
+In-Reply-To: <e03c648c0908130220k48146eber33ec99bc2773bcf4@mail.gmail.com>
+References: <e03c648c0908100150v2299d1cev686b290d267fc658@mail.gmail.com>
+	<e03c648c0908100155k450303e3rdb75dcd49b0d069e@mail.gmail.com>
+	<20090811085748.GD29374@mathematik.tu-darmstadt.de>
+	<e03c648c0908121650x569f4eccp8ae244ebc9e5d6a8@mail.gmail.com>
+	<20090813073821.GB14985@mathematik.tu-darmstadt.de>
+	<e03c648c0908130220k48146eber33ec99bc2773bcf4@mail.gmail.com>
+Message-ID: <20090813093051.GF14985@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Ben M. wrote:
+> Wow, fontforge is incredible!  But I'm not sure how to get the
+> "PostScript" name.  "Glyph info" doesn't say anything interesting, so
+> here is the hover text.  I hope what you want is included.
+> 8467 (0x2113) U+2113  "uni2113"  SCRIPT SMALL L
+
+Ok. So the name is uni2113.
+
+> >> Do I also need to replace the metrics or something?
+> >
+> > No, you only need to update the encoding files.
+> 
+> What specifically do you mean by "the encoding files?"  Do you mean:
+> base-MinionPro-aX.enc?
+
+No, those in the enc directory.
+
+> > I just noticed that the glyphlist file changed in newer versions of lcdf
+> > typetools. Try replacing the /lscript in enc/mn-oml.enc with /lsquare.
+> 
+> Okay, I will try that, but I have to do it later since it needs to
+> compile.  Also, will this fix just the \ell, or will I need to
+> manually make similar modifications for all characters?
+
+You need to do this for all missing glyphs.
+
+When I find the time, I'll upload a new version of the enc files to
+BerliOS.
+
+> I installed ed, so hopefully now the beautify-enc script will work.
+> 
+> Finally, must I worry about
+> "C:\cygwin\usr\local\src\MinionPro\fontinst\adjust-oml.mtx
+> ! Missing number, treated as zero." or is this safe to ignore if I
+> only want the .enc files?
+
+Probably, you also need new metric files, since the glyph positions in
+the base fonts might change.
+
+My guess it that the fontinst error is caused by the missing glyphs. So
+correcting the enc files might also fix this problem.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: Digital signature
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20090813/661c4155/attachment.pgp>
+
+From maresr12temp at gmail.com  Thu Aug 13 12:31:47 2009
+From: maresr12temp at gmail.com (Ben M.)
+Date: Thu, 13 Aug 2009 06:31:47 -0400
+Subject: [Minionpro-devel] Where is enc-2.030.zip?
+In-Reply-To: <20090813093051.GF14985@mathematik.tu-darmstadt.de>
+References: <e03c648c0908100150v2299d1cev686b290d267fc658@mail.gmail.com>
+	<e03c648c0908100155k450303e3rdb75dcd49b0d069e@mail.gmail.com>
+	<20090811085748.GD29374@mathematik.tu-darmstadt.de>
+	<e03c648c0908121650x569f4eccp8ae244ebc9e5d6a8@mail.gmail.com>
+	<20090813073821.GB14985@mathematik.tu-darmstadt.de>
+	<e03c648c0908130220k48146eber33ec99bc2773bcf4@mail.gmail.com>
+	<20090813093051.GF14985@mathematik.tu-darmstadt.de>
+Message-ID: <e03c648c0908130331pd7120c9p9d4f633002eedf8f@mail.gmail.com>
+
+> Ok. So the name is uni2113.
+
+Ah yes, changed from afii61289.
+
+>> What specifically do you mean by "the encoding files?" ?Do you mean:
+>> base-MinionPro-aX.enc?
+>
+> No, those in the enc directory.
+
+Okay, I have 129 .enc files plus MinionPro.map inside my enc
+directory.  If I'm not concerned with perfect metrics, is it
+sufficient to simply dump these inside /texmf/fonts/[enc and
+map]/dvips/MinionPro?  (From there, I would also follow the procedure
+from README to using the official zips?)
+
+> You need to do this for all missing glyphs.
+
+Is there a reasonably systematic way for me to do this?  Or do I just
+need to fix glyphs when I see them broken?
+
+> When I find the time, I'll upload a new version of the enc files to
+> BerliOS.
+
+That will be very nice!
+
+>> Finally, must I worry about
+>> "C:\cygwin\usr\local\src\MinionPro\fontinst\adjust-oml.mtx
+>> ! Missing number, treated as zero." or is this safe to ignore if I
+>> only want the .enc files?
+>
+> Probably, you also need new metric files, since the glyph positions in
+> the base fonts might change.
+>
+> My guess it that the fontinst error is caused by the missing glyphs. So
+> correcting the enc files might also fix this problem.
+
+The first makeall just ended with the same error.
+
+-Ben
+
+
+From maresr12temp at gmail.com  Thu Aug 13 13:56:39 2009
+From: maresr12temp at gmail.com (Ben M.)
+Date: Thu, 13 Aug 2009 07:56:39 -0400
+Subject: [Minionpro-devel] Where is enc-2.030.zip?
+In-Reply-To: <e03c648c0908130331pd7120c9p9d4f633002eedf8f@mail.gmail.com>
+References: <e03c648c0908100150v2299d1cev686b290d267fc658@mail.gmail.com>
+	<e03c648c0908100155k450303e3rdb75dcd49b0d069e@mail.gmail.com>
+	<20090811085748.GD29374@mathematik.tu-darmstadt.de>
+	<e03c648c0908121650x569f4eccp8ae244ebc9e5d6a8@mail.gmail.com>
+	<20090813073821.GB14985@mathematik.tu-darmstadt.de>
+	<e03c648c0908130220k48146eber33ec99bc2773bcf4@mail.gmail.com>
+	<20090813093051.GF14985@mathematik.tu-darmstadt.de>
+	<e03c648c0908130331pd7120c9p9d4f633002eedf8f@mail.gmail.com>
+Message-ID: <e03c648c0908130456l23b361f9od07e91fce845659f@mail.gmail.com>
+
+>>> What specifically do you mean by "the encoding files?" ?Do you mean:
+>>> base-MinionPro-aX.enc?
+>>
+>> No, those in the enc directory.
+>
+> Okay, I have 129 .enc files plus MinionPro.map inside my enc
+> directory. ?If I'm not concerned with perfect metrics, is it
+> sufficient to simply dump these inside /texmf/fonts/[enc and
+> map]/dvips/MinionPro? ?(From there, I would also follow the procedure
+> from README to using the official zips?)
+>
+>> You need to do this for all missing glyphs.
+
+Oops, I meant to write that I have 1400 enckern files in my enc
+directory (plus a few mn-XXX.enc and similar).  The
+base-MinionPro-aX.enc are in my dvips directory.  For good measure,
+I'm just copying them all for now.  But is this actually necessary?
+
+-Ben
+
+
+From maresr12temp at gmail.com  Fri Aug 14 06:04:50 2009
+From: maresr12temp at gmail.com (Ben M.)
+Date: Fri, 14 Aug 2009 00:04:50 -0400
+Subject: [Minionpro-devel] Where is enc-2.030.zip?
+In-Reply-To: <e03c648c0908130456l23b361f9od07e91fce845659f@mail.gmail.com>
+References: <e03c648c0908100150v2299d1cev686b290d267fc658@mail.gmail.com>
+	<e03c648c0908100155k450303e3rdb75dcd49b0d069e@mail.gmail.com>
+	<20090811085748.GD29374@mathematik.tu-darmstadt.de>
+	<e03c648c0908121650x569f4eccp8ae244ebc9e5d6a8@mail.gmail.com>
+	<20090813073821.GB14985@mathematik.tu-darmstadt.de>
+	<e03c648c0908130220k48146eber33ec99bc2773bcf4@mail.gmail.com>
+	<20090813093051.GF14985@mathematik.tu-darmstadt.de>
+	<e03c648c0908130331pd7120c9p9d4f633002eedf8f@mail.gmail.com>
+	<e03c648c0908130456l23b361f9od07e91fce845659f@mail.gmail.com>
+Message-ID: <e03c648c0908132104o60d7ab45x407bfac39c087ea9@mail.gmail.com>
+
+Even though I have no clue what I'm doing, I think I got most if not
+all the glyphs.
+
+I'm still mystified by a few details:
+What determines the order of base-MinionPro-aX.enc?  The order in
+fontforge is very different.  Also, what do the octal values in
+\DeclareMathSymbol correspond to?
+
+Thanks!
+-Ben
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: enc-2.030-beta.diff
+Type: application/octet-stream
+Size: 4880 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20090814/4e956ea2/attachment.obj>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: enc-2.030-beta.zip
+Type: application/zip
+Size: 5995 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20090814/4e956ea2/attachment.zip>
+
+From fkrantz at free.fr  Thu Aug 13 16:45:34 2009
+From: fkrantz at free.fr (=?ISO-8859-1?Q?Fr=E9d=E9ric_Krantz?=)
+Date: Thu, 13 Aug 2009 16:45:34 +0200
+Subject: [Minionpro-devel] Minion Pro and Xelatex
+Message-ID: <4A84270E.4080907@free.fr>
+
+Hi,
+
+I've got some problems to use the Minion Pro.
+
+When xelatex is running, the following errors appear :
+
+
+kpathsea: Running mktexpk --mfmode / --bdpi 600 --mag 1+0/600 --dpi 600 
+MinionPro-ItLCDFJ
+
+mktexpk: don't know how to create bitmap font for MinionPro-ItLCDFJ.
+
+kpathsea: Appending font creation commands to missfont.log.
+
+** WARNING ** Could not locate a virtual/physical font for TFM 
+"MinionPro-It--lcdfj".
+
+** WARNING ** >> This font is mapped to a physical font "MinionPro-ItLCDFJ".
+
+** WARNING ** >> Please check if kpathsea library can find this font: 
+MinionPro-ItLCDFJ
+
+** ERROR ** Cannot proceed without .vf or "physical" font for PDF output...
+
+Output file removed.
+
+
+It happens only when i'm entering in math mode.
+
+
+Any help will be welcome.
+
+
+Thanks,
+
+Fred.
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20090813/c2961d89/attachment.html>
+
+From blumensath at mathematik.tu-darmstadt.de  Fri Aug 14 10:56:30 2009
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Fri, 14 Aug 2009 10:56:30 +0200
+Subject: [Minionpro-devel] Where is enc-2.030.zip?
+In-Reply-To: <e03c648c0908130456l23b361f9od07e91fce845659f@mail.gmail.com>
+References: <e03c648c0908100150v2299d1cev686b290d267fc658@mail.gmail.com>
+	<e03c648c0908100155k450303e3rdb75dcd49b0d069e@mail.gmail.com>
+	<20090811085748.GD29374@mathematik.tu-darmstadt.de>
+	<e03c648c0908121650x569f4eccp8ae244ebc9e5d6a8@mail.gmail.com>
+	<20090813073821.GB14985@mathematik.tu-darmstadt.de>
+	<e03c648c0908130220k48146eber33ec99bc2773bcf4@mail.gmail.com>
+	<20090813093051.GF14985@mathematik.tu-darmstadt.de>
+	<e03c648c0908130331pd7120c9p9d4f633002eedf8f@mail.gmail.com>
+	<e03c648c0908130456l23b361f9od07e91fce845659f@mail.gmail.com>
+Message-ID: <20090814085630.GC821@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Ben M. wrote:
+> >>> What specifically do you mean by "the encoding files?" ?Do you mean:
+> >>> base-MinionPro-aX.enc?
+> >>
+> >> No, those in the enc directory.
+> >
+> > Okay, I have 129 .enc files plus MinionPro.map inside my enc
+> > directory. ?If I'm not concerned with perfect metrics, is it
+> > sufficient to simply dump these inside /texmf/fonts/[enc and
+> > map]/dvips/MinionPro? ?(From there, I would also follow the procedure
+> > from README to using the official zips?)
+> >
+> >> You need to do this for all missing glyphs.
+> 
+> Oops, I meant to write that I have 1400 enckern files in my enc
+> directory (plus a few mn-XXX.enc and similar).  The
+> base-MinionPro-aX.enc are in my dvips directory.  For good measure,
+> I'm just copying them all for now.  But is this actually necessary?
+
+Those files are only needed by makeall/maketfm. You don't need to
+install them.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: Digital signature
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20090814/35c03336/attachment.pgp>
+
+From blumensath at mathematik.tu-darmstadt.de  Fri Aug 14 11:05:29 2009
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Fri, 14 Aug 2009 11:05:29 +0200
+Subject: [Minionpro-devel] Minion Pro and Xelatex
+In-Reply-To: <4A84270E.4080907@free.fr>
+References: <4A84270E.4080907@free.fr>
+Message-ID: <20090814090529.GD821@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Fr?d?ric Krantz wrote:
+> When xelatex is running, the following errors appear :
+[...]
+> mktexpk: don't know how to create bitmap font for MinionPro-ItLCDFJ.
+
+Did you install the MinionPro package according to the instructions in
+the README? In particular, did you create the PFB files?
+
+It might be the case that you have a version of MinionPro that already
+contains a dotlessj glyph. In this case you can try the following:
+
+  https://lists.berlios.de/pipermail/minionpro-devel/2008-July/000265.html
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: Digital signature
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20090814/dcc8ad80/attachment.pgp>
+
+From Olivier.Guibe at univ-rouen.fr  Sun Aug 16 23:45:57 2009
+From: Olivier.Guibe at univ-rouen.fr (Olivier Guibe)
+Date: Sun, 16 Aug 2009 23:45:57 +0200
+Subject: [Minionpro-devel] Error with lcdf typetools 2.79, not	with 2.69
+In-Reply-To: <20090813072116.GA14985@mathematik.tu-darmstadt.de>
+References: <200907302239.14293.schubert.seb@googlemail.com>
+	<20090813072116.GA14985@mathematik.tu-darmstadt.de>
+Message-ID: <20090816234557.y25ck7g000og4s88@ent.univ-rouen.fr>
+
+Hello
+
+I have a similar problem with
+Ubuntu Jaunty
+Texlive 2009
+MinionPro fonts coming from Adober Reader 9 (or 8)
+(I think that it is also similar to the mail on 2.030 enc)
+
+Olivier
+
+Quoting Achim Blumensath <blumensath at mathematik.tu-darmstadt.de>:
+
+> Hello,
+>
+> Sebastian Schubert wrote:
+>> I recently used the cvs sources. When using lcdf typetools 2.69
+>> everything is fine, with 2.79 I get an error, though.
+>
+> I cannot reproduce the error. Are you sure that the only difference is
+> the version of lcdf typetools, or are you using different TeX
+> installations as well?
+>
+> Achim
+> --
+> ________________________________________________________________________
+>                                                               | \_____/ |
+>    Achim Blumensath                                          \O/ \___/\ |
+>    TU Darmstadt                                              =o=  \ /\ \|
+>    www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+> ____________________________________________________________________\___|
+>
+
+
+
+From maresr12temp at gmail.com  Mon Aug 17 01:32:49 2009
+From: maresr12temp at gmail.com (Ben M.)
+Date: Sun, 16 Aug 2009 19:32:49 -0400
+Subject: [Minionpro-devel] Where is enc-2.030.zip?
+In-Reply-To: <20090811085748.GD29374@mathematik.tu-darmstadt.de>
+References: <e03c648c0908100150v2299d1cev686b290d267fc658@mail.gmail.com>
+	<e03c648c0908100155k450303e3rdb75dcd49b0d069e@mail.gmail.com>
+	<20090811085748.GD29374@mathematik.tu-darmstadt.de>
+Message-ID: <e03c648c0908161632vb49daf3hf9704b506dcdb7f1@mail.gmail.com>
+
+> If someone sends me an enc-2.030.zip I can include it in the release.
+
+Hi Achim,
+Did you notice the enc-2.030-beta.zip I attached earlier?
+-Ben
+
+
+From blumensath at mathematik.tu-darmstadt.de  Mon Aug 17 13:26:43 2009
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Mon, 17 Aug 2009 13:26:43 +0200
+Subject: [Minionpro-devel] Where is enc-2.030.zip?
+In-Reply-To: <e03c648c0908161632vb49daf3hf9704b506dcdb7f1@mail.gmail.com>
+References: <e03c648c0908100150v2299d1cev686b290d267fc658@mail.gmail.com>
+	<e03c648c0908100155k450303e3rdb75dcd49b0d069e@mail.gmail.com>
+	<20090811085748.GD29374@mathematik.tu-darmstadt.de>
+	<e03c648c0908161632vb49daf3hf9704b506dcdb7f1@mail.gmail.com>
+Message-ID: <20090817112643.GG14261@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Ben M. wrote:
+> > If someone sends me an enc-2.030.zip I can include it in the release.
+>
+> Did you notice the enc-2.030-beta.zip I attached earlier?
+
+Yes. I haven't found the time to take a look yet.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: Digital signature
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20090817/25d56ce5/attachment.pgp>
+

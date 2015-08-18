@@ -1,0 +1,720 @@
+From blumensath at mathematik.tu-darmstadt.de  Fri Jun  1 10:29:42 2007
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Fri, 1 Jun 2007 10:29:42 +0200
+Subject: [Minionpro-devel] minion pro with gwTeX
+In-Reply-To: <9A89D9E1-E986-4B6A-908E-9CD05C069C9F@philosophy.rutgers.edu>
+References: <3E826830-F336-4F01-B417-EC846B9A1C60@philosophy.rutgers.edu>
+	<20070531063121.GA22314@mathematik.tu-darmstadt.de>
+	<9A89D9E1-E986-4B6A-908E-9CD05C069C9F@philosophy.rutgers.edu>
+Message-ID: <20070601082942.GA730@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Ted Sider wrote:
+> Output follows:
+
+Here, all paths names are /usr/local/gwTeX/...
+
+In your original mail, you used the map file from /usr/local/teTeX/...
+
+Did you change your config in the meantime? Otherwise, it looks like you
+have an old tex installation lying around that interferes.
+Try deleting it or moving it out of your $PATH.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070601/9ebc0b7d/attachment.pgp>
+
+From sebsweb at free.fr  Tue Jun  5 19:40:10 2007
+From: sebsweb at free.fr (Sebastien Morin)
+Date: Tue, 5 Jun 2007 21:40:10 +0400
+Subject: [Minionpro-devel] Access a particular glyph
+Message-ID: <200706052140.11473.sebsweb@free.fr>
+
+Hello,
+
+I've installed the newest version of MinionPro and if I'm not mistaken 
+this font provides lots of fancy ligatures (such as ct and st) which 
+are not directly available with the LaTeX package.
+I would really like to use the ? st ? ligature (with a small s, *not* 
+the old s which looks like the letter f) in a word that will be some 
+kind of logo. Is there a simple way to have access to this glyph (I 
+only need it once, in a word written in italics with swshape capital 
+letter as the first letter) ?
+
+Thanks a lot for your help.
+
+S?bastien
+
+
+From j-engel at gmx.de  Tue Jun  5 19:55:27 2007
+From: j-engel at gmx.de (Johannes Engel)
+Date: Tue, 05 Jun 2007 19:55:27 +0200
+Subject: [Minionpro-devel] Access a particular glyph
+In-Reply-To: <200706052140.11473.sebsweb@free.fr>
+References: <200706052140.11473.sebsweb@free.fr>
+Message-ID: <4665A38F.3000001@gmx.de>
+
+Sebastien Morin schrieb:
+> Hello,
+>
+> I've installed the newest version of MinionPro and if I'm not mistaken 
+> this font provides lots of fancy ligatures (such as ct and st) which 
+> are not directly available with the LaTeX package.
+> I would really like to use the ? st ? ligature (with a small s, *not* 
+> the old s which looks like the letter f) in a word that will be some 
+> kind of logo. Is there a simple way to have access to this glyph (I 
+> only need it once, in a word written in italics with swshape capital 
+> letter as the first letter) ?
+>
+> Thanks a lot for your help.
+As far as I know you can use the pifont package and the command \Pisymbol.
+
+Greetings, Johannes
+
+
+From sebsweb at free.fr  Wed Jun  6 04:27:04 2007
+From: sebsweb at free.fr (Sebastien Morin)
+Date: Wed, 6 Jun 2007 06:27:04 +0400
+Subject: [Minionpro-devel] Access a particular glyph
+In-Reply-To: <4665A38F.3000001@gmx.de>
+References: <200706052140.11473.sebsweb@free.fr> <4665A38F.3000001@gmx.de>
+Message-ID: <200706060627.05276.sebsweb@free.fr>
+
+Le mardi 5 juin 2007 21:55, Johannes Engel a ?crit?:
+> As far as I know you can use the pifont package and the command
+> \Pisymbol.
+
+With this command I can have access to one of the 50 symbols showed on 
+page 6 in the documentation, but I don't think I can have the ? st ? 
+ligature this way... If I can, I don't know how :-(
+Thanks for your help anyway
+
+Greetings,
+Sebastien
+
+
+From blumensath at mathematik.tu-darmstadt.de  Wed Jun  6 08:06:56 2007
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Wed, 6 Jun 2007 08:06:56 +0200
+Subject: [Minionpro-devel] Access a particular glyph
+In-Reply-To: <200706052140.11473.sebsweb@free.fr>
+References: <200706052140.11473.sebsweb@free.fr>
+Message-ID: <20070606060656.GA23237@mathematik.tu-darmstadt.de>
+
+Hello,
+
+> I would really like to use the ? st ? ligature
+
+I'm afraid there is no way to access this glyph with our package. The
+easiest way to use it would probably be to use some other program to
+create an eps file with your logo and include that in your LaTeX
+document.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070606/69edace0/attachment.pgp>
+
+From molitor at uni-bonn.de  Wed Jun  6 09:17:46 2007
+From: molitor at uni-bonn.de (Dr. Ernst Molitor)
+Date: Wed, 6 Jun 2007 07:17:46 +0000
+Subject: [Minionpro-devel] Access a particular glyph
+In-Reply-To: <20070606060656.GA23237@mathematik.tu-darmstadt.de>
+References: <200706052140.11473.sebsweb@free.fr>
+	<20070606060656.GA23237@mathematik.tu-darmstadt.de>
+Message-ID: <200706060717.46588.molitor@uni-bonn.de>
+
+Dear Achim Blumensath, 
+
+while I agree there is no easy way to access the "st" glyph alleged to in the 
+first mail on this topic, one might possibly exchange it for another one 
+(which will then be inaccessible, of course). 
+
+To make use of the "Recipe" glyph (a contraction of the characters R and p, 
+used on physician's recipes, as a shorthand for the latin "recipe", "he/she 
+shall receive") included in the MinionPro fonts, I made a minor change to the 
+file enc/mn-ts1.enc, since the "Rp" glyph is at position F6DD: 
+
+--- mn-ts1.enc.~1.19.~  2006-01-17 21:38:03.000000000 +0000
++++ mn-ts1.enc  2007-03-23 07:32:05.000000000 +0000
+@@ -30,7 +30,7 @@
+   /breve /caron /hungarumlaut /dblgrave /dagger /daggerdbl /bardbl /perthousand
+   /bullet /centigrade /dollaroldstyle /centoldstyle /florin /colonmonetary /won /textnaira
+ % 0x90
+-  /textguarani /peseta /lira /textrecipe /interrobang /interrobangdown /dong /trademark
++  /textguarani /peseta /lira /uniF6DD /interrobang /interrobangdown /dong /trademark
+   /pertenthousand /paragraph /bahtthai /numero /textdiscount /estimated /bulletinverse /textservicemark
+ % 0xA0
+   /textlquill /textrquill /cent /sterling /currency /yen /brokenbar /section
+
+With this change, after running your installation scripts (admittedly, this 
+takes a while on my boxen), I have the "\textrecipe" available (files 
+http://microbiology-bonn.de/~ernst/test.ltx and 
+http://microbiology-bonn.de/~ernst/test.pdf are an example of its use).
+
+So, I'd assume that one could make the st ligature available in exchange for 
+another glyph (or maybe one could make use of one of the "notdef" 
+positions??).
+
+Best wishes and regards, 
+and many, many thanks for the most useful MinionPro LateX package,
+
+Yours
+
+Ernst Molitor
+
+
+On Wednesday 06 June 2007 06:06:56 Achim Blumensath wrote:
+> Hello,
+>
+> > I would really like to use the ? st ? ligature
+>
+> I'm afraid there is no way to access this glyph with our package. The
+> easiest way to use it would probably be to use some other program to
+> create an eps file with your logo and include that in your LaTeX
+> document.
+>
+> Achim
+
+
+
+
+From blumensath at mathematik.tu-darmstadt.de  Wed Jun  6 15:22:03 2007
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Wed, 6 Jun 2007 15:22:03 +0200
+Subject: [Minionpro-devel] Access a particular glyph
+In-Reply-To: <200706060717.46588.molitor@uni-bonn.de>
+References: <200706052140.11473.sebsweb@free.fr>
+	<20070606060656.GA23237@mathematik.tu-darmstadt.de>
+	<200706060717.46588.molitor@uni-bonn.de>
+Message-ID: <20070606132203.GH23237@mathematik.tu-darmstadt.de>
+
+Hello,
+
+> while I agree there is no easy way to access the "st" glyph alleged to in the 
+> first mail on this topic, one might possibly exchange it for another one 
+> (which will then be inaccessible, of course). 
+> 
+> To make use of the "Recipe" glyph (a contraction of the characters R and p, 
+> used on physician's recipes, as a shorthand for the latin "recipe", "he/she 
+> shall receive") included in the MinionPro fonts, I made a minor change to the 
+> file enc/mn-ts1.enc, since the "Rp" glyph is at position F6DD: 
+
+Instead of overwriting an existing glyphs you could also add it to the
+encoding by replacing one of the /.notdef entries.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070606/bd0acc5a/attachment.pgp>
+
+From sebsweb at free.fr  Wed Jun  6 15:35:20 2007
+From: sebsweb at free.fr (Sebastien Morin)
+Date: Wed, 6 Jun 2007 17:35:20 +0400
+Subject: [Minionpro-devel] Access a particular glyph
+In-Reply-To: <20070606132203.GH23237@mathematik.tu-darmstadt.de>
+References: <200706052140.11473.sebsweb@free.fr>
+	<200706060717.46588.molitor@uni-bonn.de>
+	<20070606132203.GH23237@mathematik.tu-darmstadt.de>
+Message-ID: <200706061735.20913.sebsweb@free.fr>
+
+Achim Blumensath wrote:
+> > To make use of the "Recipe" glyph (a contraction of the
+> > characters R and p, used on physician's recipes, as a shorthand
+> > for the latin "recipe", "he/she shall receive") included in the
+> > MinionPro fonts, I made a minor change to the file
+> > enc/mn-ts1.enc, since the "Rp" glyph is at position F6DD:
+>
+> Instead of overwriting an existing glyphs you could also add it to
+> the encoding by replacing one of the /.notdef entries.
+
+Where can I find some documentation or a simple guide to learn how to 
+do such a thing? For example, how could I know that the Rp glyph is 
+at position F6DD ?! How can I find where the ? st ? ligature is? What 
+do I have to do exactely to replace one of the /.notdef entries?
+
+Sorry if my questions are stupid, I'm just a basic LaTeX user, and I 
+barely know how to install packages ;-)
+
+Thanks
+S?bastien
+
+
+From j-engel at gmx.de  Wed Jun  6 18:19:56 2007
+From: j-engel at gmx.de (Johannes Engel)
+Date: Wed, 6 Jun 2007 18:19:56 +0200
+Subject: [Minionpro-devel] Access a particular glyph
+In-Reply-To: <200706061735.20913.sebsweb@free.fr>
+References: <200706052140.11473.sebsweb@free.fr>
+	<200706060717.46588.molitor@uni-bonn.de>
+	<20070606132203.GH23237@mathematik.tu-darmstadt.de>
+	<200706061735.20913.sebsweb@free.fr>
+Message-ID: <20070606181956.59c59b13@wmaz5.math.uni-wuppertal.de>
+
+Am Wed, 6 Jun 2007 17:35:20 +0400
+schrieb Sebastien Morin <sebsweb at free.fr>:
+
+> Achim Blumensath wrote:
+> > > To make use of the "Recipe" glyph (a contraction of the
+> > > characters R and p, used on physician's recipes, as a shorthand
+> > > for the latin "recipe", "he/she shall receive") included in the
+> > > MinionPro fonts, I made a minor change to the file
+> > > enc/mn-ts1.enc, since the "Rp" glyph is at position F6DD:
+> >
+> > Instead of overwriting an existing glyphs you could also add it to
+> > the encoding by replacing one of the /.notdef entries.
+> 
+> Where can I find some documentation or a simple guide to learn how to 
+> do such a thing?
+texdoc fontinstallationguide.pdf
+
+> For example, how could I know that the Rp glyph is 
+> at position F6DD ?!
+Have a look at www.unicode.org/charts/. You will find all glyphs there.
+
+> How can I find where the ? st ? ligature is? 
+Use fontforge or something similar to explore the font files.
+
+> What 
+> do I have to do exactely to replace one of the /.notdef entries?
+Change the encoding vector replacing /.notdef by the glyph's name.
+
+Greetings, Johannes
+
+-- 
+"Nuclear war would really set back cable."
+		-- Ted Turner
+
+
+From axretif at igo.com.mx  Thu Jun 14 17:54:05 2007
+From: axretif at igo.com.mx (Axel E. Retif)
+Date: Thu, 14 Jun 2007 10:54:05 -0500
+Subject: [Minionpro-devel] [XeTeX] XeTeX and math packages -- was:
+	Unexpected quotation marks
+In-Reply-To: <4BF1C381-510D-4FD6-97BF-77643E41A383@gmail.com>
+References: <99B27B08-3400-4D26-8FF3-E3CF31E089EA@virginia.edu>
+	<555A21EC-9055-4194-A664-358EC3A13CFC@saar.de>
+	<9CF42D21-59DC-40AD-8A02-0D08B808F842@virginia.edu>
+	<2C55247E-6FA5-4406-9FDC-90D577DF4918@saar.de>
+	<BA35EB15-3582-4307-9444-936ED6279920@virginia.edu>
+	<01BCDD9C-CABB-4ADA-AADE-8402241DC29A@saar.de>
+	<97392DE3-0C6E-4D02-986E-DDF4BD45C2D3@virginia.edu>
+	<DFFF4CCB-FD7E-465C-9100-E9BEB5E4D3CA@mac.com>
+	<4BF1C381-510D-4FD6-97BF-77643E41A383@gmail.com>
+Message-ID: <4C68BCE7-5C8E-4EB8-9C9F-742AA7D541E9@igo.com.mx>
+
+On  13 Jun, 2007, at 10:31, Will Robertson wrote:
+
+> On 10/06/2007, at 9:23 , Bruno Voisin wrote:
+>
+>> What you need is a switch to disactivate these lines, but I don't
+>> have the time to look into this right now. I'm cc'ing the fontspec
+>> author, Will Robertson.
+>
+> Thanks heaps for that, Bruno. I think I knew in the back of my mind
+> that I needed to do that, but I hadn't got around to it yet. There's
+> a pre-release version of fontspec that should fix this problem
+> automatically for most maths font packages that exist:
+>    <http://scripts.sil.org/svn-public/xetex/TRUNK/texmf/tex/xelatex/
+> fontspec/>
+>
+> The [no-math] package option can be used in exceptional circumstances
+> if fontspec does the wrong thing.
+>
+> If you could relay this link to the OS X TeX list, I'd be
+> appreciative if a couple of people could test it for the original
+> problem and for any other documents containing maths to ensure I
+> haven't messed up. It's past my bed time!
+
+Wow! It's as simple as
+
+\usepackage[minionint,mathlf]{MinionPro}% <- MinionPro loads MnSymbol
+\usepackage[no-math]{fontspec}
+\usepackage{xltxtra}
+\defaultfontfeatures{Mapping=tex-text}
+\setmainfont[Numbers=Lowercase]{Minion Pro}
+
+and everything is in MnSymbol and Minion Pro!
+
+(For lucbmath, though, it's better \usepackage[cm-default]{fontspec};  
+otherwise, mathrm and numerals come out in Computer Modern.)
+
+Thank you very much! And thanks to Bruno Voisin for his findings!
+
+
+Best,
+
+Axel
+
+
+
+From axretif at igo.com.mx  Thu Jun 14 20:53:52 2007
+From: axretif at igo.com.mx (Axel E. Retif)
+Date: Thu, 14 Jun 2007 13:53:52 -0500
+Subject: [Minionpro-devel] [XeTeX] Re: XeTeX and math packages -- was:
+	Unexpected quotation marks
+In-Reply-To: <912B9316-10A1-465F-9120-4E0D5AAF3719@mac.com>
+References: <99B27B08-3400-4D26-8FF3-E3CF31E089EA@virginia.edu>
+	<555A21EC-9055-4194-A664-358EC3A13CFC@saar.de>
+	<9CF42D21-59DC-40AD-8A02-0D08B808F842@virginia.edu>
+	<2C55247E-6FA5-4406-9FDC-90D577DF4918@saar.de>
+	<BA35EB15-3582-4307-9444-936ED6279920@virginia.edu>
+	<01BCDD9C-CABB-4ADA-AADE-8402241DC29A@saar.de>
+	<97392DE3-0C6E-4D02-986E-DDF4BD45C2D3@virginia.edu>
+	<DFFF4CCB-FD7E-465C-9100-E9BEB5E4D3CA@mac.com>
+	<4BF1C381-510D-4FD6-97BF-77643E41A383@gmail.com>
+	<4C68BCE7-5C8E-4EB8-9C9F-742AA7D541E9@igo.com.mx>
+	<912B9316-10A1-465F-9120-4E0D5AAF3719@mac.com>
+Message-ID: <A80967CB-C73B-4BC6-AE2F-704F69240285@igo.com.mx>
+
+On  14 Jun, 2007, at 11:33, Bruno Voisin wrote:
+
+> Le 14 juin 07 ? 17:54, Axel E. Retif a ?crit :
+>
+>> Wow! It's as simple as
+>>
+>> \usepackage[minionint,mathlf]{MinionPro}% <- MinionPro loads MnSymbol
+>> \usepackage[no-math]{fontspec}
+>> \usepackage{xltxtra}
+>> \defaultfontfeatures{Mapping=tex-text}
+>> \setmainfont[Numbers=Lowercase]{Minion Pro}
+>>
+>> and everything is in MnSymbol and Minion Pro!
+>
+> Beware though: the [no-math] option may have some side effects. The
+> redefinitions it eliminates, namely:
+>
+>        \DeclareMathSymbol{0}{\mathalpha}{legacymaths}{`0}
+>        \DeclareMathSymbol{1}{\mathalpha}{legacymaths}{`1}
+>        \DeclareMathSymbol{2}{\mathalpha}{legacymaths}{`2}
+>        \DeclareMathSymbol{3}{\mathalpha}{legacymaths}{`3}
+>        \DeclareMathSymbol{4}{\mathalpha}{legacymaths}{`4}
+>        \DeclareMathSymbol{5}{\mathalpha}{legacymaths}{`5}
+>        \DeclareMathSymbol{6}{\mathalpha}{legacymaths}{`6}
+>        \DeclareMathSymbol{7}{\mathalpha}{legacymaths}{`7}
+>        \DeclareMathSymbol{8}{\mathalpha}{legacymaths}{`8}
+>        \DeclareMathSymbol{9}{\mathalpha}{legacymaths}{`9}
+>        \DeclareMathSymbol{\Gamma}{\mathalpha}{legacymaths}{0}
+>        \DeclareMathSymbol{\Delta}{\mathalpha}{legacymaths}{1}
+>        \DeclareMathSymbol{\Theta}{\mathalpha}{legacymaths}{2}
+>        \DeclareMathSymbol{\Lambda}{\mathalpha}{legacymaths}{3}
+>        \DeclareMathSymbol{\Xi}{\mathalpha}{legacymaths}{4}
+>        \DeclareMathSymbol{\Pi}{\mathalpha}{legacymaths}{5}
+>        \DeclareMathSymbol{\Sigma}{\mathalpha}{legacymaths}{6}
+>        \DeclareMathSymbol{\Upsilon}{\mathalpha}{legacymaths}{7}
+>        \DeclareMathSymbol{\Phi}{\mathalpha}{legacymaths}{8}
+>        \DeclareMathSymbol{\Psi}{\mathalpha}{legacymaths}{9}
+>        \DeclareMathSymbol{\Omega}{\mathalpha}{legacymaths}{10}
+>        \DeclareMathSymbol{+}{\mathbin}{legacymaths}{43}
+>        \DeclareMathSymbol{=}{\mathrel}{legacymaths}{61}
+>        \DeclareMathDelimiter{(}{\mathopen} {legacymaths}{40}
+> {largesymbols}{0}
+>        \DeclareMathDelimiter{)}{\mathclose}{legacymaths}{41}
+> {largesymbols}{1}
+>        \DeclareMathDelimiter{[}{\mathopen} {legacymaths}{91}
+> {largesymbols}{2}
+>        \DeclareMathDelimiter{]}{\mathclose}{legacymaths}{93}
+> {largesymbols}{3}
+>        \DeclareMathDelimiter{/}{\mathord}{legacymaths}{47}
+> {largesymbols}{14}
+>        \DeclareMathSymbol{\mathdollar}{\mathord}{legacymaths}{36}
+>
+> were done because LaTeX expects to find some characters in maths at
+> specific code points, corresponding to the position of these
+> characters in the Computer Modern math fonts. Common TrueType or
+> OpenType fonts are likely to have the same characters at different
+> positions, which may yield unexpected results, such as a "(" in input
+> not producing a "(" in output, and requires that you redefine
+> yourself these characters to correspond to the appropriate code  
+> points.
+
+[...]
+
+I tried with the usual AMS article. All of the above come out right,  
+the only problem is with \varrho, and I don't know why. I made a line  
+with all Greek characters used in math, uppercase and lowercase, and  
+the only one that fails is varrho.
+
+Best,
+
+Axel
+
+
+
+From michal.stepien at bezda.com  Sun Jun 24 11:02:53 2007
+From: michal.stepien at bezda.com (Michal Stepien)
+Date: Sun, 24 Jun 2007 11:02:53 +0200
+Subject: [Minionpro-devel] quotedblbase and quotedblright in minionpro
+Message-ID: <20070624090253.GA27109@kermit.bezda.com>
+
+I have real problem with two glyphs -- but in fact is a
+problem with one of them. They should be idenctical,
+with exception to their placement. In minionpro
+distance between apostrophes in quotedblright
+and quotedblbase is different. Distance between apostrophes
+in the case of quotedblright is smaller than in the
+case of quotedblbase. Is it a bug in MinionPro package
+or in font itself? It does not matter whether I use
+font 1.00 or 2.00 or whether I run makeall script
+with --nokern, --kern --expanded and so on.
+Problem is not kerning between quoationmarks and
+other glyphs/letters but in the shape of these
+quoatation marks. I've met no book in polish
+where they would be not identical, this is why
+current situation in quite odd.
+
+Example of situation I gave in file:
+http://www.bezda.com/quotation_marks.pdf
+
+Thanks in advance for any hint related to above question.
+
+with regards
+
+Michal Stepien
+
+
+From andreas.buehmann at web.de  Sun Jun 24 11:44:59 2007
+From: andreas.buehmann at web.de (Andreas =?iso-8859-1?q?B=FChmann?=)
+Date: Sun, 24 Jun 2007 11:44:59 +0200
+Subject: [Minionpro-devel] quotedblbase and quotedblright in minionpro
+In-Reply-To: <20070624090253.GA27109@kermit.bezda.com>
+References: <20070624090253.GA27109@kermit.bezda.com>
+Message-ID: <200706241145.00256.andreas.buehmann@web.de>
+
+Hello Michal,
+
+> Distance between apostrophes in the case of quotedblright is smaller
+> than in the case of quotedblbase. Is it a bug in MinionPro package or
+> in font itself?
+
+neither, I think; in your example, there are no 'quotedblbase' glyphs
+but only pairs of commas. Take a look at the following document to see
+the right glyphs:
+
+\documentclass{minimal}
+\usepackage{MinionPro}
+\usepackage[T1]{fontenc}
+\begin{document}
+\quotedblbase foo\textquotedblright
+\end{document}
+
+So I guess something is wrong with your input method. "''" is indeed
+translated to 'textquotedblright' by the ligature mechanism. But ",,"
+yields two commas by default and the polski.sty you are referring to in
+your example does not seem to change that.
+
+If I understand it correctly, with polski.sty you can write something
+like this to get proper quotation marks (see the documentation of
+\PLSlash and \prefixing in polski.dtx):
+
+\documentclass{minimal}
+\usepackage{MinionPro}
+\usepackage[T1]{fontenc}
+\usepackage{polski}
+\begin{document}
+\prefixing
+/,foo/'
+\end{document}
+
+Best wishes,
+
+Andreas
+
+
+
+From michael.zedler at tum.de  Sun Jun 24 11:51:19 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Sun, 24 Jun 2007 11:51:19 +0200
+Subject: [Minionpro-devel] quotedblbase and quotedblright in minionpro
+In-Reply-To: <20070624090253.GA27109@kermit.bezda.com>
+References: <20070624090253.GA27109@kermit.bezda.com>
+Message-ID: <1076C0DC-B98F-426D-B64E-38E96814396B@tum.de>
+
+Am 24.06.2007 um 11:02 schrieb Michal Stepien:
+> I have real problem with two glyphs -- but in fact is a
+> problem with one of them. They should be idenctical,
+> with exception to their placement. In minionpro
+> distance between apostrophes in quotedblright
+> and quotedblbase is different.
+
+Hm, does the problem get solved if you add to mn-t1.enc
+% LIGKERN comma comma =: quotedblbase ;
+
+I find this line in cork.enc/dc.enc/ec.enc, too. I cannot remember,  
+did I forget to put this line into the T1 encoding or was there some  
+reason? Apart from this, does anybody have a clue what
+% LIGKERN space l =: lslash ; space L =: Lslash ;
+is good for in ec.enc?
+
+Michael
+
+
+
+
+From andreas.buehmann at web.de  Sun Jun 24 13:16:20 2007
+From: andreas.buehmann at web.de (Andreas =?iso-8859-1?q?B=FChmann?=)
+Date: Sun, 24 Jun 2007 13:16:20 +0200
+Subject: [Minionpro-devel] quotedblbase and quotedblright in minionpro
+In-Reply-To: <1076C0DC-B98F-426D-B64E-38E96814396B@tum.de>
+References: <20070624090253.GA27109@kermit.bezda.com>
+	<1076C0DC-B98F-426D-B64E-38E96814396B@tum.de>
+Message-ID: <200706241316.20723.andreas.buehmann@web.de>
+
+Hi,
+
+* Michael Zedler <michael.zedler at tum.de> [2007-06-24 11:51]:
+> % LIGKERN comma comma =: quotedblbase ;
+> I find this line in cork.enc/dc.enc/ec.enc, too.
+
+oh, indeed; I didn't expect this ligature to exist. Sorry for the
+confusion.
+
+Andreas
+
+
+
+From michal.stepien at bezda.com  Sun Jun 24 14:06:06 2007
+From: michal.stepien at bezda.com (Michal Stepien)
+Date: Sun, 24 Jun 2007 14:06:06 +0200
+Subject: [Minionpro-devel] quotedblbase and quotedblright in minionpro
+In-Reply-To: <20070624090253.GA27109@kermit.bezda.com>
+References: <20070624090253.GA27109@kermit.bezda.com>
+Message-ID: <20070624120606.GA5465@kermit.bezda.com>
+
+The solution proposed by Michael Zedler
+is this what I need. I propose to put this line
+into cvs branch and keep it because without
+it minionpro looks odd and weird.
+
+I'm not an latex expert and it is quite strange
+that polski.sty encourages to use two commas
+as opening quotationmark and afterwards it is
+treated as two commas. However problem appears
+exclusively in minionpro. I tried to use
+\prefixing and /, and /'. It works but
+it has two disadvantages:
+-it is changing text especially for minion,
+-simple find & replace does not work
+in my book, it seems that /prefixing implies futher
+changes of my text-- however in short text like example attached
+by me that's great.
+
+Thanks for answers you gave me. I plan to buy
+this font and use it in my publication because
+it fits me very well. But without
+your advices I would have to resign. 
+
+-- 
+* Mo?na by? wolnym ale czasem wymaga to wi?kszego
+  wysi?ku i szerszego ?wiatopogl?du oraz pewnej zaradno?ci.
+  (mniej wi?cej powiedzia? Telly z pl.comp.sys.amiga)
+  http://bezda.com
+
+
+From michael.zedler at tum.de  Sun Jun 24 14:31:08 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Sun, 24 Jun 2007 14:31:08 +0200
+Subject: [Minionpro-devel] quotedblbase and quotedblright in minionpro
+In-Reply-To: <20070624120606.GA5465@kermit.bezda.com>
+References: <20070624090253.GA27109@kermit.bezda.com>
+	<20070624120606.GA5465@kermit.bezda.com>
+Message-ID: <EC110C00-E68E-49E7-ABDA-54D8B07857EE@tum.de>
+
+Am 24.06.2007 um 14:06 schrieb Michal Stepien:
+> I propose to put this line
+> into cvs branch and keep it because without
+> it minionpro looks odd and weird.
+
+Something reminds me of The Princess and the Pea...
+CVS updated.
+
+Michael
+
+
+From michal.stepien at bezda.com  Sun Jun 24 15:45:10 2007
+From: michal.stepien at bezda.com (Michal Stepien)
+Date: Sun, 24 Jun 2007 15:45:10 +0200
+Subject: [Minionpro-devel] quotedblbase and quotedblright in minionpro
+In-Reply-To: <20070624120606.GA5465@kermit.bezda.com>
+References: <20070624090253.GA27109@kermit.bezda.com>
+	<20070624120606.GA5465@kermit.bezda.com>
+Message-ID: <20070624134510.GA3441@kermit.bezda.com>
+
+> Something reminds me of The Princess and the Pea...
+> CVS updated.
+
+Do not exaggerate. That's the power of
+opensource. Otherwise how would know about
+it? I saw it when I've printed fragment of book.
+Believe me I haven't used magnifier or something.
+
+-- 
+* Mo?na by? wolnym ale czasem wymaga to wi?kszego
+  wysi?ku i szerszego ?wiatopogl?du oraz pewnej zaradno?ci.
+  (mniej wi?cej powiedzia? Telly z pl.comp.sys.amiga)
+  http://bezda.com
+
+
+From ralf.stubner at web.de  Sun Jun 24 15:51:13 2007
+From: ralf.stubner at web.de (Ralf Stubner)
+Date: Sun, 24 Jun 2007 15:51:13 +0200
+Subject: [Minionpro-devel] quotedblbase and quotedblright in minionpro
+In-Reply-To: <1076C0DC-B98F-426D-B64E-38E96814396B@tum.de>
+References: <20070624090253.GA27109@kermit.bezda.com>
+	<1076C0DC-B98F-426D-B64E-38E96814396B@tum.de>
+Message-ID: <20070624135113.GA9114@skye>
+
+On Sun, Jun 24, 2007 at 11:51 +0200, Michael Zedler wrote:
+> Apart from this, does anybody have a clue what
+> % LIGKERN space l =: lslash ; space L =: Lslash ;
+> is good for in ec.enc?
+
+Backwards compatibility with macros written for OT1?
+
+,----[ plain.tex ]
+| \def\l{\char32l}
+| \def\L{\leavevmode\setbox0\hbox{L}\hbox to\wd0{\hss\char32L}}
+`----
+
+In "normal" fonts \char32 is space, while it is the slash needed for
+[Ll]slash in OT1.
+
+cheerio
+ralf
+
+

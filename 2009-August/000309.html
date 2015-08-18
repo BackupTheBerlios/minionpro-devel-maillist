@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Minionpro-devel] Where is enc-2.030.zip?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/minionpro-devel/2009-August/index.html" >
+   <LINK REL="made" HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20Where%20is%20enc-2.030.zip%3F&In-Reply-To=%3C20090813073821.GB14985%40mathematik.tu-darmstadt.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000307.html">
+   <LINK REL="Next"  HREF="000310.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Minionpro-devel] Where is enc-2.030.zip?</H1>
+    <B>Achim Blumensath</B> 
+    <A HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20Where%20is%20enc-2.030.zip%3F&In-Reply-To=%3C20090813073821.GB14985%40mathematik.tu-darmstadt.de%3E"
+       TITLE="[Minionpro-devel] Where is enc-2.030.zip?">blumensath at mathematik.tu-darmstadt.de
+       </A><BR>
+    <I>Thu Aug 13 09:38:21 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000307.html">[Minionpro-devel] Where is enc-2.030.zip?
+</A></li>
+        <LI>Next message: <A HREF="000310.html">[Minionpro-devel] Where is enc-2.030.zip?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#309">[ date ]</a>
+              <a href="thread.html#309">[ thread ]</a>
+              <a href="subject.html#309">[ subject ]</a>
+              <a href="author.html#309">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+Ben M. wrote:
+&gt;<i> I don't know why this is happening, but based solely on the fact that
+</I>&gt;<i> there are enc-vX.XXX.zip files, my guess is that the encoding changed.
+</I>&gt;<i> Is this a reasonable assumption?
+</I>
+Yes, Adobe changed the glyph names in the font.
+
+&gt;<i> I compared the OTFs in character map, and there's a character that
+</I>&gt;<i> looks just like \upell at U+2113hex.  (See the attached images.)
+</I>
+What is the PostScript name of the glyph? You can find out, for
+instance, with a font editor like fontforge.
+
+&gt;<i> So it looks like the unicode character remains unchanged.  The only
+</I>&gt;<i> place I see \ell in the entire package is MinionPro.sty:
+</I>&gt;<i>   \DeclareMathSymbol{\ell} {\mathord}{letters}{'140}
+</I>&gt;<i>   \DeclareMathSymbol{\upell} {\mathord}{letters}{'340}
+</I>&gt;<i> I certainly don't understand what's going wrong.  The .enc files don't
+</I>&gt;<i> look to me like they convey the information necessary to fix this
+</I>&gt;<i> problem.  Do I also need to replace the metrics or something?
+</I>
+No, you only need to update the encoding files.
+
+I just noticed that the glyphlist file changed in newer versions of lcdf
+typetools. Try replacing the /lscript in enc/mn-oml.enc with /lsquare.
+
+&gt;<i> I tried to use Cygwin to run the scripts to compile things myself.
+</I>&gt;<i> I'm trying to follow the procedure you gave to Johannes on 17 Jul
+</I>&gt;<i> 2008:
+</I>&gt;<i> 
+</I>&gt;<i>   $ ./scripts/makeall --nodotlessj
+</I>&gt;<i>   $ ./scripts/generate-glyph-list.sh &gt;./scripts/glyph-list-2.030
+</I>&gt;<i>   $ ./scripts/makeall --verbose --nodotlessj --pack=./scripts/glyph-list-2.030
+</I>&gt;<i> (previously there was a typo in the last line: &quot;glyph-list.2.030&quot;)
+</I>&gt;<i> 
+</I>&gt;<i> This was a huge pain for several reasons.  Makeall takes about an hour
+</I>&gt;<i> to run.  Unfortunately MiKTeX doesn't use kpathsea, so I get all these
+</I>&gt;<i> kpathsea errors about &quot;texmf.cnf not found.&quot;  But I think all the
+</I>&gt;<i> necessary files are being found, and that this is ignorable.  The
+</I>&gt;<i> scripts seem to have a few minor errors:
+</I>&gt;<i> 
+</I>&gt;<i> scripts/maketfm: line 23: ((: 2 &lt; 2 || (2 == 2 &amp;&amp; 79
+</I>&gt;<i>  &lt; 62) : syntax error: invalid arithmetic operator (error token is &quot;
+</I>&gt;<i>  &lt; 62) &quot;)
+</I>&gt;<i> scripts/beautify-enc.sh: line 3: ed: command not found
+</I>
+You need to install some Unix software like bash and ed. I think they
+are included in cygwin, for instance.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /&quot;\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: Digital signature
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/minionpro-devel/attachments/20090813/85babc70/attachment.pgp">https://lists.berlios.de/pipermail/minionpro-devel/attachments/20090813/85babc70/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000307.html">[Minionpro-devel] Where is enc-2.030.zip?
+</A></li>
+	<LI>Next message: <A HREF="000310.html">[Minionpro-devel] Where is enc-2.030.zip?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#309">[ date ]</a>
+              <a href="thread.html#309">[ thread ]</a>
+              <a href="subject.html#309">[ subject ]</a>
+              <a href="author.html#309">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/minionpro-devel">More information about the Minionpro-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Minionpro-devel] Where is enc-2.030.zip?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/minionpro-devel/2009-August/index.html" >
+   <LINK REL="made" HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20Where%20is%20enc-2.030.zip%3F&In-Reply-To=%3Ce03c648c0908130220k48146eber33ec99bc2773bcf4%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000309.html">
+   <LINK REL="Next"  HREF="000311.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Minionpro-devel] Where is enc-2.030.zip?</H1>
+    <B>Ben M.</B> 
+    <A HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20Where%20is%20enc-2.030.zip%3F&In-Reply-To=%3Ce03c648c0908130220k48146eber33ec99bc2773bcf4%40mail.gmail.com%3E"
+       TITLE="[Minionpro-devel] Where is enc-2.030.zip?">maresr12temp at gmail.com
+       </A><BR>
+    <I>Thu Aug 13 11:20:50 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000309.html">[Minionpro-devel] Where is enc-2.030.zip?
+</A></li>
+        <LI>Next message: <A HREF="000311.html">[Minionpro-devel] Where is enc-2.030.zip?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#310">[ date ]</a>
+              <a href="thread.html#310">[ thread ]</a>
+              <a href="subject.html#310">[ subject ]</a>
+              <a href="author.html#310">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Achim, thanks so much for getting back to me!
+
+&gt;<i> What is the PostScript name of the glyph? You can find out, for
+</I>&gt;<i> instance, with a font editor like fontforge.
+</I>
+Wow, fontforge is incredible!  But I'm not sure how to get the
+&quot;PostScript&quot; name.  &quot;Glyph info&quot; doesn't say anything interesting, so
+here is the hover text.  I hope what you want is included.
+8467 (0x2113) U+2113  &quot;uni2113&quot;  SCRIPT SMALL L
+ = mathematical symbol 'ell'
+ = liter (traditional symbol)
+ * despite its character name, this symbol is derived from a special
+italicized version of the small letter l
+ * the SI recommended symbol for liter is 006C
+ -&gt; (mathematical script small l - 1D4C1)
+ = &lt;font&gt; 006C latin small letter l
+
+&gt;&gt;<i> I certainly don't understand what's going wrong. &#160;The .enc files don't
+</I>&gt;&gt;<i> look to me like they convey the information necessary to fix this
+</I>&gt;&gt;<i> problem. &#160;Do I also need to replace the metrics or something?
+</I>&gt;<i>
+</I>&gt;<i> No, you only need to update the encoding files.
+</I>
+What specifically do you mean by &quot;the encoding files?&quot;  Do you mean:
+  base-MinionPro-aX.enc?
+
+&gt;<i> I just noticed that the glyphlist file changed in newer versions of lcdf
+</I>&gt;<i> typetools. Try replacing the /lscript in enc/mn-oml.enc with /lsquare.
+</I>
+Okay, I will try that, but I have to do it later since it needs to
+compile.  Also, will this fix just the \ell, or will I need to
+manually make similar modifications for all characters?
+
+Speaking of that, assuming I only need to generate
+base-MinionPro-aX.enc, is it necessary to run makeall twice, as in:
+&gt;&gt;<i> &#160; $ ./scripts/makeall --nodotlessj
+</I>&gt;&gt;<i> &#160; $ ./scripts/generate-glyph-list.sh &gt;./scripts/glyph-list-2.030
+</I>&gt;&gt;<i> &#160; $ ./scripts/makeall --verbose --nodotlessj --pack=./scripts/glyph-list-2.030
+</I>&gt;&gt;<i> (previously there was a typo in the last line: &quot;glyph-list.2.030&quot;)
+</I>
+
+&gt;&gt;<i> scripts/beautify-enc.sh: line 3: ed: command not found
+</I>&gt;<i>
+</I>&gt;<i> You need to install some Unix software like bash and ed. I think they
+</I>&gt;<i> are included in cygwin, for instance.
+</I>
+I installed ed, so hopefully now the beautify-enc script will work.
+
+Finally, must I worry about
+&quot;C:\cygwin\usr\local\src\MinionPro\fontinst\adjust-oml.mtx
+! Missing number, treated as zero.&quot; or is this safe to ignore if I
+only want the .enc files?
+
+Thank you so much for your help!  After a while, I'll let you know
+what happens with the recompile.
+
+-Ben
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000309.html">[Minionpro-devel] Where is enc-2.030.zip?
+</A></li>
+	<LI>Next message: <A HREF="000311.html">[Minionpro-devel] Where is enc-2.030.zip?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#310">[ date ]</a>
+              <a href="thread.html#310">[ thread ]</a>
+              <a href="subject.html#310">[ subject ]</a>
+              <a href="author.html#310">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/minionpro-devel">More information about the Minionpro-devel
+mailing list</a><br>
+</body></html>

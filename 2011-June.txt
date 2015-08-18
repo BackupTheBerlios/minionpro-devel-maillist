@@ -1,0 +1,35 @@
+From schubert.seb at googlemail.com  Thu Jun 16 00:12:41 2011
+From: schubert.seb at googlemail.com (Sebastian Schubert)
+Date: Thu, 16 Jun 2011 00:12:41 +0200
+Subject: [Minionpro-devel] Re-Mapping characters for font version 2.03
+In-Reply-To: <4D48E72A.2904.81C704C@xavier.brusset.essca.fr>
+References: <4D48E72A.2904.81C704C@xavier.brusset.essca.fr>
+Message-ID: <BANLkTinQVMdttj1_M-6RNmvNBPOjKv4S_A@mail.gmail.com>
+
+Dear Xavier,
+
+On Wed, Feb 2, 2011 at 6:10 AM, Xavier Brusset <xavier.brusset at essca.fr>wrote:
+
+>  Apparently this is because the mapping of the font in version 2.03 is
+> different from the previous versions.
+> I have tried changing the mapping in MinionPro.sty (lines 500 to 511) but I
+> do not know how to code the position of the characters.
+>
+
+As far as I can see the problem is not in the sty files but in the created
+metrics.
+
+Could you try to run the scripts from
+
+https://github.com/sebschub/FontPro/tree/mnnew
+
+(be sure to be in the mnnew branch where I've just implemented the support
+for openg and jmath for newer font versions)
+
+Follow the supplied README and it should work.
+
+Sebastian
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20110616/7e4f2a37/attachment.html>
+

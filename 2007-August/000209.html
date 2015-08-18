@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Minionpro-devel] MinionPro equations
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/minionpro-devel/2007-August/index.html" >
+   <LINK REL="made" HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20MinionPro%20equations&In-Reply-To=%3Cbd9b873a0708160618j2bdc8f8ap17d5bfb23e3437d4%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000210.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Minionpro-devel] MinionPro equations</H1>
+    <B>Ben Willmore</B> 
+    <A HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20MinionPro%20equations&In-Reply-To=%3Cbd9b873a0708160618j2bdc8f8ap17d5bfb23e3437d4%40mail.gmail.com%3E"
+       TITLE="[Minionpro-devel] MinionPro equations">bdeb at willmore.eu
+       </A><BR>
+    <I>Thu Aug 16 15:18:38 CEST 2007</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000210.html">[Minionpro-devel] MinionPro equations
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#209">[ date ]</a>
+              <a href="thread.html#209">[ thread ]</a>
+              <a href="subject.html#209">[ subject ]</a>
+              <a href="author.html#209">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I like the MinionPro package for text, but (on my system at least)
+equations can look very strange.  For example, the code below produces
+the PDF file at: <A HREF="http://willmore.eu/minion.pdf">http://willmore.eu/minion.pdf</A>
+
+To my eye, the braces are far too heavy, make the appearance of
+equations very uneven.  This happens both on screen and in printed
+copies of the document.
+
+I wonder:
+
+* Do the braces look excessively heavy to other people or is my sense
+of aesthetics out of whack?
+* Do the braces appear this heavy on other systems or have I messed up
+the installation of the font somehow?
+
+Ben
+
+%%%%%%%%%%%%%%%
+\documentclass[11pt]{article}
+\usepackage[lf]{MinionPro}
+
+\begin{document}
+Here is an equation:
+\begin{equation}
+I = \frac{1}{\sqrt{2}}
+\left[
+\begin{array}{rrr}
+ 1&amp;2&amp;3 \\
+ 1&amp;2&amp;3 \\
+ 1&amp;2&amp;3 \\
+\end{array}
+\right]\\
+\end{equation}
+\end{document}
+%%%%%%%%%%%%%%%
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000210.html">[Minionpro-devel] MinionPro equations
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#209">[ date ]</a>
+              <a href="thread.html#209">[ thread ]</a>
+              <a href="subject.html#209">[ subject ]</a>
+              <a href="author.html#209">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/minionpro-devel">More information about the Minionpro-devel
+mailing list</a><br>
+</body></html>

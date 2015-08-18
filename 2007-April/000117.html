@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Minionpro-devel] Something has changed
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/minionpro-devel/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20Something%20has%20changed&In-Reply-To=%3C4614CBA4.5020100%40web.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000116.html">
+   <LINK REL="Next"  HREF="000118.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Minionpro-devel] Something has changed</H1>
+    <B>Christoph Bier</B> 
+    <A HREF="mailto:minionpro-devel%40lists.berlios.de?Subject=Re%3A%20%5BMinionpro-devel%5D%20Something%20has%20changed&In-Reply-To=%3C4614CBA4.5020100%40web.de%3E"
+       TITLE="[Minionpro-devel] Something has changed">christoph.bier at web.de
+       </A><BR>
+    <I>Thu Apr  5 12:12:52 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000116.html">[Minionpro-devel] Something has changed
+</A></li>
+        <LI>Next message: <A HREF="000118.html">[Minionpro-devel] Something has changed
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#117">[ date ]</a>
+              <a href="thread.html#117">[ thread ]</a>
+              <a href="subject.html#117">[ subject ]</a>
+              <a href="author.html#117">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Michael Zedler schrieb am 05.04.2007 11:35:
+
+&gt;<i> Am 05.04.2007 um 11:32 schrieb Christoph Bier:
+</I>&gt;&gt;<i> Christoph Bier schrieb am 05.04.2007 11:14:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Marco Kuhlmann schrieb am 03.04.2007 11:59:
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> [...]
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> That's what has changed, and I just wanted to know whether anyone on
+</I>&gt;&gt;&gt;&gt;<i> the list is experiencing the same problems.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Yes, the same here.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I forgot to mentioned that I still use &quot;2005/09/25 v2.0&quot; of
+</I>&gt;&gt;<i> MinionPro and &quot;2007/01/21 v2.0&quot; of microtype. The problem occurs
+</I>&gt;&gt;<i> only with pdfTeX 1.40.3-2.2 but not with pdfTeX 1.21a-2.2.
+</I>&gt;<i> 
+</I>&gt;<i> Just to make sure: With a completely unchanged setup of MinionPro/ 
+</I>&gt;<i> MnSymbol you get different results depending on the pdftex compiler?
+</I>
+Yesterday I installed TeXLive 2007 on my office desktop that uses
+the same texmf tree ($TEXMFHOME) as on my laptop and home desktop. I
+only copied ~/.texmf-config and ~/.texmf-var (from teTeX3) to
+~/.texlive2007, added &#187;!!$TEXMFHOME&#171; to texmf.cnf and called
+mktexlsr. That's it.
+
+Now I made a diff of the log files to send to this list and found
+that there were no hyphenation patterns loaded for ngerman. The
+TeXLive installation seems to be broken:
+
+$ grep german `kpsewhich language.dat`
+german          xu-dehypht.tex
+ngerman         xu-dehyphn.tex
+$ locate xu-dehyph
+/usr/local/texlive/2007/texmf-dist/tex/generic/xu-hyphen/xu-dehyphn.tex
+/usr/local/texlive/2007/texmf-dist/tex/generic/xu-hyphen/xu-dehypht.tex
+/usr/local/texlive/2007/texmf-dist/tex/generic/xu-hyphen/xu-dehyphtex.tex
+
+I'll be back in office next thursday to investigate further.
+
+Happy Easter!
+Christoph
+-- 
++++ Typografie-Regeln: <A HREF="http://zvisionwelt.de/downloads.html">http://zvisionwelt.de/downloads.html</A> (1.6)
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000116.html">[Minionpro-devel] Something has changed
+</A></li>
+	<LI>Next message: <A HREF="000118.html">[Minionpro-devel] Something has changed
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#117">[ date ]</a>
+              <a href="thread.html#117">[ thread ]</a>
+              <a href="subject.html#117">[ subject ]</a>
+              <a href="author.html#117">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/minionpro-devel">More information about the Minionpro-devel
+mailing list</a><br>
+</body></html>

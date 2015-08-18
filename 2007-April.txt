@@ -1,0 +1,1175 @@
+From michael.zedler at tum.de  Sun Apr  1 13:30:32 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Sun, 01 Apr 2007 13:30:32 +0200
+Subject: [Minionpro-devel] MinionPro 2.1 rc3
+In-Reply-To: <m2k5wx1gin.fsf@85-124-52-234.dynamic.xdsl-line.inode.at>
+References: <45C90A50.8010200@tum.de>	<200702070032.18891.andreas.buehmann@web.de>
+	<45C98DA6.2060203@tum.de>	<200702071117.39442.andreas.buehmann@web.de>	<20070322092815.GA26269@mathematik.tu-darmstadt.de>
+	<m2k5wx1gin.fsf@85-124-52-234.dynamic.xdsl-line.inode.at>
+Message-ID: <460F97D8.601@tum.de>
+
+Hansjoerg Pehofer schrieb:
+> Hello,
+> 
+> Achim Blumensath <blumensath at mathematik.tu-darmstadt.de> writes:
+>> I hope this will be the final release candidate. So please test it
+>> extensively.
+> 
+> Superscript figures following an 'f' or 'ff' are set too close to it,
+> especially with the footnotefigures option turned on.
+> 
+> Uff\footnote{}    <-- too close
+> Uff\/\footnote{}  <-- seems ok
+> 
+> Maybe the kerning could be altered or disabled generally for these
+> pairs?
+
+Sorry, this cannot be corrected on the metrics level.
+
+Michael
+
+
+From mk at mcqm.net  Mon Apr  2 20:14:54 2007
+From: mk at mcqm.net (Marco Kuhlmann)
+Date: Mon, 2 Apr 2007 20:14:54 +0200
+Subject: [Minionpro-devel] Something has changed
+Message-ID: <59D24D3C-E511-480C-A0AB-102DC146D4BB@mcqm.net>
+
+I do not know whether this is related to my recent upgrade to the  
+current TeXLive (and therefore, to a current pdflatex and microtype),  
+or whether this is caused by the new RC 1.3 of MinionPro, but  
+suddenly I see all kinds of overlapping right margin, like this:
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: pastedGraphic.tiff
+Type: image/tiff
+Size: 8946 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070402/868cdb88/attachment.tiff>
+-------------- next part --------------
+
+(Pardon the example.) I wonder if anyone of you has experienced  
+anything like this as well. I did not use to get these flaws before.
+
+     Best,
+     Marco
+
+
+From michael.zedler at tum.de  Tue Apr  3 11:23:20 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Tue, 3 Apr 2007 11:23:20 +0200
+Subject: [Minionpro-devel] Something has changed
+In-Reply-To: <59D24D3C-E511-480C-A0AB-102DC146D4BB@mcqm.net>
+References: <59D24D3C-E511-480C-A0AB-102DC146D4BB@mcqm.net>
+Message-ID: <43D3864C-D477-4191-82EF-4D79FF2AF3F7@tum.de>
+
+Hello,
+
+Am 02.04.2007 um 20:14 schrieb Marco Kuhlmann:
+
+> I do not know whether this is related to my recent upgrade to the  
+> current TeXLive (and therefore, to a current pdflatex and  
+> microtype), or whether this is caused by the new RC 1.3 of  
+> MinionPro, but suddenly I see all kinds of overlapping right  
+> margin, like this:
+>
+> <pastedGraphic.tiff>
+>
+> (Pardon the example.) I wonder if anyone of you has experienced  
+> anything like this as well. I did not use to get these flaws before.
+
+Please provide minimal examples in the future.
+
+With TL2007 on a Mac using pdflatex and
+
+\documentclass[a5paper,pagesize,10pt]{scrbook}
+\usepackage{MinionPro}
+\usepackage[expansion=false]{microtype}
+\begin{document}\parindent=0pt
+as  dependency dependency dependency dependency
+dependency dependency dependency dependency
+as dependency dependency dependency dependency
+as dependency dependency dependency dependency
+ndency dependency dependency dependency \emph{weakly}
+as dependency dependency dependency dependency dependency
+dependency dependency dependency dependency
+\end{document}
+
+I don't get this problem. Perhaps in your log you simply get an  
+overfull hbox?
+
+Michael
+
+
+From anugupta at pu.ac.in  Tue Apr  3 11:25:43 2007
+From: anugupta at pu.ac.in (Anu Gupta DCSA)
+Date: Tue, 3 Apr 2007 15:55:43 +0630
+Subject: [Minionpro-devel] A Survey on Defect Management Practices in
+	Free/Open Source Software
+Message-ID: <20070403092505.M89635@pu.ac.in>
+
+Dear Minionpro Contributors,
+
+I seek help from designers, developers, testers,defect fixers,project 
+managers or playing any other key role in Free/Open Source software 
+development or maintenence 
+in carrying out a study on practices and problems of defect management in 
+various Free/Open Source Software projects. The 
+insights gained from the study can further help us to extract publicly 
+accessible defect data and determine impact of defect management practices 
+on software quality. 
+Please spend a few minutes of your precious time to fill up the 
+Questionnaire. The most of the questions follow multiple choice formats and 
+are quite easy to answer. 
+
+To have the Online Questionnaire, please visit: 
+
+http://anu.puchd.ac.in/phpESP/public/survey.php?name=FOSS_Defect_Survey 
+
+(You can also copy and paste this link into your browser, and hit the 
+'Return' key.) 
+
+I hope you will find all the questions interesting and thought-provoking. 
+Your answers will be kept anonymous.The data thus collected will 
+only be used for research purpose.It would be nice if you may further refer 
+this mail to others actively engaged with Free/Open Source Software 
+development. If you have any query or suggestions then 
+feel free to contact. 
+
+Thank You 
+
+With regards, 
+
+Anu Gupta 
+Senior Lecturer 
+Department of Computer Science and Applications, 
+Panjab University, Chandigarh. 
+INDIA
+
+
+In case of any problem in accessing/using the above mentioned link please 
+contact:
+E-mail: anugupta at pu.ac.in 
+     	anugupta98 at gmail.com 
+
+
+
+From mk at mcqm.net  Tue Apr  3 11:59:04 2007
+From: mk at mcqm.net (Marco Kuhlmann)
+Date: Tue, 3 Apr 2007 11:59:04 +0200
+Subject: [Minionpro-devel] Something has changed
+In-Reply-To: <43D3864C-D477-4191-82EF-4D79FF2AF3F7@tum.de>
+References: <59D24D3C-E511-480C-A0AB-102DC146D4BB@mcqm.net>
+	<43D3864C-D477-4191-82EF-4D79FF2AF3F7@tum.de>
+Message-ID: <4EEBC3E4-7687-43DF-AA34-8E4EFABF3E8D@mcqm.net>
+
+Am 2007?04?03 um 11:23 schrieb Michael Zedler:
+
+> Please provide minimal examples in the future.
+
+Sorry, I did not make myself clear.
+
+I was merely using the screenshot to demonstrate that I now in fact  
+DO get overfull hboxes, where earlier on I did not get them. I do not  
+really see a reason for why they should be there, however; the word  
+dependen-cy can be hyphenated by splitting off the last two letters,  
+which (especially if you are using microtype) should not be something  
+that generates overfull hboxes. Actually, I cannot imagine of ever  
+getting overfull hboxes since I switched to using microtype.
+
+That's what has changed, and I just wanted to know whether anyone on  
+the list is experiencing the same problems.
+
+     Best,
+     Marco
+
+
+
+From michael.zedler at tum.de  Tue Apr  3 18:08:46 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Tue, 3 Apr 2007 18:08:46 +0200
+Subject: [Minionpro-devel] Something has changed
+In-Reply-To: <4EEBC3E4-7687-43DF-AA34-8E4EFABF3E8D@mcqm.net>
+References: <59D24D3C-E511-480C-A0AB-102DC146D4BB@mcqm.net>
+	<43D3864C-D477-4191-82EF-4D79FF2AF3F7@tum.de>
+	<4EEBC3E4-7687-43DF-AA34-8E4EFABF3E8D@mcqm.net>
+Message-ID: <E54F367F-B90E-4290-8495-A3025AB0A6FC@tum.de>
+
+Am 03.04.2007 um 11:59 schrieb Marco Kuhlmann:
+> That's what has changed, and I just wanted to know whether anyone on
+> the list is experiencing the same problems.
+
+I just compiled a book that used to have 749 pages, now it has 753.  
+I'll have a look at this issue, also cross-checking with a miktex setup.
+
+Michael
+
+
+From Michael.Zedler at tum.de  Wed Apr  4 00:29:51 2007
+From: Michael.Zedler at tum.de (Michael Zedler)
+Date: Wed, 4 Apr 2007 00:29:51 +0200
+Subject: [Minionpro-devel] Math fonts from MinionPro Sources
+In-Reply-To: <200704032037.l33Kb8jd001122@unicorn.berlios.de>
+References: <200704032037.l33Kb8jd001122@unicorn.berlios.de>
+Message-ID: <A75A6AD1-4FA8-4721-B5B2-F45194C47BAC@tum.de>
+
+Hello Bernhard,
+
+I haven't had a look at setups for other fonts for quite a while...  
+Essentially the scripts on Berlios are easily portable to other  
+fonts, it's mostly substituting "MinionPro" for xxx, same applies to  
+MinionPro.dtx/ins. I assume to get this part of the port done will  
+only take some 20 minutes (you'll also find some files for  
+GaramondPremierPro/MyriadPro in CVS, including special kerning pairs).
+
+Concerning the math setup, with the settings of MinionPro you're  
+already quite ok, but to have 100% quality support, you'll have to  
+spend some time adapting
+  - adjust-oml.mtx to get the side bearings and accent positions 100%  
+ok (with MinionPro's settings you'll have a 90% solution)
+  - *intop*mtx to get an equivalent of the minionint option working.  
+(You can omit this if you're fine with MinionPro's integral in the  
+other font's math setup. If not: Select the otf from which the  
+integral shall be taken for the text and display version, choose an  
+appropriate Extend/Slant value for each, then position the glyphs in  
+the aforementioned *intop*mtx)
+
+I did these things for some fonts a while ago, but didn't put that  
+all in the CVS, and what I didn't put there got lost in the  
+meantime ;-/ (Essentially nobody else was interested, I wasn't happy  
+with Warnock/GaramondPremier/Myriad for math typesetting and so  
+didn't push further.) The result of what I did those days can be  
+found on
+   http://www.hft.ei.tum.de/mz/testmath_fourier_pnc.pdf
+   http://www.hft.ei.tum.de/mz/testmath_gara.pdf
+   http://www.hft.ei.tum.de/mz/testmath_gentium.pdf
+   http://www.hft.ei.tum.de/mz/testmath_kepler.pdf
+   http://www.hft.ei.tum.de/mz/testmath_minionpro.pdf
+   http://www.hft.ei.tum.de/mz/testmath_myriad.pdf
+   http://www.hft.ei.tum.de/mz/testmath_myriad_fourier.pdf
+   http://www.hft.ei.tum.de/mz/testmath_myriad_light.pdf
+   http://www.hft.ei.tum.de/mz/testmath_pazo_mnsymbol.pdf
+
+Something else you may want to consider (e.g., for Warnock/Myriad):  
+MnSymbol's stroke thickness is a bit too thin for some fonts. This  
+can be dealt with but be warned, this may cost time: You can creaty a  
+modified version of MnSymbol (call it MySymbol/WaSymbol or whatever)  
+with different parameters in MnSymbol-Parameter.mf. Be careful that  
+Metafont doesn't throw "strange path" errors.
+Getting high-quality (non-autotraced) Type1 fonts for your adapted  
+version will be yet more work ;-) If you made it to the point that  
+you get an adaptation of MnSymbol to run with Metafont (i.e., as a  
+bitmap font) and it looks ok with Myriad/Warnock, then please drop me  
+a mail; perhaps I'll be of some help for getting the high-quality  
+Type1 managed (just too long to explain now).
+
+Good luck, it's not nearly as scary as it seems at first sight.
+Michael
+
+PS: otftotfm 2.61 is buggy (see our mailing list), better wait for an  
+update.
+
+Am 03.04.2007 um 22:37 schrieb bgeneto at bat.berlios.de:
+
+> Hi, Michael!
+>
+> First of all I would like to thank you for this
+> great package named MinionPro! I've been using
+> MinionPro since its debut and now I'm searching
+> for another similar package, i.e., a LaTeX font
+> package with such a great math support, like
+> MinionPro.sty.
+> As I was unable to find such a package, I was
+> thinking if it is possible to work on MinionPro
+> sources in order to produce math fonts for
+> Garamond, Galliard, Warnock, and other commercial
+> typefaces. I remember you said once at
+> comp.text.tex that this is possible, so is there a
+> Warnock.sty package already (based on MinionPro)
+> or I will have to work on it from the very beginning?
+>
+> Thanks in advance,
+>
+> Bernhard Enders.
+>
+> http://groups.google.com/group/comp.text.tex/browse_frm/thread/ 
+> b19dd5969cd303a9/9ed46f2287c9ab62?lnk=gst&q=math+fonts 
+> +opentype&rnum=11#9ed46f2287c9ab62
+
+
+
+From JanGunnar.Moe at hials.no  Wed Apr  4 14:15:53 2007
+From: JanGunnar.Moe at hials.no (Moe Jan Gunnar)
+Date: Wed, 4 Apr 2007 14:15:53 +0200
+Subject: [Minionpro-devel] Math fonts from MinionPro Sources
+In-Reply-To: <A75A6AD1-4FA8-4721-B5B2-F45194C47BAC@tum.de>
+References: <200704032037.l33Kb8jd001122@unicorn.berlios.de>
+	<A75A6AD1-4FA8-4721-B5B2-F45194C47BAC@tum.de>
+Message-ID: <9BB62D6DBD193B4AAB2556FC905DF8D707726AF6@stork.hials.no>
+
+
+Am 03.04.2007 um 22:37 schrieb bgeneto at bat.berlios.de:
+
+> Hi, Michael!
+>
+> First of all I would like to thank you for this
+> great package named MinionPro! I've been using
+> MinionPro since its debut and now I'm searching
+> for another similar package, i.e., a LaTeX font
+> package with such a great math support, like
+> MinionPro.sty.
+> As I was unable to find such a package, I was
+> thinking if it is possible to work on MinionPro
+> sources in order to produce math fonts for
+> Garamond, Galliard, Warnock, and other commercial
+> typefaces. 
+
+Greetings, I read this list, and have a comment: 
+
+Of the commercial typefaces mentioned above (Garamond, Galliard,
+Warnock), I want to tell that I regard Warnock to be in a class for
+itself for mathematical texts (maybe close to or even equally good as
+Minion):
+
+1) Warnock does possess much of the elegance of Minion, at the same time
+Warnock is more robust than Minion (moving on the scale a bit in the
+direction towards Utopia/Fourier.) Warnock Caption seems to me to be
+maybe more readable in very small sizes than is Minion Pro caption, and
+Warnock may, I believe, put lesser demand on printer technology quality
+than does Minion.
+2) Warnock seems to be very complete (Greek and often missed ligatures
+like fj and ffj are there.)
+3) Warnock has a very readable italic (in contrast to Garamond Pro,
+which I find completely unsuitable for mathematics.)
+4) Warnock in normal text sizes feels rather neutral (like Minion and
+Kepler) and do (for my eyes) not call attention to itself (in contrast
+to Galliard and Palatino, which I like for many purposes, but not for
+educational texts.)
+
+So, while I feel that Minion Pro for mathematics do fill what would else
+be a whole in the set of available math typefaces, I would personally be
+happy if among the other fonts mentioned above, Warnock would be chosen
+if someone is going to use time for parallel development.
+
+Best wishes to all for future development and thanks a lot for all the
+time used and good work done.
+
+Jan Gunnar Moe
+
+
+
+
+
+
+
+I remember you said once at
+> comp.text.tex that this is possible, so is there a
+> Warnock.sty package already (based on MinionPro)
+> or I will have to work on it from the very beginning?
+>
+> Thanks in advance,
+>
+> Bernhard Enders.
+>
+> http://groups.google.com/group/comp.text.tex/browse_frm/thread/ 
+> b19dd5969cd303a9/9ed46f2287c9ab62?lnk=gst&q=math+fonts 
+> +opentype&rnum=11#9ed46f2287c9ab62
+
+_______________________________________________
+Minionpro-devel mailing list
+Minionpro-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/minionpro-devel
+
+
+From michael.zedler at tum.de  Wed Apr  4 15:07:38 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Wed, 4 Apr 2007 15:07:38 +0200
+Subject: [Minionpro-devel] Math fonts from MinionPro Sources
+In-Reply-To: <9BB62D6DBD193B4AAB2556FC905DF8D707726AF6@stork.hials.no>
+References: <200704032037.l33Kb8jd001122@unicorn.berlios.de>
+	<A75A6AD1-4FA8-4721-B5B2-F45194C47BAC@tum.de>
+	<9BB62D6DBD193B4AAB2556FC905DF8D707726AF6@stork.hials.no>
+Message-ID: <5D3A1F8B-7E2B-4F2B-9CA6-7F40683C1479@tum.de>
+
+Am 04.04.2007 um 14:15 schrieb Moe Jan Gunnar:
+> 1) Warnock does possess much of the elegance of Minion, at the same  
+> time
+> Warnock is more robust than Minion (moving on the scale a bit in the
+> direction towards Utopia/Fourier.)
+
+Bernhard,
+
+if you consider making math metrics for Warnock, you may consider  
+mixing Warnock with the FourierGutenberg fonts instead of MnSymbol.
+
+Best,
+Michael
+
+
+From christoph.bier at web.de  Thu Apr  5 11:14:11 2007
+From: christoph.bier at web.de (Christoph Bier)
+Date: Thu, 05 Apr 2007 11:14:11 +0200
+Subject: [Minionpro-devel] Something has changed
+In-Reply-To: <4EEBC3E4-7687-43DF-AA34-8E4EFABF3E8D@mcqm.net>
+References: <59D24D3C-E511-480C-A0AB-102DC146D4BB@mcqm.net>	<43D3864C-D477-4191-82EF-4D79FF2AF3F7@tum.de>
+	<4EEBC3E4-7687-43DF-AA34-8E4EFABF3E8D@mcqm.net>
+Message-ID: <4614BDE3.4010900@web.de>
+
+Marco Kuhlmann schrieb am 03.04.2007 11:59:
+
+[...]
+
+> That's what has changed, and I just wanted to know whether anyone on  
+> the list is experiencing the same problems.
+
+Yes, the same here.
+
+Best
+Christoph
+-- 
++++ Typografie-Regeln: http://zvisionwelt.de/downloads.html (1.6)
+
+
+From christoph.bier at web.de  Thu Apr  5 11:32:37 2007
+From: christoph.bier at web.de (Christoph Bier)
+Date: Thu, 05 Apr 2007 11:32:37 +0200
+Subject: [Minionpro-devel] Something has changed
+In-Reply-To: <4614BDE3.4010900@web.de>
+References: <59D24D3C-E511-480C-A0AB-102DC146D4BB@mcqm.net>	<43D3864C-D477-4191-82EF-4D79FF2AF3F7@tum.de>	<4EEBC3E4-7687-43DF-AA34-8E4EFABF3E8D@mcqm.net>
+	<4614BDE3.4010900@web.de>
+Message-ID: <4614C235.5020108@web.de>
+
+Christoph Bier schrieb am 05.04.2007 11:14:
+
+> Marco Kuhlmann schrieb am 03.04.2007 11:59:
+> 
+> [...]
+> 
+>> That's what has changed, and I just wanted to know whether anyone on  
+>> the list is experiencing the same problems.
+> 
+> Yes, the same here.
+
+I forgot to mentioned that I still use "2005/09/25 v2.0" of
+MinionPro and "2007/01/21 v2.0" of microtype. The problem occurs
+only with pdfTeX 1.40.3-2.2 but not with pdfTeX 1.21a-2.2.
+
+Best
+Christoph
+-- 
++++ Typografie-Regeln: http://zvisionwelt.de/downloads.html (1.6)
+
+
+From michael.zedler at tum.de  Thu Apr  5 11:35:14 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Thu, 5 Apr 2007 11:35:14 +0200
+Subject: [Minionpro-devel] Something has changed
+In-Reply-To: <4614C235.5020108@web.de>
+References: <59D24D3C-E511-480C-A0AB-102DC146D4BB@mcqm.net>	<43D3864C-D477-4191-82EF-4D79FF2AF3F7@tum.de>	<4EEBC3E4-7687-43DF-AA34-8E4EFABF3E8D@mcqm.net>
+	<4614BDE3.4010900@web.de> <4614C235.5020108@web.de>
+Message-ID: <7893840B-7366-47C6-BA7C-007282410266@tum.de>
+
+Am 05.04.2007 um 11:32 schrieb Christoph Bier:
+> Christoph Bier schrieb am 05.04.2007 11:14:
+>
+>> Marco Kuhlmann schrieb am 03.04.2007 11:59:
+>>
+>> [...]
+>>
+>>> That's what has changed, and I just wanted to know whether anyone on
+>>> the list is experiencing the same problems.
+>>
+>> Yes, the same here.
+>
+> I forgot to mentioned that I still use "2005/09/25 v2.0" of
+> MinionPro and "2007/01/21 v2.0" of microtype. The problem occurs
+> only with pdfTeX 1.40.3-2.2 but not with pdfTeX 1.21a-2.2.
+
+Just to make sure: With a completely unchanged setup of MinionPro/ 
+MnSymbol you get different results depending on the pdftex compiler?
+
+Michael
+
+
+From christoph.bier at web.de  Thu Apr  5 12:12:52 2007
+From: christoph.bier at web.de (Christoph Bier)
+Date: Thu, 05 Apr 2007 12:12:52 +0200
+Subject: [Minionpro-devel] Something has changed
+In-Reply-To: <7893840B-7366-47C6-BA7C-007282410266@tum.de>
+References: <59D24D3C-E511-480C-A0AB-102DC146D4BB@mcqm.net>	<43D3864C-D477-4191-82EF-4D79FF2AF3F7@tum.de>	<4EEBC3E4-7687-43DF-AA34-8E4EFABF3E8D@mcqm.net>	<4614BDE3.4010900@web.de>
+	<4614C235.5020108@web.de>
+	<7893840B-7366-47C6-BA7C-007282410266@tum.de>
+Message-ID: <4614CBA4.5020100@web.de>
+
+Michael Zedler schrieb am 05.04.2007 11:35:
+
+> Am 05.04.2007 um 11:32 schrieb Christoph Bier:
+>> Christoph Bier schrieb am 05.04.2007 11:14:
+>>
+>>> Marco Kuhlmann schrieb am 03.04.2007 11:59:
+>>>
+>>> [...]
+>>>
+>>>> That's what has changed, and I just wanted to know whether anyone on
+>>>> the list is experiencing the same problems.
+>>>
+>>> Yes, the same here.
+>>
+>> I forgot to mentioned that I still use "2005/09/25 v2.0" of
+>> MinionPro and "2007/01/21 v2.0" of microtype. The problem occurs
+>> only with pdfTeX 1.40.3-2.2 but not with pdfTeX 1.21a-2.2.
+> 
+> Just to make sure: With a completely unchanged setup of MinionPro/ 
+> MnSymbol you get different results depending on the pdftex compiler?
+
+Yesterday I installed TeXLive 2007 on my office desktop that uses
+the same texmf tree ($TEXMFHOME) as on my laptop and home desktop. I
+only copied ~/.texmf-config and ~/.texmf-var (from teTeX3) to
+~/.texlive2007, added ?!!$TEXMFHOME? to texmf.cnf and called
+mktexlsr. That's it.
+
+Now I made a diff of the log files to send to this list and found
+that there were no hyphenation patterns loaded for ngerman. The
+TeXLive installation seems to be broken:
+
+$ grep german `kpsewhich language.dat`
+german          xu-dehypht.tex
+ngerman         xu-dehyphn.tex
+$ locate xu-dehyph
+/usr/local/texlive/2007/texmf-dist/tex/generic/xu-hyphen/xu-dehyphn.tex
+/usr/local/texlive/2007/texmf-dist/tex/generic/xu-hyphen/xu-dehypht.tex
+/usr/local/texlive/2007/texmf-dist/tex/generic/xu-hyphen/xu-dehyphtex.tex
+
+I'll be back in office next thursday to investigate further.
+
+Happy Easter!
+Christoph
+-- 
++++ Typografie-Regeln: http://zvisionwelt.de/downloads.html (1.6)
+
+
+From mk at mcqm.net  Thu Apr  5 13:03:58 2007
+From: mk at mcqm.net (Marco Kuhlmann)
+Date: Thu, 5 Apr 2007 13:03:58 +0200
+Subject: [Minionpro-devel] Something has changed
+In-Reply-To: <4614CBA4.5020100@web.de>
+References: <59D24D3C-E511-480C-A0AB-102DC146D4BB@mcqm.net>	<43D3864C-D477-4191-82EF-4D79FF2AF3F7@tum.de>	<4EEBC3E4-7687-43DF-AA34-8E4EFABF3E8D@mcqm.net>	<4614BDE3.4010900@web.de>
+	<4614C235.5020108@web.de>
+	<7893840B-7366-47C6-BA7C-007282410266@tum.de>
+	<4614CBA4.5020100@web.de>
+Message-ID: <F3A89720-B737-448E-AF3A-FFE507F8CD6F@mcqm.net>
+
+Am 2007?04?05 um 12:12 schrieb Christoph Bier:
+
+> Now I made a diff of the log files to send to this list and found
+> that there were no hyphenation patterns loaded for ngerman. The
+> TeXLive installation seems to be broken:
+
+Nice hint! I changed my document to use ukenglish instead of british  
+as an option for babel, and get different hyphenations, even though  
+(according to the babel documentation) the two options should be  
+equivalent.
+
+     - Marco
+
+
+
+From michael.zedler at tum.de  Thu Apr  5 13:50:35 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Thu, 5 Apr 2007 13:50:35 +0200
+Subject: [Minionpro-devel] Something has changed
+In-Reply-To: <F3A89720-B737-448E-AF3A-FFE507F8CD6F@mcqm.net>
+References: <59D24D3C-E511-480C-A0AB-102DC146D4BB@mcqm.net>	<43D3864C-D477-4191-82EF-4D79FF2AF3F7@tum.de>	<4EEBC3E4-7687-43DF-AA34-8E4EFABF3E8D@mcqm.net>	<4614BDE3.4010900@web.de>
+	<4614C235.5020108@web.de>
+	<7893840B-7366-47C6-BA7C-007282410266@tum.de>
+	<4614CBA4.5020100@web.de>
+	<F3A89720-B737-448E-AF3A-FFE507F8CD6F@mcqm.net>
+Message-ID: <6A67E76A-3F2E-4922-8301-8F7D2089BE6C@tum.de>
+
+
+Am 05.04.2007 um 13:03 schrieb Marco Kuhlmann:
+
+> Am 2007?04?05 um 12:12 schrieb Christoph Bier:
+>
+>> Now I made a diff of the log files to send to this list and found
+>> that there were no hyphenation patterns loaded for ngerman. The
+>> TeXLive installation seems to be broken:
+>
+> Nice hint! I changed my document to use ukenglish instead of british
+> as an option for babel, and get different hyphenations, even though
+> (according to the babel documentation) the two options should be
+> equivalent.
+
+One has to bear in mind that the new metrics are all generated from  
+font version 2.000, so they may differ from the v1.00x ones slightly.
+I just tested on a miktex 2.5 system with MnSymbol 1.4 a 750 pages book
+  1) a setup with the old MinionPro release (v1001 metrics)
+  2) RC 3 (v2000 metrics)
+result: one different page break on one page, but I didn't spot a  
+single different line break.
+
+Inspecting
+   otftotfm -e ../enc/mn-t1.enc -p -fkern -fliga ../../fonts/otf/ 
+MinionPro/v2000/MinionPro-Regular.otf stand2000
+   otftotfm -e ../enc/mn-t1.enc -p -fkern -fliga ../../fonts/otf/ 
+MinionPro/v1001/MinionPro-Regular.otf stand1001
+   otftotfm -e ../enc/mn-t1.enc -p -fkern -fliga ../../fonts/otf/ 
+MinionPro/v1000/MinionPro-Regular.otf stand1000
+
+and then diffing the vpl there is no difference in CHARWD in 2000 and  
+1001, just a few between 2000 and 1000. But CHARHT/CHARDP do vary in  
+many cases (but only very slightly).
+
+Michael
+
+From michael.zedler at tum.de  Thu Apr  5 15:03:31 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Thu, 5 Apr 2007 15:03:31 +0200
+Subject: [Minionpro-devel] Something has changed
+In-Reply-To: <6A67E76A-3F2E-4922-8301-8F7D2089BE6C@tum.de>
+References: <59D24D3C-E511-480C-A0AB-102DC146D4BB@mcqm.net>	<43D3864C-D477-4191-82EF-4D79FF2AF3F7@tum.de>	<4EEBC3E4-7687-43DF-AA34-8E4EFABF3E8D@mcqm.net>	<4614BDE3.4010900@web.de>
+	<4614C235.5020108@web.de>
+	<7893840B-7366-47C6-BA7C-007282410266@tum.de>
+	<4614CBA4.5020100@web.de>
+	<F3A89720-B737-448E-AF3A-FFE507F8CD6F@mcqm.net>
+	<6A67E76A-3F2E-4922-8301-8F7D2089BE6C@tum.de>
+Message-ID: <EE478DFF-827A-485F-9AB5-68A484491B66@tum.de>
+
+Am 05.04.2007 um 13:50 schrieb Michael Zedler:
+> One has to bear in mind that the new metrics are all generated from
+> font version 2.000, so they may differ from the v1.00x ones slightly.
+> I just tested on a miktex 2.5 system with MnSymbol 1.4 a 750 pages  
+> book
+>   1) a setup with the old MinionPro release (v1001 metrics)
+>   2) RC 3 (v2000 metrics)
+> result: one different page break on one page, but I didn't spot a
+> single different line break.
+
+I put a sample diff of these two tries on http://www.hft.ei.tum.de/mz/ 
+diff.png
+
+Happy Easter,
+Michael
+
+
+From michael.zedler at tum.de  Thu Apr  5 16:03:28 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Thu, 5 Apr 2007 16:03:28 +0200
+Subject: [Minionpro-devel] Something has changed
+In-Reply-To: <EE478DFF-827A-485F-9AB5-68A484491B66@tum.de>
+References: <59D24D3C-E511-480C-A0AB-102DC146D4BB@mcqm.net>	<43D3864C-D477-4191-82EF-4D79FF2AF3F7@tum.de>	<4EEBC3E4-7687-43DF-AA34-8E4EFABF3E8D@mcqm.net>	<4614BDE3.4010900@web.de>
+	<4614C235.5020108@web.de>
+	<7893840B-7366-47C6-BA7C-007282410266@tum.de>
+	<4614CBA4.5020100@web.de>
+	<F3A89720-B737-448E-AF3A-FFE507F8CD6F@mcqm.net>
+	<6A67E76A-3F2E-4922-8301-8F7D2089BE6C@tum.de>
+	<EE478DFF-827A-485F-9AB5-68A484491B66@tum.de>
+Message-ID: <A7E2E84E-4E35-44DB-B8F0-F59F07906A94@tum.de>
+
+Am 05.04.2007 um 15:03 schrieb Michael Zedler:
+> I put a sample diff of these two tries on http://www.hft.ei.tum.de/mz/
+> diff.png
+
+the previous diff showed the difference if both the metrics and the  
+pfb font version are changed, <http://www.hft.ei.tum.de/mz/diff2.png>  
+compares what happens if *only* the metrics change.
+
+Michael
+
+
+
+From axretif at igo.com.mx  Mon Apr  9 09:23:10 2007
+From: axretif at igo.com.mx (Axel E. Retif)
+Date: Mon, 9 Apr 2007 02:23:10 -0500
+Subject: [Minionpro-devel] Something has changed
+In-Reply-To: <E54F367F-B90E-4290-8495-A3025AB0A6FC@tum.de>
+References: <59D24D3C-E511-480C-A0AB-102DC146D4BB@mcqm.net>
+	<43D3864C-D477-4191-82EF-4D79FF2AF3F7@tum.de>
+	<4EEBC3E4-7687-43DF-AA34-8E4EFABF3E8D@mcqm.net>
+	<E54F367F-B90E-4290-8495-A3025AB0A6FC@tum.de>
+Message-ID: <1B83C32C-E9CC-4FC4-81C2-1D31FDDC9E18@igo.com.mx>
+
+On Apr 3, 2007, at 11:08, Michael Zedler wrote:
+
+> Am 03.04.2007 um 11:59 schrieb Marco Kuhlmann:
+>> That's what has changed, and I just wanted to know whether anyone on
+>> the list is experiencing the same problems.
+>
+> I just compiled a book that used to have 749 pages, now it has 753.
+> I'll have a look at this issue, also cross-checking with a miktex  
+> setup.
+
+This might be unrelated, but I'm having the same problem with a book  
+with Lucida fonts.
+
+I use Gerben Wierda's teTeX distribution (pdfeTeX 1.30.4-2.2), Gerben  
+Wierda's TeXLive distribution (pdfTeX 1.40.3-2.2) and TeXLive-2007  
+(pdfTeX 1.40.3-2.2).
+
+(As some may know, thanks to a Gerben Wierda-Jerome Laurens device,  
+on MacOS X you can shift from one TeX distribution to another through  
+a Preference panel.)
+
+I have *all* my Lucida font files in my personal TeX branch in my  
+HOME directory, so all of the above TeX distribution have to use  
+exactly the same Lucida metrics, *.pbf, .sty, etc., files.
+
+Now ---a 180 pages book typeset last may typesets exactly the same  
+with GW's teTeX distro (updated 2007/01/03) but gives 184 pages with  
+either GW's TeXLive or TeXLive-2007. There are simple differences, as  
+words hyphenating differently (but both right), or major differences,  
+as text flowing differently from one page to the next.
+
+Before posting the issue to appropriate mailing lists (pdftex,  
+texhax), I've been trying to isolate the problem using in both  
+TeXLive distros the same package versions as in teTeX, but I haven't  
+had any luck ---I'm starting to believe the worst: a pdfTeX issue.
+
+Once I'm done trying with every single package the book uses, I'll  
+post my findings to the mailing lists above, but seeing you have the  
+same problem with MinionPro, I thought it might be worth to let you  
+know.
+
+
+Best,
+
+Axel
+
+
+
+From kohler at cs.ucla.edu  Thu Apr 12 03:05:18 2007
+From: kohler at cs.ucla.edu (Eddie Kohler)
+Date: Wed, 11 Apr 2007 18:05:18 -0700
+Subject: [Minionpro-devel] MinionPro 2.1 rc3
+In-Reply-To: <200703291427.04595.andreas.buehmann@web.de>
+References: <45C90A50.8010200@tum.de>
+	<200703290900.47490.andreas.buehmann@web.de>
+	<87irckbc37.fsf@Satux.Puorg>
+	<200703291427.04595.andreas.buehmann@web.de>
+Message-ID: <461D85CE.4090508@cs.ucla.edu>
+
+Hi Andreas,
+
+Thanks for this bug report, which is fixed in 2.62.  Simple fix: I 
+downgraded the "--unicoding command" message from an error to a warning.
+
+2.62 also has a more significant fix.  The t1dotlessj program previously 
+generated fonts with bad UniqueID values, the same as the input font. 
+This can produce some real problems with older printers.  The new 
+version is smarter.  I'd recommend using it.
+
+Eddie
+
+
+Andreas B?hmann wrote:
+> * Sebastian Schubert <sebastian-schubert at gmx.de>:
+>> mktexpk: don't know how to create bitmap font for
+>> MinionPro-Regular-osf-lgr--base.
+>>
+>>  cat MinionPro.map | grep lgr
+>> gives nothing (just a guess).
+> 
+> I can confirm that the map lines are missing from MinionPro.map. This
+> seems to be due to a bug in otftotfm 2.61: I was able to reduce the
+> otftotfm calls that generate the lgr fonts to the following mininum:
+> 
+>   otftotfm 'otf/MinionPro-Regular.otf' 'without-unicoding'
+>   otftotfm --unicoding 'does.not.exist =: foo' 'otf/MinionPro-Regular.otf' 'with-unicoding'
+> 
+> Only the first call outputs a map line, the second one does not (while
+> they produce identical TFM files):
+> 
+> otftotfm: warning: no encoding provided
+> otftotfm: (Use '-e ENCODING' to choose an encoding. '-e texnansx' often works,
+> otftotfm: or say '-e -' to turn off this warning.)
+> I had to round some heights by 15.5000000 units.
+> I had to round some depths by 4.5000000 units.
+> without-unicoding MinionPro-Regular "AutoEnc_qglvkfpwsrmnwkwmuoclaw4ysc ReEncodeFont" <[a_qglvkf.enc <MinionPro-Regular.pfb
+> otftotfm: warning: no encoding provided
+> otftotfm: (Use '-e ENCODING' to choose an encoding. '-e texnansx' often works,
+> otftotfm: or say '-e -' to turn off this warning.)
+> otftotfm: --unicoding command: target 'does.not.exist' has no encoding, ignoring UNICODING
+> I had to round some heights by 15.5000000 units.
+> I had to round some depths by 4.5000000 units.
+> 
+> I am sending a copy of this mail to Eddie Kohler, the developer of
+> otftotfm.
+> 
+> Thanks for the bug report. Regards,
+> 
+> Andreas
+> 
+
+
+From christoph.bier at web.de  Thu Apr 12 11:29:24 2007
+From: christoph.bier at web.de (Christoph Bier)
+Date: Thu, 12 Apr 2007 11:29:24 +0200
+Subject: [Minionpro-devel] Something has changed
+In-Reply-To: <4614CBA4.5020100@web.de>
+References: <59D24D3C-E511-480C-A0AB-102DC146D4BB@mcqm.net>	<43D3864C-D477-4191-82EF-4D79FF2AF3F7@tum.de>	<4EEBC3E4-7687-43DF-AA34-8E4EFABF3E8D@mcqm.net>	<4614BDE3.4010900@web.de>	<4614C235.5020108@web.de>	<7893840B-7366-47C6-BA7C-007282410266@tum.de>
+	<4614CBA4.5020100@web.de>
+Message-ID: <461DFBF4.8050708@web.de>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Christoph Bier schrieb am 05.04.2007 12:12:
+
+[...]
+
+> Now I made a diff of the log files to send to this list and found
+> that there were no hyphenation patterns loaded for ngerman. The
+> TeXLive installation seems to be broken:
+
+[...]
+
+> I'll be back in office next thursday to investigate further.
+
+Indeed, there was something wrong with my TL installation.[1] I fixed it
+and now everything is ok.
+
+Best
+Christoph
+
+[1] There were .fmt files in $HOME which were used by (pdf)latex but
+were not recreated with fmtutil-sys, of course. Invoking fmtutil to
+recreate the formats solved the problem.
+- --
++++ Typografie-Regeln: http://zvisionwelt.de/downloads.html (1.6)
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.3 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org
+
+iD8DBQFGHfv08FvRlq0FYpURAp9uAJ48EcYCSkPdjgbmvDhf0AnmiDz2nACglrHO
++k1HUtYjGg4L9RgfxUSAw7w=
+=ZUlz
+-----END PGP SIGNATURE-----
+
+
+From michael.zedler at tum.de  Fri Apr 13 13:46:23 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Fri, 13 Apr 2007 13:46:23 +0200
+Subject: [Minionpro-devel] Voss' mathmode
+Message-ID: <7BA12C57-9EE3-4E3A-A164-7DC7BF50CFFF@tum.de>
+
+Hello,
+
+trying to compile <ftp://dante.ctan.org/tex-archive/info/math/voss/ 
+mathmode/> with MinionPro one experiences several problems: Some of  
+the packages this document uses issue
+   \RequirePackage{amssymb}
+Is there some dirty hack to make latex believe it has already loaded  
+amssymb?
+
+Michael
+
+
+From blumensath at mathematik.tu-darmstadt.de  Fri Apr 13 13:48:59 2007
+From: blumensath at mathematik.tu-darmstadt.de (Achim Blumensath)
+Date: Fri, 13 Apr 2007 13:48:59 +0200
+Subject: [Minionpro-devel] Voss' mathmode
+In-Reply-To: <7BA12C57-9EE3-4E3A-A164-7DC7BF50CFFF@tum.de>
+References: <7BA12C57-9EE3-4E3A-A164-7DC7BF50CFFF@tum.de>
+Message-ID: <20070413114859.GB29978@mathematik.tu-darmstadt.de>
+
+Hello,
+
+Michael Zedler wrote:
+> Some of  the packages this document uses issue
+>    \RequirePackage{amssymb}
+> Is there some dirty hack to make latex believe it has already loaded  
+> amssymb?
+
+I would create my own dummy amssymb.sty in the current directory.
+
+Achim
+-- 
+________________________________________________________________________
+                                                              | \_____/ |
+   Achim Blumensath                                          \O/ \___/\ |
+   TU Darmstadt                                              =o=  \ /\ \|
+   www.mathematik.tu-darmstadt.de/~blumensath                /"\   o----|
+____________________________________________________________________\___|
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070413/18ac3fde/attachment.pgp>
+
+From bgeneto at gmail.com  Sat Apr 14 17:27:22 2007
+From: bgeneto at gmail.com (Bernhard Enders)
+Date: Sat, 14 Apr 2007 12:27:22 -0300
+Subject: [Minionpro-devel] MinionPro rc3 and Yap Dvips render method error
+Message-ID: <2257ea30704140827l5adfe81bw8335d904f186679d@mail.gmail.com>
+
+Hi!
+
+After updating to MinionPro rc3 Yap (the DVI viewer from MiKTeX
+distribution for Windows) now is unable to open any minimal file using
+minionpro fonts in the Dvips render method (no problem with the
+default pk method). Does anybody know if this is a problem with Yap or
+MinionPro rc3? The message error follows:
+
+invalid vector<T> subscript
+
+MiKTeX Problem Report
+Message: Unknown exception
+MiKTeX: 2.5
+OS: Microsoft Windows XP Professional Service Pack 2 (Build 2600)
+SystemAdmin: yes
+PowerUser: no
+SharedSetup: yes
+
+
+Thanks,
+
+Bernhard.
+
+ps.: the convert procedure was done with the latest version (v2.62) of
+lcdf tools.
+
+
+From michael.zedler at tum.de  Sat Apr 14 17:29:50 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Sat, 14 Apr 2007 17:29:50 +0200
+Subject: [Minionpro-devel] MinionPro rc3 and Yap Dvips render method
+	error
+In-Reply-To: <2257ea30704140827l5adfe81bw8335d904f186679d@mail.gmail.com>
+References: <2257ea30704140827l5adfe81bw8335d904f186679d@mail.gmail.com>
+Message-ID: <5375F656-29B2-46D6-8A6F-50DC6A2DC1C4@tum.de>
+
+> After updating to MinionPro rc3 Yap (the DVI viewer from MiKTeX
+> distribution for Windows) now is unable to open any minimal file using
+> minionpro fonts in the Dvips render method (no problem with the
+> default pk method). Does anybody know if this is a problem with Yap or
+> MinionPro rc3? The message error follows:
+>
+
+Hello,
+
+does deleting the pk fonts help?
+
+Michael
+
+
+From bgeneto at gmail.com  Sat Apr 14 17:54:01 2007
+From: bgeneto at gmail.com (Bernhard Enders)
+Date: Sat, 14 Apr 2007 12:54:01 -0300
+Subject: [Minionpro-devel] MinionPro rc3 and Yap Dvips render method
+	error
+In-Reply-To: <5375F656-29B2-46D6-8A6F-50DC6A2DC1C4@tum.de>
+References: <2257ea30704140827l5adfe81bw8335d904f186679d@mail.gmail.com>
+	<5375F656-29B2-46D6-8A6F-50DC6A2DC1C4@tum.de>
+Message-ID: <2257ea30704140854y5b42821dw60003b56700e88ef@mail.gmail.com>
+
+No. In fact I have just uninstalled MiKTeX 2.5 and all related files,
+folders and programs but the problem still remains even with a clean
+minionpro install.
+
+Bernhard.
+
+On 4/14/07, Michael Zedler <michael.zedler at tum.de> wrote:
+> > After updating to MinionPro rc3 Yap (the DVI viewer from MiKTeX
+> > distribution for Windows) now is unable to open any minimal file using
+> > minionpro fonts in the Dvips render method (no problem with the
+> > default pk method). Does anybody know if this is a problem with Yap or
+> > MinionPro rc3? The message error follows:
+> >
+>
+> Hello,
+>
+> does deleting the pk fonts help?
+>
+> Michael
+> _______________________________________________
+> Minionpro-devel mailing list
+> Minionpro-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/minionpro-devel
+>
+
+
+From michael.zedler at tum.de  Sat Apr 14 20:20:15 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Sat, 14 Apr 2007 20:20:15 +0200
+Subject: [Minionpro-devel] MinionPro rc3 and Yap Dvips render method
+	error
+In-Reply-To: <2257ea30704140854y5b42821dw60003b56700e88ef@mail.gmail.com>
+References: <2257ea30704140827l5adfe81bw8335d904f186679d@mail.gmail.com>
+	<5375F656-29B2-46D6-8A6F-50DC6A2DC1C4@tum.de>
+	<2257ea30704140854y5b42821dw60003b56700e88ef@mail.gmail.com>
+Message-ID: <D80AA94C-9A82-4BEC-9730-2E5061E141DF@tum.de>
+
+Does the dvips->ps2pdf route work correctly? If yes, it is likely to  
+be a yap bug.
+
+Michael
+
+Am 14.04.2007 um 17:54 schrieb Bernhard Enders:
+> No. In fact I have just uninstalled MiKTeX 2.5 and all related files,
+> folders and programs but the problem still remains even with a clean
+> minionpro install.
+>
+> Bernhard.
+>
+> On 4/14/07, Michael Zedler <michael.zedler at tum.de> wrote:
+>>> After updating to MinionPro rc3 Yap (the DVI viewer from MiKTeX
+>>> distribution for Windows) now is unable to open any minimal file  
+>>> using
+>>> minionpro fonts in the Dvips render method (no problem with the
+>>> default pk method). Does anybody know if this is a problem with  
+>>> Yap or
+>>> MinionPro rc3? The message error follows:
+>>>
+>>
+>> Hello,
+>>
+>> does deleting the pk fonts help?
+>>
+>> Michael
+>> _______________________________________________
+>> Minionpro-devel mailing list
+>> Minionpro-devel at lists.berlios.de
+>> https://lists.berlios.de/mailman/listinfo/minionpro-devel
+>>
+> _______________________________________________
+> Minionpro-devel mailing list
+> Minionpro-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/minionpro-devel
+
+
+
+From bgeneto at gmail.com  Sat Apr 14 22:56:27 2007
+From: bgeneto at gmail.com (Bernhard Enders)
+Date: Sat, 14 Apr 2007 17:56:27 -0300
+Subject: [Minionpro-devel] MinionPro rc3 and Yap Dvips render method
+	error
+In-Reply-To: <D80AA94C-9A82-4BEC-9730-2E5061E141DF@tum.de>
+References: <2257ea30704140827l5adfe81bw8335d904f186679d@mail.gmail.com>
+	<5375F656-29B2-46D6-8A6F-50DC6A2DC1C4@tum.de>
+	<2257ea30704140854y5b42821dw60003b56700e88ef@mail.gmail.com>
+	<D80AA94C-9A82-4BEC-9730-2E5061E141DF@tum.de>
+Message-ID: <2257ea30704141356n770bb106u3dd2e7e18513b60b@mail.gmail.com>
+
+On 4/14/07, Michael Zedler <michael.zedler at tum.de> wrote:
+> Does the dvips->ps2pdf route work correctly? If yes, it is likely to
+> be a yap bug.
+
+Yes, it works fine this way (the same is true for pdflatex). I will
+post this problem in the MiKTeX users list. Thank you,
+
+Bernhard.
+
+
+From bgeneto at gmail.com  Tue Apr 17 23:25:20 2007
+From: bgeneto at gmail.com (Bernhard Enders)
+Date: Tue, 17 Apr 2007 18:25:20 -0300
+Subject: [Minionpro-devel] Changing MinionPro font size
+Message-ID: <2257ea30704171425q27e715eai631b7b6cc502df67@mail.gmail.com>
+
+Sorry my ignorance, but Adobe Minion Pro fonts seem to be smaller (by
+design) than Times Roman or Palatino at the same point size, since
+there is no option like "scaled" in the MinionPro package, what can
+one do to change the "base" font size to, say, 13 pt easily? One
+solution would be to redefine every LaTeX font command this way:
+
+\makeatletter\renewcommand\normalsize{\@setfontsize\normalsize{24}{48}}\makeatother
+
+But this way one have also change the default baselineskip for each
+font size, probably messing other things. Is there any support in the
+MinionPro package for this size changing or are there any known
+package to support this kind of requirement?
+
+Thanks in advance,
+
+Bernhard.
+
+ps.: Yap is really buggy with the latest version (rc3) of MinionPro.
+The issue can be found in the Yap's Knowledge database.
+
+
+From mk at mcqm.net  Wed Apr 18 20:20:17 2007
+From: mk at mcqm.net (Marco Kuhlmann)
+Date: Wed, 18 Apr 2007 20:20:17 +0200
+Subject: [Minionpro-devel] Make \preceq more equal to \leq
+Message-ID: <23DA83D7-49D1-4B89-8E40-79FEAF693E6C@mcqm.net>
+
+     Dear list,
+
+some of you may be interested in the following change to MnSymbol. I  
+recently wrote a text about mathematical structures that are defined  
+by two partial orders, for which I use the symbols \trianglelefteq  
+and \preceq. Since these two symbols often occur closely together, I  
+found it a little distracting that the eq-parts of the two symbols  
+appear at different heights. Therefore, I prepared the following  
+patch against mnsymbol, which moves the eq-line of the \preceq symbol  
+to the same y-axis as the eq-line of the \trianglelefteq-Symbol (and  
+the \leq symbol).
+
+     Best,
+     Marco
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: preceq.patch
+Type: application/octet-stream
+Size: 644 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/minionpro-devel/attachments/20070418/470eb882/attachment.obj>
+
+From mk at mcqm.net  Wed Apr 18 20:22:47 2007
+From: mk at mcqm.net (Marco Kuhlmann)
+Date: Wed, 18 Apr 2007 20:22:47 +0200
+Subject: [Minionpro-devel] Make \preceq more equal to \leq
+In-Reply-To: <23DA83D7-49D1-4B89-8E40-79FEAF693E6C@mcqm.net>
+References: <23DA83D7-49D1-4B89-8E40-79FEAF693E6C@mcqm.net>
+Message-ID: <37275936-7317-4725-8E2F-9A81725E9A19@mcqm.net>
+
+Am 18.04.2007 um 20:20 schrieb Marco Kuhlmann:
+
+> <preceq.patch>
+
+Oh dear -- I completely forgot to say thanks to Achim, who pointed me  
+at the right lines for the change. Thanks!
+
+     - M
+
+
+
+From bgeneto at gmail.com  Sat Apr 28 22:33:40 2007
+From: bgeneto at gmail.com (Bernhard Enders)
+Date: Sat, 28 Apr 2007 17:33:40 -0300
+Subject: [Minionpro-devel] Problem while searching words with ligatures
+Message-ID: <2257ea30704281333i2c0a7c6ck10238bc94a0bb7c8@mail.gmail.com>
+
+Adobe Acrobat cannot find words containing ligatures (fi, fl, etc...)
+with its built-in search function in a document using MinionPro rc3
+package. Does anybody knows how to correct this issue? I'm using
+PDFLaTeX v1.30, but I've detected the same problem with ps2pdf. TIA,
+
+Bernhard Enders.
+
+
+From michael.zedler at tum.de  Sat Apr 28 22:40:03 2007
+From: michael.zedler at tum.de (Michael Zedler)
+Date: Sat, 28 Apr 2007 22:40:03 +0200
+Subject: [Minionpro-devel] Problem while searching words with ligatures
+In-Reply-To: <2257ea30704281333i2c0a7c6ck10238bc94a0bb7c8@mail.gmail.com>
+References: <2257ea30704281333i2c0a7c6ck10238bc94a0bb7c8@mail.gmail.com>
+Message-ID: <5B2C63BC-1DE9-4D0F-BBE9-493DAB5D8AE1@tum.de>
+
+
+Am 28.04.2007 um 22:33 schrieb Bernhard Enders:
+
+> Adobe Acrobat cannot find words containing ligatures (fi, fl, etc...)
+> with its built-in search function in a document using MinionPro rc3
+> package. Does anybody knows how to correct this issue? I'm using
+> PDFLaTeX v1.30, but I've detected the same problem with ps2pdf. TIA,
+
+Please have a look at the documentation, Section 7.
+
+Michael
+
+
